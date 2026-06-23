@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bingle — 영어 말하기 연습</title>
+  <style>
+    :root {
+      --orange: #F5A623;
+      --orange-dark: #E8941A;
+      --navy: #1A1A2E;
+      --navy-mid: #16213E;
+      --navy-light: #1e2d4a;
+      --white: #FFFFFF;
+      --green: #27AE60;
+      --red: #E74C3C;
+      --font: 'Segoe UI', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { height: 100%; overflow: hidden; }
+    body { font-family: var(--font); background: var(--navy); color: var(--white); display: flex; flex-direction: column; height: 100dvh; }
+
+    /* 헤더 */
+    #header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; background: var(--navy-mid);
+      border-bottom: 1px solid rgba(255,255,255,0.07); flex-shrink: 0;
+    }
+    .logo { font-size: 20px; font-weight: 700; color: var(--orange); }
+    .logo span { color: var(--white); font-weight: 300; font-size: 13px; margin-left: 6px; opacity: .6; }
+    .timer-badge {
+      background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.3);
+      border-radius: 20px; padding: 4px 14px; font-size: 13px;
+      color: var(--orange); font-weight: 700; font-variant-numeric: tabular-nums;
+    }
+    .timer-badge.urgent { background: rgba(231,76,60,.15); border-color: rgba(231,76,60,.4); color: var(--red); }
+    .topic-chip {
+      font-size: 11px; color: rgba(255,255,255,.4); padding: 4px 10px;
+      border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+    }
+
+    /* 화면 전환 */
+    .screen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+    .screen.active { display: flex; }
+
+    /* ── 토픽 선택 화면 ── */
+    #topic-screen {
+      justify-content: center; align-items: center; padding: 30px 20px;
+      overflow-y: auto;
+    }
+    .topic-intro { text-align: center; margin-bottom: 32px; }
+    .topic-intro .big-logo { font-size: 44px; font-weight: 800; color: var(--orange); }
+    .topic-intro p { color: rgba(255,255,255,.5); font-size: 14px; margin-top: 6px; line-height: 1.6; }
+    .topic-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      width: 100%; max-width: 480px;
+    }
+    .topic-card {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-sm); padding: 18px 14px; cursor: pointer;
+      transition: border-color .2s, background .2s; text-align: left;
+    }
+    .topic-card:hover { border-color: var(--orange); background: var(--navy-light); }
+    .topic-card.selected { border-color: var(--orange); background: var(--navy-light); }
+    .topic-card .icon { font-size: 22px; margin-bottom: 8px; }
+    .topic-card .name { font-size: 13px; font-weight: 600; color: var(--white); }
+    .topic-card .count { font-size: 11px; color: rgba(255,255,255,.4); margin-top: 2px; }
+    .start-btn {
+      width: 100%; max-width: 480px; background: var(--orange); border: none;
+      border-radius: var(--radius-sm); color: var(--navy); font-size: 16px; font-weight: 700;
+      padding: 16px; margin-top: 20px; cursor: pointer; font-family: var(--font);
+      transition: background .2s; opacity: .4; pointer-events: none;
+    }
+    .start-btn.ready { opacity: 1; pointer-events: auto; }
+    .start-btn:hover { background: var(--orange-dark); }
+
+    /* ── 대화 화면 ── */
+    #chat-screen { background: var(--navy); }
+
+    /* 대화 말풍선 영역 */
+    .chat-area {
+      flex: 1; overflow-y: auto; padding: 20px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .bubble-wrap { display: flex; }
+    .bubble-wrap.ai { justify-content: flex-start; }
+    .bubble-wrap.user { justify-content: flex-end; }
+    .bubble {
+      max-width: 82%; padding: 13px 16px; border-radius: 18px;
+      font-size: 15px; line-height: 1.6;
+    }
+    .bubble-wrap.ai .bubble {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08);
+      color: var(--white); border-bottom-left-radius: 4px;
+    }
+    .bubble-wrap.user .bubble {
+      background: var(--orange); color: var(--navy); font-weight: 500;
+      border-bottom-right-radius: 4px;
+    }
+    .bubble-wrap.hint .bubble {
+      background: rgba(245,166,35,.1); border: 1px solid rgba(245,166,35,.25);
+      color: rgba(255,255,255,.75); font-size: 13px; font-style: italic;
+      border-radius: 10px; margin-left: 0;
+    }
+    .bubble-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; opacity: .45; margin-bottom: 4px;
+    }
+    .bubble-wrap.ai .bubble-label { text-align: left; }
+    .bubble-wrap.user .bubble-label { text-align: right; }
+
+    /* 반복 인디케이터 */
+    .repeat-indicator {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; color: rgba(255,255,255,.35);
+      padding: 0 4px; justify-content: flex-end;
+    }
+    .repeat-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
+    }
+    .repeat-dot.done { background: var(--orange); }
+    .repeat-dot.current { background: var(--white); }
+
+    /* 하단 입력/상태 영역 */
+    .input-area {
+      padding: 14px 20px 24px; background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,.07); flex-shrink: 0;
+    }
+    .target-hint {
+      font-size: 12px; color: rgba(255,255,255,.35);
+      margin-bottom: 10px; display: none;
+    }
+    .target-hint.visible { display: block; }
+    .voice-row { display: flex; align-items: center; gap: 14px; }
+    .mic-btn {
+      width: 56px; height: 56px; border-radius: 50%; border: none;
+      background: var(--orange); cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s, background .2s;
+      font-size: 22px;
+    }
+    .mic-btn:active { transform: scale(.93); }
+    .mic-btn.listening { background: var(--red); animation: pulse 1.2s ease-in-out infinite; }
+    .mic-btn.disabled { background: rgba(255,255,255,.1); cursor: not-allowed; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)} 50%{box-shadow:0 0 0 12px rgba(231,76,60,0)} }
+    .voice-status { flex: 1; }
+    .status-line { font-size: 14px; color: rgba(255,255,255,.6); min-height: 20px; }
+    .status-line.listening { color: var(--orange); font-weight: 600; }
+    .live-transcript {
+      font-size: 13px; color: rgba(255,255,255,.45); margin-top: 4px;
+      min-height: 18px; font-style: italic;
+    }
+
+    /* 파형 */
+    .wave-container { display: flex; align-items: center; gap: 3px; height: 24px; }
+    .wave-bar { width: 3px; background: var(--orange); border-radius: 3px; height: 4px; opacity: .6; }
+    .wave-bar.active { animation: wave var(--dur, .8s) ease-in-out infinite alternate; }
+    @keyframes wave { from { height: 4px; opacity: .4; } to { height: var(--mh, 20px); opacity: 1; } }
+
+    /* 세션 종료 화면 */
+    #end-screen { justify-content: center; align-items: center; padding: 40px 24px; text-align: center; }
+    .end-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 40px 32px; width: 100%; max-width: 400px; }
+    .end-icon { font-size: 56px; margin-bottom: 16px; }
+    .end-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .end-sub { color: rgba(255,255,255,.5); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+    .end-stats { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; }
+    .end-stat { background: rgba(255,255,255,.05); border-radius: var(--radius-sm); padding: 14px 20px; }
+    .end-stat .val { font-size: 26px; font-weight: 800; color: var(--orange); }
+    .end-stat .lbl { font-size: 11px; color: rgba(255,255,255,.4); margin-top: 2px; }
+    .restart-btn { width: 100%; background: var(--orange); border: none; border-radius: var(--radius-sm); color: var(--navy); font-size: 16px; font-weight: 700; padding: 15px; cursor: pointer; font-family: var(--font); }
+
+    /* 로딩 */
+    .loading-overlay { position: fixed; inset: 0; background: rgba(26,26,46,.95); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+    .loading-spinner { width: 40px; height: 40px; border: 3px solid rgba(245,166,35,.2); border-top-color: var(--orange); border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { color: rgba(255,255,255,.6); font-size: 14px; }
+
+    @media (min-width: 600px) { .bubble { max-width: 70%; } .topic-grid { grid-template-columns: 1fr 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loading">
+  <div class="loading-spinner"></div>
+  <div class="loading-text" id="loading-text">준비 중...</div>
+</div>
+
+<!-- 헤더 -->
+<div id="header" style="display:none">
+  <div class="logo">Bingle <span>영어 말하기</span></div>
+  <div class="topic-chip" id="header-topic"></div>
+  <div class="timer-badge" id="timer-badge">30:00</div>
+</div>
+
+<!-- 토픽 선택 -->
+<div class="screen active" id="topic-screen">
+  <div class="topic-intro">
+    <div class="big-logo">Bingle</div>
+    <p>연습할 주제를 선택하세요.<br>대화를 시작하면 최대 30분 동안 진행됩니다.</p>
+  </div>
+  <div class="topic-grid" id="topic-grid"></div>
+  <button class="start-btn" id="start-btn" onclick="startSession()">대화 시작하기 →</button>
+</div>
+
+<!-- 대화 화면 -->
+<div class="screen" id="chat-screen">
+  <div class="chat-area" id="chat-area"></div>
+  <div class="input-area">
+    <div class="target-hint" id="target-hint"></div>
+    <div class="voice-row">
+      <button class="mic-btn disabled" id="mic-btn" onclick="toggleMic()">🎤</button>
+      <div class="voice-status">
+        <div class="status-line" id="status-line">AI가 말하는 중...</div>
+        <div class="wave-container" id="wave-container"></div>
+        <div class="live-transcript" id="live-transcript"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 세션 종료 -->
+<div class="screen" id="end-screen">
+  <div class="end-card">
+    <div class="end-icon">🎉</div>
+    <div class="end-title">오늘 연습 완료!</div>
+    <div class="end-sub" id="end-sub">수고하셨어요. 오늘도 한 걸음 성장했습니다!</div>
+    <div class="end-stats">
+      <div class="end-stat"><div class="val" id="stat-sentences">0</div><div class="lbl">연습한 문장</div></div>
+      <div class="end-stat"><div class="val" id="stat-time">0분</div><div class="lbl">연습 시간</div></div>
+    </div>
+    <button class="restart-btn" onclick="restartSession()">다시 연습하기</button>
+  </div>
+</div>
+
+<script>
+const API_BASE = '';
+const SESSION_MAX_MS = 30 * 60 * 1000;
+const POOR_REPEAT_MIN = 5;
+const POOR_REPEAT_MAX = 8;
+const GOOD_REPEAT = 1;
+
+// ── 토픽 정의 ─────────────────────────────────────────────────────
+const TOPICS = [
+  { id: "Scheduling a Meeting",  icon: "📅", unit: 1 },
+  { id: "Giving Feedback",       icon: "💬", unit: 2 },
+  { id: "Handling Complaints",   icon: "🛠", unit: 3 },
+  { id: "Negotiating",           icon: "🤝", unit: 4 },
+  { id: "Team Collaboration",    icon: "👥", unit: 5 },
+  { id: "Presenting Ideas",      icon: "📊", unit: 6 },
+  { id: "Small Talk",            icon: "☕", unit: 7 },
+  { id: "Problem Solving",       icon: "🔍", unit: 8 },
+  { id: "Customer Service",      icon: "🎧", unit: 9 },
+  { id: "Emails & Writing",      icon: "✉️", unit: 10 },
+  { id: "Interviews",            icon: "💼", unit: 11 },
+  { id: "Networking",            icon: "🌐", unit: 12 },
+  { id: "Making Requests",       icon: "🙏", unit: 13 },
+  { id: "Expressing Opinions",   icon: "💡", unit: 14 },
+  { id: "Reporting & Updates",   icon: "📋", unit: 15 },
+  { id: "Disagreeing Politely",  icon: "🤔", unit: 16 },
+  { id: "Phone & Video Calls",   icon: "📱", unit: 17 },
+  { id: "Socializing at Work",   icon: "🎊", unit: 18 },
+  { id: "Travel & Business Trips","icon":"✈️", unit: 19 },
+  { id: "Wrapping Up",           icon: "✅", unit: 20 },
+];
+
+// ── 상태 ──────────────────────────────────────────────────────────
+let state = {
+  allSentences: [],
+  selectedTopic: null,
+  turns: [],           // [{role:"ai"|"user", text}] 전체 대화 스크립트
+  turnIndex: 0,        // 현재 진행 중인 턴 인덱스
+  currentSentence: "", // 이번 유저 턴에서 유도할 목표 문장
+  attemptCount: 0,     // 현재 문장에서 시도 횟수
+  repeatTarget: 1,     // 이번 문장 최대 반복 횟수 (good=1, poor=5~8)
+  goodCount: 0,        // 세션 내 잘한 횟수
+  sentencesDone: 0,    // 완료한 문장 수
+  sessionStart: null,
+  timerInterval: null,
+  recognition: null,
+  synthesis: window.speechSynthesis,
+  isSpeaking: false,
+  isListening: false,
+};
+
+// ── 초기화 ────────────────────────────────────────────────────────
+async function init() {
+  // 파형 생성
+  const wc = document.getElementById('wave-container');
+  for (let i = 0; i < 16; i++) {
+    const b = document.createElement('div');
+    b.className = 'wave-bar';
+    b.style.setProperty('--dur', (.45 + Math.random() * .55) + 's');
+    b.style.setProperty('--mh', (8 + Math.random() * 16) + 'px');
+    wc.appendChild(b);
+  }
+
+  // 문장 데이터 로드
+  const res = await fetch('/data/sentences.json');
+  state.allSentences = await res.json();
+
+  // 토픽 카드 생성
+  const grid = document.getElementById('topic-grid');
+  TOPICS.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.innerHTML = `<div class="icon">${t.icon}</div><div class="name">${t.id}</div><div class="count">문장 10개</div>`;
+    card.onclick = () => selectTopic(t, card);
+    grid.appendChild(card);
+  });
+
+  hideLoading();
+}
+
+function selectTopic(topic, card) {
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  state.selectedTopic = topic;
+  const btn = document.getElementById('start-btn');
+  btn.classList.add('ready');
+}
+
+// ── 세션 시작 ─────────────────────────────────────────────────────
+async function startSession() {
+  if (!state.selectedTopic) return;
+  showLoading('대화를 생성하는 중...');
+
+  // 해당 토픽 문장 10개 가져오기
+  const topicSentences = state.allSentences.filter(s => s.topic === state.selectedTopic.id);
+
+  // 대화 생성 API 호출
+  const res = await fetch(`${API_BASE}/api/conversation`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sentences: topicSentences, topic: state.selectedTopic.id })
+  });
+  const data = await res.json();
+
+  state.turns = data.turns;
+  state.turnIndex = 0;
+  state.attemptCount = 0;
+  state.repeatTarget = 1;
+  state.sentencesDone = 0;
+  state.sessionStart = Date.now();
+
+  // 헤더 표시
+  document.getElementById('header').style.display = 'flex';
+  document.getElementById('header-topic').textContent = state.selectedTopic.id;
+
+  // 타이머 시작
+  startTimer();
+
+  showScreen('chat-screen');
+  hideLoading();
+  document.getElementById('chat-area').innerHTML = '';
+
+  // 첫 AI 턴 진행
+  advanceTurn();
+}
+
+// ── 대화 진행 핵심 로직 ───────────────────────────────────────────
+function advanceTurn() {
+  if (state.turnIndex >= state.turns.length) {
+    // 스크립트 끝 → 다음 문장 묶음으로 새 대화 생성
+    loadNextConversation();
+    return;
+  }
+
+  const turn = state.turns[state.turnIndex];
+
+  if (turn.role === 'ai') {
+    // AI 턴: 말풍선 추가 + TTS
+    appendBubble('ai', turn.text);
+    state.turnIndex++;
+    speakAI(turn.text, () => {
+      // AI 말이 끝나면 다음 턴 확인
+      advanceTurn();
+    });
+
+  } else {
+    // 유저 턴: 목표 문장 설정 + 마이크 활성화
+    state.currentSentence = turn.text;
+    state.attemptCount = 0;
+    showTargetHint(false); // 처음엔 힌트 숨김
+    enableMic();
+  }
+}
+
+async function loadNextConversation() {
+  showLoading('다음 대화 생성 중...');
+  const topicSentences = state.allSentences.filter(s => s.topic === state.selectedTopic.id);
+  const res = await fetch(`${API_BASE}/api/conversation`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sentences: topicSentences, topic: state.selectedTopic.id })
+  });
+  const data = await res.json();
+  state.turns = data.turns;
+  state.turnIndex = 0;
+  hideLoading();
+
+  // 구분선 추가
+  const sep = document.createElement('div');
+  sep.style.cssText = 'text-align:center;font-size:11px;color:rgba(255,255,255,.2);padding:8px 0;letter-spacing:1px;';
+  sep.textContent = '· · · 새 대화 · · ·';
+  document.getElementById('chat-area').appendChild(sep);
+
+  advanceTurn();
+}
+
+// ── 유저 응답 처리 ────────────────────────────────────────────────
+async function handleUserAnswer(userText) {
+  disableMic();
+  state.attemptCount++;
+
+  // 유저 말풍선
+  appendBubble('user', userText);
+  setStatus('분석 중...', '');
+
+  // 서버에 평가 요청
+  const res = await fetch(`${API_BASE}/api/respond`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      conversation: state.turns.slice(0, state.turnIndex + 1),
+      user_answer: userText,
+      target_sentence: state.currentSentence,
+      attempt_count: state.attemptCount,
+      topic: state.selectedTopic.id
+    })
+  });
+  const result = await res.json();
+
+  const isGood = result.quality === 'good';
+
+  // 힌트 표시 (poor일 때)
+  if (!isGood && result.hint) {
+    appendHint('💡 이렇게 해보세요: ' + result.hint);
+    showTargetHint(true, result.hint);
+  }
+
+  // AI 응답 말풍선 + TTS
+  appendBubble('ai', result.ai_response);
+
+  if (isGood) {
+    // 잘함 → 반복 1회로 고정, 다음 턴으로
+    state.sentencesDone++;
+    state.repeatTarget = GOOD_REPEAT;
+    speakAI(result.ai_response, () => {
+      state.turnIndex++;
+      showTargetHint(false);
+      advanceTurn();
+    });
+  } else {
+    // 못함 → 반복 횟수 결정 (처음 poor 확정 시 5~8회 배정)
+    if (state.repeatTarget === 1 && state.attemptCount === 1) {
+      state.repeatTarget = POOR_REPEAT_MIN + Math.floor(Math.random() * (POOR_REPEAT_MAX - POOR_REPEAT_MIN + 1));
+    }
+
+    updateRepeatIndicator();
+
+    if (state.attemptCount >= state.repeatTarget) {
+      // 최대 반복 도달 → 다음 턴
+      state.sentencesDone++;
+      speakAI(result.ai_response, () => {
+        state.turnIndex++;
+        state.attemptCount = 0;
+        state.repeatTarget = 1;
+        showTargetHint(false);
+        advanceTurn();
+      });
+    } else {
+      // 아직 반복 남음 → 마이크 재활성화
+      speakAI(result.ai_response, () => {
+        showTargetHint(true, result.hint || state.currentSentence);
+        enableMic();
+      });
+    }
+  }
+}
+
+// ── TTS ───────────────────────────────────────────────────────────
+function speakAI(text, onEnd) {
+  if (state.synthesis.speaking) state.synthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US'; utt.rate = 0.88; utt.pitch = 1.0;
+  const voices = state.synthesis.getVoices();
+  const v = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google'))
+         || voices.find(v => v.lang.startsWith('en'));
+  if (v) utt.voice = v;
+  utt.onend = () => { state.isSpeaking = false; if (onEnd) onEnd(); };
+  utt.onerror = () => { state.isSpeaking = false; if (onEnd) onEnd(); };
+  state.isSpeaking = true;
+  setStatus('AI가 말하는 중...', '');
+  state.synthesis.speak(utt);
+}
+
+// ── STT ───────────────────────────────────────────────────────────
+function enableMic() {
+  const btn = document.getElementById('mic-btn');
+  btn.classList.remove('disabled', 'listening');
+  btn.textContent = '🎤';
+  setStatus('🎤 버튼을 눌러 말하세요', 'listening');
+  document.getElementById('live-transcript').textContent = '';
+}
+
+function disableMic() {
+  const btn = document.getElementById('mic-btn');
+  btn.classList.add('disabled');
+  btn.classList.remove('listening');
+  btn.textContent = '🎤';
+  stopWave();
+}
+
+function toggleMic() {
+  const btn = document.getElementById('mic-btn');
+  if (btn.classList.contains('disabled')) return;
+
+  if (state.isListening) {
+    // 수동 중지
+    if (state.recognition) state.recognition.stop();
+  } else {
+    startListening();
+  }
+}
+
+function startListening() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { setStatus('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
+
+  const btn = document.getElementById('mic-btn');
+  btn.classList.add('listening');
+  btn.textContent = '⏹';
+  setStatus('듣는 중... (말을 마치면 자동으로 멈춥니다)', 'listening');
+  startWave();
+
+  const rec = new SR();
+  rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
+  let finalText = '', silenceTimer = null;
+
+  rec.onstart = () => { state.isListening = true; };
+
+  rec.onresult = (e) => {
+    let interim = '';
+    finalText = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
+      else interim = e.results[i][0].transcript;
+    }
+    document.getElementById('live-transcript').textContent = (finalText + interim).trim();
+    if (silenceTimer) clearTimeout(silenceTimer);
+    silenceTimer = setTimeout(() => { if (finalText.trim()) rec.stop(); }, 1500);
+  };
+
+  rec.onend = () => {
+    state.isListening = false;
+    stopWave();
+    btn.classList.remove('listening');
+    btn.textContent = '🎤';
+    if (silenceTimer) clearTimeout(silenceTimer);
+    const answer = finalText.trim();
+    if (answer) {
+      handleUserAnswer(answer);
+    } else {
+      setStatus('🎤 버튼을 눌러 말하세요', 'listening');
+      document.getElementById('live-transcript').textContent = '(아무 말도 감지되지 않았어요)';
+    }
+  };
+
+  rec.onerror = (e) => {
+    stopWave();
+    if (e.error === 'not-allowed') setStatus('❌ 마이크 접근을 허용해주세요.', '');
+    else setStatus('🎤 버튼을 눌러 말하세요', 'listening');
+  };
+
+  state.recognition = rec;
+  rec.start();
+}
+
+// ── UI 헬퍼 ──────────────────────────────────────────────────────
+function appendBubble(role, text) {
+  const area = document.getElementById('chat-area');
+  const wrap = document.createElement('div');
+  wrap.className = `bubble-wrap ${role}`;
+  const label = role === 'ai' ? 'Bingle AI' : 'You';
+  wrap.innerHTML = `<div><div class="bubble-label">${label}</div><div class="bubble">${text}</div></div>`;
+  area.appendChild(wrap);
+  area.scrollTop = area.scrollHeight;
+}
+
+function appendHint(text) {
+  const area = document.getElementById('chat-area');
+  const wrap = document.createElement('div');
+  wrap.className = 'bubble-wrap hint';
+  wrap.innerHTML = `<div><div class="bubble">${text}</div></div>`;
+  area.appendChild(wrap);
+  area.scrollTop = area.scrollHeight;
+}
+
+function showTargetHint(show, hint) {
+  const el = document.getElementById('target-hint');
+  if (show && hint) {
+    el.textContent = '💡 ' + hint;
+    el.classList.add('visible');
+  } else {
+    el.classList.remove('visible');
+  }
+}
+
+function updateRepeatIndicator() {
+  // 반복 상태를 채팅 하단에 작은 점으로 표시
+  const area = document.getElementById('chat-area');
+  let ind = area.querySelector('.repeat-indicator');
+  if (!ind) {
+    ind = document.createElement('div');
+    ind.className = 'repeat-indicator';
+    area.appendChild(ind);
+  }
+  ind.innerHTML = '';
+  const label = document.createElement('span');
+  label.textContent = `시도 ${state.attemptCount}/${state.repeatTarget}`;
+  ind.appendChild(label);
+  for (let i = 0; i < state.repeatTarget; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'repeat-dot' + (i < state.attemptCount ? ' done' : i === state.attemptCount ? ' current' : '');
+    ind.appendChild(dot);
+  }
+  area.scrollTop = area.scrollHeight;
+}
+
+function setStatus(text, cls) {
+  const el = document.getElementById('status-line');
+  el.textContent = text;
+  el.className = 'status-line' + (cls ? ' ' + cls : '');
+}
+
+function startWave() { document.querySelectorAll('.wave-bar').forEach(b => b.classList.add('active')); }
+function stopWave() { document.querySelectorAll('.wave-bar').forEach(b => b.classList.remove('active')); }
+function showScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
+function showLoading(t) { document.getElementById('loading-text').textContent = t || '...'; document.getElementById('loading').style.display = 'flex'; }
+function hideLoading() { document.getElementById('loading').style.display = 'none'; }
+
+// ── 타이머 ────────────────────────────────────────────────────────
+function startTimer() {
+  const badge = document.getElementById('timer-badge');
+  state.timerInterval = setInterval(() => {
+    const elapsed = Date.now() - state.sessionStart;
+    const remaining = Math.max(0, SESSION_MAX_MS - elapsed);
+    const m = Math.floor(remaining / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    badge.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if (remaining <= 5 * 60 * 1000) badge.classList.add('urgent');
+    if (remaining === 0) endSession('time');
+  }, 1000);
+}
+
+function endSession(reason) {
+  clearInterval(state.timerInterval);
+  if (state.recognition) state.recognition.abort();
+  if (state.synthesis.speaking) state.synthesis.cancel();
+  document.getElementById('header').style.display = 'none';
+
+  const elapsed = Math.round((Date.now() - state.sessionStart) / 60000);
+  document.getElementById('stat-sentences').textContent = state.sentencesDone;
+  document.getElementById('stat-time').textContent = elapsed + '분';
+  document.getElementById('end-sub').textContent =
+    reason === 'time'
+      ? '30분 세션이 완료되었어요. 정말 수고하셨습니다! 🌟'
+      : '연습을 마쳤어요. 오늘도 한 걸음 성장했습니다!';
+
+  showScreen('end-screen');
+}
+
+function restartSession() {
+  state.selectedTopic = null;
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('start-btn').classList.remove('ready');
+  document.getElementById('timer-badge').textContent = '30:00';
+  document.getElementById('timer-badge').classList.remove('urgent');
+  showScreen('topic-screen');
+}
+
+// 시작
+init();
+</script>
+</body>
+</html>
