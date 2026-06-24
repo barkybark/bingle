@@ -18,10 +18,11 @@ app.add_middleware(
 
 app.include_router(chat.router, prefix="/api")
 
+@app.get("/api/health")
+def health_check():
+    return {"status": "ok", "service": "Bingle API v2"}
+
 # 프론트엔드 정적 파일 서빙
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 
-@app.get("/api/health")
-def health_check():
-    return {"status": "ok", "service": "Bingle API v2"}
