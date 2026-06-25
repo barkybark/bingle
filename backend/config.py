@@ -5,9 +5,13 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     anthropic_api_key: str
     allowed_origin: str = "*"
-    session_max_minutes: int = 30     # 세션 최대 지속 시간
-    poor_repeat_min: int = 5          # 못했을 때 최소 반복
-    poor_repeat_max: int = 8          # 못했을 때 최대 반복
+
+    # Supabase
+    supabase_url: str
+    supabase_service_role_key: str
+
+    # 학습 제한
+    daily_limit: int = 30           # 하루 최대 시도 횟수
 
     class Config:
         env_file = ".env"
