@@ -1,221 +1,2058 @@
 [
-  {"id": 1,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "I'm available on Wednesday afternoon."},
-  {"id": 2,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "How about we meet at 2 PM?"},
-  {"id": 3,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "Let me check my calendar first."},
-  {"id": 4,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "Does Thursday morning work for you?"},
-  {"id": 5,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "I'd like to go over the project timeline."},
-  {"id": 6,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "Something urgent came up and I can't make it."},
-  {"id": 7,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "Can we push the meeting back to Friday?"},
-  {"id": 8,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "I apologize for any inconvenience."},
-  {"id": 9,  "unit": 1, "topic": "Scheduling a Meeting", "sentence": "Would it be possible to reschedule?"},
-  {"id": 10, "unit": 1, "topic": "Scheduling a Meeting", "sentence": "Let's align before the deadline."},
-
-  {"id": 11, "unit": 2, "topic": "Giving Feedback", "sentence": "That's a strong start."},
-  {"id": 12, "unit": 2, "topic": "Giving Feedback", "sentence": "One suggestion would be to add a summary at the top."},
-  {"id": 13, "unit": 2, "topic": "Giving Feedback", "sentence": "Could you expand on the recommendations section?"},
-  {"id": 14, "unit": 2, "topic": "Giving Feedback", "sentence": "That would really strengthen the report."},
-  {"id": 15, "unit": 2, "topic": "Giving Feedback", "sentence": "Your content was excellent and very well-researched."},
-  {"id": 16, "unit": 2, "topic": "Giving Feedback", "sentence": "To take it to the next level, work on eye contact."},
-  {"id": 17, "unit": 2, "topic": "Giving Feedback", "sentence": "It's really just about fine-tuning your delivery."},
-  {"id": 18, "unit": 2, "topic": "Giving Feedback", "sentence": "I really appreciate your honest feedback."},
-  {"id": 19, "unit": 2, "topic": "Giving Feedback", "sentence": "I'll keep that in mind going forward."},
-  {"id": 20, "unit": 2, "topic": "Giving Feedback", "sentence": "Thanks for sending this over."},
-
-  {"id": 21, "unit": 3, "topic": "Handling Complaints", "sentence": "I completely understand your frustration."},
-  {"id": 22, "unit": 3, "topic": "Handling Complaints", "sentence": "I sincerely apologize for the delay."},
-  {"id": 23, "unit": 3, "topic": "Handling Complaints", "sentence": "This is not the standard of service we aim to provide."},
-  {"id": 24, "unit": 3, "topic": "Handling Complaints", "sentence": "I'd like to offer you a full refund on the shipping fee."},
-  {"id": 25, "unit": 3, "topic": "Handling Complaints", "sentence": "Your next order will be expedited at no extra cost."},
-  {"id": 26, "unit": 3, "topic": "Handling Complaints", "sentence": "Thank you for your patience."},
-  {"id": 27, "unit": 3, "topic": "Handling Complaints", "sentence": "That's definitely not what we want you to experience."},
-  {"id": 28, "unit": 3, "topic": "Handling Complaints", "sentence": "Let me get a replacement shipped to you right away."},
-  {"id": 29, "unit": 3, "topic": "Handling Complaints", "sentence": "You should receive it within two to three business days."},
-  {"id": 30, "unit": 3, "topic": "Handling Complaints", "sentence": "Please don't hesitate to reach out if you have concerns."},
-
-  {"id": 31, "unit": 4, "topic": "Negotiating", "sentence": "Based on my experience and the market rate for this role."},
-  {"id": 32, "unit": 4, "topic": "Negotiating", "sentence": "I was expecting something in the range of sixty to sixty-five thousand."},
-  {"id": 33, "unit": 4, "topic": "Negotiating", "sentence": "I believe my background makes me a strong fit."},
-  {"id": 34, "unit": 4, "topic": "Negotiating", "sentence": "I appreciate the detail, but the price is a bit high."},
-  {"id": 35, "unit": 4, "topic": "Negotiating", "sentence": "Is there any flexibility if we commit to a larger order?"},
-  {"id": 36, "unit": 4, "topic": "Negotiating", "sentence": "We're looking at a long-term partnership here."},
-  {"id": 37, "unit": 4, "topic": "Negotiating", "sentence": "Let me see what I can do on our end."},
-  {"id": 38, "unit": 4, "topic": "Negotiating", "sentence": "Could we meet somewhere in the middle?"},
-  {"id": 39, "unit": 4, "topic": "Negotiating", "sentence": "That works for us. Let's move forward."},
-  {"id": 40, "unit": 4, "topic": "Negotiating", "sentence": "I'd like to revisit this after the trial period."},
-
-  {"id": 41, "unit": 5, "topic": "Team Collaboration", "sentence": "Could you take the lead on the client proposal?"},
-  {"id": 42, "unit": 5, "topic": "Team Collaboration", "sentence": "I'd need you to draft the introduction by Thursday."},
-  {"id": 43, "unit": 5, "topic": "Team Collaboration", "sentence": "Just let me know if you need any resources."},
-  {"id": 44, "unit": 5, "topic": "Team Collaboration", "sentence": "I'll make sure you have everything you need."},
-  {"id": 45, "unit": 5, "topic": "Team Collaboration", "sentence": "I think there's merit in each approach."},
-  {"id": 46, "unit": 5, "topic": "Team Collaboration", "sentence": "What if we piloted both ideas on a smaller scale?"},
-  {"id": 47, "unit": 5, "topic": "Team Collaboration", "sentence": "That way we can make a data-driven decision."},
-  {"id": 48, "unit": 5, "topic": "Team Collaboration", "sentence": "Without fully committing to either direction just yet."},
-  {"id": 49, "unit": 5, "topic": "Team Collaboration", "sentence": "Let's loop everyone in on the plan."},
-  {"id": 50, "unit": 5, "topic": "Team Collaboration", "sentence": "Can you send a follow-up email after the call?"},
-
-  {"id": 51, "unit": 6, "topic": "Presenting Ideas", "sentence": "I'd like to walk you through our proposal."},
-  {"id": 52, "unit": 6, "topic": "Presenting Ideas", "sentence": "The main goal here is to increase customer retention."},
-  {"id": 53, "unit": 6, "topic": "Presenting Ideas", "sentence": "Let me break it down into three key points."},
-  {"id": 54, "unit": 6, "topic": "Presenting Ideas", "sentence": "As you can see from this data."},
-  {"id": 55, "unit": 6, "topic": "Presenting Ideas", "sentence": "This approach has worked well in similar markets."},
-  {"id": 56, "unit": 6, "topic": "Presenting Ideas", "sentence": "I'd be happy to take any questions at the end."},
-  {"id": 57, "unit": 6, "topic": "Presenting Ideas", "sentence": "To summarize, we're proposing a three-phase rollout."},
-  {"id": 58, "unit": 6, "topic": "Presenting Ideas", "sentence": "The expected ROI over the next quarter is around twenty percent."},
-  {"id": 59, "unit": 6, "topic": "Presenting Ideas", "sentence": "Does this align with what you had in mind?"},
-  {"id": 60, "unit": 6, "topic": "Presenting Ideas", "sentence": "We can adjust the timeline if needed."},
-
-  {"id": 61, "unit": 7, "topic": "Small Talk", "sentence": "How's everything going on your end?"},
-  {"id": 62, "unit": 7, "topic": "Small Talk", "sentence": "I've been pretty busy lately, but things are looking up."},
-  {"id": 63, "unit": 7, "topic": "Small Talk", "sentence": "Did you catch the game last night?"},
-  {"id": 64, "unit": 7, "topic": "Small Talk", "sentence": "I heard you just got back from a trip."},
-  {"id": 65, "unit": 7, "topic": "Small Talk", "sentence": "How was the conference?"},
-  {"id": 66, "unit": 7, "topic": "Small Talk", "sentence": "It was really eye-opening, actually."},
-  {"id": 67, "unit": 7, "topic": "Small Talk", "sentence": "I'm looking forward to the long weekend."},
-  {"id": 68, "unit": 7, "topic": "Small Talk", "sentence": "Any plans for the holidays?"},
-  {"id": 69, "unit": 7, "topic": "Small Talk", "sentence": "We should grab coffee and catch up soon."},
-  {"id": 70, "unit": 7, "topic": "Small Talk", "sentence": "Time flies when you're busy, doesn't it?"},
-
-  {"id": 71, "unit": 8, "topic": "Problem Solving", "sentence": "I think we need to take a step back and reassess."},
-  {"id": 72, "unit": 8, "topic": "Problem Solving", "sentence": "What's the root cause of the issue?"},
-  {"id": 73, "unit": 8, "topic": "Problem Solving", "sentence": "Let's brainstorm some possible solutions."},
-  {"id": 74, "unit": 8, "topic": "Problem Solving", "sentence": "We need to prioritize what's most urgent."},
-  {"id": 75, "unit": 8, "topic": "Problem Solving", "sentence": "Have we considered all the options on the table?"},
-  {"id": 76, "unit": 8, "topic": "Problem Solving", "sentence": "I think the risk is manageable if we plan carefully."},
-  {"id": 77, "unit": 8, "topic": "Problem Solving", "sentence": "Let's set a deadline for the next checkpoint."},
-  {"id": 78, "unit": 8, "topic": "Problem Solving", "sentence": "Can we get a status update by end of day?"},
-  {"id": 79, "unit": 8, "topic": "Problem Solving", "sentence": "We should document everything going forward."},
-  {"id": 80, "unit": 8, "topic": "Problem Solving", "sentence": "Let's make sure we're all on the same page."},
-
-  {"id": 81,  "unit": 9,  "topic": "Customer Service",   "sentence": "Thank you for calling. How can I help you today?"},
-  {"id": 82,  "unit": 9,  "topic": "Customer Service",   "sentence": "I'm sorry to hear that. Let me look into this for you."},
-  {"id": 83,  "unit": 9,  "topic": "Customer Service",   "sentence": "Could you please provide your order number?"},
-  {"id": 84,  "unit": 9,  "topic": "Customer Service",   "sentence": "I'll escalate this to our specialist team."},
-  {"id": 85,  "unit": 9,  "topic": "Customer Service",   "sentence": "We'll have this resolved within twenty-four hours."},
-  {"id": 86,  "unit": 9,  "topic": "Customer Service",   "sentence": "Is there anything else I can assist you with?"},
-  {"id": 87,  "unit": 9,  "topic": "Customer Service",   "sentence": "I completely understand how frustrating that must be."},
-  {"id": 88,  "unit": 9,  "topic": "Customer Service",   "sentence": "We truly value your business."},
-  {"id": 89,  "unit": 9,  "topic": "Customer Service",   "sentence": "Let me process a full refund for you right now."},
-  {"id": 90,  "unit": 9,  "topic": "Customer Service",   "sentence": "You'll receive a confirmation email shortly."},
-
-  {"id": 91,  "unit": 10, "topic": "Emails & Writing",   "sentence": "I'm writing to follow up on our last conversation."},
-  {"id": 92,  "unit": 10, "topic": "Emails & Writing",   "sentence": "Please find the attached document for your review."},
-  {"id": 93,  "unit": 10, "topic": "Emails & Writing",   "sentence": "Could you please get back to me by Friday?"},
-  {"id": 94,  "unit": 10, "topic": "Emails & Writing",   "sentence": "I wanted to touch base regarding the upcoming deadline."},
-  {"id": 95,  "unit": 10, "topic": "Emails & Writing",   "sentence": "Please let me know if you have any questions."},
-  {"id": 96,  "unit": 10, "topic": "Emails & Writing",   "sentence": "I look forward to hearing from you."},
-  {"id": 97,  "unit": 10, "topic": "Emails & Writing",   "sentence": "As per our previous discussion."},
-  {"id": 98,  "unit": 10, "topic": "Emails & Writing",   "sentence": "I'd appreciate your feedback on this by end of week."},
-  {"id": 99,  "unit": 10, "topic": "Emails & Writing",   "sentence": "Thank you for your prompt response."},
-  {"id": 100, "unit": 10, "topic": "Emails & Writing",   "sentence": "I'll keep you posted on any updates."},
-
-  {"id": 101, "unit": 11, "topic": "Interviews",          "sentence": "Tell me a little about yourself."},
-  {"id": 102, "unit": 11, "topic": "Interviews",          "sentence": "What are your greatest strengths?"},
-  {"id": 103, "unit": 11, "topic": "Interviews",          "sentence": "I thrive in fast-paced, collaborative environments."},
-  {"id": 104, "unit": 11, "topic": "Interviews",          "sentence": "One area I'm actively working to improve is public speaking."},
-  {"id": 105, "unit": 11, "topic": "Interviews",          "sentence": "In my previous role, I led a cross-functional team of eight."},
-  {"id": 106, "unit": 11, "topic": "Interviews",          "sentence": "As a result, we reduced costs by fifteen percent."},
-  {"id": 107, "unit": 11, "topic": "Interviews",          "sentence": "I'm particularly drawn to this role because of the growth opportunities."},
-  {"id": 108, "unit": 11, "topic": "Interviews",          "sentence": "Do you have any questions for us?"},
-  {"id": 109, "unit": 11, "topic": "Interviews",          "sentence": "What does success look like in this position?"},
-  {"id": 110, "unit": 11, "topic": "Interviews",          "sentence": "I'm excited about the possibility of joining your team."},
-
-  {"id": 111, "unit": 12, "topic": "Networking",          "sentence": "It's great to finally meet you in person."},
-  {"id": 112, "unit": 12, "topic": "Networking",          "sentence": "I came across your work online and was really impressed."},
-  {"id": 113, "unit": 12, "topic": "Networking",          "sentence": "Could I ask what you're currently working on?"},
-  {"id": 114, "unit": 12, "topic": "Networking",          "sentence": "I think there could be some real synergies between us."},
-  {"id": 115, "unit": 12, "topic": "Networking",          "sentence": "Would you be open to a quick call next week?"},
-  {"id": 116, "unit": 12, "topic": "Networking",          "sentence": "Let me give you my business card."},
-  {"id": 117, "unit": 12, "topic": "Networking",          "sentence": "I'll connect with you on LinkedIn."},
-  {"id": 118, "unit": 12, "topic": "Networking",          "sentence": "It's been really insightful talking with you."},
-  {"id": 119, "unit": 12, "topic": "Networking",          "sentence": "I hope we can collaborate on something in the future."},
-  {"id": 120, "unit": 12, "topic": "Networking",          "sentence": "Keep me in the loop if anything comes up."},
-
-  {"id": 121, "unit": 13, "topic": "Making Requests",     "sentence": "Would it be possible to get an extension on the deadline?"},
-  {"id": 122, "unit": 13, "topic": "Making Requests",     "sentence": "I was wondering if you could help me with this."},
-  {"id": 123, "unit": 13, "topic": "Making Requests",     "sentence": "Could you do me a favor and review this draft?"},
-  {"id": 124, "unit": 13, "topic": "Making Requests",     "sentence": "I hate to ask, but could you cover for me on Friday?"},
-  {"id": 125, "unit": 13, "topic": "Making Requests",     "sentence": "If it's not too much trouble, could you send me that file?"},
-  {"id": 126, "unit": 13, "topic": "Making Requests",     "sentence": "I'd really appreciate it if you could look into this."},
-  {"id": 127, "unit": 13, "topic": "Making Requests",     "sentence": "Whenever you get a chance, could you update the spreadsheet?"},
-  {"id": 128, "unit": 13, "topic": "Making Requests",     "sentence": "I don't want to put you on the spot, but we need a decision today."},
-  {"id": 129, "unit": 13, "topic": "Making Requests",     "sentence": "No worries if you're too busy. I can ask someone else."},
-  {"id": 130, "unit": 13, "topic": "Making Requests",     "sentence": "I really owe you one for this."},
-
-  {"id": 131, "unit": 14, "topic": "Expressing Opinions", "sentence": "In my opinion, we should focus on quality over quantity."},
-  {"id": 132, "unit": 14, "topic": "Expressing Opinions", "sentence": "I tend to think that the current approach needs rethinking."},
-  {"id": 133, "unit": 14, "topic": "Expressing Opinions", "sentence": "From my perspective, the risks outweigh the benefits."},
-  {"id": 134, "unit": 14, "topic": "Expressing Opinions", "sentence": "I can see where you're coming from, but I respectfully disagree."},
-  {"id": 135, "unit": 14, "topic": "Expressing Opinions", "sentence": "That's a valid point, and I'd like to add to that."},
-  {"id": 136, "unit": 14, "topic": "Expressing Opinions", "sentence": "I'm not entirely convinced that's the right move."},
-  {"id": 137, "unit": 14, "topic": "Expressing Opinions", "sentence": "I strongly believe we need to act now."},
-  {"id": 138, "unit": 14, "topic": "Expressing Opinions", "sentence": "To be honest, I have mixed feelings about this."},
-  {"id": 139, "unit": 14, "topic": "Expressing Opinions", "sentence": "I think we're all aligned on the big picture."},
-  {"id": 140, "unit": 14, "topic": "Expressing Opinions", "sentence": "Let's agree to disagree on this one."},
-
-  {"id": 141, "unit": 15, "topic": "Reporting & Updates", "sentence": "I just wanted to give you a quick update."},
-  {"id": 142, "unit": 15, "topic": "Reporting & Updates", "sentence": "We're currently on track to meet the deadline."},
-  {"id": 143, "unit": 15, "topic": "Reporting & Updates", "sentence": "There's been a slight delay on our end."},
-  {"id": 144, "unit": 15, "topic": "Reporting & Updates", "sentence": "We're working to resolve the issue as quickly as possible."},
-  {"id": 145, "unit": 15, "topic": "Reporting & Updates", "sentence": "I'll send over the full report by the end of the day."},
-  {"id": 146, "unit": 15, "topic": "Reporting & Updates", "sentence": "Everything is moving along smoothly."},
-  {"id": 147, "unit": 15, "topic": "Reporting & Updates", "sentence": "We hit a few roadblocks, but we're back on schedule."},
-  {"id": 148, "unit": 15, "topic": "Reporting & Updates", "sentence": "The next milestone is set for the end of this month."},
-  {"id": 149, "unit": 15, "topic": "Reporting & Updates", "sentence": "I'll flag any issues as soon as they come up."},
-  {"id": 150, "unit": 15, "topic": "Reporting & Updates", "sentence": "Overall, we're in good shape."},
-
-  {"id": 151, "unit": 16, "topic": "Disagreeing Politely","sentence": "I see your point, but I look at it a bit differently."},
-  {"id": 152, "unit": 16, "topic": "Disagreeing Politely","sentence": "I'm not sure I fully agree with that assessment."},
-  {"id": 153, "unit": 16, "topic": "Disagreeing Politely","sentence": "Have you considered the other side of this argument?"},
-  {"id": 154, "unit": 16, "topic": "Disagreeing Politely","sentence": "With all due respect, the data suggests otherwise."},
-  {"id": 155, "unit": 16, "topic": "Disagreeing Politely","sentence": "I understand your concern, but I think there's more to it."},
-  {"id": 156, "unit": 16, "topic": "Disagreeing Politely","sentence": "That's an interesting take. I'd like to push back a little."},
-  {"id": 157, "unit": 16, "topic": "Disagreeing Politely","sentence": "I wonder if we're looking at this from too narrow a perspective."},
-  {"id": 158, "unit": 16, "topic": "Disagreeing Politely","sentence": "I think we might be missing something important here."},
-  {"id": 159, "unit": 16, "topic": "Disagreeing Politely","sentence": "Could we revisit this after reviewing the numbers?"},
-  {"id": 160, "unit": 16, "topic": "Disagreeing Politely","sentence": "I'd like to propose an alternative approach."},
-
-  {"id": 161, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Can you hear me okay?"},
-  {"id": 162, "unit": 17, "topic": "Phone & Video Calls", "sentence": "I think you're breaking up a little."},
-  {"id": 163, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Could you repeat that? I missed the last part."},
-  {"id": 164, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Sorry, someone just walked in. Give me one second."},
-  {"id": 165, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Let me share my screen so you can follow along."},
-  {"id": 166, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Can everyone see the presentation?"},
-  {"id": 167, "unit": 17, "topic": "Phone & Video Calls", "sentence": "I think you might be on mute."},
-  {"id": 168, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Let's get started since we're all here now."},
-  {"id": 169, "unit": 17, "topic": "Phone & Video Calls", "sentence": "I'll send the recording to anyone who missed it."},
-  {"id": 170, "unit": 17, "topic": "Phone & Video Calls", "sentence": "Thanks everyone. Let's wrap up there."},
-
-  {"id": 171, "unit": 18, "topic": "Socializing at Work",  "sentence": "How are you settling in so far?"},
-  {"id": 172, "unit": 18, "topic": "Socializing at Work",  "sentence": "Let me introduce you to the rest of the team."},
-  {"id": 173, "unit": 18, "topic": "Socializing at Work",  "sentence": "We usually grab lunch together on Fridays."},
-  {"id": 174, "unit": 18, "topic": "Socializing at Work",  "sentence": "The culture here is pretty open and collaborative."},
-  {"id": 175, "unit": 18, "topic": "Socializing at Work",  "sentence": "Don't hesitate to ask if you need anything."},
-  {"id": 176, "unit": 18, "topic": "Socializing at Work",  "sentence": "We're having a team dinner next Thursday. You should join us."},
-  {"id": 177, "unit": 18, "topic": "Socializing at Work",  "sentence": "It was a rough week, but we got through it."},
-  {"id": 178, "unit": 18, "topic": "Socializing at Work",  "sentence": "I really enjoy working with this group."},
-  {"id": 179, "unit": 18, "topic": "Socializing at Work",  "sentence": "We could all use a break after this sprint."},
-  {"id": 180, "unit": 18, "topic": "Socializing at Work",  "sentence": "Happy hour starts at six if you're interested."},
-
-  {"id": 181, "unit": 19, "topic": "Travel & Business Trips","sentence": "I'll be in Tokyo for the trade show next week."},
-  {"id": 182, "unit": 19, "topic": "Travel & Business Trips","sentence": "Could you recommend a good hotel near the venue?"},
-  {"id": 183, "unit": 19, "topic": "Travel & Business Trips","sentence": "My flight got delayed, so I'll be arriving late."},
-  {"id": 184, "unit": 19, "topic": "Travel & Business Trips","sentence": "Let's plan a working dinner while we're both in town."},
-  {"id": 185, "unit": 19, "topic": "Travel & Business Trips","sentence": "I'll need to expense the hotel and meals."},
-  {"id": 186, "unit": 19, "topic": "Travel & Business Trips","sentence": "The client wants to meet on-site tomorrow morning."},
-  {"id": 187, "unit": 19, "topic": "Travel & Business Trips","sentence": "It was a long trip, but very productive."},
-  {"id": 188, "unit": 19, "topic": "Travel & Business Trips","sentence": "I'll debrief the team when I'm back in the office."},
-  {"id": 189, "unit": 19, "topic": "Travel & Business Trips","sentence": "Can you send me the agenda for the site visit?"},
-  {"id": 190, "unit": 19, "topic": "Travel & Business Trips","sentence": "I'm looking forward to seeing the facility in person."},
-
-  {"id": 191, "unit": 20, "topic": "Wrapping Up",          "sentence": "Let's recap what we've agreed on today."},
-  {"id": 192, "unit": 20, "topic": "Wrapping Up",          "sentence": "I'll send out the meeting notes this afternoon."},
-  {"id": 193, "unit": 20, "topic": "Wrapping Up",          "sentence": "Who's responsible for each action item?"},
-  {"id": 194, "unit": 20, "topic": "Wrapping Up",          "sentence": "Let's set a follow-up meeting for two weeks from now."},
-  {"id": 195, "unit": 20, "topic": "Wrapping Up",          "sentence": "Great work everyone. We made a lot of progress today."},
-  {"id": 196, "unit": 20, "topic": "Wrapping Up",          "sentence": "If anything comes up, just give me a shout."},
-  {"id": 197, "unit": 20, "topic": "Wrapping Up",          "sentence": "Thanks for your time. Really appreciate it."},
-  {"id": 198, "unit": 20, "topic": "Wrapping Up",          "sentence": "I'll circle back once I've had a chance to review this."},
-  {"id": 199, "unit": 20, "topic": "Wrapping Up",          "sentence": "Looking forward to our next conversation."},
-  {"id": 200, "unit": 20, "topic": "Wrapping Up",          "sentence": "Have a great rest of your day!"}
+  {
+    "id": 1,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "우리 고객사는 새로운 생산 라인을 도입할지 (말지) 고민 중입니다.",
+    "sentence": "Our client is considering whether to introduce a new production line.",
+    "keyword_note": "considering whether to V → ~할지 고민 중이다"
+  },
+  {
+    "id": 2,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "먼저, 시장 확대와 영업이익률 증가라는 두 가지 긍정적인 측면을 보려고 합니다.",
+    "sentence": "First, I would like to look at two positive aspects, market expansion and increase in profit ratio.",
+    "keyword_note": "first / to start off → 먼저"
+  },
+  {
+    "id": 3,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "두 가지 중 어느 것이 더 큰지에 따라 결정을 내릴 것입니다.",
+    "sentence": "I am going to make a decision based on which of the two is larger.",
+    "keyword_note": "make a decision → 결정을 내리다 | based on → ~에 따라 | I am going to -> Im gonna (암고나)"
+  },
+  {
+    "id": 4,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "제공해주신 정보를 토대로 결론을 말씀드리겠습니다. 잠시만 시간을 주세요.",
+    "sentence": "I am going to give you a conclusion based on the information you've provided. Please give me a minute.",
+    "keyword_note": "give a conclusion based on → 결론을 말씀드리다 | give me a minute → 잠시만요"
+  },
+  {
+    "id": 5,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "우리 매장이 아무리 고급스러워도, 이마트에 입점하면 브랜드 명성이 손상될 위험이 있습니다.",
+    "sentence": "No matter how luxurious our store is, being located in E-mart carries a risk of brand reputation damage.",
+    "keyword_note": "no matter how → 아무리 ~하더라도 | carry a risk of → ~의 위험이 있다"
+  },
+  {
+    "id": 6,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "고객의 니즈뿐만 아니라 우리 브랜드에 대한 인식까지 이해하기 위해 단기 리서치를 제안하고 싶습니다.",
+    "sentence": "I would like to suggest short-term research to understand not only the customer needs but also the recognition of our brand.",
+    "keyword_note": "would like to suggest → 제안하고 싶다 | not only … but also → ~뿐만 아니라 ~까지"
+  },
+  {
+    "id": 7,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "조언을 드리기 전에 정보가 더 필요합니다. 시장이 확대되고 있는지 알려주실 수 있나요?",
+    "sentence": "Before making any recommendations, I'll need more information. Can you tell me if the market is expanding or decreasing?",
+    "keyword_note": "before making recommendations → 조언하기 전에 | can you tell me if → ~한지 알려줄 수 있나요"
+  },
+  {
+    "id": 8,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "제가 가장 먼저 해야 할 일은 가능한 한 많은 질적·양적 데이터를 수집하는 것입니다.",
+    "sentence": "The first thing I need to do is gather as much qualitative and quantitative data as possible.",
+    "keyword_note": "the first thing I need to do → 먼저 해야 할 일 | gather → 수집하다"
+  },
+  {
+    "id": 9,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "정보를 종합해보면, 몇 가지 맛 옵션을 갖춘 제품을 출시하는 것이 가장 유리합니다.",
+    "sentence": "Synthesizing the information we have, my takeaway is that launching a product with a few flavor options would be most advantageous.",
+    "keyword_note": "synthesizing → 종합하면 | takeaway → 결론 / 핵심"
+  },
+  {
+    "id": 10,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "이는 고객사에게 좋은 징조는 아닙니다. 학생들이 식단에 만족하고 있다면 아침 식사를 위해 식당에 갈 가능성은 크지 않습니다.",
+    "sentence": "This doesn't bode well for the client. If most students are pleased with their meal plan, they're not likely to go to a restaurant for breakfast.",
+    "keyword_note": "doesn't bode well for → ~에게 좋은 징조가 아니다"
+  },
+  {
+    "id": 11,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "이 케이스는 라이센싱 vs 자체 개발의 트레이드오프를 평가하는 데 중점을 둡니다.",
+    "sentence": "This case centers on evaluating the trade-offs between licensing and developing the drug in-house.",
+    "keyword_note": "center on → ~에 중점을 두다 | trade-offs → 트레이드오프 | in-house → 자체적으로"
+  },
+  {
+    "id": 12,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "라이센싱은 즉각적인 현금흐름을 창출하고 추가 수익도 기대할 수 있습니다.",
+    "sentence": "Licensing the drug would generate an immediate revenue stream along with potential future milestone payments.",
+    "keyword_note": "generate → 창출하다 | revenue stream → 수익 흐름 | milestone payments → 성과 달성 추가 수익"
+  },
+  {
+    "id": 13,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "또 하나의 핵심 고려사항은 해당 약물이 시장 실패의 위험을 지니고 있는지 여부입니다.",
+    "sentence": "Another key consideration is whether the drug carries a significant risk of market failure. If so, an upfront payment through licensing would likely be a more attractive option.",
+    "keyword_note": "another key consideration → 또 하나의 핵심 고려사항 | carry a risk of → 위험을 지니다"
+  },
+  {
+    "id": 14,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "제가 제대로 이해했는지 확인하고 싶은데요.",
+    "sentence": "Just to make sure I'm understanding you correctly…",
+    "keyword_note": "just to make sure I'm understanding → 이해를 확인하다 | is that right? → 맞나요?"
+  },
+  {
+    "id": 15,
+    "unit": 1,
+    "topic": "케이스 인터뷰 기초",
+    "korean": "이상의 내용을 종합하면, 저희의 권고안은 …입니다.",
+    "sentence": "To wrap up, my (our) recommendation is…",
+    "keyword_note": "to wrap up → 정리하면 | our recommendation is → 저희 권고안은"
+  },
+  {
+    "id": 16,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 고객사는 새로운 생산 라인을 도입할지 (말지) 고민 중입니다.",
+    "sentence": "Our client is considering whether to introduce a new production line.",
+    "keyword_note": "고민/고려하다 → consider whether to V | 도입하다 → introduce"
+  },
+  {
+    "id": 17,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 고객사는 새로운 생산 라인 설치를 검토하고 있습니다.",
+    "sentence": "Our client is thinking about setting up a new production line.",
+    "keyword_note": "think about → consider의 구어체"
+  },
+  {
+    "id": 18,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 고객사는 새로운 생산 라인 시작 가능성을 모색하고 있습니다.",
+    "sentence": "Our client is exploring the possibility of starting a new production line.",
+    "keyword_note": "explore the possibility of → ~의 가능성을 탐색하다"
+  },
+  {
+    "id": 19,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "온라인 채널을 통해, 판매량을 약 20% 증가시킬 수 있을 것입니다.",
+    "sentence": "Through an online channel, we can increase the sales volume by 20%.",
+    "keyword_note": "~을 통해 → through / by | 판매량 → sales volume | ~만큼 증가 → increase by + 숫자"
+  },
+  {
+    "id": 20,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "온라인 판매를 통해 판매량을 20% 높일 수 있습니다.",
+    "sentence": "By selling online, we can raise the sales volume by 20%.",
+    "keyword_note": "raise → increase의 구어체"
+  },
+  {
+    "id": 21,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "온라인 채널을 통해 판매량 20% 증가를 달성할 수 있습니다.",
+    "sentence": "We can achieve a 20% increase in the sales volume through an online channel.",
+    "keyword_note": "achieve an increase → 증가를 달성하다"
+  },
+  {
+    "id": 22,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "온라인 채널은 판매량을 20% 성장시키는 데 도움이 될 수 있습니다.",
+    "sentence": "An online channel could help us grow the sales volume by 20%.",
+    "keyword_note": ""
+  },
+  {
+    "id": 23,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "먼저, 시장 확대와 영업이익률 증가라는 두 가지 긍정적인 측면을 보려고 합니다.",
+    "sentence": "First, I would like to look at two positive aspects, market expansion and increase in profit ratio.",
+    "keyword_note": "먼저 → first / to start off / initially | 긍정적인 측면 → positive aspect / benefit"
+  },
+  {
+    "id": 24,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "시작으로, 두 가지 긍정적인 요소인 시장 확대와 수익성 향상을 살펴보겠습니다.",
+    "sentence": "To start off, let's consider two positive factors—market expansion and increased profitability.",
+    "keyword_note": ""
+  },
+  {
+    "id": 25,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우선, 두 가지 이점을 강조하고 싶습니다: 시장 확대와 이익률 개선입니다.",
+    "sentence": "First of all, I want to highlight two benefits: market expansion and an improved profit ratio.",
+    "keyword_note": ""
+  },
+  {
+    "id": 26,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "초기에는 두 가지 강점인 시장 확대와 이익 성장에 집중하고 싶습니다.",
+    "sentence": "Initially, I'd like to focus on two strengths, namely market expansion and profit growth.",
+    "keyword_note": ""
+  },
+  {
+    "id": 27,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "구체적으로는, 이마트 판매로 인한 브랜드 가치 하락을 부정적 요소로, 이마트의 대형 유통 채널을 활용한 판매량 증가를 긍정적 요소로 고려하겠습니다.",
+    "sentence": "To be specific, I will consider the decrease in brand value that might happen by selling at E-Mart as a negative factor, and the increase in sales volume using E-Mart's large channel as a positive factor.",
+    "keyword_note": "구체적으로 → to be specific / specifically | 요소/요인 → factor / aspect"
+  },
+  {
+    "id": 28,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "특히, 이마트 판매에서 발생하는 잠재적인 브랜드 가치 손실을 단점으로, 이마트의 광범위한 유통망을 통한 높은 판매량을 이점으로 볼 것입니다.",
+    "sentence": "In particular, I will view the potential loss of brand value from selling at E-Mart as a drawback, and the higher sales volume from E-Mart's wide distribution channel as a benefit.",
+    "keyword_note": ""
+  },
+  {
+    "id": 29,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "구체적으로는, 이마트 판매에서 나타나는 잠재적인 브랜드 가치 손실을 단점으로, 이마트의 넓은 유통망을 통한 판매 성장을 장점으로 평가하겠습니다.",
+    "sentence": "Specifically, I will assess the potential brand value loss from E-Mart sales as a downside, and the sales growth from E-Mart's broad reach as an upside.",
+    "keyword_note": ""
+  },
+  {
+    "id": 30,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "두 가지 중 어느 것이 더 큰지에 따라 결정을 내릴 것입니다.",
+    "sentence": "I am going to make a decision based on which of the two is larger.",
+    "keyword_note": "결정을 내리다 → make a decision / choose | ~에 따라 → based on / depending on"
+  },
+  {
+    "id": 31,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "저는 더 큰 것을 선택할 것입니다.",
+    "sentence": "I'll go for the one that's larger.",
+    "keyword_note": ""
+  },
+  {
+    "id": 32,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "두 가지 중 어느 것이 더 높은지에 따라 선택을 하겠습니다.",
+    "sentence": "I'll make my choice depending on which of the two is higher.",
+    "keyword_note": ""
+  },
+  {
+    "id": 33,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "두 가지 값 중 어느 것이 더 큰지에 따라 결정을 내리겠습니다.",
+    "sentence": "I will make my decision according to which of the two values is greater.",
+    "keyword_note": ""
+  },
+  {
+    "id": 34,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "매출과 관련해서, 우리 가게를 방문하는 고객 수와 성비에 대해 질문이 있습니다.",
+    "sentence": "In terms of sales, I have a question on how many customers visit our store, and the gender ratio.",
+    "keyword_note": "~과 관련해서 → in terms of / regarding | 성비 → gender ratio"
+  },
+  {
+    "id": 35,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "매출에 관해 여쭤보고 싶은데요. 우리 가게를 방문하는 고객 수와 성별 비율이 어떻게 되는지 궁금합니다.",
+    "sentence": "I wanted to ask about sales—I was wondering how many customers visit our store and what the gender split is.",
+    "keyword_note": ""
+  },
+  {
+    "id": 36,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "판매와 관련하여 고객 수와 성별 균형에 대해 궁금합니다.",
+    "sentence": "I'm curious about our store's customer numbers and gender balance in connection with sales.",
+    "keyword_note": ""
+  },
+  {
+    "id": 37,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "판매 분석 맥락에서 매장을 방문하는 고객 수와 성별 구성에 관해 문의드리고 싶습니다.",
+    "sentence": "In the context of sales analysis, I would like to make an inquiry regarding the number of customers visiting our store and their gender composition.",
+    "keyword_note": ""
+  },
+  {
+    "id": 38,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "방문자 수는 월 약 10,000명 정도이며, 매달 3%씩 꾸준히 증가하고 있습니다.",
+    "sentence": "The number of visitors is around 10,000 per month, and it is constantly increasing by 3 percent per month.",
+    "keyword_note": "약 ~명 → around / about / roughly / approximately | 꾸준히 → constantly / steadily | ~씩 증가 → increase by + 숫자"
+  },
+  {
+    "id": 39,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "매월 약 10,000명의 방문자가 있으며, 그 수는 3%씩 계속 증가하고 있습니다.",
+    "sentence": "We have about 10,000 visitors each month, and the number keeps going up by 3 percent.",
+    "keyword_note": ""
+  },
+  {
+    "id": 40,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "월 방문자 수는 평균 약 10,000명이며, 이 수치는 매달 3%씩 꾸준히 증가해 왔습니다.",
+    "sentence": "Monthly visitor numbers average roughly 10,000, and the figure has been rising steadily by 3 percent each month.",
+    "keyword_note": ""
+  },
+  {
+    "id": 41,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "매장은 월 약 10,000명의 방문자를 맞이하고 있으며, 꾸준한 월 3%의 성장률을 보이고 있습니다.",
+    "sentence": "The store receives approximately 10,000 visitors per month, with a steady monthly growth rate of 3 percent.",
+    "keyword_note": ""
+  },
+  {
+    "id": 42,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 고객사를 방문하는 고객의 80%는 여성이며, 그 중 50%는 50세 이상입니다.",
+    "sentence": "80% of customers who visit our store are women, and 50% of them are more than fifty years old.",
+    "keyword_note": "~의 몇 퍼센트 → percent of + 명사 | ~세 이상 → more than / over (숫자) years old"
+  },
+  {
+    "id": 43,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 고객의 80%는 여성이며, 그 중 50%는 50세가 넘습니다.",
+    "sentence": "80 percent of our customers are women, and 50 percent of them are over fifty.",
+    "keyword_note": ""
+  },
+  {
+    "id": 44,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "전체 방문자의 약 80%는 여성 고객이며, 이 중 절반은 50대 이상입니다.",
+    "sentence": "Female customers comprise roughly 80 percent of total visitors, and half of these are in the fifty-plus age group.",
+    "keyword_note": ""
+  },
+  {
+    "id": 45,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "끝으로, 이마트에서 제공하는 판매 수수료나 마진은 어떻게 되나요?",
+    "sentence": "Lastly, what about the sales commission or margin offered by E-Mart?",
+    "keyword_note": "끝으로 → lastly / finally / as a final point | 어떻게 되나요? → what about / how about"
+  },
+  {
+    "id": 46,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "마지막 질문입니다. 이마트가 제공하는 수수료나 마진은 얼마인가요?",
+    "sentence": "Last question—how much commission or margin does E-Mart offer?",
+    "keyword_note": ""
+  },
+  {
+    "id": 47,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "한 가지 더 여쭤보겠습니다. 이마트가 제공하는 수수료나 마진에 대해 알 수 있을까요?",
+    "sentence": "One more thing—could you tell me about the commission or margin offered by E-Mart?",
+    "keyword_note": ""
+  },
+  {
+    "id": 48,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "마지막으로, 이마트가 제공하는 판매 수수료나 마진을 명확히 해주실 수 있으신가요?",
+    "sentence": "Finally, could you clarify the sales commission or margin that E-Mart offers?",
+    "keyword_note": ""
+  },
+  {
+    "id": 49,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "제공해주신 정보를 토대로 결론을 말씀드리겠습니다. 잠시만 시간을 주세요.",
+    "sentence": "I am going to give you a conclusion based on the information you've provided. Please give me a minute.",
+    "keyword_note": "결론을 말하다 → give / draw a conclusion | ~를 토대로 → based on / depending on | 잠시 시간을 → give me a minute"
+  },
+  {
+    "id": 50,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "주신 정보를 바탕으로 최종 생각을 말씀드리겠습니다. 잠깐만요.",
+    "sentence": "I'll give my final thoughts from the info you gave me. Just a second.",
+    "keyword_note": ""
+  },
+  {
+    "id": 51,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "말씀해 주신 내용을 검토하고 곧 결론을 공유해 드리겠습니다. 잠시만 기다려주세요.",
+    "sentence": "I'll review what you've told me and share my conclusion shortly. One moment, please.",
+    "keyword_note": ""
+  },
+  {
+    "id": 52,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "말씀해 주신 세부 정보를 활용해 결론을 도출하겠습니다. 잠시 시간을 허락해 주세요.",
+    "sentence": "I will formulate a conclusion using the details you shared. Please allow me a moment.",
+    "keyword_note": ""
+  },
+  {
+    "id": 53,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 매장이 아무리 고급스러워도, 이마트에 입점하면 브랜드 명성이 손상될 위험이 있습니다.",
+    "sentence": "No matter how luxurious our store is, being located in E-mart carries a risk of brand reputation damage.",
+    "keyword_note": "아무리 ~하더라도 → no matter how | 위험이 있다 → carry a risk of"
+  },
+  {
+    "id": 54,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "아무리 고급스러운 매장이라도 이마트에 입점하면 브랜드 이미지에 타격이 있을 수 있습니다.",
+    "sentence": "Even a super fancy shop can lose some of its shine if it's located in E-mart.",
+    "keyword_note": ""
+  },
+  {
+    "id": 55,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 매장이 고급 브랜드라 하더라도, 이마트에 입점하면 브랜드 명성이 손상될 수 있습니다.",
+    "sentence": "Even if our store is high-end, being in E-mart could hurt our brand reputation.",
+    "keyword_note": ""
+  },
+  {
+    "id": 56,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "우리 매장이 아무리 프리미엄 브랜드라도, 이마트 내 운영은 브랜드 명성에 위험을 초래할 수 있습니다.",
+    "sentence": "Regardless of how premium our store is, operating within E-mart could pose a risk to our brand reputation.",
+    "keyword_note": ""
+  },
+  {
+    "id": 57,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "고객의 니즈뿐만 아니라 우리 브랜드에 대한 인식까지 이해하기 위해 단기 리서치를 제안하고 싶습니다.",
+    "sentence": "I would like to suggest short-term research to understand not only the customer needs but also the recognition of our brand.",
+    "keyword_note": "제안하고 싶다 → would like to suggest / propose | ~뿐만 아니라 ~까지 → not only … but also"
+  },
+  {
+    "id": 58,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "고객들이 무엇을 원하고 우리 브랜드를 어떻게 보는지 파악하기 위해 간단한 조사를 실시해야 한다고 생각합니다.",
+    "sentence": "I think we should run a quick study to figure out what customers need and how they see our brand.",
+    "keyword_note": ""
+  },
+  {
+    "id": 59,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "고객 니즈와 브랜드 인지도 모두를 파악하기 위해 단기 리서치를 진행할 것을 권장합니다.",
+    "sentence": "I recommend doing some short-term research to learn about both customer needs and our brand recognition.",
+    "keyword_note": ""
+  },
+  {
+    "id": 60,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "고객 니즈와 브랜드 인식을 평가하기 위한 단기 리서치 진행을 제안하고 싶습니다.",
+    "sentence": "I would like to propose conducting short-term research to assess customer needs as well as our brand perception.",
+    "keyword_note": ""
+  },
+  {
+    "id": 61,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "판매에 있어서 가장 중요한 것은 고객을 만족시키는 것입니다.",
+    "sentence": "When it comes to sales, the most important thing is to satisfy your customers.",
+    "keyword_note": "~에 있어서 → when it comes to / regarding | 고객 만족 → satisfy customers"
+  },
+  {
+    "id": 62,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "영업에서 성과를 내고 싶다면 고객을 만족시키는 데 집중하세요.",
+    "sentence": "If you want to do well in sales, focus on keeping your customers happy.",
+    "keyword_note": ""
+  },
+  {
+    "id": 63,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "영업에서 최우선 순위는 고객이 만족할 수 있도록 보장하는 것입니다.",
+    "sentence": "In sales, the top priority is to ensure that customers are satisfied.",
+    "keyword_note": ""
+  },
+  {
+    "id": 64,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "고객 만족은 영업 성과의 주요 동력입니다.",
+    "sentence": "Customer satisfaction is the primary driver of sales performance.",
+    "keyword_note": ""
+  },
+  {
+    "id": 65,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "신제품을 출시하는 것보다는, 보다 정교한 고객 세그먼트를 통해 성장하는 시장을 공략하는 것이 성공 가능성이 더 높습니다.",
+    "sentence": "Attacking the growing market by targeting our customers with more sophisticated segmentation stands a better chance of success than launching new products.",
+    "keyword_note": "성장하는 시장 공략 → attack the growing market | ~를 통해 고객 겨냥 → target customers with | 가능성이 있다 → stands a chance"
+  },
+  {
+    "id": 66,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "신제품을 출시하는 대신 더 정밀하게 고객을 타깃함으로써 성공 가능성이 더 높습니다.",
+    "sentence": "We're more likely to succeed by targeting customers more precisely instead of rolling out new products.",
+    "keyword_note": ""
+  },
+  {
+    "id": 67,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "신제품 출시보다 더 나은 고객 세그먼트를 통해 성장하는 시장에 접근하는 것이 더 효과적입니다.",
+    "sentence": "Approaching the growing market through better customer segmentation is more effective than launching new products.",
+    "keyword_note": ""
+  },
+  {
+    "id": 68,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "정교한 고객 세그먼트에 집중한 전략이 신제품 출시보다 더 유망합니다.",
+    "sentence": "A strategy focused on refined customer segmentation is more promising than pursuing new product launches.",
+    "keyword_note": ""
+  },
+  {
+    "id": 69,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "지금 가지고 있는 정보를 바탕으로, 비용 절감과 시장 확대를 동시에 추진할 것을 제안합니다",
+    "sentence": "Given the information at hand, I propose that we conduct cost reduction and market expansion at the same time.",
+    "keyword_note": "지금 가진 정보를 바탕으로 → given the information at hand | 추진하다 → conduct | 동시에 → at the same time / simultaneously"
+  },
+  {
+    "id": 70,
+    "unit": 2,
+    "topic": "케이스 인터뷰: 이마트 향수/캔디",
+    "korean": "지금까지 파악한 내용을 바탕으로, 비용 절감과 시장 확대를 동시에 추진해야 한다고 생각합니다.",
+    "sentence": "From what we know so far, I think we should try reducing costs and expanding the market at the same time.",
+    "keyword_note": ""
+  },
+  {
+    "id": 71,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "현재 보유한 정보를 바탕으로, 비용 절감과 시장 확대 노력을 함께 수행할 것을 제안합니다.",
+    "sentence": "With the information we currently have, I suggest that we carry out cost-cutting and market-expansion efforts together.",
+    "keyword_note": ""
+  },
+  {
+    "id": 72,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "이용 가능한 정보를 바탕으로, 비용 절감과 시장 확대를 동시에 추진할 것을 제안합니다.",
+    "sentence": "Based on the information available, I propose that we pursue cost reduction and market expansion simultaneously.",
+    "keyword_note": ""
+  },
+  {
+    "id": 73,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "조언을 드리기 전에 정보가 더 필요합니다. 비초콜릿 캔디 시장이 확대되고 있는지, 감소하고 있는지 알려주실 수 있나요?",
+    "sentence": "Before making any recommendations, I'll need more information. Can you tell me if the market for non-chocolate candies is expanding or decreasing?",
+    "keyword_note": "조언하다 → make recommendations | ~한지 알려주다 → can you tell me if"
+  },
+  {
+    "id": 74,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "말씀드리기 전에 조금 더 알아야 할 게 있습니다. 비초콜릿 캔디 시장이 커지고 있나요, 아니면 작아지고 있나요?",
+    "sentence": "I need to know a bit more before I can say. Is the non-chocolate candy market getting bigger or smaller?",
+    "keyword_note": ""
+  },
+  {
+    "id": 75,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "제안을 드리기 전에 배경을 좀 더 파악해야 합니다. 비초콜릿 캔디 시장이 성장 중인지, 아니면 하락세인지 아시나요?",
+    "sentence": "I should get a little more background first. Do you know if the non-chocolate candy market is growing or shrinking?",
+    "keyword_note": ""
+  },
+  {
+    "id": 76,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "현재 경쟁 환경은 어떤 모습인가요? 동종 업체들의 신제품이 시장에서 좋은 반응을 보여주고 있나요?",
+    "sentence": "What does the competitive landscape look like right now? Are the new products from peers showing strong market uptake?",
+    "keyword_note": "경쟁 환경 → competitive landscape | 동종업체 → peer / competitor | 좋은 반응 → strong market uptake"
+  },
+  {
+    "id": 77,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "요즘 경쟁 상황은 어떻게 되나요? 다른 회사들이 신제품으로 성공을 거두고 있나요?",
+    "sentence": "How does the competition look these days? Are other companies seeing success with their new products?",
+    "keyword_note": ""
+  },
+  {
+    "id": 78,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "경쟁 환경이 어떻게 형성되고 있으며, 경쟁사들의 신제품이 잘 팔리고 있나요?",
+    "sentence": "How is the competitive environment shaping up, and are competitors' new products performing well?",
+    "keyword_note": ""
+  },
+  {
+    "id": 79,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "전체 제품 카테고리의 성장을 감안한다면, 비초콜릿 캔디에 대한 소비자 수요도 강하다고 봐야겠네요.",
+    "sentence": "Consumer demand for non-chocolate candies must be strong, given the growth in the general product category.",
+    "keyword_note": "소비자 수요 → consumer demand for | ~해 보인다 → must be / appear to be | ~을 감안하면 → given the growth in"
+  },
+  {
+    "id": 80,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "카테고리가 확대되고 있으니, 사람들이 비초콜릿 캔디를 더 많이 구매하고 있는 것으로 보입니다.",
+    "sentence": "With the category expanding, people seem to be buying more non-chocolate candies.",
+    "keyword_note": ""
+  },
+  {
+    "id": 81,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "전반적인 카테고리 확장에 비추어 볼 때 비초콜릿 캔디에 대한 수요는 견조한 것으로 보입니다.",
+    "sentence": "Demand for non-chocolate candies appears robust in light of the overall expansion of the category.",
+    "keyword_note": ""
+  },
+  {
+    "id": 82,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "말씀해 주신 수치들을 염두에 두고 이를 제 분석의 기반으로 삼겠습니다.",
+    "sentence": "I'll keep the initial figures you shared in mind and use them as the basis for my analysis.",
+    "keyword_note": "수치 → figures / numbers | 염두에 두다 → keep in mind | 분석의 기반 → basis for my analysis"
+  },
+  {
+    "id": 83,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "제공해 주신 수치를 분석의 출발점으로 삼겠습니다.",
+    "sentence": "I'll use the figures you provided as a starting point for my analysis.",
+    "keyword_note": ""
+  },
+  {
+    "id": 84,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "말씀해 주신 수치를 염두에 두고 문제를 풀어나가겠습니다.",
+    "sentence": "I'll keep the figures you mentioned in mind and use them as I work on the question.",
+    "keyword_note": ""
+  },
+  {
+    "id": 85,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "제가 가장 먼저 해야 할 일은 가능한 한 많은 질적·양적 데이터를 수집하는 것입니다.",
+    "sentence": "The first thing I need to do is gather as much qualitative and quantitative data as possible.",
+    "keyword_note": "가장 먼저 해야 할 일 → the first thing I need to do | 수집하다 → gather / collect / compile | 질적·양적 → qualitative and quantitative"
+  },
+  {
+    "id": 86,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "우선, 가능한 한 많은 질적·양적 데이터를 수집해야 합니다.",
+    "sentence": "First, I need to gather as much qualitative and quantitative data as I can.",
+    "keyword_note": ""
+  },
+  {
+    "id": 87,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "첫 번째 단계는 질적·양적 데이터를 모두 수집하는 것입니다.",
+    "sentence": "The first step is to collect both qualitative and quantitative data.",
+    "keyword_note": ""
+  },
+  {
+    "id": 88,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "시장을 정확히 산정하기 위해 단위 판매량, 업계 전체 수요, 가능하다면 경쟁사들의 수요 비중을 알 수 있을까요?",
+    "sentence": "To size the market properly, could I get the unit sales, the overall demand for the industry, and—if available—the competitors' share of that demand?",
+    "keyword_note": "시장을 산정하다 → size the market | 단위 판매량 → unit sales | 경쟁사 비중 → competitors' share"
+  },
+  {
+    "id": 89,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "시장 규모를 파악하기 위해 단위 판매 수치, 총 수요, 그리고 경쟁사 시장 점유율을 알 수 있을까요?",
+    "sentence": "To figure out the market size, can I get the unit sales numbers, the total demand, and maybe the competitors' share?",
+    "keyword_note": ""
+  },
+  {
+    "id": 90,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "예산과 시간에 따라 포커스 그룹 조사를 하거나, 시중에 나와 있는 상품에 대한 소비자 태도를 테스트할 수도 있습니다.",
+    "sentence": "Depending on our budget and timeline, we could also run focus groups or test consumer attitudes toward existing products in the market.",
+    "keyword_note": "~에 따라 → depending on | 포커스 그룹 조사 → run / conduct a focus group | 소비자 태도 → consumer attitudes toward"
+  },
+  {
+    "id": 91,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "예산과 시간이 허락한다면, 포커스 그룹을 진행하거나 이미 출시된 제품에 대한 소비자 반응을 간단히 테스트해볼 수 있습니다.",
+    "sentence": "If budget and time allow, we could conduct focus groups or run simple tests to understand how consumers feel about the products already out there.",
+    "keyword_note": ""
+  },
+  {
+    "id": 92,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "이 사안을 더 깊이 생각해보기 위해, 먼저 두 가지 점을 명확히 하고자 합니다. 첫째, 회사가 단일 제품에 충분한 투자와 생산 역량을 할당했나요? 둘째, 경쟁사 대비 특정 맛에서 상대적 우위를 가지고 있나요?",
+    "sentence": "To think about this more deeply, I'd start by clarifying two points. First, has the company allocated sufficient investment and production capacity to any single product? Second, do we have a relative advantage in a particular flavor compared to competitors?",
+    "keyword_note": "명확히 하다 → clarify | 할당하다 → allocate | 상대적 우위 → relative advantage"
+  },
+  {
+    "id": 93,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "조금 더 깊이 파고들기 위해 두 가지 질문을 먼저 드리겠습니다. 하나, 단일 제품에 충분한 자원을 투입하고 있나요? 둘, 특정 맛에서 경쟁자를 명확히 앞서고 있나요?",
+    "sentence": "To dig a bit deeper, I'd begin with two questions: are we investing enough in any single product, and do we have a flavor where we clearly outperform competitors?",
+    "keyword_note": ""
+  },
+  {
+    "id": 94,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "그들의 연구에 따르면, 제품 A와 제품 B 모두 고객에게 동일하게 어필하는 것으로 보입니다.",
+    "sentence": "According to their research, both Product A and Product B seem to appeal to customers equally.",
+    "keyword_note": "~에 따르면 → according to / based on | A와 B 모두 → both A and B | 동일하게 어필 → appeal to … equally"
+  },
+  {
+    "id": 95,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "그들의 연구에 따르면, 고객들은 제품 A와 제품 B를 거의 비슷하게 좋아하는 것으로 보입니다.",
+    "sentence": "From their research, it looks like customers like Product A and Product B about the same.",
+    "keyword_note": ""
+  },
+  {
+    "id": 96,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "그들의 연구에 따르면, 제품 A와 제품 B는 고객 매력도에 있어 의미 있는 차이가 없는 것으로 보입니다.",
+    "sentence": "The research suggests no meaningful difference in customer appeal between Product A and Product B.",
+    "keyword_note": ""
+  },
+  {
+    "id": 97,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "모든 것을 종합해보면, 더 많은 고객에게 어필하기 위해 베리 바를 몇 가지 다른 맛으로 출시하는 것이 가장 좋아 보입니다.",
+    "sentence": "Pulling everything together, it seems best to launch the Berry Bar with a few different flavors to appeal to more customers.",
+    "keyword_note": ""
+  },
+  {
+    "id": 98,
+    "unit": 3,
+    "topic": "케이스 인터뷰: 비초콜릿 캔디",
+    "korean": "정보를 종합해보면, 몇 가지 맛 옵션을 갖춘 제품을 출시하는 것이 가장 유리하며, 베리 바의 여러 변형 제품으로 더 폭넓은 고객층에 어필할 수 있을 것입니다.",
+    "sentence": "Synthesizing the information we have, my takeaway is that launching a product with a few flavor options would be most advantageous. Offering multiple variants of the Berry Bar should allow us to appeal to a broader set of customers.",
+    "keyword_note": "정보를 종합하다 → synthesize the information | 결론 → takeaway / conclusion | 더 넓은 고객층 → a broader set of customers"
+  },
+  {
+    "id": 99,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "귀하의 고객사는 중간 규모 도시에서 20개의 레스토랑을 운영하며, 현재 점심과 저녁만 제공하고 있습니다. 이 고객사에게 어떤 조언을 하시겠습니까?",
+    "sentence": "Your client operates 20 restaurants in a midsize city and currently serves only lunch and dinner. The company is considering expanding its offerings to include breakfast. What would you advise?",
+    "keyword_note": "레스토랑을 운영하다 → operate a restaurant | 제공 범위를 확대하다 → expand its offerings"
+  },
+  {
+    "id": 100,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "고객사는 중간 규모 도시에서 20개 레스토랑을 운영하며 점심과 저녁만 제공하고 있습니다. 아침을 추가하는 방안을 검토 중인데, 어떤 제안을 해주시겠나요?",
+    "sentence": "Your client runs 20 restaurants in a midsize city and currently serves only lunch and dinner. They're thinking about adding breakfast—what would you suggest?",
+    "keyword_note": ""
+  },
+  {
+    "id": 101,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "우리 고객사는 패스트푸드의 건강한 대안을 찾는 시간에 쫓기는 중산층 가정을 대상으로 합니다.",
+    "sentence": "Our client targets time-starved, middle-income families seeking a healthy alternative to fast food.",
+    "keyword_note": "대상으로 하다 → target | 시간에 쫓기는 → time-starved / time-constrained | 대안을 찾는 → seeking an alternative to"
+  },
+  {
+    "id": 102,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "우리 고객사는 바쁘지만 패스트푸드보다 건강한 음식을 원하는 중산층 가정을 타깃으로 합니다.",
+    "sentence": "Our client goes after busy, middle-income families who are looking for a healthier option than fast food.",
+    "keyword_note": ""
+  },
+  {
+    "id": 103,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "고객사의 타깃은 시간은 부족하지만 패스트푸드보다 건강한 음식을 원하는 중산층 가정입니다.",
+    "sentence": "Our client's target market consists of time-constrained, middle-income households in search of healthier substitutes for fast food.",
+    "keyword_note": ""
+  },
+  {
+    "id": 104,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "레스토랑 아침 식사는 이러한 각 세그먼트마다 다른 가치를 가질 것이라고 생각합니다. 예를 들어, 시간에 쫓기는 가정의 경우에는 그다지 매력적이지 않을 가능성이 큽니다.",
+    "sentence": "I would imagine that breakfast at a restaurant would have different value across these segments. For example, for time-starved families, it probably wouldn't be very attractive, since making something at home can often be faster than getting the kids in the car.",
+    "keyword_note": "~라고 생각하다 → I would imagine that | 세그먼트마다 다른 → have different value across segments | 매력적이지 않다 → probably wouldn't be very attractive"
+  },
+  {
+    "id": 105,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "레스토랑 아침 식사는 모든 사람에게 똑같이 어필하지 않을 것입니다. 시간이 부족한 가정에게는 집에서 빠르게 준비하는 편이 더 나을 수 있습니다.",
+    "sentence": "A restaurant breakfast won't appeal equally to everyone. For families short on time, it probably doesn't make much sense—making something at home is often quicker than going out.",
+    "keyword_note": ""
+  },
+  {
+    "id": 106,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "채널에 대해 설명드리겠습니다. 우리의 고객 모델은 패스트푸드와 캐주얼 다이닝의 중간 지점에 위치해 있습니다.",
+    "sentence": "Let me explain the channel. Our customer model sits in the middle, positioned between fast food and casual dining.",
+    "keyword_note": "중간 지점에 위치하다 → sit in the middle | A와 B 사이에 위치한 → positioned between A and B"
+  },
+  {
+    "id": 107,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "저희 포지셔닝을 설명해 드리겠습니다. 패스트푸드와 캐주얼 다이닝의 중간에 자리하고 있습니다.",
+    "sentence": "Let me explain where we fit. We're positioned in the middle—between fast food and casual dining.",
+    "keyword_note": ""
+  },
+  {
+    "id": 108,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "이 채널에서 우리의 고객 모델은 패스트푸드와 캐주얼 레스토랑 사이에 위치합니다.",
+    "sentence": "In this channel, our customer model falls between fast food and casual dining.",
+    "keyword_note": ""
+  },
+  {
+    "id": 109,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "이는 고객사에게 좋은 징조는 아닙니다. 대부분의 학생들이 식단에 만족하고 있다면, 아침 식사를 위해 식당에 갈 가능성은 크지 않습니다.",
+    "sentence": "This doesn't bode well for the client. If most students are pleased with their meal plan, they're not likely to go to a restaurant for breakfast.",
+    "keyword_note": "좋은 징조다 → bode well | 만족하다 → be pleased with | 가능성이 크지 않다 → not likely to"
+  },
+  {
+    "id": 110,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "이것은 고객사에게 좋지 않은 신호입니다. 학생들이 식단에 만족한다면 아침 식사를 위해 외식할 가능성은 낮습니다.",
+    "sentence": "This isn't great news for the client. If students are happy with their meal plans, they probably won't go out for breakfast.",
+    "keyword_note": ""
+  },
+  {
+    "id": 111,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "이는 고객사에게 부정적인 신호입니다. 식단에 만족하는 학생들은 아침 식사를 위해 레스토랑을 찾을 가능성이 낮습니다.",
+    "sentence": "This is a negative indicator for the client. Satisfied meal-plan students are less likely to visit restaurants for breakfast.",
+    "keyword_note": ""
+  },
+  {
+    "id": 112,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "제공해주신 정보를 바탕으로, 가족 배달 서비스 또는 전문직이나 학생들을 위한 더 높은 품질의 메뉴를 제공할 수 없다면 고객사가 아침 식사를 제공하지 않는 것이 더 바람직하다고 결론내릴 수 있습니다.",
+    "sentence": "Based on the information you've provided, I would conclude that it is better for our client not to offer breakfast unless it can either provide delivery to families or offer higher-quality options for business professionals or students seeking an alternative breakfast.",
+    "keyword_note": "제공 정보를 바탕으로 → based on the information provided | …나 …한 경우가 아니라면 → unless it can either … or …"
+  },
+  {
+    "id": 113,
+    "unit": 4,
+    "topic": "케이스 인터뷰: 레스토랑 아침 서비스",
+    "korean": "파악된 정보를 기반으로, 가족 배달 서비스가 가능하거나 직장인·학생들을 위한 확실히 더 나은 대안을 제공할 수 없다면 아침 서비스를 건너뛸 것을 권장합니다.",
+    "sentence": "Given what we know, I'd recommend skipping breakfast service unless the client can deliver to families or offer a clearly better alternative for businesspeople or students.",
+    "keyword_note": ""
+  },
+  {
+    "id": 114,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이 케이스는 신약 화합물을 라이센싱할지, 자체 개발할지에 대한 트레이드오프를 평가하는 데 중점을 두며, 각 선택지의 비용과 전략적 이점을 비교하는 데 초점을 맞춥니다.",
+    "sentence": "This case centers on evaluating the trade-offs between licensing a new drug compound and developing the drug in-house, with a focus on comparing the respective costs and strategic benefits of each option.",
+    "keyword_note": "중점을 두다 → center on | 트레이드오프 → trade-offs | 자체적으로 → in-house / internally"
+  },
+  {
+    "id": 115,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이 케이스는 신약 화합물을 라이센싱할지 내부적으로 개발할지를 결정하는 것으로, 각 선택의 비용과 전략적 의미를 비교합니다.",
+    "sentence": "This case is about deciding whether to license a new drug compound or build it internally, and what each option means in terms of cost and strategy.",
+    "keyword_note": ""
+  },
+  {
+    "id": 116,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "라이센싱은 즉각적인 현금흐름을 창출하고, 그와 함께 성과 달성에 따른 추가 수익도 기대할 수 있습니다. 반면, 자체 개발 후 출시하는 방안은 더 높은 초기 투자와 긴 시장 진입 시간이 요구되지만, 장기적으로는 더 큰 수익 비중을 확보할 수 있습니다.",
+    "sentence": "Licensing the drug would generate an immediate revenue stream along with potential future milestone payments. In contrast, the build-and-launch option would require significantly higher upfront investment and a longer time to market. However, it offers the potential to capture a larger share of total revenues over the long term.",
+    "keyword_note": "창출하다 → generate | 수익 흐름 → revenue stream | 추가 수익 → milestone payments | 초기 투자 → upfront investment"
+  },
+  {
+    "id": 117,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "라이센싱을 하면 더 빨리 현금이 들어오고 추가적인 수익도 기대할 수 있습니다. 반면 자체 개발은 초기 비용이 높고 시간이 더 걸리지만, 장기적으로는 수익이 더 큽니다.",
+    "sentence": "With licensing, you get cash sooner and maybe additional payments down the road. Going the in-house route means higher upfront costs and a longer wait, but more upside in the long run.",
+    "keyword_note": ""
+  },
+  {
+    "id": 118,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "우리가 검토해야 할 첫 번째 질문은 해당 약물이 글로벌 차원에서 상용화될 것인지, 그리고 특수한 공급망 인프라가 필요한지 여부입니다. 구체적으로는 콜드체인과 같은 온도 관리 물류가 필요한지 평가해야 합니다.",
+    "sentence": "The first question we need to address is whether the drug will be commercialized globally and whether it requires any specialized supply-chain infrastructure. Specifically, we should assess whether temperature-controlled logistics, such as a cold chain, are necessary.",
+    "keyword_note": "검토해야 할 첫 번째 질문 → the first question we need to address | 상용화하다 → commercialize | 온도 관리 물류 → temperature-controlled logistics"
+  },
+  {
+    "id": 119,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "먼저 파악해야 할 것은 해당 약물의 글로벌 출시 여부와 콜드체인과 같은 특수 공급망 설비가 필요한지 여부입니다.",
+    "sentence": "The first thing to figure out is whether the drug will be rolled out globally and whether it needs any special supply-chain setup, like cold-chain logistics.",
+    "keyword_note": ""
+  },
+  {
+    "id": 120,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "해당 제품이 콜드체인 물류를 필요로 한다는 점을 고려하면, 글로벌 유통에는 상당한 투자와 소요 기간이 수반될 것입니다. 또한 시장에 따라서는 현지 제조 역량 구축도 고려해야 할 수 있습니다.",
+    "sentence": "Given that the product requires cold-chain logistics, global distribution would entail substantial investment and significant lead time to build the necessary infrastructure. In addition, depending on the market, we may need to consider establishing local manufacturing capabilities.",
+    "keyword_note": "~를 고려하면 → given that | 수반하다 → entail / involve / require | 상당한 → substantial / significant | 소요 기간 → lead time"
+  },
+  {
+    "id": 121,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이 제품에 콜드체인 물류가 필요하다는 점에서, 글로벌 유통에는 많은 자금과 시간이 소요될 것입니다. 일부 시장에서는 현지 생산도 필요할 수 있습니다.",
+    "sentence": "Since this product needs cold-chain logistics, rolling it out globally would take a lot of money and time to set things up. In some markets, we might also need to produce it locally.",
+    "keyword_note": ""
+  },
+  {
+    "id": 122,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "또 하나의 핵심적인 고려사항은 해당 약물이 시장 실패의 상당한 위험을 지니고 있는지 여부입니다. 만약 그렇다면, 라이센싱을 통해 선지급금을 받는 방식이 더 매력적인 선택지가 될 가능성이 큽니다.",
+    "sentence": "Another key consideration is whether the drug carries a significant risk of market failure. If so, an upfront payment through licensing would likely be a more attractive option.",
+    "keyword_note": "또 하나의 핵심 고려사항 → another key consideration | 위험을 지니다 → carry a risk of | 만약 그렇다면 → if so | 선지급금 → upfront payment"
+  },
+  {
+    "id": 123,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이 약물이 시장에서 어려움을 겪을 수 있는지도 고려해야 합니다. 그런 경우라면, 선지급금을 받는 라이센싱 방식이 더 나은 선택일 것입니다.",
+    "sentence": "We also need to consider whether this drug might struggle in the market. If that's the case, an upfront licensing payment would likely be the better option.",
+    "keyword_note": ""
+  },
+  {
+    "id": 124,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "또 다른 중요한 요소는 시장 실패의 위험입니다. 그런 경우라면, 선지급금을 통한 라이센싱이 더 바람직할 것입니다.",
+    "sentence": "Another important factor is the risk of market failure. In that case, licensing with an upfront payment would likely be preferable.",
+    "keyword_note": ""
+  },
+  {
+    "id": 125,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "제공된 정보를 바탕으로 볼 때, 이러한 위험과 비용을 완화할 수 있는 실질적인 메커니즘이 없는 한, 안정적이고 예측 가능한 수익을 확보하기 위한 라이센싱 전략이 더 매력적인 선택으로 보입니다.",
+    "sentence": "Based on the information provided, international expansion of the developed drug would involve substantial risk and significant investment. Unless there are viable mechanisms to mitigate these risks and costs, pursuing a licensing strategy to secure stable and predictable returns appears to be the more attractive option.",
+    "keyword_note": "제공 정보를 바탕으로 → based on the information provided | 위험과 비용 완화 → mitigate the risks and costs | 수익 확보 → secure stable and predictable returns"
+  },
+  {
+    "id": 126,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "파악된 정보를 기반으로, 높은 비용과 위험을 줄일 방법이 없다면 라이센싱이 더 안전한 선택지처럼 보입니다.",
+    "sentence": "From the information we have, taking the drug global would come with high risk and heavy investment. Without clear ways to reduce those risks, licensing looks like the safer option.",
+    "keyword_note": ""
+  },
+  {
+    "id": 127,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "우리 고객사는 새로운 생산 라인을 도입할지 (말지) 고민 중입니다.",
+    "sentence": "Our client is considering whether to introduce a new production line.",
+    "keyword_note": "considering whether to V → ~할지 고민 중이다"
+  },
+  {
+    "id": 128,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "먼저, 시장 확대와 영업이익률 증가라는 두 가지 긍정적인 측면을 보려고 합니다.",
+    "sentence": "First, I would like to look at two positive aspects, market expansion and increase in profit ratio.",
+    "keyword_note": "first / to start off → 먼저"
+  },
+  {
+    "id": 129,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "두 가지 중 어느 것이 더 큰지에 따라 결정을 내릴 것입니다.",
+    "sentence": "I am going to make a decision based on which of the two is larger.",
+    "keyword_note": "make a decision → 결정을 내리다 | based on → ~에 따라"
+  },
+  {
+    "id": 130,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "제공해주신 정보를 토대로 결론을 말씀드리겠습니다. 잠시만 시간을 주세요.",
+    "sentence": "I am going to give you a conclusion based on the information you've provided. Please give me a minute.",
+    "keyword_note": "give a conclusion based on → 결론을 말씀드리다 | give me a minute → 잠시만요"
+  },
+  {
+    "id": 131,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "우리 매장이 아무리 고급스러워도, 이마트에 입점하면 브랜드 명성이 손상될 위험이 있습니다.",
+    "sentence": "No matter how luxurious our store is, being located in E-mart carries a risk of brand reputation damage.",
+    "keyword_note": "no matter how → 아무리 ~하더라도 | carry a risk of → ~의 위험이 있다"
+  },
+  {
+    "id": 132,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "고객의 니즈뿐만 아니라 우리 브랜드에 대한 인식까지 이해하기 위해 단기 리서치를 제안하고 싶습니다.",
+    "sentence": "I would like to suggest short-term research to understand not only the customer needs but also the recognition of our brand.",
+    "keyword_note": "would like to suggest → 제안하고 싶다 | not only … but also → ~뿐만 아니라 ~까지"
+  },
+  {
+    "id": 133,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "조언을 드리기 전에 정보가 더 필요합니다. 시장이 확대되고 있는지 알려주실 수 있나요?",
+    "sentence": "Before making any recommendations, I'll need more information. Can you tell me if the market is expanding or decreasing?",
+    "keyword_note": "before making recommendations → 조언하기 전에 | can you tell me if → ~한지 알려줄 수 있나요"
+  },
+  {
+    "id": 134,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "제가 가장 먼저 해야 할 일은 가능한 한 많은 질적·양적 데이터를 수집하는 것입니다.",
+    "sentence": "The first thing I need to do is gather as much qualitative and quantitative data as possible.",
+    "keyword_note": "the first thing I need to do → 먼저 해야 할 일 | gather → 수집하다"
+  },
+  {
+    "id": 135,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "정보를 종합해보면, 몇 가지 맛 옵션을 갖춘 제품을 출시하는 것이 가장 유리합니다.",
+    "sentence": "Synthesizing the information we have, my takeaway is that launching a product with a few flavor options would be most advantageous.",
+    "keyword_note": "synthesizing → 종합하면 | takeaway → 결론 / 핵심"
+  },
+  {
+    "id": 136,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이는 고객사에게 좋은 징조는 아닙니다. 학생들이 식단에 만족하고 있다면 아침 식사를 위해 식당에 갈 가능성은 크지 않습니다.",
+    "sentence": "This doesn't bode well for the client. If most students are pleased with their meal plan, they're not likely to go to a restaurant for breakfast.",
+    "keyword_note": "doesn't bode well for → ~에게 좋은 징조가 아니다"
+  },
+  {
+    "id": 137,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이 케이스는 라이센싱 vs 자체 개발의 트레이드오프를 평가하는 데 중점을 둡니다.",
+    "sentence": "This case centers on evaluating the trade-offs between licensing and developing the drug in-house.",
+    "keyword_note": "center on → ~에 중점을 두다 | trade-offs → 트레이드오프 | in-house → 자체적으로"
+  },
+  {
+    "id": 138,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "라이센싱은 즉각적인 현금흐름을 창출하고 추가 수익도 기대할 수 있습니다.",
+    "sentence": "Licensing the drug would generate an immediate revenue stream along with potential future milestone payments.",
+    "keyword_note": "generate → 창출하다 | revenue stream → 수익 흐름 | milestone payments → 성과 달성 추가 수익"
+  },
+  {
+    "id": 139,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "또 하나의 핵심 고려사항은 해당 약물이 시장 실패의 위험을 지니고 있는지 여부입니다.",
+    "sentence": "Another key consideration is whether the drug carries a significant risk of market failure. If so, an upfront payment through licensing would likely be a more attractive option.",
+    "keyword_note": "another key consideration → 또 하나의 핵심 고려사항 | carry a risk of → 위험을 지니다"
+  },
+  {
+    "id": 140,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "제가 제대로 이해했는지 확인하고 싶은데요.",
+    "sentence": "Just to make sure I'm understanding you correctly…",
+    "keyword_note": "just to make sure I'm understanding → 이해를 확인하다 | is that right? → 맞나요?"
+  },
+  {
+    "id": 141,
+    "unit": 5,
+    "topic": "케이스 인터뷰: 신약 라이센싱",
+    "korean": "이상의 내용을 종합하면, 저희의 권고안은 …입니다.",
+    "sentence": "To wrap up, my (our) recommendation is…",
+    "keyword_note": "to wrap up → 정리하면 | our recommendation is → 저희 권고안은"
+  },
+  {
+    "id": 142,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "자기소개 SELF-INTRODUCTION — 학업 배경 → 동기 전환 → 실무 경험 → 포지션 핏",
+    "sentence": "한국어 앞면 ◀ ▶ English 뒷면",
+    "keyword_note": ""
+  },
+  {
+    "id": 143,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 킹 대학교에서 경영학을 전공했습니다. 전략 중심의 수업들이 분석적 사고력의 기반이 됐고, 데이터 기반 디지털 마케팅에 대한 관심으로 이어졌습니다.",
+    "sentence": "I majored in Business Management at King University, where strategy-focused coursework built my analytical foundation and sparked my interest in data-driven digital marketing.",
+    "keyword_note": "major in → 전공하다 | with a focus on → 세부 포커스 추가 시"
+  },
+  {
+    "id": 144,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 킹 대학교에서 경영학을 공부했습니다.",
+    "sentence": "I studied Business Management at King University.",
+    "keyword_note": ""
+  },
+  {
+    "id": 145,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 킹 대학교 경영학 학위를 보유하고 있습니다.",
+    "sentence": "I have a degree in Business Management from King University.",
+    "keyword_note": ""
+  },
+  {
+    "id": 146,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "[전공과 지원분야가 다를 때] 제 학문적 배경은 경영학에 있습니다.",
+    "sentence": "My academic background is in Business Management. I come from a background in Business Management.",
+    "keyword_note": "My academic background is in → 전공과 지원분야 다를 때"
+  },
+  {
+    "id": 147,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "재학 중에, 저는 전략 중심의 수업들을 들었으며, 이는 분석적 사고력의 탄탄한 기초를 쌓는 데 도움이 됐고, 데이터 기반 디지털 마케팅에 대한 관심으로 이어졌습니다.",
+    "sentence": "During my studies, I took strategy-focused courses, which helped me build a strong foundation in analytical thinking and led me to develop an interest in data-driven digital marketing.",
+    "keyword_note": "during my studies → 재학 중에 | while I was in school → 대체표현"
+  },
+  {
+    "id": 148,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "재학 중에, 전략 중심 수업들이 분석적 사고 역량을 길러주었습니다.",
+    "sentence": "While I was in school, strategy-focused courses built my capacity for analytical thinking.",
+    "keyword_note": ""
+  },
+  {
+    "id": 149,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "대학 생활 전반에 걸쳐, 저는 전략과 분석의 견고한 기초를 다졌습니다.",
+    "sentence": "Throughout my academic experience, I built a strong foundation in strategy and analytics.",
+    "keyword_note": ""
+  },
+  {
+    "id": 150,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "전략 중심 수업들은 분석적 사고력의 탄탄한 기초를 쌓는 데 도움이 됐고, 이는 저를 데이터 기반 디지털 마케팅으로 이끌었습니다.",
+    "sentence": "The courses which helped me build a strong foundation in analytical thinking also sparked my interest in data-driven digital marketing.",
+    "keyword_note": "helped me build a strong foundation → 탄탄한 기초를 쌓는 데 도움이 됐다 | laid the groundwork for → 대체표현"
+  },
+  {
+    "id": 151,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "전략 중심 수업들은 분석적 역량의 기반을 마련해 주었고 데이터 기반 마케팅에도 관심을 갖게 했습니다.",
+    "sentence": "The courses which laid the groundwork for my analytical skills also drew me to data-driven marketing.",
+    "keyword_note": ""
+  },
+  {
+    "id": 152,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 과정에서 데이터 기반 디지털 마케팅에 대한 큰 관심을 갖게 되었습니다.",
+    "sentence": "I developed a strong interest in data-driven digital marketing through my coursework.",
+    "keyword_note": "developed a strong interest in → 큰 관심을 갖게 되었다 | gravitated toward → 자연스럽게 끌리다"
+  },
+  {
+    "id": 153,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "데이터가 마케팅 의사결정을 어떻게 이끌 수 있는지에 점점 더 관심이 생겼습니다.",
+    "sentence": "I became increasingly interested in how data can drive marketing decisions.",
+    "keyword_note": ""
+  },
+  {
+    "id": 154,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "학업이 깊어지면서 관심이 데이터 기반 디지털 마케팅 쪽으로 기울었습니다.",
+    "sentence": "My interest shifted toward data-driven digital marketing as I advanced in my studies.",
+    "keyword_note": ""
+  },
+  {
+    "id": 155,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 자연스럽게 전략과 디지털 마케팅의 교차점에 끌리게 되었습니다.",
+    "sentence": "I found myself drawn to the intersection of strategy and digital marketing.",
+    "keyword_note": ""
+  },
+  {
+    "id": 156,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 경험을 통해 직접, 업계의 성공은 R&D만으로 이루어지는 것이 아니라 전략, 운영, 시장 진입 실행이 똑같이 중요하다는 것을 깨달았습니다.",
+    "sentence": "That experience showed me firsthand that success in the industry isn't driven by R&D alone—strategy, operations, and go-to-market execution play an equally critical role.",
+    "keyword_note": "showed me firsthand → 직접 경험으로 깨달았다 | made me realize → 대체표현"
+  },
+  {
+    "id": 157,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 경험을 통해 R&D만으로 성공할 수 없다는 것을 깨달았습니다. 전략과 실행이 그만큼 중요합니다.",
+    "sentence": "That experience made me realize that R&D alone doesn't drive success—strategy and execution are just as important.",
+    "keyword_note": ""
+  },
+  {
+    "id": 158,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 실제로, 업계의 성공이 R&D뿐만 아니라 전략, 운영, 실행에도 달려 있다는 것을 확인했습니다.",
+    "sentence": "I saw in practice that industry success depends not only on R&D, but also on strategy, operations, and execution.",
+    "keyword_note": ""
+  },
+  {
+    "id": 159,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 경험을 통해 직접, 운영과 전략이 기술 개발만큼이나 중요하다는 것을 확인했습니다.",
+    "sentence": "Through that experience, I saw firsthand that operations and strategy are as critical as technical development.",
+    "keyword_note": ""
+  },
+  {
+    "id": 160,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "전략, 운영, 시장 진입 실행은 R&D와 똑같이 중요한 역할을 합니다.",
+    "sentence": "Strategy, operations, and go-to-market execution play an equally critical role as R&D.",
+    "keyword_note": "play an equally critical role → 동등하게 중요한 역할을 하다 | carry equal weight → 대체표현"
+  },
+  {
+    "id": 161,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "이러한 요소들은 비즈니스 성과를 결정하는 데 동등한 비중을 갖습니다.",
+    "sentence": "These factors carry equal weight in determining business outcomes.",
+    "keyword_note": ""
+  },
+  {
+    "id": 162,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "전략과 운영은 기술 역량 못지않게 중요합니다.",
+    "sentence": "Strategy and operations are no less critical than technical capability.",
+    "keyword_note": ""
+  },
+  {
+    "id": 163,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그러한 관점이 전략적 선택이 실제 비즈니스 성과로 어떻게 이어지는지 더 깊이 이해하고자 하는 동기를 주었습니다.",
+    "sentence": "That perspective motivated me to better understand how strategic choices translate into real business outcomes.",
+    "keyword_note": "motivated me to → 동기부여했다 | led me to → 대체표현 | drew me to consulting → 컨설팅으로 이끌었다"
+  },
+  {
+    "id": 164,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 관점이 비즈니스 전략을 더 깊이 이해하려는 방향으로 저를 이끌었습니다.",
+    "sentence": "That perspective led me to pursue a deeper understanding of business strategy.",
+    "keyword_note": ""
+  },
+  {
+    "id": 165,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "이 깨달음이 컨설팅이 전략과 실행을 어떻게 연결하는지 탐구하도록 저를 이끌었습니다.",
+    "sentence": "This realization prompted me to explore how consulting bridges strategy and execution.",
+    "keyword_note": ""
+  },
+  {
+    "id": 166,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 인사이트가 분석적 사고를 실질적인 비즈니스 임팩트와 연결하는 커리어를 향해 저를 이끌었습니다.",
+    "sentence": "That insight pushed me toward a career where I could connect analytical thinking with real business impact.",
+    "keyword_note": ""
+  },
+  {
+    "id": 167,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "졸업 후, 저는 A사에서 프로젝트 어시스턴트로, 이후 B사에서 마케팅 인턴으로 일했습니다.",
+    "sentence": "After graduating, I worked as a project assistant at Company A and later as a marketing intern at Company B.",
+    "keyword_note": "after graduating, I worked as → 졸업 후 ~로 일했다 | following graduation, I joined → 대체표현"
+  },
+  {
+    "id": 168,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "졸업 후, 저는 [회사명]에 프로젝트 코디네이터로 합류했고, 이후 마케팅 직무로 이동했습니다.",
+    "sentence": "Following graduation, I joined [company] as a project coordinator and later moved into a marketing role.",
+    "keyword_note": ""
+  },
+  {
+    "id": 169,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "학위를 마친 후, 저는 프로젝트 어시스턴트로 일을 시작했습니다.",
+    "sentence": "After completing my degree, I began working as a project assistant.",
+    "keyword_note": ""
+  },
+  {
+    "id": 170,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "커리어 초기에 저는 프로젝트 관리와 마케팅 분야에서 일했습니다.",
+    "sentence": "Early in my career, I took on roles in project management and marketing.",
+    "keyword_note": ""
+  },
+  {
+    "id": 171,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그 역할들에서 시장 조사와 데이터 분석을 직접 다루며 일했고, 이를 통해 체계적이고 가설 중심의 문제 해결 접근법을 개발했습니다.",
+    "sentence": "In those roles, I worked hands-on with market research and data analysis, which helped me develop a structured, hypothesis-driven approach to problem-solving.",
+    "keyword_note": "worked hands-on with → 직접 다루며 일했다 | was directly involved in → 대체표현"
+  },
+  {
+    "id": 172,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 시장 조사 및 데이터 분석 프로젝트에 직접 참여했습니다.",
+    "sentence": "I was directly involved in market research and data analytics projects.",
+    "keyword_note": ""
+  },
+  {
+    "id": 173,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 데이터 수집 및 분석에 적극적인 역할을 했습니다.",
+    "sentence": "I took an active role in collecting and analyzing market data.",
+    "keyword_note": ""
+  },
+  {
+    "id": 174,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 리서치와 데이터 기반 의사결정에 직접 기여함으로써 팀을 지원했습니다.",
+    "sentence": "I supported the team by contributing directly to research and data-driven decision-making.",
+    "keyword_note": ""
+  },
+  {
+    "id": 175,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 또한 프로젝트 X의 관리에 참여했으며, 부서 간 팀들과 긴밀히 협력하여 일정을 조율하고 인사이트를 종합했습니다. 저희의 노력은 고객 만족도 30% 향상으로 이어졌습니다.",
+    "sentence": "I was also involved in managing Project X, working closely with cross-functional teams to coordinate timelines and synthesize inputs. Our efforts led to a 30 percent improvement in customer satisfaction.",
+    "keyword_note": "led to an improvement in → ~의 개선으로 이어지다 | cross-functional teams → 부서 간 팀들"
+  },
+  {
+    "id": 176,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "우리의 협업은 고객 만족도 30% 향상이라는 측정 가능한 결과로 이어졌습니다.",
+    "sentence": "Our work resulted in a measurable 30% improvement in customer satisfaction scores.",
+    "keyword_note": ""
+  },
+  {
+    "id": 177,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "부서 간 협업을 통해 고객 만족도를 30% 향상시키는 성과를 거뒀습니다.",
+    "sentence": "Through cross-functional coordination, we delivered a 30 percent improvement in customer satisfaction.",
+    "keyword_note": ""
+  },
+  {
+    "id": 178,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "지금의 저는 디지털 마케팅을 데이터 중심의 인사이트를 통해 전략과 실행을 연결하는 실용적인 방법으로 보고 있습니다. 그것이 제가 이 직무에 지원한 이유이며, 분석 역량과 디지털 마케팅 경험으로 클라이언트 업무에 기여할 수 있기를 기대하고 있습니다.",
+    "sentence": "Today, I see digital marketing as a practical way to connect strategy with execution through data-driven insights. That's why I applied for this position—I'm very much looking forward to contributing my analytical and digital marketing experience to client engagements.",
+    "keyword_note": "today, I see … as → 지금 나는 ~을 …로 본다 | that's why I applied → 그래서 지원했다 | looking forward to contributing → 기여를 기대한다"
+  },
+  {
+    "id": 179,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "현재 저는 컨설팅을 구조적 사고가 측정 가능한 성과로 이어지는 공간으로 이해하고 있습니다.",
+    "sentence": "At this point, I understand consulting as a space where structured thinking translates into measurable outcomes.",
+    "keyword_note": ""
+  },
+  {
+    "id": 180,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "전반적으로, 저는 이 역할을 전략과 실행을 연결하는 기회로 보고 있습니다.",
+    "sentence": "Overall, I view this role as an opportunity to bridge strategy and execution.",
+    "keyword_note": ""
+  },
+  {
+    "id": 181,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그것이 이 포지션에 저를 이끈 것입니다. 저의 배경은 팀의 방향성과 잘 맞습니다.",
+    "sentence": "That's what drew me to this position in the first place. My background aligns well with your team's focus.",
+    "keyword_note": ""
+  },
+  {
+    "id": 182,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "자기소개 SELF-INTRODUCTION — 완결 문장 & 대체표현",
+    "sentence": "한국어 앞면 ◀ ▶ English 뒷면",
+    "keyword_note": ""
+  },
+  {
+    "id": 183,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "저는 이 역할에서 제 스킬을 적용할 수 있는 기회에 대해 매우 기대가 됩니다.",
+    "sentence": "I'm excited about the opportunity to apply my skills in a client-facing role.",
+    "keyword_note": ""
+  },
+  {
+    "id": 184,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "그것이 왜 이 역할이 저에게 자연스러운 다음 단계처럼 느껴졌는지를 설명합니다.",
+    "sentence": "That's why this role felt like a natural next step for me.",
+    "keyword_note": ""
+  },
+  {
+    "id": 185,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "숫자 표현 NUMBERS IN ENGLISH",
+    "sentence": "한국어 앞면 ◀ ▶ English 뒷면",
+    "keyword_note": ""
+  },
+  {
+    "id": 186,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "숫자 기본 단위 1,000 → thousand / 1,000,000 → million 1,000,000,000 → billion / 1,000,000,000,000 → trillion",
+    "sentence": "Quick Reference: • 32,000 → thirty-two thousand • 76,000,000 → seventy-six million • $1.78 billion → one point seven eight billion ※ Decimal form preferred in consulting context",
+    "keyword_note": ""
+  },
+  {
+    "id": 187,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "숫자 표현 NUMBERS IN ENGLISH",
+    "sentence": "한국어 앞면 ◀ ▶ English 뒷면",
+    "keyword_note": ""
+  },
+  {
+    "id": 188,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "대한민국의 인구는 약 5천만 명이며, 평균 기대수명은 80세입니다. 연령대가 고르게 분포되어 있다면, 10년 단위의 각 연령 집단마다 약 625만 명이 있습니다.",
+    "sentence": "South Korea has a population of approximately 50 million people, with an average life expectancy of 80 years. Assuming an even distribution across age cohorts, this implies roughly 6.25 million people per decade age group.",
+    "keyword_note": "약 ~명 → approximately / roughly / about | 5천만 → 50 million | 625만 → 6.25 million | 기대수명 → life expectancy"
+  },
+  {
+    "id": 189,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "회사 X는 현재 전 세계적으로 약 17억 8천만 달러의 매출을 창출하고 있으며, 향후 5년 동안 그 규모가 세 배로 증가할 것으로 예상됩니다.",
+    "sentence": "Company X currently generates approximately $1.78 billion in global revenue and is projected to triple over the next five years.",
+    "keyword_note": "17억 8천만 → $1.78 billion (one point seven eight) | 창출하다 → generate | 세 배로 → triple | 예상되다 → be projected to"
+  },
+  {
+    "id": 190,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "국내 스킨케어 시장은 올해 11조 원에 도달했으며, 이는 전년 대비 10% 증가를 나타냅니다.",
+    "sentence": "The domestic skincare market reached KRW 11 trillion this year, representing a 10% year-over-year increase.",
+    "keyword_note": "11조 원 → KRW 11 trillion | 도달하다 → reach / total / stand at / amount to | 전년 대비 → year-over-year"
+  },
+  {
+    "id": 191,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "2021년의 매출은 87만 달러였습니다. 연간 10%의 증가를 가정할 경우, 2025년의 매출은 얼마가 되겠습니까?",
+    "sentence": "Revenue was $870,000 in 2021. Assuming a 10% annual increase, what would revenue be in 2025?",
+    "keyword_note": "87만 달러 → $870,000 (eight hundred seventy thousand) | 연간 증가 → annual increase / growth rate"
+  },
+  {
+    "id": 192,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "공항에 하루 동안 도착하는 가방의 총 수는 승객 1인당 평균 가방 수, 하루 비행 횟수, 항공편당 평균 승객 수를 곱하여 추정될 수 있습니다.",
+    "sentence": "The total number of bags arriving at the airport per day can be estimated by multiplying the average number of bags per passenger, the number of daily flights, and the average number of passengers per flight.",
+    "keyword_note": "하루당 → per day | 곱하여 추정하다 → be estimated by multiplying | 승객 1인당 → per passenger"
+  },
+  {
+    "id": 193,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "숫자 표현 NUMBERS IN ENGLISH",
+    "sentence": "한국어 앞면 ◀ ▶ English 뒷면",
+    "keyword_note": ""
+  },
+  {
+    "id": 194,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "지역 A의 곰들은 전체 개체 수의 8분의 3을 차지합니다. 이 집단 내에서는 62%가 수컷이고 38%가 암컷입니다. 또한 53%가 최근의 전염병의 영향을 받았습니다.",
+    "sentence": "Bears in Region A account for three-eighths of the total population. Within this group, 62% are male and 38% are female. Additionally, 53% of the bears have been affected by the recent epidemic.",
+    "keyword_note": "차지하다 → account for | 3/8 → three-eighths | 전염병 → epidemic"
+  },
+  {
+    "id": 195,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "한우 판매량의 더 큰 감소폭은 주로 더 큰 기준 판매량에 기인합니다. (한우 판매량이 더 크게 감소한 것은, 원래 한우 판매량이 많기 때문이다.) (한우 판매량의 더 큰 감소폭은, 더 큰 기준 판매량 때문이다) (더 큰 한우 판매량 감소는, 그것의 (다른 것과 비교해 더) 큰 판매량 때문이다)",
+    "sentence": "The sharper decline in Hanwoo sales is primarily attributable to its larger baseline sales volume.",
+    "keyword_note": "더 큰 감소폭 → the sharper decline in | 주로 → primarily / mainly | 기인하다 → be attributable to A attributable to B : A는 B 때문이다 즉 A는 B에 기인한다 라는 의미"
+  },
+  {
+    "id": 196,
+    "unit": 6,
+    "topic": "비즈니스 영어 표현",
+    "korean": "WWF의 2022년 보고서에 따르면, 전세계 야생동물 개체 수는 1970년 이후 69% 감소했으며, 이는 지난 50년간 거의 3분의 2에 해당하는 감소를 나타냅니다.",
+    "sentence": "According to WWF's 2022 report, global wildlife populations have declined by 69% since 1970, representing nearly a two-thirds reduction over the past 50 years.",
+    "keyword_note": "~에 따르면 → according to | 69% 감소 → have declined by 69% | 거의 2/3 감소 → nearly a two-thirds reduction"
+  },
+  {
+    "id": 197,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"데크를 또 수정해야 해.\" \"오늘만 벌써 세 번 업데이트했어.\"",
+    "sentence": "\"We have to revise the deck again.\" \"I've already updated it three times today.\"",
+    "keyword_note": "don't I know → 강한 공감 | I know exactly what you mean → 공식 대체"
+  },
+  {
+    "id": 198,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"사돈 남 말하네, 너는 항상 늦어.\" \"사돈 남 말하네! 어제 30분 늦었잖아.\"",
+    "sentence": "Look who's talking! You're always late.\" Look who's talking! You were 30 minutes late yesterday.\"",
+    "keyword_note": "look who's talking → 사돈 남 말하네 | I don't quite agree → 공식 대체"
+  },
+  {
+    "id": 199,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"다른 회사에 지원할까 봐. 아무한테도 말하지 마.\" \"아무한테도 말 안 할게. 비밀은 내가 지켜.\"",
+    "sentence": "I won't tell a soul. \"I'm thinking about applying to another firm.\" \"I won't tell a soul. Your secret's safe with me.\"",
+    "keyword_note": "won't tell a soul → 아무에게도 말 안 한다 | I'll keep this confidential → 공식 대체"
+  },
+  {
+    "id": 200,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"그 뒤는 다 아는 이야기지 어떻게 CEO의 직접 후원을 받게 됐어요?\" \"성과 모델을 보여드렸죠… 그리고 그 뒤는 다 아는 이야기죠.\"",
+    "sentence": "The rest is history. \"How did we get the CEO's sponsorship“ We showed him the quick-win model… and the rest is history.\"",
+    "keyword_note": "the rest is history → 그 뒤는 다 알잖아 | turning point → 전환점 (인터뷰용)"
+  },
+  {
+    "id": 201,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"지나갑니다!\": (인쇄물을 들고 팀을 지나가며) \"지나갑니다! 파트너 미팅 덱입니다.\"",
+    "sentence": "Coming through! \"Coming through! Decks for the partner meeting.\" [Narrow space] Excuse me, can I squeeze by?",
+    "keyword_note": "coming through! → 지나갑니다 | can I squeeze by? → 좁은 공간에서"
+  },
+  {
+    "id": 202,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"회사 나온 뒤로 어떻게 지내요?“ \"잠깐 쉬고 있어요. 다시 면접 보기 전에 숨 좀 고르려고요.\"",
+    "sentence": "\"How's life after leaving the firm?\" \"I'm kinda between jobs. Just taking a breath before I start interviewing again.\"",
+    "keyword_note": "between jobs → 이직 중 | concluded my previous role → 공식 표현"
+  },
+  {
+    "id": 203,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"클라이언트에게 답장할 기회가 있었나요?” \"죄송합니다, 깜빡했어요. 지금 바로 보내드리겠습니다.\"",
+    "sentence": "\"Did you get a chance to reply to the client?\" \"Sorry, it slipped my mind—I'll send the response right now.\"",
+    "keyword_note": "it slipped my mind → 깜빡했다 (정중) | I forgot → 더 직접적인 표현"
+  },
+  {
+    "id": 204,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"그 재킷 잘 어울리네요. 클라이언트 미팅에 딱 맞는 분위기예요.” \"감사해요, 오늘 미팅에 맞을 것 같아서요.\"",
+    "sentence": "\"That jacket looks good on you—very client-ready.“ \"Thanks, I figured it worked for today's meeting.\" Also: You look great in that / It suits you.",
+    "keyword_note": "looks good on you → 잘 어울린다 | it suits you → 대체표현"
+  },
+  {
+    "id": 205,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"이제 일하러 가요\": \"벌써 나가요?” \"네, 일하러 가요. 오늘 밤에 봐요.\"",
+    "sentence": "\"Are you heading out already?\" — \"Yeah, I'm off to work. See you tonight.\" Also: I'm heading to work / I'm on my way to work.",
+    "keyword_note": "I'm off to work → 일하러 간다"
+  },
+  {
+    "id": 206,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"오늘 아침 클라이언트 미팅에 참석 못 했어. 팀 미팅 전에 상황 좀 알려줄 수 있어?\" \"그럼, 개정된 범위를 승인했어.\"",
+    "sentence": "\"I missed the client call this morning. Can you fill me in before the team meeting?\" \"Sure—they approved the revised scope.\" [Polite] Could you fill me in?",
+    "keyword_note": "fill me in → 상황을 알려달라"
+  },
+  {
+    "id": 207,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"핵심 내용 위주로 덱을 간결하게 유지하자.\" \"그 의견에 동의합니다. 임원들은 빡빡한 내러티브를 선호하죠.\"",
+    "sentence": "\"Let's keep the deck concise and focus on the key takeaways.\" \"I second that—executives prefer a tight narrative.\"",
+    "keyword_note": "I second that → 동의한다 (공식 가능)"
+  },
+  {
+    "id": 208,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"클라이언트 확인하고 업데이트 있으면 알려줄 수 있어?\" \"그럴게, 진행 상황 계속 공유할게.\"",
+    "sentence": "\"Can you check in with the client and let me know if there's any update?\" \"Will do—I'll keep you posted.\" Also: I'll keep you updated / I'll follow up once I have an update.",
+    "keyword_note": "I'll keep you posted → 계속 업데이트 줄게"
+  },
+  {
+    "id": 209,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"민감도 분석 섹션을 부록으로 옮기면 어때?\" \"그래, 그거지. 그러면 스토리라인이 훨씬 깔끔해지겠어.\"",
+    "sentence": "\"What if we move the sensitivity section to the appendix?\" \"Now you're talking. That'll make the storyline much cleaner.\" [Formal] That makes sense / I like that approach.",
+    "keyword_note": "now you're talking → 이제 말이 되네 | that makes sense → 공식적인 대체"
+  },
+  {
+    "id": 210,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"Option B는 영향이 크지 않을 것 같아.\" \"실제로는 상방 잠재력이 가장 높아.\" \"방금 말은 취소할게. Option B를 권장 목록으로 옮기자.\"",
+    "sentence": "\"Option B won't have much impact.\" \"Actually, it has the highest upside.\" \"I take that back. Let's move Option B to the recommended list.\" [Formal] Let me rephrase that / I'd like to revise my earlier statement.",
+    "keyword_note": ""
+  },
+  {
+    "id": 211,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"이 팀에서 지금 뭘 하는지 아는 사람이 없어.\" \"그건 네 얘기고. 내 워크스트림은 완벽하게 진행 중이야.\"",
+    "sentence": "\"No one on this team knows what they're doing right now.\" \"Speak for yourself—my workstream is perfectly on track.\" [Formal] I don't quite agree. I have a slightly different take.",
+    "keyword_note": ""
+  },
+  {
+    "id": 212,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"수정된 덱이에요. 스토리라인과 비주얼을 정리했습니다 .\" \"와, 역대급으로 잘했네. 파트너 레벨 결과물 같아.\"",
+    "sentence": "\"Here's the revised deck—I cleaned up the storyline and visuals.\" \"Wow, you outdid yourself. This looks like a partner-level deliverable.\" [Formal] That was outstanding / Excellent work.",
+    "keyword_note": ""
+  },
+  {
+    "id": 213,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"클라이언트가 왜 또 수정된 모델을 거부했는지 알아?\" \"나도 모르겠어. 어제 모든 코멘트를 다 반영했는데.\"",
+    "sentence": "\"Any idea why the client rejected the revised model again?\" \"Beats me. We addressed every comment from yesterday.\" [Formal] I'm not sure about that / That's outside my scope right now.",
+    "keyword_note": ""
+  },
+  {
+    "id": 214,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"클라이언트가 또 덱 수정을 원한대. 이번 주 세 번째야.\" \"이제 신경 안 써. 원하는 대로 마무리하고 넘어가자.\"",
+    "sentence": "\"The client wants us to revise the deck again—third time this week.\" \"I'm over it. Let's just finalize whatever they want and move on.\" [Formal] I suggest we close this out and move on.",
+    "keyword_note": ""
+  },
+  {
+    "id": 215,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"이탈은 가격 때문인 것 같아.\" / \"하지만 설문 결과는 서비스 문제를 지적해.” \"어느 쪽이 틀렸다고 누가 단정할 수 있겠어? 두 가설 모두 모델에서 테스트해보자.\"",
+    "sentence": "\"I think churn is driven by pricing.\" / \"But the survey points to service issues.\" \"Who's to say which is wrong? Let's test both hypotheses in the model.\" [Formal] Both approaches have their merits.",
+    "keyword_note": ""
+  },
+  {
+    "id": 216,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"금요일까지 법무 승인을 받을 수 있을까요?” \"어떻게든, 이사회 미팅 전에 이건 마무리해야 합니다.\"",
+    "sentence": "\"Do you think we'll get legal approval by Friday?\" \"One way or another, we need to close this before the board meeting.\" [Formal] We'll find a way to make this work.",
+    "keyword_note": ""
+  },
+  {
+    "id": 217,
+    "unit": 7,
+    "topic": "일상 영어 표현",
+    "korean": "\"운영 미팅에서 가장 어려운 질문을 누가 처리했어요?” \"자랑하려는 건 아닌데, Q&A에서 대부분의 질문을 제가 다 처리했어요.\"",
+    "sentence": "\"Who handled the toughest questions in the steering meeting?\" \"Not to brag, but I covered most of them during the Q&A.\" [Interview] I'm happy to share that the outcome was very positive.",
+    "keyword_note": ""
+  },
+  {
+    "id": 218,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "\"일정이 너무 빡빡한 것 같아요. ” (약간 감정적) \"일정이 너무 공격적인 것으로 보입니다. ” (객관적 표현 : 일할 때 쓰면 더 좋음)",
+    "sentence": "Emotion → Observation: ❌ I feel the timeline is too tight. ✅ It appears that the timeline may be too aggressive.",
+    "keyword_note": ""
+  },
+  {
+    "id": 219,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "\"제 생각에 Option B가 나아요. ” (약간 개인적 의견 같음) \"Option B가 대안들을 능가합니다. ” (객관적 의견 같음, 더 좋은 표현)",
+    "sentence": "Personal → Analytical: ❌ From my perspective, Option B is better. ✅ From an analytical standpoint, Option B outperforms the alternatives.",
+    "keyword_note": ""
+  },
+  {
+    "id": 220,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "\"가격이 이탈의 주된 원인인 것 같아요. ”(약간 개인적 의견 같음) \"데이터는 가격이 이탈의 주요 드라이버임을 나타냅니다.” (객관적 의견 같음, 더 좋은 표현)",
+    "sentence": "Thoughts → Evidence: ❌ I think pricing is the main reason for churn. ✅ The data indicates that pricing is the primary driver of churn.",
+    "keyword_note": ""
+  },
+  {
+    "id": 221,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "\"이 접근법이 최선이에요.“ (개인적인 의견) \"현재 프레임워크 내에서, 이 접근법이 속도와 위험의 균형을 맞춥니다.” ( 객관적 표현)",
+    "sentence": "I → We/Data/Framework: ❌ I believe this approach is the best. ✅ Within our current framework, this approach balances speed and risk.",
+    "keyword_note": ""
+  },
+  {
+    "id": 222,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "제가 제대로 이해했는지 확인하고 싶은데요, 10% 목표는 매출총이익이 아니라 영업이익을 의미하는 거죠, 맞나요?",
+    "sentence": "Just to make sure I'm understanding you correctly, the 10% target refers to operating profit, not gross profit—is that right? [ 혹은] If I'm understanding correctly... / Let me make sure I have this right...",
+    "keyword_note": ""
+  },
+  {
+    "id": 223,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "논의 방향을 맞추기 위해 문제를 다시 정리해보겠습니다. 수익이 안정적임에도 수익성이 왜 하락했는지 파악하고, 고객사가 당길 수 있는 레버를 찾는 것이 목표죠, 맞나요?",
+    "sentence": "Let me restate the problem to ensure alignment—we're trying to understand why profitability declined even though revenue stayed flat, and then identify what levers the client can pull to reverse the trend—correct? [혹은] Let me check that we're framing the problem the same way.",
+    "keyword_note": ""
+  },
+  {
+    "id": 224,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "\"확정되었다\"고 말하면 오해의 소지가 있습니다. 법무 검토 중이라는 점을 명확히 해야 하지 않을까요?",
+    "sentence": "Saying it's \"finalized\" might leave room for misunderstanding—should we clarify that it's pending legal review? [혹은 더 부드러운 표현] This could be open to interpretation. / To avoid any confusion, we might want to clarify…",
+    "keyword_note": ""
+  },
+  {
+    "id": 225,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "우선은 가정을 단순화해서 진행하겠습니다. 평균 가구가 한 달에 두 번 밀키트를 구매한다고 가정하고, 시장 규모를 추정해보겠습니다.",
+    "sentence": "For now, I'll make a simplifying assumption that the average household buys meal kits twice a month. Using that, I'll estimate penetration, frequency, and price to build the market size. [혹은] To keep things simple at this stage, let's assume…",
+    "keyword_note": ""
+  },
+  {
+    "id": 226,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "현재 상황을 고려하면, 출시를 2주 연기하는 것이 실행 위험을 줄여줄 것입니다.",
+    "sentence": "Given the circumstances, delaying the launch by two weeks would reduce execution risk. [혹은] Under the circumstances... / In light of these constraints... / As things stand, I would recommend...",
+    "keyword_note": ""
+  },
+  {
+    "id": 227,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "운영 측면에서 보면, 이번 인수는 매력적으로 보이지만 시스템 통합이 가장 큰 과제가 될 것입니다.",
+    "sentence": "From an operational perspective, integrating their systems will be the biggest challenge—even though the acquisition looks strategically attractive. [혹은 ] From a financial / strategic / risk / customer perspective.",
+    "keyword_note": ""
+  },
+  {
+    "id": 228,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "또 하나 짚고 넘어갈 점은, 이 비용 절감 계획은 상당한 변화 관리를 필요로 한다는 것입니다.",
+    "sentence": "Another point worth noting is that this cost reduction plan will require significant change management. [혹은] One additional point to consider / It's also worth highlighting / On top of that (casual)",
+    "keyword_note": ""
+  },
+  {
+    "id": 229,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "다만, 기능 세트를 단순화하면 6주 안에 출시할 수 있지만, 사용자 경험에 미치는 영향을 신중히 고려해야 합니다.",
+    "sentence": "That said, if we simplify the feature set, we could launch within six weeks—but we'd need to be careful about the impact on user experience. [혹은] However / That being said / Having said that / While that's true.",
+    "keyword_note": ""
+  },
+  {
+    "id": 230,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "이를 바탕으로, 도심 지역 유통을 1단계에서 우선시해야 합니다. 도심 지역에서 고객 수요가 가장 강하게 나타났기 때문입니다.",
+    "sentence": "Building on that, we should prioritize city-based distribution in the first phase, since customer demand is strongest in urban areas. [혹은] Based on that... / This suggests that... / Taken together, this means...",
+    "keyword_note": ""
+  },
+  {
+    "id": 231,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "클라이언트와 공유하기 전에 이것을 미리 한번 검토받을 수 있을까요?",
+    "sentence": "Could I run this by you before we share it with the client? [혹은] Would you mind reviewing this? / I'd appreciate your feedback on this before we finalize it. [혹은] I'd like to seek your feedback on this.",
+    "keyword_note": ""
+  },
+  {
+    "id": 232,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "혼선을 방지하기 위해, 개정된 범위를 서면으로 남기고 팀 전체에 공유합시다.",
+    "sentence": "To avoid any confusion, let's put that in writing and circulate it to the team. [혹은] I'll follow up with a written summary. / I'll send a quick recap in writing.",
+    "keyword_note": ""
+  },
+  {
+    "id": 233,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "오늘 제안서를 확정하기 전에, 검토를 위해 먼저 공유하겠습니다.",
+    "sentence": "Let me circulate this for review before we lock it in today. [조금 더 공식적인 표현] I'll share this with the team for internal review. / I'll distribute this for review prior to finalization.",
+    "keyword_note": ""
+  },
+  {
+    "id": 234,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "슬라이드를 단순화해서 핵심 메시지를 더 잘 전달해야 할 것 같습니다.",
+    "sentence": "We may need to simplify the slide to better get across the main message. [조금 더 공식적인 표현] To clearly communicate / To effectively convey / To articulate the main point.",
+    "keyword_note": ""
+  },
+  {
+    "id": 235,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "모든 것을 종합해보면, 이 분석은 실행 가능성, 위험, 타이밍에 걸쳐 세 가지 핵심 고려사항을 강조합니다. 이를 바탕으로, 가장 현실적인 선택지는 단계적 접근 방식으로 진행하는 것입니다.",
+    "sentence": "Putting it all together, the analysis highlights three key considerations across feasibility, risk, and timing. Based on this, the most viable option is to move forward with a phased approach that focuses on early value creation. [혹은] Taking all of this into account... / Synthesizing the key points...",
+    "keyword_note": ""
+  },
+  {
+    "id": 236,
+    "unit": 8,
+    "topic": "전문 영어 표현",
+    "korean": "이상의 내용을 종합하면, 저희의 권고안은 단계적 파일럿으로 시작하여 핵심 가정을 검증하는 것입니다. 이 전략은 하방 리스크를 관리하면서 유연성을 유지합니다.",
+    "sentence": "To wrap up, our recommendation is to pursue a measured, phased path forward, beginning with a tightly scoped pilot to test key assumptions. [혹은] To conclude, we recommend... / Based on our analysis, we recommend... / Drawing on this assessment, our recommendation is...",
+    "keyword_note": ""
+  },
+  {
+    "id": 237,
+    "unit": 9,
+    "topic": "길게 말하기 연습",
+    "korean": "[패턴] 긴 스토리의 패턴 : 전체적으로 ~~ 함 / 그러나 ~~ 이유 / 결국에는",
+    "sentence": "It felt really good to finally finish the project. It was a bit stressful toward the end because we had a tight deadline, but I think the team handled it pretty well. I had to check a lot of details before submitting the final version, which took more time than I expected, but in the end, I was happy with the result.",
+    "keyword_note": ""
+  },
+  {
+    "id": 238,
+    "unit": 9,
+    "topic": "길게 말하기 연습",
+    "korean": "[패턴] 전체적으로 ~~ 함 / 특별히 문제될 것은 없음 / 그러나 ~~ 그래서 ~~",
+    "sentence": "To be honest, I've been feeling a little tired these days. I don't think anything is seriously wrong, but I've had a lot on my mind recently, so it's been hard to fully relax. I'm still managing my work and daily routine, but I feel like I need to slow down a bit and take better care of myself.",
+    "keyword_note": ""
+  },
+  {
+    "id": 239,
+    "unit": 9,
+    "topic": "길게 말하기 연습",
+    "korean": "[패턴] 어려웠음 / 그러나 ~~ 상황이 이럼 / 그래서 ~~ / 결국 ~ 됨",
+    "sentence": "The client meeting was quite challenging, but I think it went better than expected. The client had a lot of questions, and some of them were pretty tough, so I had to explain our logic very carefully. There were a few moments when the discussion got a little tense, but we stayed calm, addressed their concerns one by one, and eventually reached a better understanding.",
+    "keyword_note": ""
+  },
+  {
+    "id": 240,
+    "unit": 9,
+    "topic": "길게 말하기 연습",
+    "korean": "[패턴] 결과 / 솔직히 ~~ / 어떤 사람이 굉장히~~ / 그래서 ~~ / 아쉽긴하지만 다행인 점은 발음 조심 : Exactly (이그재끌리), Perfectly (퍼ㄹ패끌(클)리), Directly (다이렉끌(클)리) 등 t 발음은 거의 나지 않음",
+    "sentence": "I just finished my McKinsey interview, and honestly, it was one of the toughest interviews I've ever had. The interviewer was very sharp, so I had to think carefully before answering each question. The case itself was pretty challenging because there were several layers to the problem, but I tried to stay structured and explain my logic step by step. I don't think I answered everything perfectly, which is a little frustrating, but I did my best and I'm glad I didn't completely freeze.",
+    "keyword_note": ""
+  },
+  {
+    "id": 241,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "발음 조심 : asked (애스트)",
+    "sentence": "I'm going to buy the pencil that I saw yesterday at the department store.",
+    "keyword_note": ""
+  },
+  {
+    "id": 242,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "네가 어제 나에게 부탁한 업무들을 방금 다 끝냈어.",
+    "sentence": "I have just finished the tasks (that) you asked me to do yesterday.",
+    "keyword_note": ""
+  },
+  {
+    "id": 243,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "우리가 어제 제출한 보고서가 승인됐어.",
+    "sentence": "The report (that) we submitted yesterday was approved.",
+    "keyword_note": ""
+  },
+  {
+    "id": 244,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "나는 핀테크에서 일하는 클라이언트를 만났어.",
+    "sentence": "I met a client who works in fintech.",
+    "keyword_note": ""
+  },
+  {
+    "id": 245,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "나는 AI가 어떻게 직장을 바꾸는지 설명하는 기사를 읽었어.",
+    "sentence": "I read an article which explains how AI is changing the workplace.",
+    "keyword_note": ""
+  },
+  {
+    "id": 246,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "데드라인이 촉박했지만, 우리는 프로젝트를 완료했어.",
+    "sentence": "Although the deadline was tight, we completed the project.",
+    "keyword_note": ""
+  },
+  {
+    "id": 247,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "발표가 짧았지만, 핵심 포인트는 다 커버했어.",
+    "sentence": "Though the presentation was short, it covered all the key points.",
+    "keyword_note": ""
+  },
+  {
+    "id": 248,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "비용이 높음에도 불구하고, 회사는 새 시스템에 투자하기로 했어.",
+    "sentence": "Despite the high cost, the company decided to invest in the new system.",
+    "keyword_note": ""
+  },
+  {
+    "id": 249,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "그 제품은 혁신적이지만, 마케팅하기 어려울 수도 있어.",
+    "sentence": "While the product is innovative, it may be difficult to market.",
+    "keyword_note": ""
+  },
+  {
+    "id": 250,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "직원을 더 고용하는 대신, 우리는 업무 흐름을 개선했어.",
+    "sentence": "Rather than hiring more staff, we improved the workflow.",
+    "keyword_note": ""
+  },
+  {
+    "id": 251,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "나는 회의를 잊지 않으려고 리마인더를 설정했어.",
+    "sentence": "I set a reminder so that I wouldn't forget the meeting.",
+    "keyword_note": ""
+  },
+  {
+    "id": 252,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "조심히 다루는 한, 내 노트북을 사용해도 돼.",
+    "sentence": "Bring a jacket in case the weather gets colder.",
+    "keyword_note": ""
+  },
+  {
+    "id": 253,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "내가 필요한 것은 조금 더 시간이야.",
+    "sentence": "What we learned from this project is that communication is key.",
+    "keyword_note": ""
+  },
+  {
+    "id": 254,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "빡빡한 일정이 주어졌으니, 우리는 빨리 움직여야 해.",
+    "sentence": "Having reviewed the data, we decided to change the plan.",
+    "keyword_note": ""
+  },
+  {
+    "id": 255,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "거리를 걸어 내려가다가, 나는 옛 학교 친구를 마주쳤어.",
+    "sentence": "Walking down the street, I ran into an old school friend.",
+    "keyword_note": ""
+  },
+  {
+    "id": 256,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "내가 말하려는 건, 소통이 개선되어야 한다는 거야.",
+    "sentence": "What matters most is that we deliver on time.",
+    "keyword_note": ""
+  },
+  {
+    "id": 257,
+    "unit": 10,
+    "topic": "문법 패턴으로 길게 말하기",
+    "korean": "솔직히 말하자면, 우리 팀은 이 프로젝트에 인원이 부족해.",
+    "sentence": "The thing is, we don't have enough people for this project.",
+    "keyword_note": ""
+  }
 ]
