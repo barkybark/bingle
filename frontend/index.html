@@ -134,8 +134,8 @@
 </div>
 
 <div id="header" style="display:none">
-  <div class="logo">Bingle <span>영어 말하기</span></div>
-  <div class="count-badge" id="count-badge">0/30</div>
+  <div class="logo">Bingle <span id="header-mode">영어 말하기</span></div>
+  <div class="count-badge" id="count-badge" style="display:none;">0/10</div>
 </div>
 
 <!-- 로그인 -->
@@ -149,6 +149,27 @@
     <div class="login-error" id="login-error"></div>
     <button class="login-btn" onclick="doLogin()">시작하기</button>
     <div class="login-hint">발급받은 토큰을 입력하면 연습이 시작됩니다.<br>하루 최대 30회까지 연습할 수 있어요.</div>
+  </div>
+</div>
+
+<!-- 모드 선택 -->
+<div class="screen" id="mode-screen">
+  <div class="card-area">
+    <div class="main-card" style="text-align:center;">
+      <div class="topic-tag" style="margin-bottom:24px;">모드를 선택하세요</div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <button class="login-btn" style="background:var(--orange);" onclick="selectMode('study')">📖 공부 (무제한, 텍스트 보기)</button>
+        <button class="login-btn" style="background:rgba(255,255,255,.1); color:var(--white);" onclick="selectMode('test')">🎤 테스트 (하루 10회, 말하기 평가)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 챕터 선택 -->
+<div class="screen" id="chapter-screen">
+  <div class="card-area" style="overflow-y:auto; align-items:stretch; padding:20px;">
+    <div class="unit-label" id="chapter-mode-label" style="text-align:center; margin-bottom:16px;">UNIT 선택</div>
+    <div id="chapter-list" style="display:flex; flex-direction:column; gap:10px; max-width:480px; margin:0 auto; width:100%;"></div>
   </div>
 </div>
 
@@ -166,9 +187,14 @@
       <div class="attempt-row" id="attempt-row"></div>
     </div>
   </div>
-  <div class="controls">
+  <div class="controls" id="test-controls">
     <button class="mic-btn" id="mic-btn" onclick="toggleMic()">🎤</button>
     <button class="skip-btn" onclick="nextCard()">건너뛰기</button>
+  </div>
+  <div class="controls" id="study-controls" style="display:none;">
+    <button class="skip-btn" onclick="prevCard()">← 이전</button>
+    <button class="mic-btn" style="font-size:16px;" onclick="revealStudyAnswer()">정답 보기</button>
+    <button class="skip-btn" onclick="nextCard()">다음 →</button>
   </div>
 </div>
 
@@ -192,12 +218,14 @@ const MAX_REPEAT = 4; // 한 카드당 최대 반복 시도 (실패해도 이 �
 let state = {
   token: null,
   allSentences: [],
+  mode: null,            // 'study' | 'test'
+  selectedUnit: null,    // 선택한 유닛 번호 (null이면 전체)
   deck: [],
   deckIndex: 0,
   currentCard: null,
   attemptOnCard: 0,
   usedToday: 0,
-  limitToday: 30,
+  limitToday: 10,
   passCount: 0,
   recognition: null,
   isListening: false,
@@ -261,8 +289,8 @@ async function doLogin() {
     state.limitToday = data.usage.limit;
     localStorage.setItem('bingle_token', token);
 
-    buildDeck();
-    startSession();
+  showScreen('mode-screen');
+    hideLoading();
   } catch {
     showError('서버 연결 실패. 잠시 후 다시 시도해주세요.');
     hideLoading();
@@ -270,28 +298,114 @@ async function doLogin() {
 }
 
 function buildDeck() {
-  // 전체 문장을 랜덤 셔플해서 덱 구성
-  state.deck = [...state.allSentences].sort(() => Math.random() - 0.5);
+  // 선택한 유닛만 필터링 (selectedUnit이 null이면 전체)
+  let source = state.allSentences;
+  if (state.selectedUnit !== null) {
+    source = source.filter(c => c.unit === state.selectedUnit);
+  }
+  if (state.mode === 'study') {
+    // 공부 모드는 순서대로 (유닛 내 원래 순서 유지)
+    state.deck = [...source];
+  } else {
+    // 테스트 모드는 랜덤 셔플
+    state.deck = [...source].sort(() => Math.random() - 0.5);
+  }
   state.deckIndex = 0;
+}
+
+// ── 모드 선택 ──
+function selectMode(mode) {
+  state.mode = mode;
+  state.limitToday = 10; // 테스트 모드 기준 (공부 모드는 체크 안 함)
+  showChapterScreen();
+}
+
+function showChapterScreen() {
+  const label = document.getElementById('chapter-mode-label');
+  label.textContent = state.mode === 'study' ? '📖 공부할 챕터를 선택하세요' : '🎤 테스트할 챕터를 선택하세요';
+
+  // 유닛 목록 구성
+  const units = {};
+  state.allSentences.forEach(c => {
+    if (!units[c.unit]) units[c.unit] = { topic: c.topic, count: 0 };
+    units[c.unit].count++;
+  });
+
+  const list = document.getElementById('chapter-list');
+  list.innerHTML = '';
+
+  // 전체 보기 옵션
+  const allBtn = document.createElement('button');
+  allBtn.className = 'topic-card';
+  allBtn.style.textAlign = 'left';
+  allBtn.innerHTML = `<div class="name">전체 (${state.allSentences.length}개)</div>`;
+  allBtn.onclick = () => chooseUnit(null);
+  list.appendChild(allBtn);
+
+  Object.keys(units).sort((a, b) => a - b).forEach(u => {
+    const btn = document.createElement('button');
+    btn.className = 'topic-card';
+    btn.style.textAlign = 'left';
+    btn.innerHTML = `<div class="name">Unit ${u}: ${units[u].topic} (${units[u].count}개)</div>`;
+    btn.onclick = () => chooseUnit(Number(u));
+    list.appendChild(btn);
+  });
+
+  showScreen('chapter-screen');
+}
+
+function chooseUnit(unitNum) {
+  state.selectedUnit = unitNum;
+  buildDeck();
+  startSession();
 }
 
 function startSession() {
   document.getElementById('header').style.display = 'flex';
-  updateCountBadge();
+  document.getElementById('header-mode').textContent = state.mode === 'study' ? '공부 모드' : '테스트 모드';
+
+  const badge = document.getElementById('count-badge');
+  const testControls = document.getElementById('test-controls');
+  const studyControls = document.getElementById('study-controls');
+
+  if (state.mode === 'study') {
+    badge.style.display = 'none';
+    testControls.style.display = 'none';
+    studyControls.style.display = 'flex';
+  } else {
+    badge.style.display = 'inline-block';
+    testControls.style.display = 'flex';
+    studyControls.style.display = 'none';
+    updateCountBadge();
+  }
+
   showScreen('card-screen');
   hideLoading();
   loadCard();
 }
 
 function loadCard() {
-  if (state.usedToday >= state.limitToday) {
+  // 테스트 모드만 하루 횟수 체크
+  if (state.mode === 'test' && state.usedToday >= state.limitToday) {
     endSession();
     return;
   }
+
   if (state.deckIndex >= state.deck.length) {
-    state.deck = [...state.allSentences].sort(() => Math.random() - 0.5);
+    if (state.mode === 'study') {
+      // 공부 모드: 챕터를 다 보면 종료 화면으로
+      endSession();
+      return;
+    }
+    // 테스트 모드: 같은 챕터(또는 전체) 내에서 다시 셔플
+    let source = state.allSentences;
+    if (state.selectedUnit !== null) {
+      source = source.filter(c => c.unit === state.selectedUnit);
+    }
+    state.deck = [...source].sort(() => Math.random() - 0.5);
     state.deckIndex = 0;
   }
+
   state.currentCard = state.deck[state.deckIndex];
   state.attemptOnCard = 0;
 
@@ -302,8 +416,28 @@ function loadCard() {
   document.getElementById('answer-reveal').classList.remove('visible');
   document.getElementById('answer-reveal').textContent = '';
   document.getElementById('live-transcript').textContent = '';
-  setStatus('🎤 버튼을 눌러 영어로 말해보세요', '');
   renderAttemptDots();
+
+  if (state.mode === 'study') {
+    setStatus(`${state.deckIndex + 1} / ${state.deck.length}`, '');
+  } else {
+    setStatus('🎤 버튼을 눌러 영어로 말해보세요', '');
+  }
+}
+
+// ── 공부 모드 전용 ──
+function revealStudyAnswer() {
+  const reveal = document.getElementById('answer-reveal');
+  const note = state.currentCard.keyword_note ? `\n\n${state.currentCard.keyword_note}` : '';
+  reveal.textContent = '💡 ' + state.currentCard.sentence + note;
+  reveal.classList.add('visible');
+}
+
+function prevCard() {
+  if (state.deckIndex > 0) {
+    state.deckIndex--;
+    loadCard();
+  }
 }
 
 function renderAttemptDots() {
@@ -405,6 +539,7 @@ async function submitAnswer(userAnswer) {
     if (data.passed) {
       state.passCount++;
       setStatus('✅ 정확해요! 잘했어요', 'pass');
+      await markCardComplete(true);
       setTimeout(() => {
         if (state.usedToday >= state.limitToday) { endSession(); return; }
         state.deckIndex++;
@@ -418,6 +553,7 @@ async function submitAnswer(userAnswer) {
 
       if (state.attemptOnCard >= MAX_REPEAT) {
         setStatus('이렇게 말하면 더 좋아요. 다음 카드로 넘어갈게요.', 'fail');
+        await markCardComplete(false);
         setTimeout(() => {
           if (state.usedToday >= state.limitToday) { endSession(); return; }
           state.deckIndex++;
@@ -429,6 +565,27 @@ async function submitAnswer(userAnswer) {
     }
   } catch {
     setStatus('네트워크 오류. 다시 시도해주세요.', '');
+  }
+}
+
+async function markCardComplete(passed) {
+  try {
+    const res = await fetch(`${API_BASE}/api/practice/complete`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        token: state.token,
+        card_id: state.currentCard.id,
+        passed
+      })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      state.usedToday = data.used_today;
+      updateCountBadge();
+    }
+  } catch {
+    // 네트워크 오류 시 조용히 무시 (다음 카드로는 계속 진행)
   }
 }
 

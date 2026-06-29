@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     supabase_service_role_key: str
 
     # 학습 제한
-    daily_limit: int = 30           # 하루 최대 시도 횟수
+    daily_limit: int = 10           # 하루 최대 시도 횟수
 
     class Config:
         env_file = ".env"
