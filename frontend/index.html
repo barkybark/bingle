@@ -22,26 +22,34 @@
     html, body { height: 100%; overflow: hidden; }
     body { font-family: var(--font); background: var(--navy); color: var(--white); display: flex; flex-direction: column; height: 100dvh; }
 
-    /* 헤더 */
+    /* ── 헤더 ── */
     #header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 20px; background: var(--navy-mid);
-      border-bottom: 1px solid rgba(255,255,255,0.07); flex-shrink: 0;
+      padding: 12px 16px; background: var(--navy-mid);
+      border-bottom: 1px solid rgba(255,255,255,.07); flex-shrink: 0; gap: 10px;
     }
-    .logo { font-size: 20px; font-weight: 700; color: var(--orange); }
-    .logo span { color: var(--white); font-weight: 300; font-size: 13px; margin-left: 6px; opacity: .6; }
+    .logo {
+      font-size: 20px; font-weight: 800; color: var(--orange);
+      cursor: pointer; flex-shrink: 0;
+    }
+    .header-nav { display: flex; gap: 8px; flex: 1; }
+    .nav-btn {
+      padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,.18);
+      background: none; color: rgba(255,255,255,.6); font-size: 13px; font-weight: 600;
+      cursor: pointer; font-family: var(--font); transition: all .2s;
+    }
+    .nav-btn.active { background: var(--orange); border-color: var(--orange); color: var(--navy); }
     .count-badge {
       background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.3);
-      border-radius: 20px; padding: 4px 14px; font-size: 13px;
-      color: var(--orange); font-weight: 700;
+      border-radius: 20px; padding: 4px 12px; font-size: 13px;
+      color: var(--orange); font-weight: 700; flex-shrink: 0; white-space: nowrap;
     }
-    .count-badge.urgent { background: rgba(231,76,60,.15); border-color: rgba(231,76,60,.4); color: var(--red); }
 
-    /* 화면 전환 */
+    /* ── 화면 전환 ── */
     .screen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
     .screen.active { display: flex; }
 
-    /* 로그인 */
+    /* ── 로그인 ── */
     #login-screen { justify-content: center; align-items: center; padding: 40px 24px; }
     .login-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 40px 32px; width: 100%; max-width: 400px; text-align: center; }
     .login-logo { font-size: 48px; font-weight: 800; color: var(--orange); margin-bottom: 4px; }
@@ -50,113 +58,136 @@
     .login-input { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-sm); color: var(--white); font-size: 15px; padding: 14px 16px; font-family: var(--font); outline: none; transition: border .2s; }
     .login-input:focus { border-color: var(--orange); }
     .login-input::placeholder { color: rgba(255,255,255,.25); }
-    .login-btn { width: 100%; background: var(--orange); border: none; border-radius: var(--radius-sm); color: var(--navy); font-size: 16px; font-weight: 700; padding: 15px; margin-top: 16px; cursor: pointer; font-family: var(--font); transition: background .2s; }
-    .login-btn:hover { background: var(--orange-dark); }
+    .login-btn { width: 100%; background: var(--orange); border: none; border-radius: var(--radius-sm); color: var(--navy); font-size: 16px; font-weight: 700; padding: 15px; margin-top: 16px; cursor: pointer; font-family: var(--font); }
     .login-error { color: #ff6b6b; font-size: 13px; margin-top: 12px; display: none; }
-    .login-hint { color: rgba(255,255,255,.3); font-size: 12px; margin-top: 24px; line-height: 1.6; }
 
-    /* 메인 카드 화면 */
-    #card-screen { background: var(--navy); }
-    .card-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; overflow: hidden; }
-    .unit-label { font-size: 11px; font-weight: 700; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-    .main-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 32px 26px; width: 100%; max-width: 480px; text-align: center; }
-    .topic-tag { display: inline-block; background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.25); border-radius: 20px; padding: 4px 14px; font-size: 12px; color: var(--orange); font-weight: 600; margin-bottom: 20px; }
-
-    .korean-text { font-size: 22px; line-height: 1.6; color: var(--white); font-weight: 600; min-height: 70px; display: flex; align-items: center; justify-content: center; }
-    .topic-card {
-      background: var(--navy-mid);
-      border: 2px solid rgba(245,166,35,.35);
-      border-radius: var(--radius-sm);
-      padding: 16px 18px;
-      cursor: pointer;
+    /* ── 챕터 선택 (공통) ── */
+    #chapter-screen { overflow-y: auto; padding: 20px; }
+    .chapter-title { font-size: 16px; font-weight: 700; color: rgba(255,255,255,.7); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .chapter-card {
+      background: var(--navy-mid); border: 2px solid rgba(245,166,35,.3);
+      border-radius: var(--radius-sm); padding: 16px 18px; cursor: pointer;
       transition: border-color .2s, background .2s, transform .1s;
-      width: 100%;
-      font-family: var(--font);
+      margin-bottom: 10px;
     }
-    .topic-card:hover {
-      border-color: var(--orange);
-      background: var(--navy-light);
-    }
-    .topic-card:active {
-      transform: scale(0.98);
-    }
-    .topic-card .name {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--white);
-    }
-    .answer-reveal {
-      margin-top: 18px; padding: 14px 16px;
-      background: rgba(245,166,35,.08); border: 1px solid rgba(245,166,35,.25);
-      border-radius: var(--radius-sm); font-size: 16px; color: var(--orange);
-      font-weight: 500; display: none; line-height: 1.5;
-      white-space: pre-line;
-    }
-    .answer-reveal.visible { display: block; }
+    .chapter-card:hover { border-color: var(--orange); background: var(--navy-light); }
+    .chapter-card:active { transform: scale(.98); }
+    .chapter-card .c-title { font-size: 15px; font-weight: 600; color: var(--white); }
+    .chapter-card .c-count { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 3px; }
 
-    .wave-container { display: flex; align-items: center; justify-content: center; gap: 4px; height: 40px; margin: 18px 0 6px; }
-    .wave-bar { width: 4px; background: var(--orange); border-radius: 4px; height: 5px; transition: height .15s ease; opacity: .6; }
-    .wave-bar.active { animation: wave var(--dur, .8s) ease-in-out infinite alternate; }
-    @keyframes wave { from { height: 5px; opacity: .4; } to { height: var(--mh, 32px); opacity: 1; } }
+    /* ── 암기카드 화면 ── */
+    #flashcard-screen { background: var(--navy); }
+    .card-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; overflow: hidden; }
+    .unit-label { font-size: 11px; font-weight: 700; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .flash-card {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 28px 24px; width: 100%; max-width: 480px;
+    }
+    .topic-tag { display: inline-block; background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.25); border-radius: 20px; padding: 4px 14px; font-size: 12px; color: var(--orange); font-weight: 600; margin-bottom: 18px; }
+    .korean-text { font-size: 20px; line-height: 1.65; color: var(--white); font-weight: 600; text-align: center; min-height: 64px; }
+    .hint-box { margin-top: 14px; padding: 10px 14px; background: rgba(245,166,35,.07); border: 1px solid rgba(245,166,35,.18); border-radius: 8px; font-size: 12px; color: rgba(255,255,255,.55); line-height: 1.6; display: none; }
+    .hint-box.visible { display: block; }
+    .english-reveal { margin-top: 16px; padding: 14px 16px; background: rgba(245,166,35,.1); border: 1px solid rgba(245,166,35,.3); border-radius: var(--radius-sm); font-size: 17px; font-weight: 600; color: var(--orange); text-align: center; line-height: 1.6; display: none; white-space: pre-line; }
+    .english-reveal.visible { display: block; }
+    .card-progress { font-size: 12px; color: rgba(255,255,255,.35); text-align: center; margin-top: 12px; }
 
-    .status-text { font-size: 14px; color: rgba(255,255,255,.6); margin: 4px 0; min-height: 20px; }
+    /* 암기 완료/절반/못함 버튼 */
+    .memory-btns { display: flex; gap: 10px; justify-content: center; padding: 14px 20px 20px; flex-shrink: 0; }
+    .mem-btn { flex: 1; max-width: 140px; padding: 12px 6px; border-radius: var(--radius-sm); border: none; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font); transition: transform .1s; }
+    .mem-btn:active { transform: scale(.96); }
+    .mem-done { background: rgba(39,174,96,.18); color: #4ade80; border: 1px solid rgba(74,222,128,.3); }
+    .mem-half { background: rgba(245,166,35,.15); color: var(--orange); border: 1px solid rgba(245,166,35,.3); }
+    .mem-fail { background: rgba(231,76,60,.15); color: #f87171; border: 1px solid rgba(248,113,113,.3); }
+    .flash-controls { display: flex; gap: 10px; justify-content: center; padding: 0 20px 14px; flex-shrink: 0; }
+    .fc-btn { padding: 10px 20px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); color: rgba(255,255,255,.6); font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); }
+    .fc-reveal { background: var(--orange); color: var(--navy); border-color: var(--orange); }
+
+    /* ── 대화하기 화면 ── */
+    #chat-screen { background: var(--navy); }
+    .conv-card { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+    .conv-inner { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 26px 22px; width: 100%; max-width: 480px; }
+    .conv-topic-tag { display: inline-block; background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.25); border-radius: 20px; padding: 4px 14px; font-size: 12px; color: var(--orange); font-weight: 600; margin-bottom: 16px; }
+    .ai-prompt-label { font-size: 11px; color: rgba(255,255,255,.35); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .ai-prompt-text { font-size: 17px; font-weight: 600; color: var(--white); line-height: 1.6; min-height: 56px; }
+    .timer-row { display: flex; align-items: center; gap: 8px; margin: 14px 0 4px; }
+    .timer-circle {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      border: 3px solid var(--orange); display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: var(--orange); font-variant-numeric: tabular-nums;
+    }
+    .timer-circle.urgent { border-color: var(--red); color: var(--red); }
+    .wave-container { display: flex; align-items: center; gap: 3px; height: 24px; flex: 1; }
+    .wave-bar { width: 3px; background: var(--orange); border-radius: 3px; height: 4px; opacity: .6; }
+    .wave-bar.active { animation: wave var(--dur,.7s) ease-in-out infinite alternate; }
+    @keyframes wave { from{height:4px;opacity:.3} to{height:var(--mh,20px);opacity:1} }
+    .status-text { font-size: 13px; color: rgba(255,255,255,.5); margin-top: 6px; min-height: 18px; }
     .status-text.listening { color: var(--orange); font-weight: 600; }
-    .status-text.pass { color: var(--green); font-weight: 700; }
-    .status-text.fail { color: var(--red); font-weight: 600; }
+    .live-transcript { font-size: 13px; color: rgba(255,255,255,.4); font-style: italic; margin-top: 4px; min-height: 18px; }
 
-    .live-transcript { font-size: 14px; color: rgba(255,255,255,.45); min-height: 20px; font-style: italic; margin-top: 4px; }
+    /* 점수 결과 */
+    .result-box { margin-top: 14px; padding: 14px; background: rgba(245,166,35,.07); border: 1px solid rgba(245,166,35,.2); border-radius: var(--radius-sm); display: none; }
+    .result-box.visible { display: block; }
+    .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .score-num { font-size: 36px; font-weight: 800; color: var(--orange); line-height: 1; }
+    .score-label { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+    .model-expr { margin-top: 10px; padding: 10px 12px; background: rgba(255,255,255,.05); border-radius: 8px; font-size: 14px; color: var(--white); font-weight: 600; }
+    .coach-comment { margin-top: 8px; font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.6; }
 
-    .attempt-row { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 14px; }
-    .attempt-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.15); }
-    .attempt-dot.done { background: var(--orange); }
-
-    /* 컨트롤 */
-    .controls { display: flex; gap: 12px; justify-content: center; padding: 16px 20px 22px; flex-shrink: 0; }
+    /* 대화 하단 버튼 */
+    .conv-bottom { padding: 12px 20px 22px; flex-shrink: 0; }
+    .mic-row { display: flex; align-items: center; gap: 14px; }
     .mic-btn {
-      width: 64px; height: 64px; border-radius: 50%; border: none;
+      width: 60px; height: 60px; border-radius: 50%; border: none;
       background: var(--orange); cursor: pointer; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
-      transition: transform .15s, background .2s; font-size: 26px;
+      font-size: 24px; transition: transform .15s, background .2s;
     }
     .mic-btn:active { transform: scale(.93); }
     .mic-btn.listening { background: var(--red); animation: pulse 1.2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)} 50%{box-shadow:0 0 0 14px rgba(231,76,60,0)} }
-    .skip-btn {
-      padding: 0 24px; height: 48px; border-radius: var(--radius-sm);
-      border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.6); font-size: 14px; cursor: pointer; font-family: var(--font);
-    }
+    .mic-btn.disabled { background: rgba(255,255,255,.1); cursor: not-allowed; }
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)}50%{box-shadow:0 0 0 12px rgba(231,76,60,0)}}
+    .conv-action-row { display: flex; gap: 10px; margin-top: 12px; }
+    .conv-btn { flex: 1; padding: 12px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); color: rgba(255,255,255,.6); font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font); }
+    .conv-btn.primary { background: var(--orange); color: var(--navy); border-color: var(--orange); }
 
-    /* 세션 종료 */
-    #end-screen { justify-content: center; align-items: center; padding: 40px 24px; text-align: center; }
-    .end-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 40px 32px; width: 100%; max-width: 400px; }
-    .end-icon { font-size: 56px; margin-bottom: 16px; }
+    /* TTS 음성 선택 */
+    .voice-select-row { display: flex; gap: 8px; margin-bottom: 12px; align-items: center; }
+    .voice-select-label { font-size: 12px; color: rgba(255,255,255,.4); flex-shrink: 0; }
+    .voice-btn { padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,.18); background: none; color: rgba(255,255,255,.5); font-size: 12px; cursor: pointer; font-family: var(--font); transition: all .2s; }
+    .voice-btn.active { background: rgba(245,166,35,.15); border-color: var(--orange); color: var(--orange); }
+
+    /* ── 세션 종료 ── */
+    #end-screen { justify-content: center; align-items: center; padding: 40px 24px; }
+    .end-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 40px 32px; width: 100%; max-width: 400px; text-align: center; }
+    .end-icon { font-size: 52px; margin-bottom: 14px; }
     .end-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-    .end-sub { color: rgba(255,255,255,.5); font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
-    .end-stats { display: flex; gap: 16px; justify-content: center; margin-bottom: 28px; }
-    .end-stat { background: rgba(255,255,255,.05); border-radius: var(--radius-sm); padding: 14px 20px; }
-    .end-stat .val { font-size: 26px; font-weight: 800; color: var(--orange); }
-    .end-stat .lbl { font-size: 11px; color: rgba(255,255,255,.4); margin-top: 2px; }
+    .end-sub { color: rgba(255,255,255,.5); font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+    .restart-btn { width: 100%; background: var(--orange); border: none; border-radius: var(--radius-sm); color: var(--navy); font-size: 16px; font-weight: 700; padding: 15px; cursor: pointer; font-family: var(--font); }
 
-    /* 로딩 */
+    /* ── 로딩 ── */
     .loading-overlay { position: fixed; inset: 0; background: rgba(26,26,46,.95); z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
     .loading-spinner { width: 40px; height: 40px; border: 3px solid rgba(245,166,35,.2); border-top-color: var(--orange); border-radius: 50%; animation: spin .8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-text { color: rgba(255,255,255,.6); font-size: 14px; }
 
-    @media (min-width: 600px) { .korean-text { font-size: 24px; } .main-card { padding: 40px 36px; } }
+    @media (min-width: 600px) { .korean-text { font-size: 22px; } .ai-prompt-text { font-size: 18px; } }
   </style>
 </head>
 <body>
 
 <div class="loading-overlay" id="loading">
   <div class="loading-spinner"></div>
-  <div class="loading-text" id="loading-text">로그인 확인 중...</div>
+  <div class="loading-text" id="loading-text">로딩 중...</div>
 </div>
 
+<!-- 헤더 -->
 <div id="header" style="display:none">
-  <div class="logo">Bingle <span id="header-mode">영어 말하기</span></div>
-  <div class="count-badge" id="count-badge" style="display:none;">0/10</div>
+  <div class="logo" onclick="goHome()">Bingle</div>
+  <div class="header-nav">
+    <button class="nav-btn" id="nav-flash" onclick="switchMode('flashcard')">암기카드</button>
+    <button class="nav-btn" id="nav-chat" onclick="switchMode('chat')">대화하기</button>
+  </div>
+  <div class="count-badge" id="count-badge" style="display:none">0/10</div>
 </div>
 
 <!-- 로그인 -->
@@ -169,53 +200,81 @@
       autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
     <div class="login-error" id="login-error"></div>
     <button class="login-btn" onclick="doLogin()">시작하기</button>
-    <div class="login-hint">발급받은 토큰을 입력하면 연습이 시작됩니다.<br>하루 최대 30회까지 연습할 수 있어요.</div>
-  </div>
-</div>
-
-<!-- 모드 선택 -->
-<div class="screen" id="mode-screen">
-  <div class="card-area">
-    <div class="main-card" style="text-align:center;">
-      <div class="topic-tag" style="margin-bottom:24px;">모드를 선택하세요</div>
-      <div style="display:flex; flex-direction:column; gap:14px;">
-        <button class="login-btn" style="background:var(--orange);" onclick="selectMode('study')">📖 공부 (무제한, 텍스트 보기)</button>
-        <button class="login-btn" style="background:rgba(255,255,255,.1); color:var(--white);" onclick="selectMode('test')">🎤 테스트 (하루 10회, 말하기 평가)</button>
-      </div>
-    </div>
   </div>
 </div>
 
 <!-- 챕터 선택 -->
 <div class="screen" id="chapter-screen">
-  <div class="card-area" style="overflow-y:auto; align-items:stretch; padding:20px;">
-    <div class="unit-label" id="chapter-mode-label" style="text-align:center; margin-bottom:16px;">UNIT 선택</div>
-    <div id="chapter-list" style="display:flex; flex-direction:column; gap:10px; max-width:480px; margin:0 auto; width:100%;"></div>
+  <div style="padding:20px; overflow-y:auto; flex:1;">
+    <div class="chapter-title" id="chapter-title">챕터를 선택하세요</div>
+    <div id="chapter-list"></div>
   </div>
 </div>
 
 <!-- 암기카드 화면 -->
-<div class="screen" id="card-screen">
+<div class="screen" id="flashcard-screen">
   <div class="card-area">
-    <div class="unit-label" id="unit-label">UNIT 1</div>
-    <div class="main-card">
-      <div class="topic-tag" id="topic-tag">Loading...</div>
-      <div class="korean-text" id="korean-text">불러오는 중...</div>
-      <div class="answer-reveal" id="answer-reveal"></div>
-      <div class="wave-container" id="wave-container"></div>
-      <div class="status-text" id="status-text">버튼을 눌러 시작하세요</div>
-      <div class="live-transcript" id="live-transcript"></div>
-      <div class="attempt-row" id="attempt-row"></div>
+    <div class="unit-label" id="fc-unit-label">UNIT 1</div>
+    <div class="flash-card">
+      <div class="topic-tag" id="fc-topic-tag"></div>
+      <div class="korean-text" id="fc-korean"></div>
+      <div class="hint-box" id="fc-hint"></div>
+      <div class="english-reveal" id="fc-english"></div>
+      <div class="card-progress" id="fc-progress"></div>
     </div>
   </div>
-  <div class="controls" id="test-controls">
-    <button class="mic-btn" id="mic-btn" onclick="toggleMic()">🎤</button>
-    <button class="skip-btn" onclick="nextCard()">건너뛰기</button>
+  <div class="flash-controls">
+    <button class="fc-btn" onclick="fcPrev()">← 이전</button>
+    <button class="fc-btn fc-reveal" onclick="fcReveal()">정답 보기</button>
+    <button class="fc-btn" onclick="fcNext()">다음 →</button>
   </div>
-  <div class="controls" id="study-controls" style="display:none;">
-    <button class="skip-btn" onclick="prevCard()">← 이전</button>
-    <button class="mic-btn" style="font-size:16px;" onclick="revealStudyAnswer()">정답 보기</button>
-    <button class="skip-btn" onclick="nextCard()">다음 →</button>
+  <div class="memory-btns" id="memory-btns" style="display:none">
+    <button class="mem-btn mem-done" onclick="fcMemory('done')">✅ 암기 완료</button>
+    <button class="mem-btn mem-half" onclick="fcMemory('half')">🔁 절반 암기</button>
+    <button class="mem-btn mem-fail" onclick="fcMemory('fail')">❌ 암기 못함</button>
+  </div>
+</div>
+
+<!-- 대화하기 화면 -->
+<div class="screen" id="chat-screen">
+  <div class="conv-card">
+    <div class="conv-inner">
+      <div class="voice-select-row">
+        <span class="voice-select-label">AI 목소리:</span>
+        <button class="voice-btn active" id="vbtn-female" onclick="setVoice('female')">👩 여성</button>
+        <button class="voice-btn" id="vbtn-male" onclick="setVoice('male')">👨 남성</button>
+      </div>
+      <div class="conv-topic-tag" id="conv-topic-tag"></div>
+      <div class="ai-prompt-label">AI 질문</div>
+      <div class="ai-prompt-text" id="conv-prompt">AI가 질문을 만들고 있어요...</div>
+      <div class="timer-row">
+        <div class="timer-circle" id="conv-timer">30</div>
+        <div class="wave-container" id="conv-wave"></div>
+      </div>
+      <div class="status-text" id="conv-status">AI 질문을 듣고 있어요</div>
+      <div class="live-transcript" id="conv-transcript"></div>
+      <div class="result-box" id="conv-result">
+        <div class="score-row">
+          <div class="score-num" id="conv-score">-</div>
+          <div class="score-label" id="conv-score-reason"></div>
+        </div>
+        <div class="model-expr" id="conv-model-expr"></div>
+        <div class="coach-comment" id="conv-coach"></div>
+      </div>
+    </div>
+  </div>
+  <div class="conv-bottom">
+    <div class="mic-row">
+      <button class="mic-btn disabled" id="mic-btn" onclick="toggleMic()">🎤</button>
+      <div style="flex:1">
+        <div class="status-text" id="mic-status">AI 질문을 먼저 들어보세요</div>
+      </div>
+    </div>
+    <div class="conv-action-row">
+      <button class="conv-btn" onclick="replayPrompt()">🔊 다시 듣기</button>
+      <button class="conv-btn" id="conv-next-btn" onclick="convNext()" style="display:none">다음 카드 →</button>
+      <button class="conv-btn" onclick="convSkip()">건너뛰기</button>
+    </div>
   </div>
 </div>
 
@@ -223,63 +282,68 @@
 <div class="screen" id="end-screen">
   <div class="end-card">
     <div class="end-icon">🎉</div>
-    <div class="end-title" id="end-title">오늘 연습 완료!</div>
-    <div class="end-sub" id="end-sub">수고하셨어요. 내일 다시 도전해보세요!</div>
-    <div class="end-stats">
-      <div class="end-stat"><div class="val" id="stat-pass">0</div><div class="lbl">통과</div></div>
-      <div class="end-stat"><div class="val" id="stat-total">0</div><div class="lbl">총 시도</div></div>
-    </div>
+    <div class="end-title">수고하셨어요!</div>
+    <div class="end-sub" id="end-sub">오늘도 한 걸음 성장했습니다.</div>
+    <button class="restart-btn" onclick="goHome()">처음으로 돌아가기</button>
   </div>
 </div>
 
 <script>
 const API_BASE = '';
-const MAX_REPEAT = 4; // 한 카드당 최대 반복 시도 (실패해도 이 횟수 넘으면 다음 카드로)
+const DAILY_LIMIT = 10;
+const CONV_WAIT_SEC = 30;   // 학생 응답 대기 시간
+const MAX_REPEAT = 4;
 
+// ── 상태 ──────────────────────────────────────────────────────────
 let state = {
   token: null,
   allSentences: [],
-  mode: null,            // 'study' | 'test'
-  selectedUnit: null,    // 선택한 유닛 번호 (null이면 전체)
+  mode: null,             // 'flashcard' | 'chat'
+  selectedUnit: null,
   deck: [],
   deckIndex: 0,
   currentCard: null,
-  attemptOnCard: 0,
   usedToday: 0,
-  limitToday: 10,
-  passCount: 0,
   recognition: null,
-  isListening: false,
+  synthesis: window.speechSynthesis,
+  preferredVoice: 'female',
+  convTimerInterval: null,
+  convTimerSec: CONV_WAIT_SEC,
+  currentPrompt: '',
+  attemptOnCard: 0,
 };
 
-// ── 텍스트 유사도 비교 (서버와 동일 로직을 프론트에도 둬서 즉시 반응) ──
-function normalize(text) {
-  return text.toLowerCase().trim().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ');
-}
-function similarity(a, b) {
-  a = normalize(a); b = normalize(b);
-  if (a === b) return 1;
-  const aWords = a.split(' '), bWords = b.split(' ');
-  const setA = new Set(aWords), setB = new Set(bWords);
-  let common = 0;
-  setA.forEach(w => { if (setB.has(w)) common++; });
-  return (2 * common) / (setA.size + setB.size || 1);
-}
+// 암기카드 localStorage 상태 {id: 'done'|'half'|'fail'}
+let memoryState = {};
 
-// ── 초기화 ──
+// ── 초기화 ─────────────────────────────────────────────────────────
 async function init() {
-  const wc = document.getElementById('wave-container');
-  for (let i = 0; i < 18; i++) {
-    const b = document.createElement('div');
-    b.className = 'wave-bar';
-    b.style.setProperty('--dur', (.45 + Math.random() * .5) + 's');
-    b.style.setProperty('--mh', (10 + Math.random() * 24) + 'px');
-    wc.appendChild(b);
-  }
+  // 파형 생성 (두 컨테이너)
+  ['conv-wave'].forEach(id => {
+    const c = document.getElementById(id);
+    if (!c) return;
+    for (let i = 0; i < 16; i++) {
+      const b = document.createElement('div');
+      b.className = 'wave-bar';
+      b.style.setProperty('--dur', (.4 + Math.random() * .5) + 's');
+      b.style.setProperty('--mh', (8 + Math.random() * 16) + 'px');
+      c.appendChild(b);
+    }
+  });
 
-  const res = await fetch('/data/sentences.json');
-  state.allSentences = await res.json();
+  // 문장 로드
+  try {
+    const res = await fetch('/data/sentences.json');
+    state.allSentences = await res.json();
+  } catch { state.allSentences = []; }
 
+  // localStorage 암기 상태 로드
+  try {
+    const saved = localStorage.getItem('bingle_memory');
+    if (saved) memoryState = JSON.parse(saved);
+  } catch {}
+
+  // URL 토큰 또는 저장된 토큰으로 자동 로그인
   const urlToken = new URLSearchParams(window.location.search).get('token');
   const savedToken = localStorage.getItem('bingle_token');
   const token = urlToken || savedToken;
@@ -291,11 +355,12 @@ async function init() {
   }
 }
 
+// ── 로그인 ─────────────────────────────────────────────────────────
 async function doLogin() {
   const token = document.getElementById('token-input').value.trim();
   if (!token) return;
   showLoading('인증 중...');
-  hideError();
+  document.getElementById('login-error').style.display = 'none';
   try {
     const res = await fetch(`${API_BASE}/api/auth`, {
       method: 'POST',
@@ -303,191 +368,343 @@ async function doLogin() {
       body: JSON.stringify({ token })
     });
     const data = await res.json();
-    if (!res.ok) { showError(data.detail || '인증 실패'); hideLoading(); return; }
-
+    if (!res.ok) {
+      document.getElementById('login-error').textContent = data.detail || '인증 실패';
+      document.getElementById('login-error').style.display = 'block';
+      hideLoading();
+      return;
+    }
     state.token = token;
     state.usedToday = data.usage.used;
-    state.limitToday = data.usage.limit;
     localStorage.setItem('bingle_token', token);
-
-  showScreen('mode-screen');
+    document.getElementById('header').style.display = 'flex';
+    goHome();
     hideLoading();
   } catch {
-    showError('서버 연결 실패. 잠시 후 다시 시도해주세요.');
+    document.getElementById('login-error').textContent = '서버 연결 실패. 잠시 후 다시 시도해주세요.';
+    document.getElementById('login-error').style.display = 'block';
     hideLoading();
   }
 }
 
-function buildDeck() {
-  // 선택한 유닛만 필터링 (selectedUnit이 null이면 전체)
-  let source = state.allSentences;
-  if (state.selectedUnit !== null) {
-    source = source.filter(c => c.unit === state.selectedUnit);
-  }
-  if (state.mode === 'study') {
-    // 공부 모드는 순서대로 (유닛 내 원래 순서 유지)
-    state.deck = [...source];
-  } else {
-    // 테스트 모드는 랜덤 셔플
-    state.deck = [...source].sort(() => Math.random() - 0.5);
-  }
-  state.deckIndex = 0;
+// ── 홈 / 모드 전환 ─────────────────────────────────────────────────
+function goHome() {
+  stopAllAudio();
+  showScreen('chapter-screen');
+  state.mode = null;
+  document.getElementById('nav-flash').classList.remove('active');
+  document.getElementById('nav-chat').classList.remove('active');
+  document.getElementById('count-badge').style.display = 'none';
+  renderChapterList();
 }
 
-// ── 모드 선택 ──
-function selectMode(mode) {
+function switchMode(mode) {
   state.mode = mode;
-  state.limitToday = 10; // 테스트 모드 기준 (공부 모드는 체크 안 함)
-  showChapterScreen();
+  document.getElementById('nav-flash').classList.toggle('active', mode === 'flashcard');
+  document.getElementById('nav-chat').classList.toggle('active', mode === 'chat');
+  document.getElementById('count-badge').style.display = mode === 'chat' ? 'inline-block' : 'none';
+  updateCountBadge();
+  renderChapterList();
 }
 
-function showChapterScreen() {
-  const label = document.getElementById('chapter-mode-label');
-  label.textContent = state.mode === 'study' ? '📖 공부할 챕터를 선택하세요' : '🎤 테스트할 챕터를 선택하세요';
+function renderChapterList() {
+  const title = document.getElementById('chapter-title');
+  const list = document.getElementById('chapter-list');
+  const mode = state.mode;
 
-  // 유닛 목록 구성
+  if (!mode) {
+    title.textContent = '무엇을 연습할까요?';
+    list.innerHTML = `
+      <div class="chapter-card" onclick="switchMode('flashcard')">
+        <div class="c-title">📖 암기카드</div>
+        <div class="c-count">한국어 뜻을 보고 영어 표현을 기억해보세요 · 무제한</div>
+      </div>
+      <div class="chapter-card" onclick="switchMode('chat')">
+        <div class="c-title">🎤 대화하기</div>
+        <div class="c-count">AI와 영어로 대화하며 표현을 연습하세요 · 하루 ${DAILY_LIMIT}회</div>
+      </div>`;
+    return;
+  }
+
+  // 유닛 목록
   const units = {};
   state.allSentences.forEach(c => {
     if (!units[c.unit]) units[c.unit] = { topic: c.topic, count: 0 };
     units[c.unit].count++;
   });
 
-  const list = document.getElementById('chapter-list');
-  list.innerHTML = '';
+  const modeLabel = mode === 'flashcard' ? '📖 암기카드' : '🎤 대화하기';
+  title.textContent = `${modeLabel} — 챕터 선택`;
 
-  // 전체 보기 옵션
-  const allBtn = document.createElement('button');
-  allBtn.className = 'topic-card';
-  allBtn.style.textAlign = 'left';
-  allBtn.innerHTML = `<div class="name">전체 (${state.allSentences.length}개)</div>`;
-  allBtn.onclick = () => chooseUnit(null);
-  list.appendChild(allBtn);
+  let html = `<div class="chapter-card" onclick="startSession(null)">
+    <div class="c-title">전체 (${state.allSentences.length}개)</div>
+    <div class="c-count">모든 챕터를 랜덤으로</div>
+  </div>`;
 
   Object.keys(units).sort((a, b) => a - b).forEach(u => {
-    const btn = document.createElement('button');
-    btn.className = 'topic-card';
-    btn.style.textAlign = 'left';
-    btn.innerHTML = `<div class="name">Unit ${u}: ${units[u].topic} (${units[u].count}개)</div>`;
-    btn.onclick = () => chooseUnit(Number(u));
-    list.appendChild(btn);
+    html += `<div class="chapter-card" onclick="startSession(${u})">
+      <div class="c-title">Unit ${u}: ${units[u].topic}</div>
+      <div class="c-count">${units[u].count}개</div>
+    </div>`;
   });
 
-  showScreen('chapter-screen');
+  list.innerHTML = html;
 }
 
-function chooseUnit(unitNum) {
+// ── 세션 시작 ──────────────────────────────────────────────────────
+function startSession(unitNum) {
   state.selectedUnit = unitNum;
   buildDeck();
-  startSession();
+  state.deckIndex = 0;
+
+  if (state.mode === 'flashcard') {
+    showScreen('flashcard-screen');
+    fcLoad();
+  } else {
+    showScreen('chat-screen');
+    convLoad();
+  }
 }
 
-function startSession() {
-  document.getElementById('header').style.display = 'flex';
-  document.getElementById('header-mode').textContent = state.mode === 'study' ? '공부 모드' : '테스트 모드';
-
-  const badge = document.getElementById('count-badge');
-  const testControls = document.getElementById('test-controls');
-  const studyControls = document.getElementById('study-controls');
-
-  if (state.mode === 'study') {
-    badge.style.display = 'none';
-    testControls.style.display = 'none';
-    studyControls.style.display = 'flex';
-  } else {
-    badge.style.display = 'inline-block';
-    testControls.style.display = 'flex';
-    studyControls.style.display = 'none';
-    updateCountBadge();
+function buildDeck() {
+  let source = state.allSentences;
+  if (state.selectedUnit !== null) {
+    source = source.filter(c => c.unit === state.selectedUnit);
   }
 
-  showScreen('card-screen');
-  hideLoading();
-  loadCard();
+  if (state.mode === 'flashcard') {
+    // 암기 상태 기반 가중치 셔플
+    // done → 제외, half → 1회, fail → 3회 복제
+    let weighted = [];
+    source.forEach(c => {
+      const m = memoryState[c.id];
+      if (m === 'done') return;
+      const times = m === 'fail' ? 3 : m === 'half' ? 1 : 2;
+      for (let i = 0; i < times; i++) weighted.push(c);
+    });
+    if (weighted.length === 0) weighted = [...source]; // 모두 done이면 전체 다시
+    state.deck = weighted.sort(() => Math.random() - 0.5);
+  } else {
+    state.deck = [...source].sort(() => Math.random() - 0.5);
+  }
 }
 
-function loadCard() {
-  // 테스트 모드만 하루 횟수 체크
-  if (state.mode === 'test' && state.usedToday >= state.limitToday) {
-    endSession();
+// ── 암기카드 모드 ──────────────────────────────────────────────────
+function fcLoad() {
+  if (state.deckIndex >= state.deck.length) {
+    showScreen('end-screen');
+    document.getElementById('end-sub').textContent = '이 챕터 카드를 모두 봤어요! 대단해요 🌟';
     return;
   }
+  state.currentCard = state.deck[state.deckIndex];
+  const c = state.currentCard;
 
+  document.getElementById('fc-unit-label').textContent = `UNIT ${c.unit} — ${c.topic.toUpperCase()}`;
+  document.getElementById('fc-topic-tag').textContent = c.topic;
+  document.getElementById('fc-korean').textContent = c.korean;
+  document.getElementById('fc-progress').textContent = `${state.deckIndex + 1} / ${state.deck.length}`;
+
+  // 힌트 표시
+  const hintEl = document.getElementById('fc-hint');
+  if (c.keyword_note && c.keyword_note.trim()) {
+    hintEl.textContent = '💡 ' + c.keyword_note;
+    hintEl.classList.add('visible');
+  } else {
+    hintEl.classList.remove('visible');
+  }
+
+  // 영어 감추기
+  const engEl = document.getElementById('fc-english');
+  engEl.classList.remove('visible');
+  engEl.textContent = '';
+
+  // 암기 버튼 감추기 (정답 보기 후 나타남)
+  document.getElementById('memory-btns').style.display = 'none';
+}
+
+function fcReveal() {
+  const c = state.currentCard;
+  const engEl = document.getElementById('fc-english');
+  engEl.textContent = c.sentence;
+  engEl.classList.add('visible');
+  document.getElementById('memory-btns').style.display = 'flex';
+}
+
+function fcMemory(level) {
+  const id = state.currentCard.id;
+  memoryState[id] = level;
+  saveMemory();
+  state.deckIndex++;
+  fcLoad();
+}
+
+function fcNext() {
+  state.deckIndex++;
+  fcLoad();
+}
+
+function fcPrev() {
+  if (state.deckIndex > 0) {
+    state.deckIndex--;
+    fcLoad();
+  }
+}
+
+function saveMemory() {
+  try { localStorage.setItem('bingle_memory', JSON.stringify(memoryState)); } catch {}
+}
+
+// ── 대화하기 모드 ──────────────────────────────────────────────────
+async function convLoad() {
+  if (state.usedToday >= DAILY_LIMIT) {
+    showScreen('end-screen');
+    document.getElementById('end-sub').textContent = `오늘 대화하기 횟수(${DAILY_LIMIT}회)를 모두 사용했습니다. 내일 다시 도전하세요! 🌟`;
+    return;
+  }
   if (state.deckIndex >= state.deck.length) {
-    if (state.mode === 'study') {
-      // 공부 모드: 챕터를 다 보면 종료 화면으로
-      endSession();
-      return;
-    }
-    // 테스트 모드: 같은 챕터(또는 전체) 내에서 다시 셔플
-    let source = state.allSentences;
-    if (state.selectedUnit !== null) {
-      source = source.filter(c => c.unit === state.selectedUnit);
-    }
-    state.deck = [...source].sort(() => Math.random() - 0.5);
+    state.deck = [...state.deck].sort(() => Math.random() - 0.5);
     state.deckIndex = 0;
   }
 
   state.currentCard = state.deck[state.deckIndex];
   state.attemptOnCard = 0;
-
   const c = state.currentCard;
-  document.getElementById('unit-label').textContent = `UNIT ${c.unit} — ${c.topic.toUpperCase()}`;
-  document.getElementById('topic-tag').textContent = c.topic;
-  document.getElementById('korean-text').textContent = c.korean;
-  document.getElementById('answer-reveal').classList.remove('visible');
-  document.getElementById('answer-reveal').textContent = '';
-  document.getElementById('live-transcript').textContent = '';
-  renderAttemptDots();
 
-  if (state.mode === 'study') {
-    setStatus(`${state.deckIndex + 1} / ${state.deck.length}`, '');
+  document.getElementById('conv-topic-tag').textContent = c.topic;
+  document.getElementById('conv-prompt').textContent = 'AI가 질문을 만들고 있어요...';
+  document.getElementById('conv-result').classList.remove('visible');
+  document.getElementById('conv-next-btn').style.display = 'none';
+  document.getElementById('conv-transcript').textContent = '';
+  setConvStatus('AI가 질문을 생성 중이에요...', '');
+  disableMic();
+  stopTimer();
+
+  showLoading('AI 질문 생성 중...');
+  try {
+    const res = await fetch(`${API_BASE}/api/conversation/prompt`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: state.token, target_sentence: c.sentence, topic: c.topic })
+    });
+    const data = await res.json();
+    hideLoading();
+    state.currentPrompt = data.prompt;
+    document.getElementById('conv-prompt').textContent = data.prompt;
+    speakAI(data.prompt, () => {
+      startTimer();
+      enableMic();
+      setConvStatus('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+    });
+  } catch {
+    hideLoading();
+    document.getElementById('conv-prompt').textContent = '(질문 생성 실패 — 다시 시도해주세요)';
+    setConvStatus('질문 생성에 실패했습니다.', '');
+  }
+}
+
+// ── 타이머 ──────────────────────────────────────────────────────────
+function startTimer() {
+  stopTimer();
+  state.convTimerSec = CONV_WAIT_SEC;
+  updateTimerUI();
+  state.convTimerInterval = setInterval(() => {
+    state.convTimerSec--;
+    updateTimerUI();
+    if (state.convTimerSec <= 0) {
+      stopTimer();
+      if (state.recognition) state.recognition.stop();
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (state.convTimerInterval) { clearInterval(state.convTimerInterval); state.convTimerInterval = null; }
+}
+
+function updateTimerUI() {
+  const el = document.getElementById('conv-timer');
+  el.textContent = state.convTimerSec;
+  el.className = 'timer-circle' + (state.convTimerSec <= 10 ? ' urgent' : '');
+}
+
+// ── TTS 음성 선택 ────────────────────────────────────────────────────
+function setVoice(gender) {
+  state.preferredVoice = gender;
+  document.getElementById('vbtn-female').classList.toggle('active', gender === 'female');
+  document.getElementById('vbtn-male').classList.toggle('active', gender === 'male');
+}
+
+function getVoice() {
+  const voices = state.synthesis.getVoices();
+  const engVoices = voices.filter(v => v.lang.startsWith('en'));
+  if (state.preferredVoice === 'female') {
+    return engVoices.find(v => /female|samantha|karen|victoria|moira|zira|susan|google uk english female/i.test(v.name))
+      || engVoices.find(v => v.name.includes('Google'))
+      || engVoices[0] || null;
   } else {
-    setStatus('🎤 버튼을 눌러 영어로 말해보세요', '');
+    return engVoices.find(v => /male|daniel|alex|rishi|fred|google uk english male/i.test(v.name))
+      || engVoices.find(v => !(/female|samantha|karen/i.test(v.name)))
+      || engVoices[0] || null;
   }
 }
 
-// ── 공부 모드 전용 ──
-function revealStudyAnswer() {
-  const reveal = document.getElementById('answer-reveal');
-  const note = state.currentCard.keyword_note ? `\n\n${state.currentCard.keyword_note}` : '';
-  reveal.textContent = '💡 ' + state.currentCard.sentence + note;
-  reveal.classList.add('visible');
+function speakAI(text, onEnd) {
+  if (state.synthesis.speaking) state.synthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US'; utt.rate = 0.88; utt.pitch = state.preferredVoice === 'female' ? 1.1 : 0.9;
+  const v = getVoice();
+  if (v) utt.voice = v;
+  utt.onend = () => { if (onEnd) onEnd(); };
+  utt.onerror = () => { if (onEnd) onEnd(); };
+  state.synthesis.speak(utt);
 }
 
-function prevCard() {
-  if (state.deckIndex > 0) {
-    state.deckIndex--;
-    loadCard();
-  }
+function stopAllAudio() {
+  if (state.synthesis.speaking) state.synthesis.cancel();
+  if (state.recognition) state.recognition.abort();
+  stopTimer();
 }
 
-function renderAttemptDots() {
-  const row = document.getElementById('attempt-row');
-  row.innerHTML = '';
-  for (let i = 0; i < MAX_REPEAT; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'attempt-dot' + (i < state.attemptOnCard ? ' done' : '');
-    row.appendChild(dot);
-  }
+function replayPrompt() {
+  if (!state.currentPrompt) return;
+  stopTimer();
+  disableMic();
+  speakAI(state.currentPrompt, () => {
+    startTimer();
+    enableMic();
+    setConvStatus('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+  });
 }
 
-// ── 마이크 ──
+// ── STT ─────────────────────────────────────────────────────────────
+function enableMic() {
+  const btn = document.getElementById('mic-btn');
+  btn.classList.remove('disabled', 'listening');
+  btn.textContent = '🎤';
+  document.getElementById('mic-status').textContent = '마이크 버튼을 눌러 말하세요';
+}
+
+function disableMic() {
+  const btn = document.getElementById('mic-btn');
+  btn.classList.add('disabled');
+  btn.classList.remove('listening');
+  btn.textContent = '🎤';
+  stopWave();
+}
+
 function toggleMic() {
-  if (state.isListening) {
-    if (state.recognition) state.recognition.stop();
-  } else {
-    startListening();
-  }
+  const btn = document.getElementById('mic-btn');
+  if (btn.classList.contains('disabled')) return;
+  if (state.isListening) { if (state.recognition) state.recognition.stop(); }
+  else startListening();
 }
 
 function startListening() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { setStatus('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
-
+  if (!SR) { setConvStatus('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
   const btn = document.getElementById('mic-btn');
-  btn.classList.add('listening');
-  setStatus('듣는 중...', 'listening');
-  document.getElementById('answer-reveal').classList.remove('visible');
+  btn.classList.add('listening'); btn.textContent = '⏹';
+  setConvStatus('듣는 중... 말을 마치면 자동으로 멈춥니다', 'listening');
   startWave();
 
   const rec = new SR();
@@ -496,96 +713,83 @@ function startListening() {
 
   rec.onstart = () => { state.isListening = true; };
   rec.onresult = (e) => {
-    let interim = '';
-    finalText = '';
+    let interim = ''; finalText = '';
     for (let i = e.resultIndex; i < e.results.length; i++) {
       if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
       else interim = e.results[i][0].transcript;
     }
-    document.getElementById('live-transcript').textContent = (finalText + interim).trim();
+    document.getElementById('conv-transcript').textContent = (finalText + interim).trim();
     if (silenceTimer) clearTimeout(silenceTimer);
     silenceTimer = setTimeout(() => { if (finalText.trim()) rec.stop(); }, 1500);
   };
   rec.onend = () => {
-    state.isListening = false;
-    stopWave();
-    btn.classList.remove('listening');
+    state.isListening = false; stopWave();
+    btn.classList.remove('listening'); btn.textContent = '🎤';
     if (silenceTimer) clearTimeout(silenceTimer);
+    stopTimer();
     const answer = finalText.trim();
-    if (answer) {
-      submitAnswer(answer);
-    } else {
-      setStatus('🎤 버튼을 눌러 영어로 말해보세요', '');
-      document.getElementById('live-transcript').textContent = '(아무 말도 감지되지 않았어요)';
+    if (answer) evaluateAnswer(answer);
+    else {
+      setConvStatus('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+      enableMic();
+      startTimer();
     }
   };
   rec.onerror = (e) => {
     stopWave();
-    if (e.error === 'not-allowed') setStatus('❌ 마이크 접근을 허용해주세요.', '');
-    else setStatus('🎤 버튼을 눌러 영어로 말해보세요', '');
+    if (e.error === 'not-allowed') setConvStatus('❌ 마이크 접근을 허용해주세요.', '');
+    else { enableMic(); startTimer(); }
   };
-
   state.recognition = rec;
   rec.start();
 }
 
-// ── 답변 제출 + 판정 ──
-async function submitAnswer(userAnswer) {
-  setStatus('분석 중...', '');
-  state.attemptOnCard++;
+// ── 평가 ────────────────────────────────────────────────────────────
+async function evaluateAnswer(userAnswer) {
+  disableMic();
+  setConvStatus('분석 중...', '');
+  showLoading('답변 분석 중...');
 
   try {
-    const res = await fetch(`${API_BASE}/api/practice/check`, {
+    const res = await fetch(`${API_BASE}/api/conversation/evaluate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         token: state.token,
-        card_id: state.currentCard.id,
-        user_answer: userAnswer,
-        target_sentence: state.currentCard.sentence
+        target_sentence: state.currentCard.sentence,
+        topic: state.currentCard.topic,
+        user_answer: userAnswer
       })
     });
     const data = await res.json();
+    hideLoading();
 
-    if (!res.ok) {
-      if (res.status === 429) { endSession(); return; }
-      setStatus('오류가 발생했어요. 다시 시도해주세요.', '');
-      return;
-    }
+    // 점수 표시
+    document.getElementById('conv-score').textContent = data.score;
+    document.getElementById('conv-score-reason').textContent = data.score_reason || '';
+    document.getElementById('conv-model-expr').textContent = '💡 ' + data.model_answer;
+    document.getElementById('conv-coach').textContent = data.coach_comment || '';
+    document.getElementById('conv-result').classList.add('visible');
+    document.getElementById('conv-next-btn').style.display = 'block';
 
-    state.usedToday = data.used_today;
-    updateCountBadge();
-    renderAttemptDots();
+    // 점수에 따른 메시지
+    const score = data.score || 5;
+    if (score >= 8) setConvStatus('🌟 훌륭해요!', 'listening');
+    else if (score >= 6) setConvStatus('👍 잘했어요!', '');
+    else setConvStatus('💪 조금 더 연습해봐요', '');
 
-    if (data.passed) {
-      state.passCount++;
-      setStatus('✅ 정확해요! 잘했어요', 'pass');
-      await markCardComplete(true);
-      setTimeout(() => {
-        if (state.usedToday >= state.limitToday) { endSession(); return; }
-        state.deckIndex++;
-        loadCard();
-      }, 1200);
-    } else {
-      const reveal = document.getElementById('answer-reveal');
-      const note = state.currentCard.keyword_note ? `\n\n${state.currentCard.keyword_note}` : '';
-      reveal.textContent = '💡 ' + state.currentCard.sentence + note;
-      reveal.classList.add('visible');
+    // 정답 문장 TTS로 읽어주기
+    setTimeout(() => {
+      speakAI(`This is a great way to say it: "${data.model_answer}". Now you try!`, null);
+    }, 800);
 
-      if (state.attemptOnCard >= MAX_REPEAT) {
-        setStatus('이렇게 말하면 더 좋아요. 다음 카드로 넘어갈게요.', 'fail');
-        await markCardComplete(false);
-        setTimeout(() => {
-          if (state.usedToday >= state.limitToday) { endSession(); return; }
-          state.deckIndex++;
-          loadCard();
-        }, 2200);
-      } else {
-        setStatus('다시 한번 말해볼까요?', 'fail');
-      }
-    }
+    // 카드 완료 기록 (하루 10회 차감)
+    await markCardComplete(score >= 6);
+
   } catch {
-    setStatus('네트워크 오류. 다시 시도해주세요.', '');
+    hideLoading();
+    setConvStatus('평가 중 오류가 발생했습니다.', '');
+    enableMic(); startTimer();
   }
 }
 
@@ -594,58 +798,45 @@ async function markCardComplete(passed) {
     const res = await fetch(`${API_BASE}/api/practice/complete`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        token: state.token,
-        card_id: state.currentCard.id,
-        passed
-      })
+      body: JSON.stringify({ token: state.token, card_id: state.currentCard.id, passed })
     });
-    const data = await res.json();
     if (res.ok) {
+      const data = await res.json();
       state.usedToday = data.used_today;
       updateCountBadge();
     }
-  } catch {
-    // 네트워크 오류 시 조용히 무시 (다음 카드로는 계속 진행)
-  }
+  } catch {}
 }
 
-function nextCard() {
-  if (state.recognition) state.recognition.abort();
+function convNext() {
+  stopAllAudio();
   state.deckIndex++;
-  loadCard();
+  document.getElementById('conv-result').classList.remove('visible');
+  document.getElementById('conv-next-btn').style.display = 'none';
+  convLoad();
 }
 
-// ── UI 헬퍼 ──
-function setStatus(text, cls) {
-  const el = document.getElementById('status-text');
-  el.textContent = text;
-  el.className = 'status-text' + (cls ? ' ' + cls : '');
+function convSkip() {
+  stopAllAudio();
+  state.deckIndex++;
+  document.getElementById('conv-result').classList.remove('visible');
+  document.getElementById('conv-next-btn').style.display = 'none';
+  convLoad();
+}
+
+// ── UI 헬퍼 ─────────────────────────────────────────────────────────
+function setConvStatus(text, cls) {
+  const el = document.getElementById('conv-status');
+  if (el) { el.textContent = text; el.className = 'status-text' + (cls ? ' ' + cls : ''); }
+  const el2 = document.getElementById('mic-status');
+  if (el2) el2.textContent = text;
 }
 function startWave() { document.querySelectorAll('.wave-bar').forEach(b => b.classList.add('active')); }
 function stopWave() { document.querySelectorAll('.wave-bar').forEach(b => b.classList.remove('active')); }
 function showScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
 function showLoading(t) { document.getElementById('loading-text').textContent = t || '...'; document.getElementById('loading').style.display = 'flex'; }
 function hideLoading() { document.getElementById('loading').style.display = 'none'; }
-function showError(m) { const el = document.getElementById('login-error'); el.textContent = m; el.style.display = 'block'; }
-function hideError() { document.getElementById('login-error').style.display = 'none'; }
-function updateCountBadge() {
-  const badge = document.getElementById('count-badge');
-  badge.textContent = `${state.usedToday}/${state.limitToday}`;
-  if (state.usedToday >= state.limitToday - 5) badge.classList.add('urgent');
-}
-
-function endSession() {
-  if (state.recognition) state.recognition.abort();
-  document.getElementById('header').style.display = 'none';
-  document.getElementById('stat-pass').textContent = state.passCount;
-  document.getElementById('stat-total').textContent = state.usedToday;
-  document.getElementById('end-sub').textContent =
-    state.usedToday >= state.limitToday
-      ? '오늘의 연습 횟수(30회)를 모두 사용했어요. 내일 다시 만나요! 🌟'
-      : '수고하셨어요. 오늘도 한 걸음 성장했습니다!';
-  showScreen('end-screen');
-}
+function updateCountBadge() { document.getElementById('count-badge').textContent = `${state.usedToday}/${DAILY_LIMIT}`; }
 
 document.getElementById('token-input').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 init();
