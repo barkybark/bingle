@@ -163,29 +163,31 @@ async def evaluate_answer(body: EvaluateRequest):
         max_tokens=400,
         messages=[{
             "role": "user",
-            "content": f"""You are an English speaking coach evaluating a Korean learner's spoken response.
+            "content": f"""You are a friendly English speaking coach for Korean learners.
 
-Topic: {body.topic}
+The student just studied this flashcard:
 Target expression: "{body.target_sentence}"
-Student's answer (transcribed from speech): "{body.user_answer}"
+Topic: {body.topic}
+
+The student's spoken answer (transcribed): "{body.user_answer}"
 
 Evaluate and respond with ONLY valid JSON in this exact format:
 {{
+  "level": <integer 1-4>,
   "score": <integer 1-10>,
-  "score_reason": "<one sentence in Korean explaining the score>",
+  "score_reason": "<one sentence in Korean>",
   "model_answer": "{body.target_sentence}",
-  "coach_comment": "<1-2 sentences in Korean: encouragement + one specific tip>"
+  "coach_comment": "<1-2 sentences in Korean>",
+  "retry_flashcard": <true|false>
 }}
 
-Scoring guide (be strict but fair):
-- 9-10: Naturally expressed the idea, good grammar, confident delivery implied
-- 7-8: Communicated the meaning clearly, minor grammar issues
-- 5-6: Partial meaning conveyed, noticeable grammar/vocabulary issues
-- 3-4: Attempted but significant errors or incomplete
-- 1-2: Off-topic or incomprehensible
+Level guide (pick exactly one):
+- Level 4 (score 9-10): Student said it almost exactly as memorized. → coach_comment: 외운 대로 완벽하게 말했어요! 정말 잘했어요 🌟, retry_flashcard: false
+- Level 3 (score 7-8): Student didn't say it exactly, but creatively used the idea correctly. → coach_comment: 외운 표현을 응용해서 자연스럽게 말했어요! 훌륭해요 👍, retry_flashcard: false
+- Level 2 (score 5-6): Answer makes sense in context, but missed the target expression. → coach_comment: 의미는 통했어요! 조금만 더 연습하면 완벽해질 거예요 💪, retry_flashcard: false
+- Level 1 (score 1-4): Answer is off-topic, incomprehensible, or too incomplete. → coach_comment: 암기카드로 돌아가서 표현을 다시 익혀봐요! 할 수 있어요 🔄, retry_flashcard: true
 
-If the student answer seems hesitant or very short (under 5 words), lower the score by 1-2 points for fluency.
-Grammar mistakes lower score by 1-2 points each."""
+Be generous for Level 2 and 3 — reward communication even if imperfect."""
         }]
     )
 
