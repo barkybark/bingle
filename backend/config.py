@@ -6,6 +6,9 @@ class Settings(BaseSettings):
     anthropic_api_key: str
     allowed_origin: str = "*"
 
+    # OpenAI
+    openai_api_key: str
+
     # Supabase
     supabase_url: str
     supabase_service_role_key: str

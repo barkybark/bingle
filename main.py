@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from backend.config import settings
-from backend.routers import auth, practice
+from backend.routers import auth, practice, tts
 
 app = FastAPI(title="Bingle API", version="3.0.0")
 
@@ -18,6 +18,8 @@ app.add_middleware(
 
 app.include_router(auth.router, prefix="/api")
 app.include_router(practice.router, prefix="/api")
+app.include_router(tts.router, prefix="/api")
+
 
 
 @app.get("/api/health")

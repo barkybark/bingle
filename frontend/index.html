@@ -307,6 +307,7 @@ let state = {
   recognition: null,
   synthesis: window.speechSynthesis,
   preferredVoice: 'female',
+  currentAudio: null,
   convTimerInterval: null,
   convTimerSec: CONV_WAIT_SEC,
   currentPrompt: '',
@@ -648,18 +649,61 @@ function getVoice() {
   }
 }
 
-function speakAI(text, onEnd) {
+async function speakAI(text, onEnd) {
+  // 진행 중인 오디오 중지
+  if (state.currentAudio) {
+    state.currentAudio.pause();
+    state.currentAudio = null;
+  }
   if (state.synthesis.speaking) state.synthesis.cancel();
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-US'; utt.rate = 0.88; utt.pitch = state.preferredVoice === 'female' ? 1.1 : 0.9;
-  const v = getVoice();
-  if (v) utt.voice = v;
-  utt.onend = () => { if (onEnd) onEnd(); };
-  utt.onerror = () => { if (onEnd) onEnd(); };
-  state.synthesis.speak(utt);
+
+  try {
+    const res = await fetch(`${API_BASE}/api/tts`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        token: state.token,
+        text: text,
+        gender: state.preferredVoice
+      })
+    });
+
+    if (!res.ok) throw new Error('TTS 실패');
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    state.currentAudio = audio;
+
+    audio.onended = () => {
+      URL.revokeObjectURL(url);
+      state.currentAudio = null;
+      if (onEnd) onEnd();
+    };
+    audio.onerror = () => {
+      URL.revokeObjectURL(url);
+      state.currentAudio = null;
+      if (onEnd) onEnd();
+    };
+
+    await audio.play();
+
+  } catch {
+    // OpenAI TTS 실패 시 브라우저 TTS로 fallback
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = 'en-US';
+    utt.rate = 0.88;
+    utt.onend = () => { if (onEnd) onEnd(); };
+    utt.onerror = () => { if (onEnd) onEnd(); };
+    state.synthesis.speak(utt);
+  }
 }
 
 function stopAllAudio() {
+  if (state.currentAudio) {
+    state.currentAudio.pause();
+    state.currentAudio = null;
+  }
   if (state.synthesis.speaking) state.synthesis.cancel();
   if (state.recognition) state.recognition.abort();
   stopTimer();
