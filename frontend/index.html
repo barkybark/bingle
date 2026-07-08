@@ -555,7 +555,7 @@ function startListening(){
     }
     document.getElementById('conv-trans').textContent=(finalText+interim).trim();
     if(sTimer)clearTimeout(sTimer);
-    sTimer=setTimeout(()=>{if(finalText.trim())rec.stop();},1500);
+    sTimer=setTimeout(()=>{if(finalText.trim())rec.stop();},3000);
   };
   rec.onend=()=>{
     S.isListening=false;stopWave();
