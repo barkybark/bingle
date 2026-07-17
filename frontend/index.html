@@ -30,12 +30,12 @@
     .nav-btn.active { background:var(--orange); border-color:var(--orange); color:var(--navy); }
     .count-badge { font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; background:rgba(245,166,35,.12); border:1px solid rgba(245,166,35,.28); color:var(--orange); flex-shrink:0; white-space:nowrap; display:none; }
 
-    /* 화면 */
-    .screen { display:none; flex-direction:column; flex:1; overflow:hidden; }
+    /* 화면 — overflow:hidden 제거, 스크롤 허용 */
+    .screen { display:none; flex-direction:column; flex:1; overflow-y:auto; }
     .screen.active { display:flex; }
 
     /* 로그인 */
-    #login-screen { justify-content:center; align-items:center; padding:40px 24px; }
+    #login-screen { justify-content:center; align-items:center; padding:40px 24px; overflow-y:auto; }
     .login-card { background:var(--navy-mid); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:40px 32px; width:100%; max-width:400px; text-align:center; }
     .login-logo { font-size:48px; font-weight:800; color:var(--orange); margin-bottom:4px; }
     .login-tagline { color:rgba(255,255,255,.5); font-size:14px; margin-bottom:36px; }
@@ -47,69 +47,64 @@
     .login-error { color:#ff6b6b; font-size:13px; margin-top:10px; display:none; }
 
     /* 챕터 선택 */
-    #chapter-screen { overflow-y:auto; padding:20px; }
+    #chapter-screen { padding:20px; }
     .chapter-title { font-size:15px; font-weight:700; color:rgba(255,255,255,.6); margin-bottom:14px; }
     .chapter-card { background:var(--navy-mid); border:2px solid rgba(245,166,35,.28); border-radius:var(--radius-sm); padding:16px 18px; cursor:pointer; margin-bottom:10px; transition:border-color .2s, background .2s; }
     .chapter-card:hover { border-color:var(--orange); background:var(--navy-light); }
-    .chapter-card:active { transform:scale(.99); }
     .chapter-card .c-name { font-size:15px; font-weight:600; color:var(--white); }
     .chapter-card .c-count { font-size:12px; color:rgba(255,255,255,.38); margin-top:3px; }
 
-    /* 암기카드 */
-    #flashcard-screen { background:var(--navy); }
-    .card-wrap { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; overflow:hidden; }
-    .unit-lbl { font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; text-align:center; }
-    .flash-card { background:var(--navy-mid); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:28px 24px; width:100%; max-width:480px; text-align:center; }
+    /* 암기카드 — 전체가 스크롤되는 하나의 컬럼 */
+    #flashcard-screen { padding:20px; align-items:center; }
+    .fc-inner { width:100%; max-width:480px; display:flex; flex-direction:column; gap:14px; padding-bottom:30px; }
+    .unit-lbl { font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; text-align:center; }
+    .flash-card { background:var(--navy-mid); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:28px 24px; text-align:center; }
     .topic-chip { display:inline-block; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.22); border-radius:20px; padding:4px 14px; font-size:12px; color:var(--orange); font-weight:600; margin-bottom:16px; }
-    .korean-txt { font-size:20px; line-height:1.65; color:var(--white); font-weight:600; min-height:62px; display:flex; align-items:center; justify-content:center; }
-    .hint-box { margin-top:12px; padding:10px 14px; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.14); border-radius:8px; font-size:12px; color:rgba(255,255,255,.48); line-height:1.6; text-align:left; display:none; }
+    .korean-txt { font-size:20px; line-height:1.65; color:var(--white); font-weight:600; }
+    .hint-box { margin-top:14px; padding:10px 14px; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.14); border-radius:8px; font-size:12px; color:rgba(255,255,255,.48); line-height:1.6; text-align:left; display:none; }
     .hint-box.show { display:block; }
     .eng-reveal { margin-top:14px; padding:14px 16px; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.28); border-radius:var(--radius-sm); font-size:17px; font-weight:600; color:var(--orange); line-height:1.55; display:none; white-space:pre-line; }
     .eng-reveal.show { display:block; }
-    .card-prog { font-size:12px; color:rgba(255,255,255,.28); text-align:center; margin-top:10px; }
-    .fc-nav { display:flex; gap:10px; justify-content:center; padding:10px 20px 6px; flex-shrink:0; }
-    .fc-btn { padding:10px 20px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); }
-    .fc-btn-reveal { background:var(--orange); color:var(--navy); border-color:var(--orange); }
-    .mem-btns { display:none; gap:8px; justify-content:center; padding:8px 20px; flex-shrink:0; }
-    .mem-btns.show { display:flex; }
-    .mem-btn { flex:1; max-width:130px; padding:12px 4px; border-radius:var(--radius-sm); border:none; font-size:12px; font-weight:700; cursor:pointer; font-family:var(--font); }
-    .m-done { background:rgba(39,174,96,.18); color:#4ade80; border:1px solid rgba(74,222,128,.28); }
-    .m-half { background:rgba(245,166,35,.14); color:var(--orange); border:1px solid rgba(245,166,35,.28); }
-    .m-fail { background:rgba(231,76,60,.14); color:#f87171; border:1px solid rgba(248,113,113,.28); }
-    .quick-talk-wrap { padding:8px 20px 18px; flex-shrink:0; display:none; }
-    .quick-talk-wrap.show { display:block; }
-    .quick-talk-btn { width:100%; padding:14px; border-radius:var(--radius-sm); background:var(--navy-light); border:2px solid var(--orange); color:var(--orange); font-size:14px; font-weight:700; cursor:pointer; font-family:var(--font); }
+    .card-prog { font-size:12px; color:rgba(255,255,255,.28); text-align:center; }
 
-    /* 대화 화면 (암기카드에서 온 경우 / 독립 모드 공용) */
-    #conv-screen { background:var(--navy); }
-    .conv-wrap { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; overflow-y:auto; }
-    .conv-card { background:var(--navy-mid); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:26px 22px; width:100%; max-width:480px; }
-    .voice-row { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+    /* 암기카드 버튼들 */
+    .fc-nav { display:flex; gap:10px; }
+    .fc-btn { flex:1; padding:12px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); }
+    .fc-btn-reveal { background:var(--orange); color:var(--navy); border-color:var(--orange); }
+    .quick-talk-btn { width:100%; padding:14px; border-radius:var(--radius-sm); background:var(--navy-light); border:2px solid var(--orange); color:var(--orange); font-size:14px; font-weight:700; cursor:pointer; font-family:var(--font); display:none; }
+    .quick-talk-btn.show { display:block; }
+
+    /* 대화하기 — 전체 스크롤 */
+    #conv-screen { padding:20px; align-items:center; }
+    .conv-inner { width:100%; max-width:480px; display:flex; flex-direction:column; gap:12px; padding-bottom:30px; }
+    .conv-card { background:var(--navy-mid); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:26px 22px; }
+    .voice-row { display:flex; align-items:center; gap:8px; }
     .voice-lbl { font-size:11px; color:rgba(255,255,255,.32); flex-shrink:0; }
     .v-btn { padding:5px 13px; border-radius:20px; border:1px solid rgba(255,255,255,.14); background:none; color:rgba(255,255,255,.42); font-size:12px; cursor:pointer; font-family:var(--font); transition:all .2s; }
     .v-btn.on { background:rgba(245,166,35,.14); border-color:var(--orange); color:var(--orange); }
-    .conv-topic-chip { display:inline-block; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.22); border-radius:20px; padding:3px 12px; font-size:11px; color:var(--orange); font-weight:600; margin-bottom:12px; }
-    .ai-q-lbl { font-size:10px; color:rgba(255,255,255,.28); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
-    .ai-q-txt { font-size:17px; font-weight:600; color:var(--white); line-height:1.6; min-height:52px; }
-    .timer-row { display:flex; align-items:center; gap:10px; margin:14px 0 4px; }
-    .timer-ring { width:36px; height:36px; border-radius:50%; border:3px solid var(--orange); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:var(--orange); flex-shrink:0; font-variant-numeric:tabular-nums; transition:border-color .3s, color .3s; }
-    .timer-ring.urgent { border-color:var(--red); color:var(--red); }
-    .conv-wave { display:flex; align-items:center; gap:3px; height:22px; flex:1; }
+    .conv-topic-chip { display:inline-block; background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.22); border-radius:20px; padding:3px 12px; font-size:11px; color:var(--orange); font-weight:600; }
+    .ai-q-lbl { font-size:10px; color:rgba(255,255,255,.28); letter-spacing:1.5px; text-transform:uppercase; }
+    .ai-q-txt { font-size:17px; font-weight:600; color:var(--white); line-height:1.65; }
+    .conv-wave { display:flex; align-items:center; gap:3px; height:22px; }
     .conv-wave-bar { width:3px; background:var(--orange); border-radius:3px; height:4px; opacity:.55; }
     .conv-wave-bar.on { animation:wv var(--d,.7s) ease-in-out infinite alternate; }
     @keyframes wv{from{height:4px;opacity:.3}to{height:var(--h,18px);opacity:1}}
-    .conv-stat { font-size:13px; color:rgba(255,255,255,.45); margin-top:6px; min-height:18px; }
+    .conv-stat { font-size:13px; color:rgba(255,255,255,.45); min-height:18px; }
     .conv-stat.listening { color:var(--orange); font-weight:600; }
-    .transcript { font-size:13px; color:rgba(255,255,255,.32); font-style:italic; margin-top:4px; min-height:18px; }
-    .result-box { margin-top:14px; padding:14px; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.16); border-radius:var(--radius-sm); display:none; }
+    .transcript { font-size:13px; color:rgba(255,255,255,.32); font-style:italic; min-height:18px; }
+
+    /* 결과 박스 */
+    .result-box { padding:14px; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.16); border-radius:var(--radius-sm); display:none; }
     .result-box.show { display:block; }
     .result-score-row { display:flex; align-items:flex-start; gap:12px; margin-bottom:8px; }
     .result-score { font-size:38px; font-weight:800; color:var(--orange); line-height:1; flex-shrink:0; }
     .result-reason { font-size:13px; color:rgba(255,255,255,.52); line-height:1.6; padding-top:4px; }
     .result-model { margin-top:8px; padding:10px 12px; background:rgba(255,255,255,.05); border-radius:8px; font-size:14px; color:var(--white); font-weight:600; }
     .result-coach { margin-top:8px; font-size:13px; color:rgba(255,255,255,.52); line-height:1.6; }
-    .conv-bottom { padding:12px 20px 20px; flex-shrink:0; }
-    .mic-row { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+
+    /* 마이크 + 버튼 영역 */
+    .mic-section { background:var(--navy-mid); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+    .mic-row { display:flex; align-items:center; gap:14px; }
     .mic-btn { width:60px; height:60px; border-radius:50%; border:none; background:var(--orange); cursor:pointer; font-size:24px; flex-shrink:0; transition:transform .15s, background .2s; display:flex; align-items:center; justify-content:center; }
     .mic-btn:active { transform:scale(.93); }
     .mic-btn.listening { background:var(--red); animation:pulse 1.2s ease-in-out infinite; }
@@ -117,7 +112,7 @@
     @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)}50%{box-shadow:0 0 0 12px rgba(231,76,60,0)}}
     .mic-hint { font-size:13px; color:rgba(255,255,255,.4); }
     .conv-actions { display:flex; gap:8px; flex-wrap:wrap; }
-    .c-btn { flex:1; min-width:80px; padding:11px 8px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); transition:all .2s; white-space:nowrap; }
+    .c-btn { flex:1; min-width:80px; padding:11px 8px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); white-space:nowrap; }
     .c-btn.primary { background:var(--orange); color:var(--navy); border-color:var(--orange); }
 
     /* 로딩 */
@@ -148,7 +143,7 @@
   <div class="login-card">
     <div class="login-logo">Bingle</div>
     <div class="login-tagline">영어 말하기 연습</div>
-    <label class="login-label">bingle에서 받은 접근 토큰을 입력하세요</label>
+    <label class="login-label">이메일로 받은 접근 토큰을 입력하세요</label>
     <input class="login-input" id="token-input" type="text" placeholder="토큰 입력"
       autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false">
     <div class="login-error" id="login-error"></div>
@@ -158,43 +153,37 @@
 
 <!-- 챕터 선택 -->
 <div class="screen" id="chapter-screen">
-  <div style="padding:20px; overflow-y:auto; flex:1;">
-    <div class="chapter-title" id="chapter-title">챕터를 선택하세요</div>
-    <div id="chapter-list"></div>
-  </div>
+  <div class="chapter-title" id="chapter-title">챕터를 선택하세요</div>
+  <div id="chapter-list"></div>
 </div>
 
 <!-- 암기카드 -->
 <div class="screen" id="flashcard-screen">
-  <div class="card-wrap">
+  <div class="fc-inner">
     <div class="unit-lbl" id="fc-unit"></div>
     <div class="flash-card">
       <div class="topic-chip" id="fc-topic"></div>
       <div class="korean-txt" id="fc-korean"></div>
       <div class="hint-box" id="fc-hint"></div>
       <div class="eng-reveal" id="fc-eng"></div>
-      <div class="card-prog" id="fc-prog"></div>
     </div>
-  </div>
-  <div class="fc-nav">
-    <button class="fc-btn" onclick="fcPrev()">← 이전</button>
-    <button class="fc-btn fc-btn-reveal" onclick="fcReveal()">정답 보기</button>
-    <button class="fc-btn" onclick="fcSkip()">건너뛰기 →</button>
-  </div>
-  <div class="mem-btns" id="mem-btns">
-    <button class="mem-btn m-done" onclick="fcMemory('done')">✅ 암기 완료</button>
-    <button class="mem-btn m-half" onclick="fcMemory('half')">🔁 절반 암기</button>
-    <button class="mem-btn m-fail" onclick="fcMemory('fail')">❌ 암기 못함</button>
-  </div>
-  <!-- 암기 완료 후 나타나는 빠른 대화 버튼 -->
-  <div class="quick-talk-wrap" id="quick-talk-wrap">
-    <button class="quick-talk-btn" onclick="goConvFromFlash()">🎤 이 표현으로 바로 대화해 보기</button>
+    <div class="card-prog" id="fc-prog"></div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="fcPrev()">← 이전</button>
+      <button class="fc-btn fc-btn-reveal" id="fc-reveal-btn" onclick="fcReveal()">정답 보기</button>
+      <button class="fc-btn" onclick="fcSkip()">다음 →</button>
+    </div>
+    <!-- 정답 보기 후 나타남 -->
+    <button class="quick-talk-btn" id="quick-talk-btn" onclick="goConvFromFlash()">
+      🎤 이 표현으로 대화해 보기
+    </button>
   </div>
 </div>
 
-<!-- 대화하기 (암기카드 퀵 / 독립 모드 공용) -->
+<!-- 대화하기 -->
 <div class="screen" id="conv-screen">
-  <div class="conv-wrap">
+  <div class="conv-inner">
+    <!-- AI 질문 카드 -->
     <div class="conv-card">
       <div class="voice-row">
         <span class="voice-lbl">AI 목소리:</span>
@@ -202,37 +191,36 @@
         <button class="v-btn" id="vm" onclick="setVoice('male')">👨 남성</button>
       </div>
       <div class="conv-topic-chip" id="conv-topic"></div>
-      <div class="ai-q-lbl">AI 질문</div>
-      <div class="ai-q-txt" id="conv-q">질문을 만드는 중...</div>
-      <div class="timer-row">
-        <div class="timer-ring" id="conv-timer">30</div>
-        <div class="conv-wave" id="conv-wave"></div>
-      </div>
-      <div class="conv-stat" id="conv-stat">AI 질문을 듣고 있어요</div>
-      <div class="transcript" id="conv-trans"></div>
-      <div class="result-box" id="result-box">
-        <div class="result-score-row">
-          <div class="result-score" id="res-score">-</div>
-          <div class="result-reason" id="res-reason"></div>
-        </div>
-        <div class="result-model" id="res-model"></div>
-        <div class="result-coach" id="res-coach"></div>
-      </div>
+      <div class="ai-q-lbl" style="margin-top:10px;">AI 질문</div>
+      <div class="ai-q-txt" id="conv-q" style="margin-top:6px;">질문을 만드는 중...</div>
+      <div class="conv-wave" id="conv-wave" style="margin-top:14px;"></div>
+      <div class="conv-stat" id="conv-stat" style="margin-top:6px;">AI 질문을 듣고 있어요</div>
+      <div class="transcript" id="conv-trans" style="margin-top:4px;"></div>
     </div>
-  </div>
-  <div class="conv-bottom">
-    <div class="mic-row">
-      <button class="mic-btn off" id="mic-btn" onclick="toggleMic()">🎤</button>
-      <div class="mic-hint" id="mic-hint">AI 질문을 먼저 들어보세요</div>
+
+    <!-- 결과 -->
+    <div class="result-box" id="result-box">
+      <div class="result-score-row">
+        <div class="result-score" id="res-score">-</div>
+        <div class="result-reason" id="res-reason"></div>
+      </div>
+      <div class="result-model" id="res-model"></div>
+      <div class="result-coach" id="res-coach"></div>
     </div>
-    <div class="conv-actions">
-      <button class="c-btn" onclick="replayQ()">🔊 다시 듣기</button>
-      <!-- 암기카드에서 온 경우: 다음 암기카드로 / 암기카드로 돌아가기 -->
-      <button class="c-btn primary" id="btn-next-flash" onclick="convDoneBackToFlash()" style="display:none">다음 암기카드 →</button>
-      <button class="c-btn" id="btn-retry-flash" onclick="retryFlash()" style="display:none">🔄 암기카드로</button>
-      <!-- 독립 대화 모드: 다음 카드 -->
-      <button class="c-btn primary" id="btn-next-conv" onclick="convNextCard()" style="display:none">다음 카드 →</button>
-      <button class="c-btn" onclick="convSkip()">건너뛰기</button>
+
+    <!-- 마이크 + 버튼 -->
+    <div class="mic-section">
+      <div class="mic-row">
+        <button class="mic-btn off" id="mic-btn" onclick="toggleMic()">🎤</button>
+        <div class="mic-hint" id="mic-hint">AI 질문을 먼저 들어보세요</div>
+      </div>
+      <div class="conv-actions">
+        <button class="c-btn" id="btn-replay" onclick="replayQ()">🔊 다시 듣기</button>
+        <button class="c-btn primary" id="btn-next-flash" onclick="convDoneBackToFlash()" style="display:none">다음 암기카드 →</button>
+        <button class="c-btn" id="btn-retry-flash" onclick="retryFlash()" style="display:none">🔄 암기카드로</button>
+        <button class="c-btn primary" id="btn-next-conv" onclick="convNextCard()" style="display:none">다음 카드 →</button>
+        <button class="c-btn" onclick="convSkip()">건너뛰기</button>
+      </div>
     </div>
   </div>
 </div>
@@ -240,20 +228,17 @@
 <script>
 const API_BASE = '';
 const DAILY_LIMIT = 10;
-const WAIT_SEC = 30;
 
-// fromFlash: 암기카드에서 바로 온 경우 true, 독립 대화 모드면 false
 let S = {
   token: null, all: [], deck: [], idx: 0, card: null,
-  usedToday: 0, mode: 'flash',   // 현재 탭 모드
-  fromFlash: false,               // 대화 화면에 어디서 왔는지
+  usedToday: 0, mode: 'flash',
+  fromFlash: false,
   voice: 'female',
   recognition: null, isListening: false,
   audio: null, synth: window.speechSynthesis,
-  timerInterval: null, timerSec: WAIT_SEC,
   currentQ: '',
+  answerDone: false,   // 평가 완료 여부 (다시 듣기 활성화용)
 };
-let mem = {};
 
 // ── 초기화 ──────────────────────────────────────────────────────────
 async function init() {
@@ -266,7 +251,6 @@ async function init() {
     wc.appendChild(b);
   }
   try { const r = await fetch('/data/sentences.json'); S.all = await r.json(); } catch { S.all = []; }
-  try { const sv = localStorage.getItem('bm'); if (sv) mem = JSON.parse(sv); } catch {}
   const tok = new URLSearchParams(window.location.search).get('token') || localStorage.getItem('bingle_token');
   if (tok) { document.getElementById('token-input').value = tok; await doLogin(); }
   else hideOv();
@@ -283,7 +267,11 @@ async function doLogin() {
       method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({token:tok})
     });
     const d = await r.json();
-    if (!r.ok) { document.getElementById('login-error').textContent = d.detail||'인증 실패'; document.getElementById('login-error').style.display='block'; hideOv(); return; }
+    if (!r.ok) {
+      document.getElementById('login-error').textContent = d.detail||'인증 실패';
+      document.getElementById('login-error').style.display = 'block';
+      hideOv(); return;
+    }
     S.token = tok; S.usedToday = d.usage.used;
     localStorage.setItem('bingle_token', tok);
     document.getElementById('header').style.display = 'flex';
@@ -296,7 +284,7 @@ async function doLogin() {
   }
 }
 
-// ── 홈 (모드 선택 초기화) ───────────────────────────────────────────
+// ── 홈 / 모드 전환 ──────────────────────────────────────────────────
 function goHome() {
   stopAll();
   setActiveNav(S.mode);
@@ -316,7 +304,7 @@ function setActiveNav(mode) {
   document.getElementById('nav-conv').classList.toggle('active', mode === 'conv');
 }
 
-// ── 챕터 선택 ────────────────────────────────────────────────────────
+// ── 챕터 선택 ───────────────────────────────────────────────────────
 function showChapter() {
   const units = {};
   S.all.forEach(c => { if (!units[c.unit]) units[c.unit]={topic:c.topic,count:0}; units[c.unit].count++; });
@@ -326,27 +314,17 @@ function showChapter() {
     <div class="c-name">전체 (${S.all.length}개)</div><div class="c-count">모든 챕터 랜덤</div></div>`;
   Object.keys(units).sort((a,b)=>a-b).forEach(u => {
     html += `<div class="chapter-card" onclick="startDeck(${u})">
-      <div class="c-name">Unit ${u}: ${units[u].topic}</div><div class="c-count">${units[u].count}개</div></div>`;
+      <div class="c-name">Unit ${u}: ${units[u].topic}</div>
+      <div class="c-count">${units[u].count}개</div></div>`;
   });
   document.getElementById('chapter-list').innerHTML = html;
   showScreen('chapter-screen');
 }
 
-// ── 덱 빌드 ──────────────────────────────────────────────────────────
+// ── 덱 빌드 ─────────────────────────────────────────────────────────
 function buildDeck(unitNum) {
   let src = unitNum !== null ? S.all.filter(c=>c.unit===unitNum) : S.all;
-  if (S.mode === 'flash') {
-    let w = [];
-    src.forEach(c => {
-      const m = mem[c.id];
-      if (m === 'done') return;
-      const n = m==='fail'?3:m==='half'?1:2;
-      for (let i=0;i<n;i++) w.push(c);
-    });
-    S.deck = (w.length ? w : [...src]).sort(()=>Math.random()-.5);
-  } else {
-    S.deck = [...src].sort(()=>Math.random()-.5);
-  }
+  S.deck = [...src].sort(() => Math.random() - 0.5);
   S.idx = 0;
 }
 
@@ -358,55 +336,77 @@ function startDeck(unitNum) {
 
 // ── 암기카드 ─────────────────────────────────────────────────────────
 function fcLoad() {
-  if (S.idx >= S.deck.length) { S.deck.sort(()=>Math.random()-.5); S.idx=0; }
+  if (S.idx >= S.deck.length) { S.deck.sort(() => Math.random() - 0.5); S.idx = 0; }
   S.card = S.deck[S.idx];
   const c = S.card;
+
   document.getElementById('fc-unit').textContent = `UNIT ${c.unit} — ${c.topic.toUpperCase()}`;
   document.getElementById('fc-topic').textContent = c.topic;
   document.getElementById('fc-korean').textContent = c.korean;
-  document.getElementById('fc-prog').textContent = `${S.idx+1} / ${S.deck.length}`;
+  document.getElementById('fc-prog').textContent = `${S.idx + 1} / ${S.deck.length}`;
+
   const hEl = document.getElementById('fc-hint');
-  if (c.keyword_note&&c.keyword_note.trim()) { hEl.textContent='💡 '+c.keyword_note; hEl.className='hint-box show'; }
-  else { hEl.className='hint-box'; }
+  if (c.keyword_note && c.keyword_note.trim()) {
+    hEl.textContent = '💡 ' + c.keyword_note;
+    hEl.className = 'hint-box show';
+  } else {
+    hEl.className = 'hint-box';
+    hEl.textContent = '';
+  }
+
+  // 정답 감추기
   document.getElementById('fc-eng').className = 'eng-reveal';
   document.getElementById('fc-eng').textContent = '';
-  document.getElementById('mem-btns').className = 'mem-btns';
-  document.getElementById('quick-talk-wrap').className = 'quick-talk-wrap';
+
+  // 버튼 리셋
+  const revealBtn = document.getElementById('fc-reveal-btn');
+  revealBtn.textContent = '정답 보기';
+  revealBtn.className = 'fc-btn fc-btn-reveal';
+  revealBtn.onclick = fcReveal;
+
+  document.getElementById('quick-talk-btn').className = 'quick-talk-btn';
+
+  // 화면 맨 위로
+  document.getElementById('flashcard-screen').scrollTop = 0;
 }
 
 function fcReveal() {
+  const c = S.card;
   const el = document.getElementById('fc-eng');
-  el.textContent = S.card.sentence;
+  el.textContent = c.sentence;
   el.className = 'eng-reveal show';
-  document.getElementById('mem-btns').className = 'mem-btns show';
-  document.getElementById('quick-talk-wrap').className = 'quick-talk-wrap show';
+
+  // "정답 보기" 버튼을 "다음 →" 으로 교체
+  const revealBtn = document.getElementById('fc-reveal-btn');
+  revealBtn.textContent = '다음 →';
+  revealBtn.className = 'fc-btn';
+  revealBtn.onclick = fcSkip;
+
+  // 대화해 보기 버튼 표시
+  document.getElementById('quick-talk-btn').className = 'quick-talk-btn show';
+
+  // 정답이 보이도록 살짝 스크롤
+  setTimeout(() => {
+    document.getElementById('flashcard-screen').scrollTo({top: 9999, behavior:'smooth'});
+  }, 100);
 }
 
-function fcMemory(level) {
-  mem[S.card.id] = level;
-  saveMem();
-  if (level === 'done') {
-    // 암기 완료 → 같은 카드로 바로 대화
-    S.fromFlash = true;
-    startConv();
-  } else {
-    // 절반/못함 → 다음 암기카드
-    S.idx++;
-    fcLoad();
-  }
+function fcPrev() {
+  if (S.idx > 0) { S.idx--; fcLoad(); }
 }
 
-function fcPrev() { if (S.idx>0){S.idx--;fcLoad();} }
-function fcSkip() { S.idx++; fcLoad(); }
-function saveMem() { try{localStorage.setItem('bm',JSON.stringify(mem));}catch{} }
+function fcSkip() {
+  S.idx++;
+  fcLoad();
+}
 
-// 암기카드에서 "이 표현으로 바로 대화해 보기" 버튼
+// 암기카드에서 "대화해 보기" 클릭
 function goConvFromFlash() {
   S.fromFlash = true;
   startConv();
 }
 
-// ── 대화하기 공통 진입 ───────────────────────────────────────────────
+// ── 대화하기 진입 ────────────────────────────────────────────────────
 async function startConv() {
   if (S.usedToday >= DAILY_LIMIT) {
     alert(`오늘 대화하기 횟수(${DAILY_LIMIT}회)를 모두 사용했습니다. 내일 다시 도전하세요! 🌟`);
@@ -414,10 +414,10 @@ async function startConv() {
   }
   // 독립 모드면 deck에서 카드 가져오기
   if (!S.fromFlash) {
-    if (S.idx >= S.deck.length) { S.deck.sort(()=>Math.random()-.5); S.idx=0; }
+    if (S.idx >= S.deck.length) { S.deck.sort(() => Math.random() - 0.5); S.idx = 0; }
     S.card = S.deck[S.idx];
   }
-  // S.card는 암기카드에서 온 경우 이미 설정돼 있음
+
   resetConvUI();
   showScreen('conv-screen');
   setActiveNav('conv');
@@ -433,9 +433,11 @@ function resetConvUI() {
   document.getElementById('btn-retry-flash').style.display = 'none';
   document.getElementById('btn-next-conv').style.display = 'none';
   document.getElementById('conv-trans').textContent = '';
-  setStat('AI 질문을 듣고 있어요','');
+  setStat('AI 질문을 듣고 있어요', '');
+  document.getElementById('mic-hint').textContent = 'AI 질문을 먼저 들어보세요';
+  S.answerDone = false;
   disableMic();
-  stopTimer();
+  document.getElementById('conv-screen').scrollTop = 0;
 }
 
 async function loadConvQ() {
@@ -451,13 +453,14 @@ async function loadConvQ() {
     S.currentQ = d.prompt;
     document.getElementById('conv-q').textContent = d.prompt;
     await speakAI(d.prompt);
-    startTimer();
+    // TTS 끝나면 마이크 활성화
     enableMic();
-    setStat('🎤 버튼을 눌러 영어로 대답하세요','listening');
+    setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+    document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
   } catch {
     hideOv();
     document.getElementById('conv-q').textContent = '(질문 생성 실패 — 다시 시도해주세요)';
-    setStat('질문 생성에 실패했습니다.','');
+    setStat('질문 생성에 실패했습니다.', '');
   }
 }
 
@@ -475,158 +478,171 @@ async function speakAI(text) {
     return new Promise(resolve => {
       const a = new Audio(url);
       S.audio = a;
-      a.onended = ()=>{ URL.revokeObjectURL(url); S.audio=null; resolve(); };
-      a.onerror = ()=>{ URL.revokeObjectURL(url); S.audio=null; resolve(); };
+      a.onended = () => { URL.revokeObjectURL(url); S.audio = null; resolve(); };
+      a.onerror = () => { URL.revokeObjectURL(url); S.audio = null; resolve(); };
       a.play();
     });
   } catch {
     return new Promise(resolve => {
       const u = new SpeechSynthesisUtterance(text);
-      u.lang='en-US'; u.rate=0.88;
-      u.onend=resolve; u.onerror=resolve;
+      u.lang = 'en-US'; u.rate = 0.88;
+      u.onend = resolve; u.onerror = resolve;
       S.synth.speak(u);
     });
   }
 }
 
 function stopAudio() {
-  if (S.audio){S.audio.pause();S.audio=null;}
+  if (S.audio) { S.audio.pause(); S.audio = null; }
   if (S.synth.speaking) S.synth.cancel();
 }
 
 function setVoice(g) {
   S.voice = g;
-  document.getElementById('vf').className = 'v-btn'+(g==='female'?' on':'');
-  document.getElementById('vm').className = 'v-btn'+(g==='male'?' on':'');
+  document.getElementById('vf').className = 'v-btn' + (g === 'female' ? ' on' : '');
+  document.getElementById('vm').className = 'v-btn' + (g === 'male' ? ' on' : '');
 }
 
+// 다시 듣기 — 답변 전/후 모두 작동
 async function replayQ() {
   if (!S.currentQ) return;
-  stopTimer(); disableMic();
-  await speakAI(S.currentQ);
-  startTimer(); enableMic();
-  setStat('🎤 버튼을 눌러 영어로 대답하세요','listening');
-}
-
-// ── 타이머 ──────────────────────────────────────────────────────────
-function startTimer() {
-  stopTimer(); S.timerSec=WAIT_SEC; updateTimer();
-  S.timerInterval = setInterval(()=>{
-    S.timerSec--; updateTimer();
-    if (S.timerSec<=0){stopTimer();if(S.recognition)S.recognition.stop();}
-  },1000);
-}
-function stopTimer(){if(S.timerInterval){clearInterval(S.timerInterval);S.timerInterval=null;}}
-function updateTimer(){
-  const el=document.getElementById('conv-timer');
-  el.textContent=S.timerSec;
-  el.className='timer-ring'+(S.timerSec<=10?' urgent':'');
+  stopAudio();
+  if (!S.answerDone) {
+    // 답변 전: TTS 재생 후 마이크 다시 활성화
+    disableMic();
+    setStat('🔊 다시 듣는 중...', '');
+    await speakAI(S.currentQ);
+    enableMic();
+    setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+  } else {
+    // 평가 후: 정답 문장 다시 읽어주기
+    await speakAI(`Here's the expression: "${S.card.sentence}". Try to remember it!`);
+  }
 }
 
 // ── STT ─────────────────────────────────────────────────────────────
-function enableMic(){
-  document.getElementById('mic-btn').className='mic-btn';
-  document.getElementById('mic-hint').textContent='말하기 버튼을 누르세요';
+function enableMic() {
+  document.getElementById('mic-btn').className = 'mic-btn';
 }
-function disableMic(){
-  document.getElementById('mic-btn').className='mic-btn off';
+function disableMic() {
+  document.getElementById('mic-btn').className = 'mic-btn off';
   stopWave();
 }
-function toggleMic(){
-  if(document.getElementById('mic-btn').classList.contains('off'))return;
-  if(S.isListening){if(S.recognition)S.recognition.stop();}
+
+function toggleMic() {
+  if (document.getElementById('mic-btn').classList.contains('off')) return;
+  if (S.isListening) { if (S.recognition) S.recognition.stop(); }
   else startListening();
 }
-function startListening(){
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){setStat('⚠️ Chrome 브라우저를 사용해주세요.','');return;}
-  document.getElementById('mic-btn').className='mic-btn listening';
-  setStat('듣는 중... 말이 끝나면 자동으로 멈춰요','listening');
+
+function startListening() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { setStat('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
+
+  document.getElementById('mic-btn').className = 'mic-btn listening';
+  document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝나면 자동으로 멈춰요';
+  setStat('듣는 중...', 'listening');
   startWave();
-  const rec=new SR();
-  rec.lang='en-US';rec.continuous=false;rec.interimResults=true;
-  let finalText='',sTimer=null;
-  rec.onstart=()=>{S.isListening=true;};
-  rec.onresult=(e)=>{
-    let interim='';finalText='';
-    for(let i=e.resultIndex;i<e.results.length;i++){
-      if(e.results[i].isFinal)finalText+=e.results[i][0].transcript+' ';
-      else interim=e.results[i][0].transcript;
+
+  const rec = new SR();
+  rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
+  let finalText = '', sTimer = null;
+
+  rec.onstart = () => { S.isListening = true; };
+  rec.onresult = (e) => {
+    let interim = ''; finalText = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
+      else interim = e.results[i][0].transcript;
     }
-    document.getElementById('conv-trans').textContent=(finalText+interim).trim();
-    if(sTimer)clearTimeout(sTimer);
-    sTimer=setTimeout(()=>{if(finalText.trim())rec.stop();},3000);
+    document.getElementById('conv-trans').textContent = (finalText + interim).trim();
+    if (sTimer) clearTimeout(sTimer);
+    // 3초 침묵 후 자동 종료
+    sTimer = setTimeout(() => { if (finalText.trim()) rec.stop(); }, 3000);
   };
-  rec.onend=()=>{
-    S.isListening=false;stopWave();
-    document.getElementById('mic-btn').className='mic-btn';
-    if(sTimer)clearTimeout(sTimer);stopTimer();
-    const ans=finalText.trim();
-    if(ans)evaluate(ans);
-    else{setStat('🎤 버튼을 눌러 영어로 대답하세요','listening');enableMic();startTimer();}
+  rec.onend = () => {
+    S.isListening = false; stopWave();
+    document.getElementById('mic-btn').className = 'mic-btn off';
+    document.getElementById('mic-hint').textContent = '분석 중...';
+    if (sTimer) clearTimeout(sTimer);
+    const ans = finalText.trim();
+    if (ans) evaluate(ans);
+    else {
+      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      enableMic();
+    }
   };
-  rec.onerror=(e)=>{
+  rec.onerror = (e) => {
     stopWave();
-    if(e.error==='not-allowed')setStat('❌ 마이크 접근을 허용해주세요.','');
-    else{enableMic();startTimer();}
+    if (e.error === 'not-allowed') setStat('❌ 마이크 접근을 허용해주세요.', '');
+    else { enableMic(); document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요'; }
   };
-  S.recognition=rec;rec.start();
+  S.recognition = rec;
+  rec.start();
 }
 
 // ── 평가 ─────────────────────────────────────────────────────────────
 async function evaluate(answer) {
   disableMic();
-  setStat('분석 중...','');
+  setStat('분석 중...', '');
   showOv('답변 분석 중...');
   try {
     const r = await fetch(`${API_BASE}/api/conversation/evaluate`, {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({token:S.token, target_sentence:S.card.sentence, topic:S.card.topic, user_answer:answer})
+      body:JSON.stringify({
+        token:S.token, target_sentence:S.card.sentence,
+        topic:S.card.topic, user_answer:answer
+      })
     });
     const d = await r.json();
     hideOv();
 
+    // 결과 표시
     document.getElementById('res-score').textContent = d.score;
-    document.getElementById('res-reason').textContent = d.score_reason||'';
-    document.getElementById('res-model').textContent = '💡 '+(d.model_answer||S.card.sentence);
-    document.getElementById('res-coach').textContent = d.coach_comment||'';
+    document.getElementById('res-reason').textContent = d.score_reason || '';
+    document.getElementById('res-model').textContent = '💡 ' + (d.model_answer || S.card.sentence);
+    document.getElementById('res-coach').textContent = d.coach_comment || '';
     document.getElementById('result-box').className = 'result-box show';
 
-    const level = d.level||2;
+    S.answerDone = true;
 
-    if (level===1) {
-      // 말이 안 됨
-      setStat('🔄 '+(d.coach_comment||'암기카드로 돌아가서 다시 익혀봐요'),'');
+    const level = d.level || 2;
+    if (level === 1) {
+      setStat('🔄 ' + (d.coach_comment || '다시 도전해보세요'), '');
       if (S.fromFlash) {
         document.getElementById('btn-retry-flash').style.display = 'block';
       } else {
-        // 독립 모드에서도 같은 카드 재도전 버튼
-        document.getElementById('btn-retry-flash').textContent = '🔄 다시 도전';
-        document.getElementById('btn-retry-flash').onclick = ()=>{ resetConvUI(); loadConvQ(); };
-        document.getElementById('btn-retry-flash').style.display = 'block';
+        const btn = document.getElementById('btn-retry-flash');
+        btn.textContent = '🔄 다시 도전';
+        btn.onclick = () => { S.answerDone = false; resetConvUI(); loadConvQ(); };
+        btn.style.display = 'block';
       }
     } else {
-      // 통과 (level 2-4)
-      setStat('✅ '+(d.coach_comment||'잘했어요!'),'listening');
-      await markDone(level>=3);
+      setStat('✅ ' + (d.coach_comment || '잘했어요!'), 'listening');
+      await markDone(level >= 3);
       if (S.fromFlash) {
-        // 암기카드에서 온 경우: 다음 암기카드로
         document.getElementById('btn-next-flash').style.display = 'block';
       } else {
-        // 독립 대화 모드: 다음 카드로
         document.getElementById('btn-next-conv').style.display = 'block';
       }
     }
 
+    // 결과까지 스크롤
+    setTimeout(() => {
+      document.getElementById('conv-screen').scrollTo({top:9999, behavior:'smooth'});
+    }, 200);
+
     // 정답 TTS
-    setTimeout(async ()=>{
-      await speakAI(`Here's the expression: "${d.model_answer||S.card.sentence}". Now try it yourself!`);
+    setTimeout(async () => {
+      await speakAI(`Here's the expression: "${d.model_answer || S.card.sentence}". Now try it yourself!`);
     }, 600);
 
   } catch {
     hideOv();
-    setStat('평가 중 오류가 발생했습니다.','');
-    enableMic();startTimer();
+    setStat('평가 중 오류가 발생했습니다.', '');
+    enableMic();
+    document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
   }
 }
 
@@ -636,13 +652,12 @@ async function markDone(passed) {
       method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({token:S.token, card_id:S.card.id, passed})
     });
-    if(r.ok){const d=await r.json();S.usedToday=d.used_today;updateBadge();}
+    if (r.ok) { const d = await r.json(); S.usedToday = d.used_today; updateBadge(); }
   } catch {}
 }
 
-// 버튼 핸들러들
+// ── 버튼 핸들러 ─────────────────────────────────────────────────────
 function convDoneBackToFlash() {
-  // 통과 후 다음 암기카드로
   stopAll();
   S.fromFlash = false;
   S.idx++;
@@ -654,18 +669,16 @@ function convDoneBackToFlash() {
 }
 
 function retryFlash() {
-  // 실패 후 같은 카드로 암기카드 복귀
   stopAll();
   S.fromFlash = false;
   S.mode = 'flash';
   setActiveNav('flash');
   document.getElementById('count-badge').style.display = 'none';
   showScreen('flashcard-screen');
-  fcLoad(); // idx 그대로 → 같은 카드
+  fcLoad(); // 같은 idx → 같은 카드
 }
 
 function convNextCard() {
-  // 독립 대화 모드에서 다음 카드
   stopAll();
   S.idx++;
   S.fromFlash = false;
@@ -675,7 +688,6 @@ function convNextCard() {
 function convSkip() {
   stopAll();
   if (S.fromFlash) {
-    // 암기카드에서 온 경우 → 다음 암기카드로
     S.fromFlash = false;
     S.idx++;
     S.mode = 'flash';
@@ -684,33 +696,32 @@ function convSkip() {
     showScreen('flashcard-screen');
     fcLoad();
   } else {
-    // 독립 대화 모드 → 다음 카드
     S.idx++;
     startConv();
   }
 }
 
 // ── 유틸 ────────────────────────────────────────────────────────────
-function stopAll(){
+function stopAll() {
   stopAudio();
-  if(S.recognition)S.recognition.abort();
-  stopTimer();
-  S.isListening=false;
+  if (S.recognition) S.recognition.abort();
+  S.isListening = false;
 }
-function setStat(txt,cls){
-  const el=document.getElementById('conv-stat');
-  if(el){el.textContent=txt;el.className='conv-stat'+(cls?' '+cls:'');}
-  const el2=document.getElementById('mic-hint');
-  if(el2)el2.textContent=txt;
+function setStat(txt, cls) {
+  const el = document.getElementById('conv-stat');
+  if (el) { el.textContent = txt; el.className = 'conv-stat' + (cls ? ' ' + cls : ''); }
 }
-function startWave(){document.querySelectorAll('.conv-wave-bar').forEach(b=>b.classList.add('on'));}
-function stopWave(){document.querySelectorAll('.conv-wave-bar').forEach(b=>b.classList.remove('on'));}
-function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
-function showOv(t){document.getElementById('ov-txt').textContent=t;document.getElementById('ov').style.display='flex';}
-function hideOv(){document.getElementById('ov').style.display='none';}
-function updateBadge(){document.getElementById('count-badge').textContent=`${S.usedToday}/${DAILY_LIMIT}`;}
+function startWave() { document.querySelectorAll('.conv-wave-bar').forEach(b => b.classList.add('on')); }
+function stopWave() { document.querySelectorAll('.conv-wave-bar').forEach(b => b.classList.remove('on')); }
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function showOv(t) { document.getElementById('ov-txt').textContent = t; document.getElementById('ov').style.display = 'flex'; }
+function hideOv() { document.getElementById('ov').style.display = 'none'; }
+function updateBadge() { document.getElementById('count-badge').textContent = `${S.usedToday}/${DAILY_LIMIT}`; }
 
-document.getElementById('token-input').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+document.getElementById('token-input').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 init();
 </script>
 </body>
