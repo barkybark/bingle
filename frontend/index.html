@@ -546,45 +546,82 @@ function startListening() {
   if (!SR) { setStat('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
 
   document.getElementById('mic-btn').className = 'mic-btn listening';
-  document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝나면 자동으로 멈춰요';
+  document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝나면 버튼을 다시 누르세요';
   setStat('듣는 중...', 'listening');
   startWave();
 
-  const rec = new SR();
-  rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true;
-  let finalText = '', sTimer = null;
+  let finalText = '';
+  let silenceTimer = null;
+  let shouldStop = false;   // 사용자가 명시적으로 멈추거나 침묵 4초 후 true
 
-  rec.onstart = () => { S.isListening = true; };
-  rec.onresult = (e) => {
-    let interim = ''; finalText = '';
-    for (let i = e.resultIndex; i < e.results.length; i++) {
-      if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
-      else interim = e.results[i][0].transcript;
+  function stopSession() {
+    shouldStop = true;
+    if (silenceTimer) clearTimeout(silenceTimer);
+    if (S.recognition) {
+      try { S.recognition.stop(); } catch {}
     }
-    document.getElementById('conv-trans').textContent = (finalText + interim).trim();
-    if (sTimer) clearTimeout(sTimer);
-    sTimer = setTimeout(() => { rec.stop(); }, 4000);
-  };
-  rec.onend = () => {
-    S.isListening = false; stopWave();
-    document.getElementById('mic-btn').className = 'mic-btn off';
-    document.getElementById('mic-hint').textContent = '분석 중...';
-    if (sTimer) clearTimeout(sTimer);
-    const ans = finalText.trim();
-    if (ans) evaluate(ans);
-    else {
-      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
-      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
-      enableMic();
-    }
-  };
-  rec.onerror = (e) => {
-    stopWave();
-    if (e.error === 'not-allowed') setStat('❌ 마이크 접근을 허용해주세요.', '');
-    else { enableMic(); document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요'; }
-  };
-  S.recognition = rec;
-  rec.start();
+  }
+
+  function startRec() {
+    if (shouldStop) return;
+    const rec = new SR();
+    rec.lang = 'en-US';
+    rec.continuous = false;
+    rec.interimResults = true;
+    S.recognition = rec;
+
+    rec.onresult = (e) => {
+      let interim = '';
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
+        else interim = e.results[i][0].transcript;
+      }
+      document.getElementById('conv-trans').textContent = (finalText + interim).trim();
+
+      // 말소리 감지될 때마다 침묵 타이머 리셋 (4초)
+      if (silenceTimer) clearTimeout(silenceTimer);
+      silenceTimer = setTimeout(() => {
+        stopSession();
+      }, 4000);
+    };
+
+    rec.onend = () => {
+      if (shouldStop) {
+        // 완전히 종료 → 평가로 넘어가기
+        S.isListening = false;
+        stopWave();
+        document.getElementById('mic-btn').className = 'mic-btn off';
+        const ans = finalText.trim();
+        if (ans) {
+          document.getElementById('mic-hint').textContent = '분석 중...';
+          evaluate(ans);
+        } else {
+          setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+          document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+          enableMic();
+        }
+      } else {
+        // 브라우저가 자동으로 끊은 것 → 즉시 재시작
+        setTimeout(startRec, 100);
+      }
+    };
+
+    rec.onerror = (e) => {
+      if (e.error === 'not-allowed') {
+        shouldStop = true;
+        stopWave();
+        setStat('❌ 마이크 접근을 허용해주세요.', '');
+      }
+      // 그 외 에러는 재시작 (onend가 자동으로 호출되므로 여기서는 아무것도 안 함)
+    };
+
+    try { rec.start(); } catch {}
+  }
+
+  S.isListening = true;
+  // 최초 침묵 타이머 — 아무 말도 안 하면 20초 후 자동 종료
+  silenceTimer = setTimeout(() => { stopSession(); }, 20000);
+  startRec();
 }
 
 // ── 평가 ─────────────────────────────────────────────────────────────
