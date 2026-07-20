@@ -69,8 +69,10 @@
 
     /* 암기카드 버튼들 */
     .fc-nav { display:flex; gap:10px; }
-    .fc-btn { flex:1; padding:12px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); }
+    .fc-btn { flex:1; padding:12px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); transition:all .15s; }
+    .fc-btn:active { transform:scale(.96); opacity:.8; }
     .fc-btn-reveal { background:var(--orange); color:var(--navy); border-color:var(--orange); }
+    .fc-btn-reveal:active { background:var(--orange-dark); }
     .quick-talk-btn { width:100%; padding:14px; border-radius:var(--radius-sm); background:var(--navy-light); border:2px solid var(--orange); color:var(--orange); font-size:14px; font-weight:700; cursor:pointer; font-family:var(--font); display:none; }
     .quick-talk-btn.show { display:block; }
 
@@ -112,8 +114,11 @@
     @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.4)}50%{box-shadow:0 0 0 12px rgba(231,76,60,0)}}
     .mic-hint { font-size:13px; color:rgba(255,255,255,.4); }
     .conv-actions { display:flex; gap:8px; flex-wrap:wrap; }
-    .c-btn { flex:1; min-width:80px; padding:11px 8px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); white-space:nowrap; }
+    .c-btn { flex:1; min-width:80px; padding:11px 8px; border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,.13); background:rgba(255,255,255,.05); color:rgba(255,255,255,.55); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); white-space:nowrap; transition:all .15s; }
+    .c-btn:active { transform:scale(.96); opacity:.8; }
     .c-btn.primary { background:var(--orange); color:var(--navy); border-color:var(--orange); }
+    .c-btn.primary:active { background:var(--orange-dark); }
+    .c-btn.loading { opacity:.5; cursor:not-allowed; pointer-events:none; }
 
     /* 로딩 */
     .ov { position:fixed; inset:0; background:rgba(26,26,46,.94); z-index:200; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
@@ -171,7 +176,7 @@
     <div class="fc-nav">
       <button class="fc-btn" onclick="fcPrev()">← 이전</button>
       <button class="fc-btn fc-btn-reveal" id="fc-reveal-btn" onclick="fcReveal()">정답 보기</button>
-      <button class="fc-btn" onclick="fcSkip()">다음 →</button>
+      <button class="fc-btn" id="fc-skip-btn" onclick="fcSkip()">다음 →</button>
     </div>
     <!-- 정답 보기 후 나타남 -->
     <button class="quick-talk-btn" id="quick-talk-btn" onclick="goConvFromFlash()">
@@ -190,8 +195,8 @@
         <button class="v-btn on" id="vf" onclick="setVoice('female')">👩 여성</button>
         <button class="v-btn" id="vm" onclick="setVoice('male')">👨 남성</button>
       </div>
-      <div class="conv-topic-chip" id="conv-topic"></div>
-      <div class="ai-q-lbl" style="margin-top:10px;">AI 질문</div>
+      <div class="conv-topic-chip" id="conv-topic" style="margin-top:10px; margin-bottom:10px;"></div>
+      <div class="ai-q-lbl">AI 질문</div>
       <div class="ai-q-txt" id="conv-q" style="margin-top:6px;">질문을 만드는 중...</div>
       <div class="conv-wave" id="conv-wave" style="margin-top:14px;"></div>
       <div class="conv-stat" id="conv-stat" style="margin-top:6px;">AI 질문을 듣고 있어요</div>
@@ -360,9 +365,9 @@ function fcLoad() {
 
   // 버튼 리셋
   const revealBtn = document.getElementById('fc-reveal-btn');
+  revealBtn.style.display = '';
   revealBtn.textContent = '정답 보기';
   revealBtn.className = 'fc-btn fc-btn-reveal';
-  revealBtn.onclick = fcReveal;
 
   document.getElementById('quick-talk-btn').className = 'quick-talk-btn';
 
@@ -377,10 +382,8 @@ function fcReveal() {
   el.className = 'eng-reveal show';
 
   // "정답 보기" 버튼을 "다음 →" 으로 교체
-  const revealBtn = document.getElementById('fc-reveal-btn');
-  revealBtn.textContent = '다음 →';
-  revealBtn.className = 'fc-btn';
-  revealBtn.onclick = fcSkip;
+  // 정답 보기 버튼 숨기고, 원래 다음 버튼도 그대로 유지 (중복 방지)
+  document.getElementById('fc-reveal-btn').style.display = 'none';
 
   // 대화해 보기 버튼 표시
   document.getElementById('quick-talk-btn').className = 'quick-talk-btn show';
@@ -506,18 +509,21 @@ function setVoice(g) {
 // 다시 듣기 — 답변 전/후 모두 작동
 async function replayQ() {
   if (!S.currentQ) return;
+  const btn = document.getElementById('btn-replay');
+  btn.classList.add('loading');
+  btn.textContent = '🔊 불러오는 중...';
   stopAudio();
   if (!S.answerDone) {
-    // 답변 전: TTS 재생 후 마이크 다시 활성화
     disableMic();
     setStat('🔊 다시 듣는 중...', '');
     await speakAI(S.currentQ);
     enableMic();
     setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
   } else {
-    // 평가 후: 정답 문장 다시 읽어주기
     await speakAI(`Here's the expression: "${S.card.sentence}". Try to remember it!`);
   }
+  btn.classList.remove('loading');
+  btn.textContent = '🔊 다시 듣기';
 }
 
 // ── STT ─────────────────────────────────────────────────────────────
@@ -545,7 +551,7 @@ function startListening() {
   startWave();
 
   const rec = new SR();
-  rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
+  rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true;
   let finalText = '', sTimer = null;
 
   rec.onstart = () => { S.isListening = true; };
@@ -606,6 +612,7 @@ async function evaluate(answer) {
     document.getElementById('result-box').className = 'result-box show';
 
     S.answerDone = true;
+    document.getElementById('mic-hint').textContent = '평가 완료';
 
     const level = d.level || 2;
     if (level === 1) {
