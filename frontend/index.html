@@ -563,8 +563,8 @@ function startListening() {
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
     if (sTimer) clearTimeout(sTimer);
-    if (sTimer) clearTimeout(sTimer);
     sTimer = setTimeout(() => { rec.stop(); }, 4000);
+  };
   rec.onend = () => {
     S.isListening = false; stopWave();
     document.getElementById('mic-btn').className = 'mic-btn off';
