@@ -260,6 +260,7 @@ let S = {
   answerDone: false,
   evaluatingCard: null,  // 평가 중 화면 이탈 방어용 스냅샷
   audioUnlocked: false,  // 모바일 오디오 언락 여부
+  ttsTimer: null,        // 소리 겹침 방지용 예약 TTS 타이머
 };
 
 // ── 초기화 ──────────────────────────────────────────────────────────
@@ -659,6 +660,9 @@ async function evaluate(answer) {
     document.getElementById('mic-hint').textContent = '평가 완료';
 
     const level = d.level || 2;
+
+    // 카운트 수정: level 무관하게 항상 1회 차감 (fromFlash든 독립 모드든 동일)
+    await markDone(level >= 3);
     if (level === 1) {
       setStat('🔄 ' + (d.coach_comment || '다시 도전해보세요'), '');
       if (S.fromFlash) {
@@ -671,7 +675,6 @@ async function evaluate(answer) {
       }
     } else {
       setStat('✅ ' + (d.coach_comment || '잘했어요!'), 'listening');
-      await markDone(level >= 3);
       if (S.fromFlash) {
         document.getElementById('btn-next-flash').style.display = 'block';
       } else {
@@ -684,9 +687,10 @@ async function evaluate(answer) {
       document.getElementById('conv-screen').scrollTo({top:9999, behavior:'smooth'});
     }, 200);
 
-    // 정답 TTS (evaluatingCard 스냅샷 사용)
+    // 소리 겹침 수정: setTimeout 대신 즉시 실행 + ttsTimer ID를 S에 저장해서 stopAll()로 취소 가능하게
     const snapCard = S.evaluatingCard;
-    setTimeout(async () => {
+    S.ttsTimer = setTimeout(async () => {
+      S.ttsTimer = null;
       await speakAI(`Here's the expression: "${d.model_answer || snapCard.sentence}". Now try it yourself!`);
     }, 600);
     S.evaluatingCard = null;
@@ -778,6 +782,8 @@ function handleAuthError() {
 
 // ── 유틸 ────────────────────────────────────────────────────────────
 function stopAll() {
+  // 예약된 TTS 타이머 취소 (소리 겹침 방지)
+  if (S.ttsTimer) { clearTimeout(S.ttsTimer); S.ttsTimer = null; }
   stopAudio();
   if (S.recognition) S.recognition.abort();
   S.isListening = false;
