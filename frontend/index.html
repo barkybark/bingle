@@ -470,53 +470,96 @@ function resetConvUI() {
 }
 
 async function loadConvQ() {
-  if (!S.card) return;
+  if (!S.card) { showChapter(); return; }
   showOv('AI 질문 생성 중...');
   try {
     const r = await fetch(`${API_BASE}/api/conversation/prompt`, {
       method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({token:S.token, target_sentence:S.card.sentence, topic:S.card.topic})
     });
+    // Q1: 401/403이면 인증 오류 처리
+    if (r.status === 401 || r.status === 403) { hideOv(); handleAuthError(); return; }
+    if (!r.ok) throw new Error('prompt_fail');
     const d = await r.json();
+    if (!d.prompt) throw new Error('prompt_empty');
     hideOv();
     S.currentQ = d.prompt;
     document.getElementById('conv-q').textContent = d.prompt;
-    await speakAI(d.prompt);
-    // TTS 끝나면 마이크 활성화
+    // Q2: TTS 결과 확인 — 실패해도 계속 진행
+    const ttsResult = await speakAI(d.prompt);
+    if (ttsResult !== 'ok') {
+      // TTS 실패 안내문 (작게, 2초 후 사라짐)
+      setStat('🔇 음성 출력에 실패했어요. 텍스트를 읽고 말해보세요.', '');
+      setTimeout(() => setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'), 2000);
+    } else {
+      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+    }
     enableMic();
-    setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
     document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
   } catch {
     hideOv();
-    document.getElementById('conv-q').textContent = '(질문 생성 실패 — 다시 시도해주세요)';
-    setStat('질문 생성에 실패했습니다.', '');
+    // Q1: 질문 생성 실패 → "다시 시도" 버튼 표시
+    document.getElementById('conv-q').textContent = '질문 생성에 실패했습니다.';
+    setStat('네트워크 오류가 발생했습니다.', '');
+    document.getElementById('mic-hint').textContent = '아래 버튼을 눌러 다시 시도해주세요';
+    // btn-retry-flash를 재활용해서 "다시 시도" 버튼으로 임시 사용
+    const retryBtn = document.getElementById('btn-retry-flash');
+    retryBtn.textContent = '🔄 다시 시도';
+    retryBtn.onclick = () => {
+      retryBtn.style.display = 'none';
+      retryBtn.onclick = null;
+      loadConvQ();
+    };
+    retryBtn.style.display = 'block';
   }
 }
 
 // ── TTS ─────────────────────────────────────────────────────────────
+const TTS_TIMEOUT_MS = 8000; // TTS 최대 대기 시간
+
 async function speakAI(text) {
   stopAudio();
+  // OpenAI TTS 시도
   try {
     const r = await fetch(`${API_BASE}/api/tts`, {
       method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({token:S.token, text, gender:S.voice})
     });
-    if (!r.ok) throw new Error();
+    if (!r.ok) throw new Error('tts_api_fail');
     const blob = await r.blob();
     const url = URL.createObjectURL(blob);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const a = new Audio(url);
       S.audio = a;
-      a.onended = () => { URL.revokeObjectURL(url); S.audio = null; resolve(); };
-      a.onerror = () => { URL.revokeObjectURL(url); S.audio = null; resolve(); };
-      a.play();
+      // Q2: Audio 자체 timeout — 재생 시작 후 너무 오래 걸리면 강제 종료
+      const t = setTimeout(() => {
+        URL.revokeObjectURL(url);
+        S.audio = null;
+        resolve('timeout');
+      }, TTS_TIMEOUT_MS);
+      a.onended = () => { clearTimeout(t); URL.revokeObjectURL(url); S.audio = null; resolve('ok'); };
+      a.onerror = () => { clearTimeout(t); URL.revokeObjectURL(url); S.audio = null; resolve('audio_error'); };
+      a.play().catch(() => { clearTimeout(t); URL.revokeObjectURL(url); S.audio = null; resolve('play_blocked'); });
     });
   } catch {
-    return new Promise(resolve => {
+    // Q2: 브라우저 TTS fallback — 역시 timeout 적용
+    return new Promise((resolve) => {
+      // 브라우저 TTS가 아예 없는 환경 방어
+      if (!S.synth) { resolve('no_synth'); return; }
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'en-US'; u.rate = 0.88;
-      u.onend = resolve; u.onerror = resolve;
-      S.synth.speak(u);
+      const t = setTimeout(() => {
+        try { S.synth.cancel(); } catch {}
+        resolve('synth_timeout');
+      }, TTS_TIMEOUT_MS);
+      u.onend = () => { clearTimeout(t); resolve('ok'); };
+      u.onerror = () => { clearTimeout(t); resolve('synth_error'); };
+      try {
+        S.synth.speak(u);
+      } catch {
+        clearTimeout(t);
+        resolve('synth_fail');
+      }
     });
   }
 }
@@ -572,6 +615,9 @@ function toggleMic() {
 function startListening() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) { setStat('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
+  // Q5: 빠른 더블탭 방어 — rec.start() 전에 미리 true 설정
+  if (S.isListening) return;
+  S.isListening = true;
 
   document.getElementById('mic-btn').className = 'mic-btn listening';
   document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝나면 자동으로 멈춰요';
@@ -582,7 +628,6 @@ function startListening() {
   rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true;
   let finalText = '', sTimer = null;
 
-  rec.onstart = () => { S.isListening = true; };
   rec.onresult = (e) => {
     let interim = ''; finalText = '';
     for (let i = e.resultIndex; i < e.results.length; i++) {
@@ -591,8 +636,7 @@ function startListening() {
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
     if (sTimer) clearTimeout(sTimer);
-    // 3초 침묵 후 자동 종료
-    sTimer = setTimeout(() => { if (finalText.trim()) rec.stop(); }, 3000);
+    sTimer = setTimeout(() => { rec.stop(); }, 4000);
   };
   rec.onend = () => {
     S.isListening = false; stopWave();
@@ -608,12 +652,24 @@ function startListening() {
     }
   };
   rec.onerror = (e) => {
-    stopWave();
-    if (e.error === 'not-allowed') setStat('❌ 마이크 접근을 허용해주세요.', '');
-    else { enableMic(); document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요'; }
+    S.isListening = false; stopWave();
+    if (e.error === 'not-allowed') {
+      setStat('❌ 마이크 접근을 허용해주세요.', '');
+      document.getElementById('mic-btn').className = 'mic-btn off';
+    } else {
+      enableMic();
+      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+    }
   };
   S.recognition = rec;
-  rec.start();
+  try {
+    rec.start();
+  } catch {
+    // rec.start() 자체가 실패한 경우 (이미 다른 rec이 실행 중 등) 상태 복원
+    S.isListening = false;
+    enableMic();
+    setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+  }
 }
 
 // ── 평가 ─────────────────────────────────────────────────────────────
@@ -621,8 +677,6 @@ async function evaluate(answer) {
   disableMic();
   setStat('분석 중...', '');
   showOv('답변 분석 중...');
-
-  // 2순위: 평가 시작 시 현재 카드 스냅샷 저장 (화면 이탈 방어)
   S.evaluatingCard = S.card;
 
   try {
@@ -633,36 +687,28 @@ async function evaluate(answer) {
         topic:S.evaluatingCard.topic, user_answer:answer
       })
     });
-
-    // 7순위: 토큰 만료/비활성화 처리
-    if (r.status === 401 || r.status === 403) {
-      hideOv();
-      handleAuthError();
-      return;
-    }
+    if (r.status === 401 || r.status === 403) { handleAuthError(); return; }
+    if (!r.ok) throw new Error(`eval_fail_${r.status}`);
 
     const d = await r.json();
-    hideOv();
 
-    // 2순위: 평가 응답이 돌아왔을 때 화면이 이미 바뀌었으면 조용히 무시
-    if (S.evaluatingCard && S.evaluatingCard.id !== (S.card && S.card.id)) {
-      return;
-    }
+    // Q2: 화면 이탈 방어 — 응답 왔을 때 카드가 바뀌었으면 무시
+    if (!S.evaluatingCard || S.evaluatingCard.id !== (S.card && S.card.id)) return;
 
-    // 결과 표시
     document.getElementById('res-score').textContent = d.score;
     document.getElementById('res-reason').textContent = d.score_reason || '';
     document.getElementById('res-model').textContent = '💡 ' + (d.model_answer || S.evaluatingCard.sentence);
     document.getElementById('res-coach').textContent = d.coach_comment || '';
     document.getElementById('result-box').className = 'result-box show';
-
     S.answerDone = true;
     document.getElementById('mic-hint').textContent = '평가 완료';
 
     const level = d.level || 2;
 
-    // 카운트 수정: level 무관하게 항상 1회 차감 (fromFlash든 독립 모드든 동일)
-    await markDone(level >= 3);
+    // Q4: markDone 429 시 즉시 중단 — showLimitScreen 후 이후 코드 실행 막기
+    const limitReached = await markDone(level >= 3);
+    if (limitReached) return;
+
     if (level === 1) {
       setStat('🔄 ' + (d.coach_comment || '다시 도전해보세요'), '');
       if (S.fromFlash) {
@@ -682,12 +728,10 @@ async function evaluate(answer) {
       }
     }
 
-    // 결과까지 스크롤
     setTimeout(() => {
       document.getElementById('conv-screen').scrollTo({top:9999, behavior:'smooth'});
     }, 200);
 
-    // 소리 겹침 수정: setTimeout 대신 즉시 실행 + ttsTimer ID를 S에 저장해서 stopAll()로 취소 가능하게
     const snapCard = S.evaluatingCard;
     S.ttsTimer = setTimeout(async () => {
       S.ttsTimer = null;
@@ -696,23 +740,29 @@ async function evaluate(answer) {
     S.evaluatingCard = null;
 
   } catch {
-    hideOv();
     setStat('평가 중 오류가 발생했습니다.', '');
     enableMic();
     document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+  } finally {
+    // Q3: 어떤 경우에도 로딩 오버레이는 반드시 닫힘
+    hideOv();
   }
 }
 
+// markDone: 한도 초과(429) 시 true 반환 → evaluate가 즉시 중단
 async function markDone(passed) {
   try {
     const r = await fetch(`${API_BASE}/api/practice/complete`, {
       method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({token:S.token, card_id:S.card.id, passed})
     });
-    if (r.status === 401 || r.status === 403) { handleAuthError(); return; }
-    if (r.status === 429) { showLimitScreen(); return; }
+    if (r.status === 401 || r.status === 403) { handleAuthError(); return true; }
+    if (r.status === 429) { showLimitScreen(); return true; }  // Q4: true 반환
     if (r.ok) { const d = await r.json(); S.usedToday = d.used_today; updateBadge(); }
-  } catch {}
+    return false;
+  } catch {
+    return false; // 네트워크 실패 시엔 계속 진행 (카운트 누락은 감수)
+  }
 }
 
 // ── 버튼 핸들러 ─────────────────────────────────────────────────────
