@@ -5,7 +5,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 양쪽 모두에게 통하는 해결책이 필요해요.",
     "sentence": "We need a solution that works for both sides.",
-    "keyword_note": "a solution that~"
+    "keyword_note": "a solution that~",
+    "conv_prompt": "We're stuck on this issue and can't seem to find a middle ground. What do you think we should do?"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 우리 모든 고객 계정을 담당하는 사람이에요.",
     "sentence": "She is the person who handles all our client accounts.",
-    "keyword_note": "the person who~"
+    "keyword_note": "the person who~",
+    "conv_prompt": "Do you know who's in charge of managing all our client relationships?"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 지난 미팅에서 제가 언급했던 보고서예요.",
     "sentence": "This is the report that I mentioned in our last meeting.",
-    "keyword_note": "the report that~"
+    "keyword_note": "the report that~",
+    "conv_prompt": "I can't find that report anywhere. Do you remember what it was about?"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 우리 팀이 매일 사용하는 도구예요.",
     "sentence": "This is a tool which our team uses every single day.",
-    "keyword_note": " a tool which~"
+    "keyword_note": " a tool which~",
+    "conv_prompt": "What's that system your team relies on every day?"
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그는 항상 창의적인 아이디어를 생각해내는 사람이에요.",
     "sentence": "He is the one who always comes up with creative ideas.",
-    "keyword_note": "the one who~  |  come up with → (아이디어를) 생각해내다"
+    "keyword_note": "the one who~  |  come up with → (아이디어를) 생각해내다",
+    "conv_prompt": "When you need a fresh take on a problem, who do you usually go to?"
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그냥 결정을 내려야 하는 순간들이 있어요.",
     "sentence": "There are moments when you just have to make a decision.",
-    "keyword_note": "moments when~"
+    "keyword_note": "moments when~",
+    "conv_prompt": "How do you handle it when you're under pressure to decide quickly?"
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리 시간을 많이 절약해줄 수 있는 아이디어가 있어요.",
     "sentence": "I have an idea that might save us a lot of time.",
-    "keyword_note": "an idea that~"
+    "keyword_note": "an idea that~",
+    "conv_prompt": "We've been spending too much time on manual tasks. Do you have any thoughts on how we could speed things up?"
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 우리에게 모든 걸 바꿔 놓은 결정이었어요.",
     "sentence": "That was the decision that changed everything for us.",
-    "keyword_note": "the decision that~"
+    "keyword_note": "the decision that~",
+    "conv_prompt": "Looking back, was there a single turning point for your team?"
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "침묵이 최선의 반응인 상황들이 있어요.",
     "sentence": "There are situations when silence is the best response.",
-    "keyword_note": "situations when~"
+    "keyword_note": "situations when~",
+    "conv_prompt": "What do you usually do when the conversation gets really tense?"
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 우리의 비전을 공유하는 파트너를 찾고 있어요.",
     "sentence": "We are looking for a partner who shares our vision.",
-    "keyword_note": "a partner who~"
+    "keyword_note": "a partner who~",
+    "conv_prompt": "We're expanding and need someone to collaborate with long-term. What kind of partner are you looking for?"
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 새로운 역할로 옮겼는데, 그게 그녀에게 딱 맞아요.",
     "sentence": "She moved to a new role, which suits her perfectly.",
-    "keyword_note": "a new role, which ~"
+    "keyword_note": "a new role, which ~",
+    "conv_prompt": "How did the team react when she changed positions?"
   },
   {
     "id": 12,
@@ -93,7 +104,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 우리가 성장하는 데 도움이 되는 종류의 피드백이에요.",
     "sentence": "This is the kind of feedback that helps us grow.",
-    "keyword_note": "the kind of feedback that~"
+    "keyword_note": "the kind of feedback that~",
+    "conv_prompt": "What kind of input actually helps you improve your work?"
   },
   {
     "id": 13,
@@ -101,7 +113,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "저는 성장할 공간이 많은 회사에서 일해요.",
     "sentence": "I work at a company, which gives me a lot of room to grow.",
-    "keyword_note": "a company, which~"
+    "keyword_note": "a company, which~",
+    "conv_prompt": "What's the work environment like at your company?"
   },
   {
     "id": 14,
@@ -109,7 +122,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 금요일까지 우리가 검토해야 하는 계약서예요.",
     "sentence": "This is the contract that we need to review by Friday.",
-    "keyword_note": "the contract that~"
+    "keyword_note": "the contract that~",
+    "conv_prompt": "What's the deadline for reviewing this?"
   },
   {
     "id": 15,
@@ -117,7 +131,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "계획대로 되지 않는 때가 있을 거예요.",
     "sentence": "There will be times when things don't go as planned.",
-    "keyword_note": "times when~"
+    "keyword_note": "times when~",
+    "conv_prompt": "How do you stay on track when unexpected setbacks happen?"
   },
   {
     "id": 16,
@@ -125,7 +140,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리가 이 제품을 처음 출시했던 날이 기억나요.",
     "sentence": "I remember the day when we first launched this product.",
-    "keyword_note": "the day when~"
+    "keyword_note": "the day when~",
+    "conv_prompt": "What was the biggest milestone in your company's history?"
   },
   {
     "id": 17,
@@ -133,7 +149,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 비슷한 시장에서 잘 통했던 전략이에요.",
     "sentence": "This is a strategy which has worked well in similar markets.",
-    "keyword_note": "a strategy which~"
+    "keyword_note": "a strategy which~",
+    "conv_prompt": "How did your approach to this market change over time?"
   },
   {
     "id": 18,
@@ -141,7 +158,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그들은 팀을 재구성했는데, 그게 소통을 훨씬 원활하게 만들었어요.",
     "sentence": "They restructured the team, which made communication much smoother.",
-    "keyword_note": "the team, which~"
+    "keyword_note": "the team, which~",
+    "conv_prompt": "What happened after the team restructure?"
   },
   {
     "id": 19,
@@ -149,7 +167,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 접근법을 완전히 바꿨는데, 그게 결정적인 차이를 만들었어요.",
     "sentence": "We changed our approach completely, which made all the difference.",
-    "keyword_note": "our approach completely, which~"
+    "keyword_note": "our approach completely, which~",
+    "conv_prompt": "What made the biggest difference when you changed direction on that project?"
   },
   {
     "id": 20,
@@ -157,7 +176,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그는 더 많은 책임을 맡았는데, 그게 바로 그에게 필요한 것이었어요.",
     "sentence": "He took on more responsibility, which was exactly what he needed.",
-    "keyword_note": "more responsibility, which~ |  발음: exactly → 익재끌리"
+    "keyword_note": "more responsibility, which~ |  발음: exactly → 익재끌리",
+    "conv_prompt": "What changed for him professionally after he took on that new role?"
   },
   {
     "id": 21,
@@ -165,7 +185,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "비용을 30%를 줄인 방법을 찾았어요.",
     "sentence": "I found a method that reduced our costs by 30 percent.",
-    "keyword_note": "a method that~"
+    "keyword_note": "a method that~",
+    "conv_prompt": "How did you manage to bring down the operational costs so significantly?"
   },
   {
     "id": 22,
@@ -173,7 +194,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리에게 새로운 기회를 열어줄 계약을 체결했어요.",
     "sentence": "We signed a deal which will open new opportunities for us.",
-    "keyword_note": "a deal which~"
+    "keyword_note": "a deal which~",
+    "conv_prompt": "What came out of the negotiations last month?"
   },
   {
     "id": 23,
@@ -181,7 +203,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "도움을 요청하는 게 가장 현명한 행동인 때가 있어요.",
     "sentence": "There are times when asking for help is the smartest move.",
-    "keyword_note": "times when~"
+    "keyword_note": "times when~",
+    "conv_prompt": "When things go wrong in a project, what's your instinct?"
   },
   {
     "id": 24,
@@ -189,7 +212,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 더 나은 것을 찾기 전까지 우리가 많이 의존하곤 했던 접근법이에요.",
     "sentence": "That is the approach which we used to rely on heavily, until we found something better.",
-    "keyword_note": "the approach which ~"
+    "keyword_note": "the approach which ~",
+    "conv_prompt": "What's your current process for handling client escalations?"
   },
   {
     "id": 25,
@@ -197,7 +221,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 서울에서 만났는데, 거기서 계약이 공식적으로 체결됐어요.",
     "sentence": "We met in Seoul, where the deal was officially signed.",
-    "keyword_note": "Seoul, where~"
+    "keyword_note": "Seoul, where~",
+    "conv_prompt": "Which city did you finalize that major partnership agreement in?"
   },
   {
     "id": 26,
@@ -205,7 +230,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그는 우리가 진지하게 고려해야 한다고 생각하는 제안을 했어요.",
     "sentence": "He made a suggestion which I think we should consider seriously.",
-    "keyword_note": "a suggestion which ~"
+    "keyword_note": "a suggestion which ~",
+    "conv_prompt": "Did anyone bring up a different angle during the discussion?"
   },
   {
     "id": 27,
@@ -213,7 +239,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "매니저와 얘기했는데, 알고 보니 매우 지지적인 분이었어요.",
     "sentence": "I spoke with the manager, who turned out to be very supportive.",
-    "keyword_note": "the manager, who~"
+    "keyword_note": "the manager, who~",
+    "conv_prompt": "How did your conversation with the manager go?"
   },
   {
     "id": 28,
@@ -221,7 +248,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "진전이 느리게 느껴지는 날들이 있지만, 계속 가세요.",
     "sentence": "There are days when progress feels slow, but keep going.",
-    "keyword_note": "days when~"
+    "keyword_note": "days when~",
+    "conv_prompt": "How do you keep yourself motivated during slow periods?"
   },
   {
     "id": 29,
@@ -229,7 +257,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 솔직하면서도 건설적인 피드백을 받았어요.",
     "sentence": "We received feedback which was both honest and constructive.",
-    "keyword_note": "feedback which ~"
+    "keyword_note": "feedback which ~",
+    "conv_prompt": "What was the response like after you submitted the proposal?"
   },
   {
     "id": 30,
@@ -237,7 +266,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 회의실의 모든 사람을 감동시킨 발표를 했어요.",
     "sentence": "She gave a presentation which impressed everyone in the room.",
-    "keyword_note": "a presentation which~"
+    "keyword_note": "a presentation which~",
+    "conv_prompt": "How did the presentation land with the leadership team?"
   },
   {
     "id": 31,
@@ -245,7 +275,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 모든 고객 상호작용을 추적하는 시스템이 있어요.",
     "sentence": "We have a system which tracks every customer interaction.",
-    "keyword_note": "a system which ~"
+    "keyword_note": "a system which ~",
+    "conv_prompt": "How do you keep track of all your customer touchpoints?"
   },
   {
     "id": 32,
@@ -253,7 +284,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "저는 7월에 프로젝트에 합류했는데, 그때 막 시작되고 있었어요.",
     "sentence": "I joined the project in July, when things were just getting started.",
-    "keyword_note": "in July, when~"
+    "keyword_note": "in July, when~",
+    "conv_prompt": "When did you officially join the project?"
   },
   {
     "id": 33,
@@ -261,7 +293,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 새 사무실로 이사했는데, 거기서 모두가 더 생산적이라고 느껴요.",
     "sentence": "We moved to a new office, where everyone feels more productive.",
-    "keyword_note": " a new office, where~"
+    "keyword_note": " a new office, where~",
+    "conv_prompt": "How has the new office space affected your team's energy?"
   },
   {
     "id": 34,
@@ -269,7 +302,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 봄에 제품을 출시했는데, 그때 시장이 준비돼 있었어요.",
     "sentence": "We launched the product in spring, when the market was ready.",
-    "keyword_note": "in spring, when~"
+    "keyword_note": "in spring, when~",
+    "conv_prompt": "Why did you decide to launch in the spring?"
   },
   {
     "id": 35,
@@ -277,7 +311,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 빠르게 움직이는 회사에서 그냥 익숙해져야 하는 종류의 압박이에요.",
     "sentence": "This is the kind of pressure that you simply have to get used to in a fast-moving company.",
-    "keyword_note": "pressure that~ "
+    "keyword_note": "pressure that~ ",
+    "conv_prompt": "What's the work culture like in a fast-growing startup?"
   },
   {
     "id": 36,
@@ -285,7 +320,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 이번 분기에 우리가 지켜야 하는 예산이에요 .",
     "sentence": "This is the budget which we need to stick to this quarter.",
-    "keyword_note": "the budget which~"
+    "keyword_note": "the budget which~",
+    "conv_prompt": "What's the financial constraint your team is working within this quarter?"
   },
   {
     "id": 37,
@@ -293,7 +329,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "모든 게 딱 맞아떨어졌던 그 순간을 아직도 생각해요.",
     "sentence": "I still think about the moment when everything clicked for me.",
-    "keyword_note": "the moment when~"
+    "keyword_note": "the moment when~",
+    "conv_prompt": "Was there a specific moment when consulting started to feel natural for you?"
   },
   {
     "id": 38,
@@ -301,7 +338,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 압박을 받을 때 항상 최고의 아이디어를 생각해내는 사람이에요.",
     "sentence": "She is the person that always comes up with the best ideas under pressure.",
-    "keyword_note": "the person that ~  |  come up with → (아이디어를) 생각해내다"
+    "keyword_note": "the person that ~  |  come up with → (아이디어를) 생각해내다",
+    "conv_prompt": "Who's the go-to person on your team when things get really difficult?"
   },
   {
     "id": 39,
@@ -309,7 +347,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 회사가 시내로 이전하기 전에 제가 일하곤 했던 사무실이어요.",
     "sentence": "This is the office that I used to work in before the company moved downtown.",
-    "keyword_note": "the office that~"
+    "keyword_note": "the office that~",
+    "conv_prompt": "How long were you based at the downtown location?"
   },
   {
     "id": 40,
@@ -317,7 +356,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 여러 팀에 걸쳐 테스트된 접근법이에요.",
     "sentence": "This is an approach which has been tested across multiple teams.",
-    "keyword_note": "an approach which~"
+    "keyword_note": "an approach which~",
+    "conv_prompt": "Has this method been validated beyond just your team?"
   },
   {
     "id": 41,
@@ -325,7 +365,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "모든 미팅을 몇 시간씩 준비하곤 했던 때가 있었는데, 이제는 자연스럽게 느껴져요.",
     "sentence": "There was a time when I used to prepare for every meeting for hours, but now it feels natural.",
-    "keyword_note": "a time when~"
+    "keyword_note": "a time when~",
+    "conv_prompt": "How has your meeting preparation evolved over the years?"
   },
   {
     "id": 42,
@@ -333,7 +374,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "저는 저를 더 잘하도록 밀어붙이는 매우 높은 기대를 가진 고객들과 일하는 데 익숙해요.",
     "sentence": "I am used to working with clients who have very high expectations that push me to do better.",
-    "keyword_note": " clients who~"
+    "keyword_note": " clients who~",
+    "conv_prompt": "What's it like working with demanding clients?"
   },
   {
     "id": 43,
@@ -341,7 +383,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 사람들이 대담한 새 아이디어를 자유롭게 생각해낼 수 있는 환경이에요.",
     "sentence": "This is the kind of environment where people feel free to come up with bold new ideas.",
-    "keyword_note": "environment where~"
+    "keyword_note": "environment where~",
+    "conv_prompt": "How would you describe your current work environment?"
   },
   {
     "id": 44,
@@ -349,7 +392,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 제가 꾸준함이 재능보다 더 중요하다는 걸 깨달은 시점이었어요.",
     "sentence": "That was the point when I realized consistency matters more than talent.",
-    "keyword_note": "the point when~"
+    "keyword_note": "the point when~",
+    "conv_prompt": "What was the lesson that shaped your professional mindset the most?"
   },
   {
     "id": 45,
@@ -357,7 +401,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 제가 보고하곤 했던 매니저인데, 그녀가 제가 아는 모든 것을 가르쳐줬어요.",
     "sentence": "She is the manager who I used to report to, and she taught me everything I know.",
-    "keyword_note": "the manager who~"
+    "keyword_note": "the manager who~",
+    "conv_prompt": "Who had the biggest influence on how you work today?"
   },
   {
     "id": 46,
@@ -365,7 +410,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 새로운 역할로 옮겼는데, 익숙해지는 데 시간이 걸렸지만 결국 잘 해냈어요.",
     "sentence": "She moved to a new role, which took some time to get used to, but she thrived eventually.",
-    "keyword_note": "a new role, which~ |  get used to → ~에 익숙해지다"
+    "keyword_note": "a new role, which~ |  get used to → ~에 익숙해지다",
+    "conv_prompt": "How has she been adapting to her new responsibilities?"
   },
   {
     "id": 47,
@@ -373,7 +419,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "영어로 말하는 게 완전히 자연스럽게 느껴지는 순간을 기다리고 있어요.",
     "sentence": "I am waiting for the moment when speaking English feels completely natural.",
-    "keyword_note": "the moment when ~"
+    "keyword_note": "the moment when ~",
+    "conv_prompt": "What's your main goal with English practice right now?"
   },
   {
     "id": 48,
@@ -381,7 +428,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 우리가 마침내 방향에 동의했던 미팅이었어요.",
     "sentence": "That was the meeting when we finally agreed on the direction.",
-    "keyword_note": "the meeting when~"
+    "keyword_note": "the meeting when~",
+    "conv_prompt": "When did your team finally get aligned on the strategy?"
   },
   {
     "id": 49,
@@ -389,7 +437,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 계획대로 되지 않을 때의 상황을 처리하는 데 익숙한 사람이에요.",
     "sentence": "She is someone who is used to handling situations when things do not go as planned.",
-    "keyword_note": "someone who~| used to → ~하곤 했다 (과거 습관)"
+    "keyword_note": "someone who~| used to → ~하곤 했다 (과거 습관)",
+    "conv_prompt": "How does she handle things when projects don't go to plan?"
   },
   {
     "id": 50,
@@ -397,7 +446,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 중요한 빠른 결정을 내리는 것에 익숙해지게 될 환경이에요.",
     "sentence": "This is an environment where you will get used to making quick decisions that matter.",
-    "keyword_note": "an environment where~  |  get used to → ~에 익숙해지다"
+    "keyword_note": "an environment where~  |  get used to → ~에 익숙해지다",
+    "conv_prompt": "What kind of environment helps people make better decisions faster?"
   },
   {
     "id": 51,
@@ -405,7 +455,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 먼저 팀 전체와 상의하지 않고 내리지 말았어야 했던 결정이었어요.",
     "sentence": "That was the decision that we should not have made without consulting the entire team first.",
-    "keyword_note": "the decision that~ "
+    "keyword_note": "the decision that~ ",
+    "conv_prompt": "In retrospect, what would you have done differently on that call?"
   },
   {
     "id": 52,
@@ -413,7 +464,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 실제 현실에서 통하는 창의적인 접근법을 생각해낼 수 있는 사람이 필요해요.",
     "sentence": "We need someone who can come up with creative approaches which actually work in the real world.",
-    "keyword_note": "someone who~"
+    "keyword_note": "someone who~",
+    "conv_prompt": "What kind of person are you hoping to bring onto the team?"
   },
   {
     "id": 53,
@@ -421,7 +473,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 우리가 따르기로 되어 있었던 전략인데, 시장이 완전히 바뀌었어요.",
     "sentence": "This is the strategy which we were supposed to follow, but the market changed completely.",
-    "keyword_note": "the strategy which~|  be supposed to → ~하기로 되어 있었다"
+    "keyword_note": "the strategy which~|  be supposed to → ~하기로 되어 있었다",
+    "conv_prompt": "Did the original plan hold up throughout the project?"
   },
   {
     "id": 54,
@@ -429,7 +482,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 제가 받는 데 익숙한 종류의 피드백이고, 항상 제가 개선하는 데 도움이 돼요.",
     "sentence": "This is the kind of feedback which I am used to receiving, and it always helps me improve.",
-    "keyword_note": " feedback which~  |  be used to → ~에 익숙하다"
+    "keyword_note": " feedback which~  |  be used to → ~에 익숙하다",
+    "conv_prompt": "How do you typically receive critical feedback?"
   },
   {
     "id": 55,
@@ -437,7 +491,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 미팅이 시작되기 전에 제출됐어야 했던 보고서예요.",
     "sentence": "That is the report that was supposed to be submitted before the meeting started.",
-    "keyword_note": "the report that ~  |  be supposed to → ~하기로 되어 있었다"
+    "keyword_note": "the report that ~  |  be supposed to → ~하기로 되어 있었다",
+    "conv_prompt": "Was the report ready before the session began?"
   },
   {
     "id": 56,
@@ -445,7 +500,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "받아들이기 힘든 피드백을 듣는 것에 익숙해져야 하는 상황들이 있어요.",
     "sentence": "There are situations when you need to get used to hearing feedback that is hard to accept.",
-    "keyword_note": "situations when~  |  get used to → ~에 익숙해지다"
+    "keyword_note": "situations when~  |  get used to → ~에 익숙해지다",
+    "conv_prompt": "What's the hardest part about receiving difficult feedback?"
   },
   {
     "id": 57,
@@ -453,7 +509,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 제가 기다리게 하지 말았어야 했던 고객이고, 제가 처리한 방식을 깊이 후회해요.",
     "sentence": "She is the client who I should not have kept waiting, and I deeply regret the way I handled it.",
-    "keyword_note": "the client who~  |  발음: shouldn't've → 슈든트브"
+    "keyword_note": "the client who~  |  발음: shouldn't've → 슈든트브",
+    "conv_prompt": "How did things go with that client you were managing?"
   },
   {
     "id": 58,
@@ -461,7 +518,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그녀는 지난 분기에 잃은 고객을 담당하기로 되어 있었던 사람이에요.",
     "sentence": "She is the one who was supposed to handle the client which we lost last quarter.",
-    "keyword_note": "the one who~ |  be supposed to → ~하기로 되어 있었다"
+    "keyword_note": "the one who~ |  be supposed to → ~하기로 되어 있었다",
+    "conv_prompt": "Who dropped the ball on the account we lost?"
   },
   {
     "id": 59,
@@ -469,7 +527,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그건 그가 아무도 생각하지 못했던 해결책을 생각해낸 순간이었어요.",
     "sentence": "That was the moment when he came up with a solution that nobody else had considered.",
-    "keyword_note": "the moment when~ |  come up with → (아이디어를) 생각해내다 (과거형)"
+    "keyword_note": "the moment when~ |  come up with → (아이디어를) 생각해내다 (과거형)",
+    "conv_prompt": "How did the team finally crack that problem everyone was stuck on?"
   },
   {
     "id": 60,
@@ -477,7 +536,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "우리는 오픈 오피스로 이사했는데, 거기서 저는 이제 예전엔 불편하게 느껴졌던 대화를 하는 데 익숙해졌어요.",
     "sentence": "We moved to an open office, where I am now used to having conversations that used to feel uncomfortable.",
-    "keyword_note": "an open office, where~ |  be used to → ~에 익숙하다"
+    "keyword_note": "an open office, where~ |  be used to → ~에 익숙하다",
+    "conv_prompt": "How do you find working in the new open office layout?"
   },
   {
     "id": 61,
@@ -485,7 +545,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "모든 미팅을 몇 시간씩 준비하곤 했던 날들을 기억해요. 이제는 자연스럽게 느껴지지만요.",
     "sentence": "I remember the days when I used to prepare for every meeting for hours, but now it feels natural.",
-    "keyword_note": "the days when~  |  used to → ~하곤 했다 (과거 습관)"
+    "keyword_note": "the days when~  |  used to → ~하곤 했다 (과거 습관)",
+    "conv_prompt": "How has your approach to preparation changed since you started your career?"
   },
   {
     "id": 62,
@@ -493,7 +554,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "모든 게 순조롭게 진행되기로 되어 있었지만 아무것도 그렇지 않았던 날이 기억나요.",
     "sentence": "I remember the day when everything was supposed to go smoothly, but nothing did.",
-    "keyword_note": "the day when ~ |  be supposed to → ~하기로 되어 있었다"
+    "keyword_note": "the day when ~ |  be supposed to → ~하기로 되어 있었다",
+    "conv_prompt": "Was there ever a day when things really didn't go the way you planned?"
   },
   {
     "id": 63,
@@ -501,7 +563,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "이건 지난 분기에 일어난 모든 일 이후에 특히 반복하지 말았어야 했던 종류의 실수예요.",
     "sentence": "This is exactly the kind of mistake which we should not have repeated, especially after everything that happened last quarter.",
-    "keyword_note": "the kind of mistake which~ |  should not have p.p. → ~하지 말았어야 했다"
+    "keyword_note": "the kind of mistake which~ |  should not have p.p. → ~하지 말았어야 했다",
+    "conv_prompt": "Is there a mistake your team keeps repeating that really frustrates you?"
   },
   {
     "id": 64,
@@ -509,7 +572,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "제가 그 말을 하지 말았어야 했던 순간이 있었는데, 그게 몇 년에 걸쳐 쌓은 관계를 손상시켰거든요.",
     "sentence": "There was a moment when I should not have said what I said, because it damaged a relationship that took years to build.",
-    "keyword_note": "a moment when~"
+    "keyword_note": "a moment when~",
+    "conv_prompt": "Have you ever said something at work that you later regretted?"
   },
   {
     "id": 65,
@@ -517,7 +581,8 @@
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "입에서 나오는 모든 영어 문장에 힘들어하곤 했던 날들을 아직도 기억해요.",
     "sentence": "I still remember the days when I used to struggle with every English sentence that came out of my mouth.",
-    "keyword_note": "the days when~"
+    "keyword_note": "the days when~",
+    "conv_prompt": "What was it like when you first started speaking English at work?"
   },
   {
     "id": 66,
@@ -525,7 +590,8 @@
     "topic": "길게 말하기 연습: 문단으로 말하기",
     "korean": "그 프로젝트를 마침내 끝내서, 정말 기분이 좋아. 데드라인이 빡빡해서 마지막엔 약간 스트레스가 있었어, 그러나, 우리 팀은 데드라인을 정말 잘 관리했다고 생각해. 나는 마지막 버전을 제출하기 전에 많은 것을 체크했었는데, 이건 생각보다 더 많은 시간이 걸렸어. 그렇지만 결국에는 나는 결과에 만족해.",
     "sentence": "It felt really good to finally finish the project. It was a bit stressful toward the end because we had a tight deadline, but I think the team handled it pretty well. I had to check a lot of details before submitting the final version, which took more time than I expected, but in the end, I was happy with the result.",
-    "keyword_note": "패턴: 전체적으로 ~함 → 그러나 ~한 이유 → 결국에는 (감정-이유-결말 구조)"
+    "keyword_note": "패턴: 전체적으로 ~함 → 그러나 ~한 이유 → 결국에는 (감정-이유-결말 구조)",
+    "conv_prompt": "How did the project wrap up in the end?"
   },
   {
     "id": 67,
@@ -533,7 +599,8 @@
     "topic": "길게 말하기 연습: 문단으로 말하기",
     "korean": "솔직히, 요즘 조금 피곤한 것 같아. 특별히 나쁠 건 없는데, 최근에 너무 많은 생각을 하고 있어, 그래서 편하게 쉬질 못해. 여전히 내가 해야 하는 일과 일상을 관리하고는 있지만, 좀 속도를 늦추는 게 필요한 듯해. 나를 좀 더 돌봐야 할 것 같아.",
     "sentence": "To be honest, I've been feeling a little tired these days. I don't think anything is seriously wrong, but I've had a lot on my mind recently, so it's been hard to fully relax. I'm still managing my work and daily routine, but I feel like I need to slow down a bit and take better care of myself.",
-    "keyword_note": "패턴: 전체적으로 ~함 → 특별히 문제될 것은 없음 → 그러나 ~해서 ~함"
+    "keyword_note": "패턴: 전체적으로 ~함 → 특별히 문제될 것은 없음 → 그러나 ~해서 ~함",
+    "conv_prompt": "How have you been lately? You seem a bit off."
   },
   {
     "id": 68,
@@ -541,7 +608,8 @@
     "topic": "길게 말하기 연습: 문단으로 말하기",
     "korean": "솔직히, 미팅이 꽤 힘들었어. 그렇지만 생각보다 잘 된 것 같아. 클라이언트가 질문이 많았고, 일부는 꽤 어려운 질문들이었어, 그래서 우리 논리를 아주 신중하게 설명해야 했어. 논의가 조금 긴장되는 순간도 몇 번 있었지만, 우리는 침착하게 그들의 우려를 하나씩 해결하며, 결국 더 나은 이해에 도달했어.",
     "sentence": "The client meeting was quite challenging, but I think it went better than expected. The client had a lot of questions, and some of them were pretty tough, so I had to explain our logic very carefully. There were a few moments when the discussion got a little tense, but we stayed calm, addressed their concerns one by one, and eventually reached a better understanding.",
-    "keyword_note": "패턴: 어려웠음 → 그러나 ~한 상황 → 그래서 ~함 → 결국 ~됨"
+    "keyword_note": "패턴: 어려웠음 → 그러나 ~한 상황 → 그래서 ~함 → 결국 ~됨",
+    "conv_prompt": "How did the client meeting go yesterday?"
   },
   {
     "id": 69,
@@ -549,7 +617,8 @@
     "topic": "길게 말하기 연습: 문단으로 말하기",
     "korean": "방금 맥킨지 면접을 끝냈는데, 솔직히 지금까지 봤던 면접 중에서 가장 어려운 편이었어. 면접관이 굉장히 날카로워서, 질문 하나하나에 답하기 전에 신중하게 생각해야 했어. 케이스 자체도 꽤 어려웠는데, 문제가 여러 층위로 나뉘어 있어서. 그래도 최대한 구조적으로 접근하려 했고, 논리를 단계별로 설명했어. 모든 질문에 완벽하게 답한 것 같지는 않지만, 최선을 다했고 완전히 얼어붙지는 않아서 다행이야.",
     "sentence": "I just finished my McKinsey interview, and honestly, it was one of the toughest interviews I've ever had. The interviewer was very sharp, so I had to think carefully before answering each question. The case itself was pretty challenging because there were several layers to the problem, but I tried to stay structured and explain my logic step by step. I don't think I answered everything perfectly, which is a little frustrating, but I did my best and I'm glad I didn't completely freeze.",
-    "keyword_note": "패턴: 결과 → 솔직히 ~함 → 상대가 굉장히 ~함 → 그래서 ~함 → 아쉽지만 다행인 점  |  발음: exactly(이그재끌리) perfectly(퍼r패끌리) directly(다이렉끌리) 등 t는 거의 발음 안 됨"
+    "keyword_note": "패턴: 결과 → 솔직히 ~함 → 상대가 굉장히 ~함 → 그래서 ~함 → 아쉽지만 다행인 점  |  발음: exactly(이그재끌리) perfectly(퍼r패끌리) directly(다이렉끌리) 등 t는 거의 발음 안 됨",
+    "conv_prompt": "You just came out of a big interview. How did it go?"
   },
   {
     "id": 70,
@@ -557,7 +626,8 @@
     "topic": "길게 말하기 연습: 명사로 끝내고 관계사로 연결하기",
     "korean": "나는 어제 백화점에서 본 연필을 살 거야.",
     "sentence": "I'm going to buy the pencil that I saw yesterday at the department store.",
-    "keyword_note": "the pencil that~"
+    "keyword_note": "the pencil that~",
+    "conv_prompt": "Where can I find that pencil you mentioned yesterday?"
   },
   {
     "id": 71,
@@ -565,7 +635,8 @@
     "topic": "길게 말하기 연습: 명사로 끝내고 관계사로 연결하기",
     "korean": "네가 어제 나에게 부탁한 업무들을 방금 다 끝냈어.",
     "sentence": "I have just finished the tasks (that) you asked me to do yesterday.",
-    "keyword_note": " the tasks (that) you~"
+    "keyword_note": " the tasks (that) you~",
+    "conv_prompt": "Did you get through everything on your task list?"
   },
   {
     "id": 72,
@@ -573,7 +644,8 @@
     "topic": "길게 말하기 연습: 명사로 끝내고 관계사로 연결하기",
     "korean": "우리가 어제 제출한 보고서가 승인됐어.",
     "sentence": "The report (that) we submitted yesterday was approved.",
-    "keyword_note": "The report (that) we~"
+    "keyword_note": "The report (that) we~",
+    "conv_prompt": "Any updates on the report we put in yesterday?"
   },
   {
     "id": 73,
@@ -581,7 +653,8 @@
     "topic": "길게 말하기 연습: 명사로 끝내고 관계사로 연결하기",
     "korean": "나는 핀테크에서 일하는 클라이언트를 만났어.",
     "sentence": "I met a client who works in fintech.",
-    "keyword_note": "a client who ~"
+    "keyword_note": "a client who ~",
+    "conv_prompt": "How did the networking event go? Did you meet anyone interesting?"
   },
   {
     "id": 74,
@@ -589,7 +662,8 @@
     "topic": "길게 말하기 연습: 명사로 끝내고 관계사로 연결하기",
     "korean": "나는 AI가 어떻게 직장을 바꾸는지 설명하는 기사를 읽었어.",
     "sentence": "I read an article which explains how AI is changing the workplace.",
-    "keyword_note": "an article which~"
+    "keyword_note": "an article which~",
+    "conv_prompt": "What have you been reading lately?"
   },
   {
     "id": 75,
@@ -597,7 +671,8 @@
     "topic": "길게 말하기 연습: 대조 표현으로 길게 말하기",
     "korean": "데드라인이 촉박했지만, 우리는 프로젝트를 완료했어.",
     "sentence": "Although the deadline was tight, we completed the project.",
-    "keyword_note": "although → 비록 ~이지만 (접속사+절)"
+    "keyword_note": "although → 비록 ~이지만 (접속사+절)",
+    "conv_prompt": "Did you manage to hit the deadline despite all the pressure?"
   },
   {
     "id": 76,
@@ -605,7 +680,8 @@
     "topic": "길게 말하기 연습: 대조 표현으로 길게 말하기",
     "korean": "비용이 높음에도 불구하고, 회사는 새 시스템에 투자하기로 했어.",
     "sentence": "Despite the high cost, the company decided to invest in the new system.",
-    "keyword_note": "despite → ~에도 불구하고 (전치사+명사)"
+    "keyword_note": "despite → ~에도 불구하고 (전치사+명사)",
+    "conv_prompt": "The new system costs a lot. Did the company go ahead with it anyway?"
   },
   {
     "id": 77,
@@ -613,7 +689,8 @@
     "topic": "길게 말하기 연습: 대조 표현으로 길게 말하기",
     "korean": "그 제품은 혁신적이지만, 마케팅하기 어려울 수도 있어.",
     "sentence": "While the product is innovative, it may be difficult to market.",
-    "keyword_note": "while → ~인 반면/~이지만 (대조)"
+    "keyword_note": "while → ~인 반면/~이지만 (대조)",
+    "conv_prompt": "What are your thoughts on our new product from a marketing standpoint?"
   },
   {
     "id": 78,
@@ -621,7 +698,8 @@
     "topic": "길게 말하기 연습: 대조 표현으로 길게 말하기",
     "korean": "직원을 더 고용하는 대신, 우리는 업무 흐름을 개선했어.",
     "sentence": "Rather than hiring more staff, we improved the workflow.",
-    "keyword_note": "rather than → ~하는 대신"
+    "keyword_note": "rather than → ~하는 대신",
+    "conv_prompt": "What did you decide to do about the staffing issue?"
   },
   {
     "id": 79,
@@ -629,7 +707,8 @@
     "topic": "길게 말하기 연습: 대조 표현으로 길게 말하기",
     "korean": "발표가 짧았지만, 핵심 포인트는 다 커버했어.",
     "sentence": "Though the presentation was short, it covered all the key points.",
-    "keyword_note": "though → 비록 ~이지만 (although보다 캐주얼)"
+    "keyword_note": "though → 비록 ~이지만 (although보다 캐주얼)",
+    "conv_prompt": "How long was the presentation?"
   },
   {
     "id": 80,
@@ -637,7 +716,8 @@
     "topic": "길게 말하기 연습: 목적·조건 표현으로 길게 말하기",
     "korean": "나는 회의를 잊지 않으려고 리마인더를 설정했어.",
     "sentence": "I set a reminder so that I wouldn't forget the meeting.",
-    "keyword_note": "so that → ~하기 위해서 (목적)"
+    "keyword_note": "so that → ~하기 위해서 (목적)",
+    "conv_prompt": "You keep forgetting the team meetings. What are you going to do about it?"
   },
   {
     "id": 81,
@@ -645,7 +725,8 @@
     "topic": "길게 말하기 연습: 목적·조건 표현으로 길게 말하기",
     "korean": "지금 출발하면 교통체증을 피할 수 있어.",
     "sentence": "We can avoid traffic if we leave now.",
-    "keyword_note": "if → 만약 ~라면 (조건)"
+    "keyword_note": "if → 만약 ~라면 (조건)",
+    "conv_prompt": "What's the plan to get to the airport on time?"
   },
   {
     "id": 82,
@@ -653,7 +734,8 @@
     "topic": "길게 말하기 연습: 목적·조건 표현으로 길게 말하기",
     "korean": "조심히 다루는 한, 내 노트북을 사용해도 돼.",
     "sentence": "You can use my laptop as long as you handle it carefully.",
-    "keyword_note": "as long as → ~하는 한 (조건)"
+    "keyword_note": "as long as → ~하는 한 (조건)",
+    "conv_prompt": "Can I borrow your laptop for the afternoon?"
   },
   {
     "id": 83,
@@ -661,7 +743,8 @@
     "topic": "길게 말하기 연습: 목적·조건 표현으로 길게 말하기",
     "korean": "날씨가 추워질 경우를 대비해서 재킷을 챙겨.",
     "sentence": "Bring a jacket in case the weather gets colder.",
-    "keyword_note": "in case → ~할 경우를 대비해서"
+    "keyword_note": "in case → ~할 경우를 대비해서",
+    "conv_prompt": "The weather's been unpredictable lately. Are you ready for it?"
   },
   {
     "id": 84,
@@ -669,7 +752,8 @@
     "topic": "길게 말하기 연습: That절로 길게 말하기",
     "korean": "나는 우리에게 더 나은 계획이 필요하다는 걸 깨달았어.",
     "sentence": "I realized that we needed a better plan.",
-    "keyword_note": "realize that → ~라는 것을 깨닫다"
+    "keyword_note": "realize that → ~라는 것을 깨닫다",
+    "conv_prompt": "What was your main takeaway from the last project?"
   },
   {
     "id": 85,
@@ -677,7 +761,8 @@
     "topic": "길게 말하기 연습: That절로 길게 말하기",
     "korean": "문제는 우리에게 충분한 자원이 없다는 거야.",
     "sentence": "The challenge is that we do not have enough resources.",
-    "keyword_note": "the challenge is that → 문제는 ~라는 것이다"
+    "keyword_note": "the challenge is that → 문제는 ~라는 것이다",
+    "conv_prompt": "Why hasn't the team been able to move faster on this?"
   },
   {
     "id": 86,
@@ -685,7 +770,8 @@
     "topic": "길게 말하기 연습: That절로 길게 말하기",
     "korean": "내가 필요한 것은 조금 더 시간이야.",
     "sentence": "What I need is a bit more time.",
-    "keyword_note": "what I need is → 내가 필요한 것은 (명사절 주어)"
+    "keyword_note": "what I need is → 내가 필요한 것은 (명사절 주어)",
+    "conv_prompt": "What's holding you back from getting started?"
   },
   {
     "id": 87,
@@ -693,7 +779,8 @@
     "topic": "길게 말하기 연습: That절로 길게 말하기",
     "korean": "이 프로젝트에서 우리가 배운 것은 소통이 핵심이라는 거야.",
     "sentence": "What we learned from this project is that communication is key.",
-    "keyword_note": "what we learned is that → 우리가 배운 것은 ~라는 것이다"
+    "keyword_note": "what we learned is that → 우리가 배운 것은 ~라는 것이다",
+    "conv_prompt": "What's the single biggest thing you learned from that project?"
   },
   {
     "id": 88,
@@ -701,7 +788,8 @@
     "topic": "길게 말하기 연습: 분사구문으로 길게 말하기",
     "korean": "예산을 고려하면, 이것이 최선의 선택이야",
     "sentence": "Considering the budget, this is the best option.",
-    "keyword_note": "considering → ~을 고려하면 (분사구문)"
+    "keyword_note": "considering → ~을 고려하면 (분사구문)",
+    "conv_prompt": "Which option makes the most sense given our current budget?"
   },
   {
     "id": 89,
@@ -709,7 +797,8 @@
     "topic": "길게 말하기 연습: 분사구문으로 길게 말하기",
     "korean": "그 소식에 충격을 받아, 그녀는 한 마디도 할 수 없었어.",
     "sentence": "Shocked by the news, she couldn't speak a word.",
-    "keyword_note": "shocked by → ~에 충격받아 (과거분사구문)"
+    "keyword_note": "shocked by → ~에 충격받아 (과거분사구문)",
+    "conv_prompt": "What was her reaction when she heard the news?"
   },
   {
     "id": 90,
@@ -717,7 +806,8 @@
     "topic": "길게 말하기 연습: 분사구문으로 길게 말하기",
     "korean": "빡빡한 일정이 주어졌으니, 우리는 빨리 움직여야 해.",
     "sentence": "Given the timeline, we need to move quickly.",
-    "keyword_note": "given → ~이 주어졌으니 (분사구문)"
+    "keyword_note": "given → ~이 주어졌으니 (분사구문)",
+    "conv_prompt": "Can we afford to wait on this decision?"
   },
   {
     "id": 91,
@@ -725,7 +815,8 @@
     "topic": "길게 말하기 연습: 분사구문으로 길게 말하기",
     "korean": "데이터를 검토한 후, 우리는 계획을 바꾸기로 했어.",
     "sentence": "Having reviewed the data, we decided to change the plan.",
-    "keyword_note": "having p.p. → ~한 후에 (완료분사구문)"
+    "keyword_note": "having p.p. → ~한 후에 (완료분사구문)",
+    "conv_prompt": "Why did you change the direction of the project mid-way?"
   },
   {
     "id": 92,
@@ -733,7 +824,8 @@
     "topic": "길게 말하기 연습: 분사구문으로 길게 말하기",
     "korean": "거리를 걸어 내려가다가, 나는 옛 학교 친구를 마주쳤어.",
     "sentence": "Walking down the street, I ran into an old school friend.",
-    "keyword_note": "-ing (동시동작) → ~하다가/~하면서"
+    "keyword_note": "-ing (동시동작) → ~하다가/~하면서",
+    "conv_prompt": "Did anything interesting happen on your way in this morning?"
   },
   {
     "id": 93,
@@ -741,7 +833,8 @@
     "topic": "길게 말하기 연습: 다양한 강조 표현으로 길게 말하기",
     "korean": "금요일까지 승인을 못 받으면, 런칭이 지연돼. 핵심이 바로 그거야.",
     "sentence": "The bottom line is, if we don't get approval by Friday, the launch is delayed.",
-    "keyword_note": "the bottom line is → 핵심은 ~이다"
+    "keyword_note": "the bottom line is → 핵심은 ~이다",
+    "conv_prompt": "What happens if we don't get sign-off by end of week?"
   },
   {
     "id": 94,
@@ -749,7 +842,8 @@
     "topic": "길게 말하기 연습: 다양한 강조 표현으로 길게 말하기",
     "korean": "내가 걱정되는 이유는, 데이터가 불완전해 보여서야.",
     "sentence": "The reason I'm concerned is that the data seems incomplete.",
-    "keyword_note": "the reason ~ is that → ~인 이유는 ~라는 것이다"
+    "keyword_note": "the reason ~ is that → ~인 이유는 ~라는 것이다",
+    "conv_prompt": "Why are you concerned about this dataset?"
   },
   {
     "id": 95,
@@ -757,7 +851,8 @@
     "topic": "길게 말하기 연습: 다양한 강조 표현으로 길게 말하기",
     "korean": "내가 말하려는 건, 소통이 개선되어야 한다는 거야.",
     "sentence": "What I'm trying to say is that communication needs to improve.",
-    "keyword_note": "what I'm trying to say is that → 내가 말하려는 것은 ~라는 것이다"
+    "keyword_note": "what I'm trying to say is that → 내가 말하려는 것은 ~라는 것이다",
+    "conv_prompt": "Can you summarize what you've been trying to tell the team?"
   },
   {
     "id": 96,
@@ -765,7 +860,8 @@
     "topic": "길게 말하기 연습: 다양한 강조 표현으로 길게 말하기",
     "korean": "가장 중요한 건, 우리가 제때 완수하는 거야.",
     "sentence": "What matters most is that we deliver on time.",
-    "keyword_note": "what matters most is that → 가장 중요한 것은 ~라는 것이다"
+    "keyword_note": "what matters most is that → 가장 중요한 것은 ~라는 것이다",
+    "conv_prompt": "What's the single most important thing for this quarter?"
   },
   {
     "id": 97,
@@ -773,7 +869,8 @@
     "topic": "길게 말하기 연습: 다양한 강조 표현으로 길게 말하기",
     "korean": "솔직히 말하자면, 우리 팀은 이 프로젝트에 인원이 부족해.",
     "sentence": "The thing is, we don't have enough people for this project.",
-    "keyword_note": "the thing is → 사실은/문제는 (구어체)"
+    "keyword_note": "the thing is → 사실은/문제는 (구어체)",
+    "conv_prompt": "What's making this project so difficult to staff properly?"
   },
   {
     "id": 98,
@@ -781,7 +878,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "대한민국의 인구는 약 5천만 명이며, 평균 기대수명은 80세입니다. 연령대가 고르게 분포되어 있다면, 10년 단위의 각 연령 집단마다 약 625만 명이 있습니다.",
     "sentence": "South Korea has a population of approximately 50 million people, with an average life expectancy of 80 years. Assuming an even distribution across age cohorts, this implies roughly 6.25 million people per decade age group.",
-    "keyword_note": "약 ~명 → approximately / roughly / about  |  5천만 → 50 million  |  625만 → 6.25 million  |  기대수명 → life expectancy"
+    "keyword_note": "약 ~명 → approximately / roughly / about  |  5천만 → 50 million  |  625만 → 6.25 million  |  기대수명 → life expectancy",
+    "conv_prompt": "Can you walk me through how you'd estimate South Korea's population by age group?"
   },
   {
     "id": 99,
@@ -789,7 +887,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "회사 X는 현재 전 세계적으로 약 17억 8천만 달러의 매출을 창출하고 있으며, 향후 5년 동안 그 규모가 세 배로 증가할 것으로 예상됩니다.",
     "sentence": "Company X currently generates approximately $1.78 billion in global revenue and is projected to triple over the next five years.",
-    "keyword_note": "17억 8천만 → $1.78 billion (one point seven eight)  |  창출하다 → generate  |  세 배로 → triple  |  예상되다 → be projected to"
+    "keyword_note": "17억 8천만 → $1.78 billion (one point seven eight)  |  창출하다 → generate  |  세 배로 → triple  |  예상되다 → be projected to",
+    "conv_prompt": "What's the revenue growth projection for Company X over the next five years?"
   },
   {
     "id": 100,
@@ -797,7 +896,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "국내 스킨케어 시장은 올해 11조 원에 도달했으며, 이는 전년 대비 10% 증가를 나타냅니다.",
     "sentence": "The domestic skincare market reached KRW 11 trillion this year, representing a 10% year-over-year increase.",
-    "keyword_note": "11조 원 → KRW 11 trillion  |  도달하다 → reach / total / stand at / amount to  |  전년 대비 → year-over-year"
+    "keyword_note": "11조 원 → KRW 11 trillion  |  도달하다 → reach / total / stand at / amount to  |  전년 대비 → year-over-year",
+    "conv_prompt": "How has the domestic skincare market been performing this year?"
   },
   {
     "id": 101,
@@ -805,7 +905,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "2021년의 매출은 87만 달러였습니다. 연간 10%의 증가를 가정할 경우, 2025년의 매출은 얼마가 되겠습니까?",
     "sentence": "Revenue was $870,000 in 2021. Assuming a 10% annual increase, what would revenue be in 2025?",
-    "keyword_note": "87만 달러 → $870,000 (eight hundred seventy thousand)  |  연간 증가 → annual increase / growth rate"
+    "keyword_note": "87만 달러 → $870,000 (eight hundred seventy thousand)  |  연간 증가 → annual increase / growth rate",
+    "conv_prompt": "If we started with $870,000 in revenue and grew 10% annually, where would we be in 2025?"
   },
   {
     "id": 102,
@@ -813,7 +914,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "공항에 하루 동안 도착하는 가방의 총 수는 승객 1인당 평균 가방 수, 하루 비행 횟수, 항공편당 평균 승객 수를 곱하여 추정될 수 있습니다.",
     "sentence": "The total number of bags arriving at the airport per day can be estimated by multiplying the average number of bags per passenger, the number of daily flights, and the average number of passengers per flight.",
-    "keyword_note": "하루당 → per day  |  곱하여 추정하다 → be estimated by multiplying  |  승객 1인당 → per passenger"
+    "keyword_note": "하루당 → per day  |  곱하여 추정하다 → be estimated by multiplying  |  승객 1인당 → per passenger",
+    "conv_prompt": "How would you estimate the total number of bags processed at a major airport each day?"
   },
   {
     "id": 103,
@@ -821,7 +923,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "지역 A의 곰들은 전체 개체 수의 8분의 3을 차지합니다. 이 집단 내에서는 62%가 수컷이고 38%가 암컷입니다. 또한 53%가 최근의 전염병의 영향을 받았습니다.",
     "sentence": "Bears in Region A account for three-eighths of the total population. Within this group, 62% are male and 38% are female. Additionally, 53% of the bears have been affected by the recent epidemic.",
-    "keyword_note": "account for → ~을 차지하다  |  three-eighths → 8분의 3"
+    "keyword_note": "account for → ~을 차지하다  |  three-eighths → 8분의 3",
+    "conv_prompt": "Can you break down the bear population in Region A by gender and epidemic impact?"
   },
   {
     "id": 104,
@@ -829,7 +932,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "한우 판매량의 더 큰 감소폭은 주로 더 큰 기준 판매량에 기인합니다. (한우 판매량이 더 크게 감소한 것은, 원래 한우 판매량이 많기 때문이다.)  (한우 판매량의 더 큰 감소폭은, 더 큰 기준 판매량 때문이다)  (더 큰 한우 판매량 감소는, 그것의 (다른 것과 비교해 더) 큰 판매량 때문이다)",
     "sentence": "The sharper decline in Hanwoo sales is primarily attributable to its larger baseline sales volume.",
-    "keyword_note": "be attributable to → ~에 기인하다  |  baseline → 기준(치)"
+    "keyword_note": "be attributable to → ~에 기인하다  |  baseline → 기준(치)",
+    "conv_prompt": "Why did Hanwoo sales drop more sharply than other categories?"
   },
   {
     "id": 105,
@@ -837,7 +941,8 @@
     "topic": "숫자 표현 (Numbers in English)",
     "korean": "WWF의 2022년 보고서에 따르면, 전세계 야생동물 개체 수는 1970년 이후 69% 감소했으며, 이는 지난 50년간 거의 3분의 2에 해당하는 감소를 나타냅니다.",
     "sentence": "According to WWF's 2022 report, global wildlife populations have declined by 69% since 1970, representing nearly a two-thirds reduction over the past 50 years.",
-    "keyword_note": "represent → ~을 나타내다  |  two-thirds → 3분의 2"
+    "keyword_note": "represent → ~을 나타내다  |  two-thirds → 3분의 2",
+    "conv_prompt": "How significantly have global wildlife populations declined in recent decades?"
   },
   {
     "id": 106,
@@ -845,7 +950,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 고객사는 새로운 생산 라인을 도입할지 (말지) 고민 중입니다.",
     "sentence": "Our client is considering whether to introduce a new production line.",
-    "keyword_note": "고민/고려하다 → consider whether to V  |  도입하다 → introduce"
+    "keyword_note": "고민/고려하다 → consider whether to V  |  도입하다 → introduce",
+    "conv_prompt": "What's the main strategic question your client is currently facing?"
   },
   {
     "id": 107,
@@ -853,7 +959,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 고객사는 새로운 생산 라인 설치를 검토하고 있습니다.",
     "sentence": "Our client is thinking about setting up a new production line.",
-    "keyword_note": "think about → consider의 구어체"
+    "keyword_note": "think about → consider의 구어체",
+    "conv_prompt": "What options is the client exploring for production right now?"
   },
   {
     "id": 108,
@@ -861,7 +968,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 고객사는 새로운 생산 라인 시작 가능성을 모색하고 있습니다.",
     "sentence": "What our client is exploring is the possibility of starting a new production line.",
-    "keyword_note": "what ~ is exploring is → 모색하고 있는 것은 …이다 (What절 강조구문)  |  explore the possibility of → ~의 가능성을 탐색하다"
+    "keyword_note": "what ~ is exploring is → 모색하고 있는 것은 …이다 (What절 강조구문)  |  explore the possibility of → ~의 가능성을 탐색하다",
+    "conv_prompt": "How would you frame the client's core decision?"
   },
   {
     "id": 109,
@@ -869,7 +977,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "온라인 채널을 통해, 판매량을 약 20% 증가시킬 수 있을 것입니다.",
     "sentence": "Through an online channel, we can increase the sales volume by 20%.",
-    "keyword_note": "~을 통해 → through / by  |  판매량 → sales volume  |  ~만큼 증가 → increase by + 숫자"
+    "keyword_note": "~을 통해 → through / by  |  판매량 → sales volume  |  ~만큼 증가 → increase by + 숫자",
+    "conv_prompt": "What kind of sales lift could an online channel realistically generate?"
   },
   {
     "id": 110,
@@ -877,7 +986,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "온라인 판매를 통해 판매량을 20% 높일 수 있습니다.",
     "sentence": "By selling online, we can raise the sales volume by 20%.",
-    "keyword_note": "raise → increase의 구어체"
+    "keyword_note": "raise → increase의 구어체",
+    "conv_prompt": "What's the upside of shifting to an online sales model?"
   },
   {
     "id": 111,
@@ -885,7 +995,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "온라인 채널을 통해 판매량 20% 증가를 달성할 수 있습니다.",
     "sentence": "We can achieve a 20% increase in the sales volume that comes through an online channel.",
-    "keyword_note": "increase that comes through → 온라인 채널을 통해 오는 증가 (관계대명사 that, 사물 수식)  |  achieve an increase → 증가를 달성하다"
+    "keyword_note": "increase that comes through → 온라인 채널을 통해 오는 증가 (관계대명사 that, 사물 수식)  |  achieve an increase → 증가를 달성하다",
+    "conv_prompt": "How would you describe the sales opportunity through a digital channel?"
   },
   {
     "id": 112,
@@ -893,7 +1004,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "온라인 채널은 판매량을 20% 성장시키는 데 도움이 될 수 있습니다.",
     "sentence": "An online channel could help us grow the sales volume by 20%.",
-    "keyword_note": "grow the sales volume → 판매량을 성장시키다 (increase의 대체 표현)"
+    "keyword_note": "grow the sales volume → 판매량을 성장시키다 (increase의 대체 표현)",
+    "conv_prompt": "What's the revenue impact of adding an online channel?"
   },
   {
     "id": 113,
@@ -901,7 +1013,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "먼저, 시장 확대와 영업이익률 증가라는 두 가지 긍정적인 측면을 보려고 합니다.",
     "sentence": "First, I would like to look at two positive aspects, market expansion and increase in profit ratio.",
-    "keyword_note": "먼저 → first / to start off / initially  |  긍정적인 측면 → positive aspect / benefit"
+    "keyword_note": "먼저 → first / to start off / initially  |  긍정적인 측면 → positive aspect / benefit",
+    "conv_prompt": "Where would you like to begin the analysis?"
   },
   {
     "id": 114,
@@ -909,7 +1022,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "시작으로, 두 가지 긍정적인 요소인 시장 확대와 수익성 향상을 살펴보겠습니다.",
     "sentence": "To start off, let's consider two positive factors—market expansion and increased profitability.",
-    "keyword_note": "let's consider two positive factors → 두 가지 긍정적 요소를 살펴보다"
+    "keyword_note": "let's consider two positive factors → 두 가지 긍정적 요소를 살펴보다",
+    "conv_prompt": "How would you like to structure your initial assessment?"
   },
   {
     "id": 115,
@@ -917,7 +1031,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우선, 두 가지 이점을 강조하고 싶습니다: 시장 확대와 이익률 개선입니다.",
     "sentence": "First of all, I want to highlight two benefits: market expansion and an improved profit ratio.",
-    "keyword_note": "highlight → 강조하다"
+    "keyword_note": "highlight → 강조하다",
+    "conv_prompt": "What are the main advantages you'd like to highlight first?"
   },
   {
     "id": 116,
@@ -925,7 +1040,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "초기에는 두 가지 강점인 시장 확대와 이익 성장에 집중하고 싶습니다.",
     "sentence": "What I'd like to focus on initially are two strengths: market expansion and profit growth.",
-    "keyword_note": "what ~ are → ~하고 싶은 것은 …이다 (What절 강조구문, 복수 보어)  |  namely → 즉, 다시 말해"
+    "keyword_note": "what ~ are → ~하고 싶은 것은 …이다 (What절 강조구문, 복수 보어)  |  namely → 즉, 다시 말해",
+    "conv_prompt": "What would you like to focus on at the start of your analysis?"
   },
   {
     "id": 117,
@@ -933,7 +1049,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "구체적으로는, 이마트 판매로 인한 브랜드 가치 하락을 부정적 요소로, 이마트의 대형 유통 채널을 활용한 판매량 증가를 긍정적 요소로 고려하겠습니다.",
     "sentence": "To be specific, I will consider the decrease in brand value that might happen by selling at E-Mart as a negative factor, and the increase in sales volume using E-Mart's large channel as a positive factor.",
-    "keyword_note": "구체적으로 → to be specific / specifically  |  요소/요인 → factor / aspect"
+    "keyword_note": "구체적으로 → to be specific / specifically  |  요소/요인 → factor / aspect",
+    "conv_prompt": "Can you walk us through how you're thinking about the trade-offs?"
   },
   {
     "id": 118,
@@ -941,7 +1058,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "특히, 이마트 판매에서 발생하는 잠재적인 브랜드 가치 손실을 단점으로, 이마트의 광범위한 유통망을 통한 높은 판매량을 이점으로 볼 것입니다.",
     "sentence": "In particular, I will view the potential loss of brand value from selling at E-Mart as a drawback, and the higher sales volume from E-Mart's wide distribution channel as a benefit.",
-    "keyword_note": "view A as a drawback, B as a benefit → A를 단점으로, B를 이점으로 보다"
+    "keyword_note": "view A as a drawback, B as a benefit → A를 단점으로, B를 이점으로 보다",
+    "conv_prompt": "What are the key pros and cons you're weighing in this decision?"
   },
   {
     "id": 119,
@@ -949,7 +1067,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "구체적으로는, 이마트 판매에서 나타나는 잠재적인 브랜드 가치 손실을 단점으로,  이마트의 넓은 유통망을 통한 판매 성장을 장점으로 평가하겠습니다.",
     "sentence": "Specifically, I will assess the potential brand value loss from E-Mart sales as a downside, and the sales growth from E-Mart's broad reach as an upside.",
-    "keyword_note": "assess A as a downside, B as an upside → A를 단점으로, B를 장점으로 평가하다"
+    "keyword_note": "assess A as a downside, B as an upside → A를 단점으로, B를 장점으로 평가하다",
+    "conv_prompt": "How would you frame the upside and downside of the E-Mart option?"
   },
   {
     "id": 120,
@@ -957,7 +1076,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "두 가지 중 어느 것이 더 큰지에 따라 결정을 내릴 것입니다.",
     "sentence": "I am going to make a decision based on which of the two is larger.",
-    "keyword_note": "결정을 내리다 → make a decision / choose  |  ~에 따라 → based on / depending on"
+    "keyword_note": "결정을 내리다 → make a decision / choose  |  ~에 따라 → based on / depending on",
+    "conv_prompt": "How will you decide between the two options once you have the numbers?"
   },
   {
     "id": 121,
@@ -965,7 +1085,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "저는 더 큰 것을 선택할 것입니다.",
     "sentence": "I'll go for the one that's larger.",
-    "keyword_note": "go for → 선택하다 (choose의 구어체)"
+    "keyword_note": "go for → 선택하다 (choose의 구어체)",
+    "conv_prompt": "So between the two options, which one will you go with?"
   },
   {
     "id": 122,
@@ -973,7 +1094,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "두 가지 중 어느 것이 더 높은지에 따라 선택을 하겠습니다.",
     "sentence": "I'll make my choice depending on which of the two is higher.",
-    "keyword_note": "depending on → ~에 따라 (based on의 대체 표현)"
+    "keyword_note": "depending on → ~에 따라 (based on의 대체 표현)",
+    "conv_prompt": "Once you compare the two figures, how will you make the call?"
   },
   {
     "id": 123,
@@ -981,7 +1103,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "두 가지 값 중 어느 것이 더 큰지에 따라 결정을 내리겠습니다.",
     "sentence": "I will make my decision according to which of the two values is greater.",
-    "keyword_note": "according to → ~에 따라  |  greater → 더 큰"
+    "keyword_note": "according to → ~에 따라  |  greater → 더 큰",
+    "conv_prompt": "How do you plan to decide once you've run the numbers?"
   },
   {
     "id": 124,
@@ -989,7 +1112,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "매출과 관련해서, 우리 가게를 방문하는 고객 수와 성비에 대해 질문이 있습니다.",
     "sentence": "In terms of sales, I have a question on how many customers visit our store, and the gender ratio.",
-    "keyword_note": "~과 관련해서 → in terms of / regarding  |  성비 → gender ratio"
+    "keyword_note": "~과 관련해서 → in terms of / regarding  |  성비 → gender ratio",
+    "conv_prompt": "What data do you need to start your sales analysis?"
   },
   {
     "id": 125,
@@ -997,7 +1121,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "매출에 관해 여쭤보고 싶은데요. 우리 가게를 방문하는 고객 수와 성별 비율이 어떻게 되는지 궁금합니다.",
     "sentence": "I wanted to ask about sales—I was wondering how many customers visit our store and what the gender split is.",
-    "keyword_note": "I was wondering → 궁금합니다 (정중한 구어체 표현)"
+    "keyword_note": "I was wondering → 궁금합니다 (정중한 구어체 표현)",
+    "conv_prompt": "Before you dive in, what would be most helpful for you to know about our sales performance?"
   },
   {
     "id": 126,
@@ -1005,7 +1130,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "판매와 관련하여 고객 수와 성별 균형에 대해 궁금합니다.",
     "sentence": "I'm curious about our store's customer numbers and gender balance in connection with sales.",
-    "keyword_note": "in connection with → ~과 관련하여"
+    "keyword_note": "in connection with → ~과 관련하여",
+    "conv_prompt": "Is there anything you'd like to know about our sales data before getting started?"
   },
   {
     "id": 127,
@@ -1013,7 +1139,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "판매 분석 맥락에서 매장을 방문하는 고객 수와 성별 구성에 관해 문의드리고 싶습니다.",
     "sentence": "In the context of sales analysis, I would like to make an inquiry regarding the number of customers who visit our store and their gender composition.",
-    "keyword_note": "customers who visit → 방문하는 고객들 (관계대명사 who, 사람 수식)  |  make an inquiry regarding → ~에 관해 문의하다 (formal)"
+    "keyword_note": "customers who visit → 방문하는 고객들 (관계대명사 who, 사람 수식)  |  make an inquiry regarding → ~에 관해 문의하다 (formal)",
+    "conv_prompt": "What information would you need to begin a proper sales review?"
   },
   {
     "id": 128,
@@ -1021,7 +1148,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "방문자 수는 월 약 10,000명 정도이며, 매달 3%씩 꾸준히 증가하고 있습니다.",
     "sentence": "The number of visitors is around 10,000 per month, and it is constantly increasing by 3 percent per month.",
-    "keyword_note": "약 ~명 → around / about / roughly / approximately  |  꾸준히 → constantly / steadily  |  ~씩 증가 → increase by + 숫자"
+    "keyword_note": "약 ~명 → around / about / roughly / approximately  |  꾸준히 → constantly / steadily  |  ~씩 증가 → increase by + 숫자",
+    "conv_prompt": "How is the store's visitor traffic trending?"
   },
   {
     "id": 129,
@@ -1029,7 +1157,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "매월 약 10,000명의 방문자가 있으며, 그 수는 3%씩 계속 증가하고 있습니다.",
     "sentence": "We have about 10,000 visitors each month, and the number keeps going up by 3 percent.",
-    "keyword_note": "keep going up by → 계속 ~씩 증가하다"
+    "keyword_note": "keep going up by → 계속 ~씩 증가하다",
+    "conv_prompt": "Can you give us a sense of the store's monthly foot traffic and its trajectory?"
   },
   {
     "id": 130,
@@ -1037,7 +1166,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "월 방문자 수는 평균 약 10,000명이며, 이 수치는 매달 3%씩 꾸준히 증가해 왔습니다.",
     "sentence": "Averaging roughly 10,000 per month, visitor numbers have been rising steadily by 3 percent each month.",
-    "keyword_note": "averaging ~ → 평균 ~인 채로 (분사구문, 문두 배치)  |  rise steadily → 꾸준히 증가하다"
+    "keyword_note": "averaging ~ → 평균 ~인 채로 (분사구문, 문두 배치)  |  rise steadily → 꾸준히 증가하다",
+    "conv_prompt": "What does the store's monthly visitor data look like?"
   },
   {
     "id": 131,
@@ -1045,7 +1175,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "매장은 월 약 10,000명의 방문자를 맞이하고 있으며, 꾸준한 월 3%의 성장률을 보이고 있습니다.",
     "sentence": "The store receives approximately 10,000 visitors per month, with a steady monthly growth rate of 3 percent.",
-    "keyword_note": "receive visitors → 방문자를 맞이하다"
+    "keyword_note": "receive visitors → 방문자를 맞이하다",
+    "conv_prompt": "How would you characterize the store's foot traffic on a monthly basis?"
   },
   {
     "id": 132,
@@ -1053,7 +1184,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 고객사를 방문하는 고객의 80%는 여성이며, 그 중 50%는 50세 이상입니다.",
     "sentence": "80% of customers who visit our store are women, and 50% of them are more than fifty years old.",
-    "keyword_note": "~의 몇 퍼센트 → percent of + 명사  |  ~세 이상 → more than / over (숫자) years old"
+    "keyword_note": "~의 몇 퍼센트 → percent of + 명사  |  ~세 이상 → more than / over (숫자) years old",
+    "conv_prompt": "Who are your core customers, and how old are they?"
   },
   {
     "id": 133,
@@ -1061,7 +1193,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 고객의 80%는 여성이며, 그 중 50%는 50세가 넘습니다.",
     "sentence": "80 percent of our customers are women, and 50 percent of them are over fifty.",
-    "keyword_note": "over fifty → 50세가 넘는"
+    "keyword_note": "over fifty → 50세가 넘는",
+    "conv_prompt": "What does your customer base look like in terms of gender and age?"
   },
   {
     "id": 134,
@@ -1069,7 +1202,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "전체 방문자의 약 80%는 여성 고객이며, 이 중 절반은 50대 이상입니다.",
     "sentence": "Female customers comprise roughly 80 percent of total visitors, and half of these are in the fifty-plus age group.",
-    "keyword_note": "comprise → ~을 차지하다 (account for의 대체 표현)"
+    "keyword_note": "comprise → ~을 차지하다 (account for의 대체 표현)",
+    "conv_prompt": "Could you describe your typical customer profile?"
   },
   {
     "id": 135,
@@ -1077,7 +1211,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "끝으로, 이마트에서 제공하는 판매 수수료나 마진은 어떻게 되나요?",
     "sentence": "Lastly, what about the sales commission or margin offered by E-Mart?",
-    "keyword_note": "끝으로 → lastly / finally / as a final point  |  어떻게 되나요? → what about / how about"
+    "keyword_note": "끝으로 → lastly / finally / as a final point  |  어떻게 되나요? → what about / how about",
+    "conv_prompt": "One last question—what are the commercial terms with E-Mart?"
   },
   {
     "id": 136,
@@ -1085,7 +1220,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "마지막 질문입니다. 이마트가 제공하는 수수료나 마진은 얼마인가요?",
     "sentence": "Last question—how much commission or margin does E-Mart offer?",
-    "keyword_note": "last question → 마지막 질문"
+    "keyword_note": "last question → 마지막 질문",
+    "conv_prompt": "Before we wrap up, what's the deal with E-Mart's commission structure?"
   },
   {
     "id": 137,
@@ -1093,7 +1229,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "한 가지 더 여쭤보겠습니다. 이마트가 제공하는 수수료나 마진에 대해 알 수 있을까요?",
     "sentence": "One more thing—could you tell me about the commission or margin offered by E-Mart?",
-    "keyword_note": "one more thing → 한 가지 더 (구어체)"
+    "keyword_note": "one more thing → 한 가지 더 (구어체)",
+    "conv_prompt": "Just one more thing—what kind of margin arrangement does E-Mart offer?"
   },
   {
     "id": 138,
@@ -1101,7 +1238,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "마지막으로, 이마트가 제공하는 판매 수수료나 마진을 명확히 해주실 수 있으신가요?",
     "sentence": "Finally, could you clarify the sales commission or margin that E-Mart offers?",
-    "keyword_note": "clarify → 명확히 하다"
+    "keyword_note": "clarify → 명확히 하다",
+    "conv_prompt": "To wrap up, what can you tell us about the commercial terms with E-Mart?"
   },
   {
     "id": 139,
@@ -1109,7 +1247,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "제공해주신 정보를 토대로 결론을 말씀드리겠습니다. 잠시만 시간을 주세요.",
     "sentence": "I am going to give you a conclusion based on the information you've provided. Please give me a minute.",
-    "keyword_note": "결론을 말하다 → give / draw a conclusion  |  ~를 토대로 → based on / depending on  |  잠시 시간을 → give me a minute"
+    "keyword_note": "결론을 말하다 → give / draw a conclusion  |  ~를 토대로 → based on / depending on  |  잠시 시간을 → give me a minute",
+    "conv_prompt": "We're all listening. What's your conclusion?"
   },
   {
     "id": 140,
@@ -1117,7 +1256,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "주신 정보를 바탕으로 최종 생각을 말씀드리겠습니다. 잠깐만요.",
     "sentence": "I'll give my final thoughts from the info you gave me. Just a second.",
-    "keyword_note": "give my final thoughts → 최종 생각을 말하다 (구어체)"
+    "keyword_note": "give my final thoughts → 최종 생각을 말하다 (구어체)",
+    "conv_prompt": "Okay, we're ready. What do you think?"
   },
   {
     "id": 141,
@@ -1125,7 +1265,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "말씀해 주신 내용을 검토하고 곧 결론을 공유해 드리겠습니다. 잠시만 기다려주세요.",
     "sentence": "Having reviewed what you've told me, I'll share my conclusion shortly. One moment, please.",
-    "keyword_note": "having reviewed → 검토한 후에 (완료분사구문, Having p.p.)  |  shortly → 곧"
+    "keyword_note": "having reviewed → 검토한 후에 (완료분사구문, Having p.p.)  |  shortly → 곧",
+    "conv_prompt": "Take your time. What's your overall recommendation?"
   },
   {
     "id": 142,
@@ -1133,7 +1274,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "말씀해 주신 세부 정보를 활용해 결론을 도출하겠습니다. 잠시 시간을 허락해 주세요.",
     "sentence": "I will formulate a conclusion using the details you shared. Please allow me a moment.",
-    "keyword_note": "formulate a conclusion → 결론을 도출하다"
+    "keyword_note": "formulate a conclusion → 결론을 도출하다",
+    "conv_prompt": "Go ahead whenever you're ready. What's your final take?"
   },
   {
     "id": 143,
@@ -1141,7 +1283,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 매장이 아무리 고급스러워도, 이마트에 입점하면 브랜드 명성이 손상될 위험이 있습니다.",
     "sentence": "No matter how luxurious our store is, being located in E-mart carries a risk of brand reputation damage.",
-    "keyword_note": "아무리 ~하더라도 → no matter how  |  위험이 있다 → carry a risk of"
+    "keyword_note": "아무리 ~하더라도 → no matter how  |  위험이 있다 → carry a risk of",
+    "conv_prompt": "Is there any downside to putting our premium store inside a large retailer like E-Mart?"
   },
   {
     "id": 144,
@@ -1149,7 +1292,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "아무리 고급스러운 매장이라도 이마트에 입점하면 브랜드 이미지에 타격이 있을 수 있습니다.",
     "sentence": "Even a super fancy shop can lose some of its shine if it's located in E-mart.",
-    "keyword_note": "lose some of its shine → 이미지에 타격을 입다 (구어체)"
+    "keyword_note": "lose some of its shine → 이미지에 타격을 입다 (구어체)",
+    "conv_prompt": "Does it hurt our image at all to be inside a place like E-Mart?"
   },
   {
     "id": 145,
@@ -1157,7 +1301,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 매장이 고급 브랜드라 하더라도, 이마트에 입점하면 브랜드 명성이 손상될 수 있습니다.",
     "sentence": "Even if our store is high-end, being in E-mart could hurt our brand reputation.",
-    "keyword_note": "hurt (brand) reputation → 명성을 손상시키다"
+    "keyword_note": "hurt (brand) reputation → 명성을 손상시키다",
+    "conv_prompt": "What's the risk of positioning our brand inside a big retailer like E-Mart?"
   },
   {
     "id": 146,
@@ -1165,7 +1310,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "우리 매장이 아무리 프리미엄 브랜드라도, 이마트 내 운영은 브랜드 명성에 위험을 초래할 수 있습니다.",
     "sentence": "Regardless of how premium our store is, operating within E-mart could pose a risk to our brand reputation.",
-    "keyword_note": "pose a risk to → ~에 위험을 초래하다"
+    "keyword_note": "pose a risk to → ~에 위험을 초래하다",
+    "conv_prompt": "How might operating inside E-Mart affect how customers perceive our brand?"
   },
   {
     "id": 147,
@@ -1173,7 +1319,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "고객의 니즈뿐만 아니라 우리 브랜드에 대한 인식까지 이해하기 위해 단기 리서치를 제안하고 싶습니다.",
     "sentence": "I would like to suggest short-term research to understand not only the customer needs but also the recognition of our brand.",
-    "keyword_note": "제안하고 싶다 → would like to suggest / propose  |  ~뿐만 아니라 ~까지 → not only … but also"
+    "keyword_note": "제안하고 싶다 → would like to suggest / propose  |  ~뿐만 아니라 ~까지 → not only … but also",
+    "conv_prompt": "Before making a decision, what additional information would you want to gather?"
   },
   {
     "id": 148,
@@ -1181,7 +1328,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "고객들이 무엇을 원하고 우리 브랜드를 어떻게 보는지 파악하기 위해 간단한 조사를 실시해야 한다고 생각합니다.",
     "sentence": "I think we should run a quick study to figure out what customers need and how they see our brand.",
-    "keyword_note": "run a quick study → 간단한 조사를 실시하다 (구어체)"
+    "keyword_note": "run a quick study → 간단한 조사를 실시하다 (구어체)",
+    "conv_prompt": "What's your next step before we finalize anything?"
   },
   {
     "id": 149,
@@ -1189,7 +1337,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "고객 니즈와 브랜드 인지도 모두를 파악하기 위해 단기 리서치를 진행할 것을 권장합니다.",
     "sentence": "I recommend doing some short-term research to learn about both customer needs and our brand recognition.",
-    "keyword_note": "recommend doing → ~할 것을 권장하다"
+    "keyword_note": "recommend doing → ~할 것을 권장하다",
+    "conv_prompt": "What research would you recommend before we commit to anything?"
   },
   {
     "id": 150,
@@ -1197,7 +1346,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "고객 니즈와 브랜드 인식을 평가하기 위한 단기 리서치 진행을 제안하고 싶습니다.",
     "sentence": "I would like to propose short-term research that would help us assess customer needs as well as our brand perception.",
-    "keyword_note": "research that would help us → 우리에게 도움이 될 리서치 (관계대명사 that, 사물)  |  as well as → ~뿐만 아니라"
+    "keyword_note": "research that would help us → 우리에게 도움이 될 리서치 (관계대명사 that, 사물)  |  as well as → ~뿐만 아니라",
+    "conv_prompt": "What information would help us make a more confident decision here?"
   },
   {
     "id": 151,
@@ -1205,7 +1355,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "판매에 있어서 가장 중요한 것은 고객을 만족시키는 것입니다.",
     "sentence": "When it comes to sales, the most important thing is to satisfy your customers.",
-    "keyword_note": "~에 있어서 → when it comes to / regarding  |  고객 만족 → satisfy customers"
+    "keyword_note": "~에 있어서 → when it comes to / regarding  |  고객 만족 → satisfy customers",
+    "conv_prompt": "What do you think is the most important driver of sales success?"
   },
   {
     "id": 152,
@@ -1213,7 +1364,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "영업에서 성과를 내고 싶다면 고객을 만족시키는 데 집중하세요.",
     "sentence": "If you want to do well in sales, focus on keeping your customers happy.",
-    "keyword_note": "keep your customers happy → 고객을 만족시키다 (구어체)"
+    "keyword_note": "keep your customers happy → 고객을 만족시키다 (구어체)",
+    "conv_prompt": "If you had to give one piece of advice to a new sales rep, what would it be?"
   },
   {
     "id": 153,
@@ -1221,7 +1373,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "영업에서 최우선 순위는 고객이 만족할 수 있도록 보장하는 것입니다.",
     "sentence": "In sales, the top priority is to ensure that customers are satisfied.",
-    "keyword_note": "ensure that → ~하도록 보장하다"
+    "keyword_note": "ensure that → ~하도록 보장하다",
+    "conv_prompt": "What would you say is the number one priority in any sales role?"
   },
   {
     "id": 154,
@@ -1229,7 +1382,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "고객 만족은 영업 성과의 주요 동력입니다.",
     "sentence": "What drives sales performance the most is customer satisfaction.",
-    "keyword_note": "what drives ~ most is → ~을 가장 이끄는 것은 …이다 (What절 강조구문)"
+    "keyword_note": "what drives ~ most is → ~을 가장 이끄는 것은 …이다 (What절 강조구문)",
+    "conv_prompt": "In your view, what's the single biggest factor in achieving strong sales?"
   },
   {
     "id": 155,
@@ -1237,7 +1391,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "신제품을 출시하는 것보다는, 보다 정교한 고객 세그먼트를 통해 성장하는 시장을 공략하는 것이 성공 가능성이 더 높습니다.",
     "sentence": "Attacking the growing market by targeting our customers with more sophisticated segmentation stands a better chance of success than launching new products.",
-    "keyword_note": "성장하는 시장 공략 → attack the growing market  |  ~를 통해 고객 겨냥 → target customers with  |  가능성이 있다 → stands a chance"
+    "keyword_note": "성장하는 시장 공략 → attack the growing market  |  ~를 통해 고객 겨냥 → target customers with  |  가능성이 있다 → stands a chance",
+    "conv_prompt": "Should we focus on new product development or refining our targeting strategy?"
   },
   {
     "id": 156,
@@ -1245,7 +1400,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "신제품을 출시하는 대신 더 정밀하게 고객을 타깃함으로써 성공 가능성이 더 높습니다.",
     "sentence": "We're more likely to succeed by targeting customers more precisely instead of rolling out new products.",
-    "keyword_note": "instead of -ing → ~하는 대신"
+    "keyword_note": "instead of -ing → ~하는 대신",
+    "conv_prompt": "Is it better to go after new products or sharpen our customer focus right now?"
   },
   {
     "id": 157,
@@ -1253,7 +1409,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "신제품 출시보다 더 나은 고객 세그먼트를 통해 성장하는 시장에 접근하는 것이 더 효과적입니다.",
     "sentence": "Approaching the growing market through better customer segmentation is more effective than launching new products.",
-    "keyword_note": "more effective than → ~보다 더 효과적인"
+    "keyword_note": "more effective than → ~보다 더 효과적인",
+    "conv_prompt": "Would it make more sense to invest in new products or better customer segmentation?"
   },
   {
     "id": 158,
@@ -1261,7 +1418,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "정교한 고객 세그먼트에 집중한 전략이 신제품 출시보다 더 유망합니다.",
     "sentence": "Rather than pursuing new product launches, a strategy focused on refined customer segmentation looks more promising.",
-    "keyword_note": "rather than -ing → ~하는 대신 (대조 표현, 문두 배치)  |  promising → 유망한"
+    "keyword_note": "rather than -ing → ~하는 대신 (대조 표현, 문두 배치)  |  promising → 유망한",
+    "conv_prompt": "Where should we direct our resources—new product development or smarter customer targeting?"
   },
   {
     "id": 159,
@@ -1269,7 +1427,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "지금 가지고 있는 정보를 바탕으로, 비용 절감과 시장 확대를 동시에 추진할 것을 제안합니다",
     "sentence": "Given the information at hand, I propose that we conduct cost reduction and market expansion at the same time.",
-    "keyword_note": "지금 가진 정보를 바탕으로 → given the information at hand  |  추진하다 → conduct  |  동시에 → at the same time / simultaneously"
+    "keyword_note": "지금 가진 정보를 바탕으로 → given the information at hand  |  추진하다 → conduct  |  동시에 → at the same time / simultaneously",
+    "conv_prompt": "Given everything we've covered, what would you recommend as a path forward?"
   },
   {
     "id": 160,
@@ -1277,7 +1436,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "지금까지 파악한 내용을 바탕으로, 비용 절감과 시장 확대를 동시에 추진해야 한다고 생각합니다.",
     "sentence": "From what we know so far, I think we should try reducing costs and expanding the market at the same time.",
-    "keyword_note": "try -ing → ~을 시도하다"
+    "keyword_note": "try -ing → ~을 시도하다",
+    "conv_prompt": "Based on what we know, where do you think we should focus our efforts?"
   },
   {
     "id": 161,
@@ -1285,7 +1445,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "현재 보유한 정보를 바탕으로, 비용 절감과 시장 확대 노력을 함께 수행할 것을 제안합니다.",
     "sentence": "With the information we currently have, I suggest that we carry out cost-cutting and market-expansion efforts together.",
-    "keyword_note": "carry out → 수행하다"
+    "keyword_note": "carry out → 수행하다",
+    "conv_prompt": "With what we have in front of us, what's your suggested course of action?"
   },
   {
     "id": 162,
@@ -1293,7 +1454,8 @@
     "topic": "케이스 인터뷰 1: 이마트 남성 향수 라인 런칭",
     "korean": "이용 가능한 정보를 바탕으로, 비용 절감과 시장 확대를 동시에 추진할 것을 제안합니다.",
     "sentence": "Based on the information available, I propose that we pursue cost reduction and market expansion simultaneously.",
-    "keyword_note": "pursue → 추진하다  |  simultaneously → 동시에"
+    "keyword_note": "pursue → 추진하다  |  simultaneously → 동시에",
+    "conv_prompt": "Pulling it all together, what does your recommendation look like?"
   },
   {
     "id": 163,
@@ -1301,7 +1463,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "조언을 드리기 전에 정보가 더 필요합니다. 비초콜릿 캔디 시장이 확대되고 있는지, 감소하고 있는지 알려주실 수 있나요?",
     "sentence": "Before making any recommendations, I'll need more information. Can you tell me if the market for non-chocolate candies is expanding or decreasing?",
-    "keyword_note": "조언하다 → make recommendations  |  ~한지 알려주다 → can you tell me if"
+    "keyword_note": "조언하다 → make recommendations  |  ~한지 알려주다 → can you tell me if",
+    "conv_prompt": "What information would you need before making a recommendation on the non-chocolate candy category?"
   },
   {
     "id": 164,
@@ -1309,7 +1472,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "말씀드리기 전에 조금 더 알아야 할 게 있습니다. 비초콜릿 캔디 시장이 커지고 있나요, 아니면 작아지고 있나요?",
     "sentence": "I need to know a bit more before I can say. Is the non-chocolate candy market getting bigger or smaller?",
-    "keyword_note": "before I can say → 말씀드리기 전에 (구어체)"
+    "keyword_note": "before I can say → 말씀드리기 전에 (구어체)",
+    "conv_prompt": "Before you give your view, what would you want to understand about the market?"
   },
   {
     "id": 165,
@@ -1317,7 +1481,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "제안을 드리기 전에 배경을 좀 더 파악해야 합니다. 비초콜릿 캔디 시장이 성장 중인지, 아니면 하락세인지 아시나요?",
     "sentence": "I should get a little more background first. Do you know if the non-chocolate candy market is growing or shrinking?",
-    "keyword_note": "get a little more background → 배경을 좀 더 파악하다"
+    "keyword_note": "get a little more background → 배경을 좀 더 파악하다",
+    "conv_prompt": "What would you need to know first before weighing in on the candy market?"
   },
   {
     "id": 166,
@@ -1325,7 +1490,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "현재 경쟁 환경은 어떤 모습인가요? 동종 업체들의 신제품이 시장에서 좋은 반응을 보여주고 있나요?",
     "sentence": "What does the competitive landscape look like right now? Are the new products that peers have launched showing strong market uptake?",
-    "keyword_note": "products that peers have launched → 동종업체가 출시한 제품 (관계대명사 that)  |  market uptake → 시장의 좋은 반응"
+    "keyword_note": "products that peers have launched → 동종업체가 출시한 제품 (관계대명사 that)  |  market uptake → 시장의 좋은 반응",
+    "conv_prompt": "How are competitors performing with their latest product launches in this space?"
   },
   {
     "id": 167,
@@ -1333,7 +1499,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "요즘 경쟁 상황은 어떻게 되나요? 다른 회사들이 신제품으로 성공을 거두고 있나요?",
     "sentence": "How does the competition look these days? Are other companies seeing success with their new products?",
-    "keyword_note": "how does the competition look → 경쟁 상황이 어떤가요 (구어체)"
+    "keyword_note": "how does the competition look → 경쟁 상황이 어떤가요 (구어체)",
+    "conv_prompt": "How would you describe the competitive landscape in this category right now?"
   },
   {
     "id": 168,
@@ -1341,7 +1508,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "경쟁 환경이 어떻게 형성되고 있으며, 경쟁사들의 신제품이 잘 팔리고 있나요?",
     "sentence": "How is the competitive environment shaping up, and are competitors' new products performing well?",
-    "keyword_note": "shape up → (상황이) 형성되다"
+    "keyword_note": "shape up → (상황이) 형성되다",
+    "conv_prompt": "What can you tell me about how competitors are doing in this space?"
   },
   {
     "id": 169,
@@ -1349,7 +1517,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "전체 제품 카테고리의 성장을 감안한다면, 비초콜릿 캔디에 대한 소비자 수요도 강하다고 봐야겠네요.",
     "sentence": "Consumer demand for non-chocolate candies must be strong, given the growth in the general product category.",
-    "keyword_note": "소비자 수요 → consumer demand for  |  ~해 보인다 → must be / appear to be  |  ~을 감안하면 → given the growth in"
+    "keyword_note": "소비자 수요 → consumer demand for  |  ~해 보인다 → must be / appear to be  |  ~을 감안하면 → given the growth in",
+    "conv_prompt": "What does the demand outlook look like for non-chocolate candies?"
   },
   {
     "id": 170,
@@ -1357,7 +1526,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "카테고리가 확대되고 있으니, 사람들이 비초콜릿 캔디를 더 많이 구매하고 있는 것으로 보입니다.",
     "sentence": "With the category expanding, people seem to be buying more non-chocolate candies.",
-    "keyword_note": "with + 명사 + -ing → ~가 …하면서 (분사구문)"
+    "keyword_note": "with + 명사 + -ing → ~가 …하면서 (분사구문)",
+    "conv_prompt": "How would you characterize consumer appetite for non-chocolate products given category trends?"
   },
   {
     "id": 171,
@@ -1365,7 +1535,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "전반적인 카테고리 확장에 비추어 볼 때 비초콜릿 캔디에 대한 수요는 견조한 것으로 보입니다.",
     "sentence": "Demand for non-chocolate candies appears robust in light of the overall expansion of the category.",
-    "keyword_note": "in light of → ~을 고려하면"
+    "keyword_note": "in light of → ~을 고려하면",
+    "conv_prompt": "Given the overall category growth, how does demand look for non-chocolate candies?"
   },
   {
     "id": 172,
@@ -1373,7 +1544,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "말씀해 주신 수치들을 염두에 두고 이를 제 분석의 기반으로 삼겠습니다.",
     "sentence": "I'll keep the initial figures you shared in mind and use them as the basis for my analysis.",
-    "keyword_note": "수치 → figures / numbers  |  염두에 두다 → keep in mind  |  분석의 기반 → basis for my analysis"
+    "keyword_note": "수치 → figures / numbers  |  염두에 두다 → keep in mind  |  분석의 기반 → basis for my analysis",
+    "conv_prompt": "We've covered a lot of ground—how do you plan to approach the analysis?"
   },
   {
     "id": 173,
@@ -1381,7 +1553,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "제공해 주신 수치를 분석의 출발점으로 삼겠습니다.",
     "sentence": "I'll use the figures you provided as a starting point for my analysis.",
-    "keyword_note": "starting point → 출발점"
+    "keyword_note": "starting point → 출발점",
+    "conv_prompt": "How are you thinking about structuring your analysis going forward?"
   },
   {
     "id": 174,
@@ -1389,7 +1562,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "말씀해 주신 수치를 염두에 두고 문제를 풀어나가겠습니다.",
     "sentence": "I'll keep the figures you mentioned in mind and use them as I work on the question.",
-    "keyword_note": "work on → ~을 풀어나가다/다루다"
+    "keyword_note": "work on → ~을 풀어나가다/다루다",
+    "conv_prompt": "What's your plan for working through this problem?"
   },
   {
     "id": 175,
@@ -1397,7 +1571,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "제가 가장 먼저 해야 할 일은 가능한 한 많은 질적·양적 데이터를 수집하는 것입니다.",
     "sentence": "The first thing I need to do is gather as much qualitative and quantitative data as possible.",
-    "keyword_note": "가장 먼저 해야 할 일 → the first thing I need to do  |  수집하다 → gather / collect / compile  |  질적·양적 → qualitative and quantitative"
+    "keyword_note": "가장 먼저 해야 할 일 → the first thing I need to do  |  수집하다 → gather / collect / compile  |  질적·양적 → qualitative and quantitative",
+    "conv_prompt": "Where would you start if you were approaching this problem fresh?"
   },
   {
     "id": 176,
@@ -1405,7 +1580,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "우선, 가능한 한 많은 질적·양적 데이터를 수집해야 합니다.",
     "sentence": "First, I need to gather as much qualitative and quantitative data as I can.",
-    "keyword_note": "as much A as I can → 가능한 한 많은 A를"
+    "keyword_note": "as much A as I can → 가능한 한 많은 A를",
+    "conv_prompt": "If you were tackling this from scratch, what would your first step be?"
   },
   {
     "id": 177,
@@ -1413,7 +1589,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "첫 번째 단계는 질적·양적 데이터를 모두 수집하는 것입니다.",
     "sentence": "What I need to do first is collect both qualitative and quantitative data.",
-    "keyword_note": "what I need to do first is → 내가 먼저 해야 할 일은 …이다 (What절 강조구문)"
+    "keyword_note": "what I need to do first is → 내가 먼저 해야 할 일은 …이다 (What절 강조구문)",
+    "conv_prompt": "What would be your very first move if you were approaching this problem?"
   },
   {
     "id": 178,
@@ -1421,7 +1598,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "시장을 정확히 산정하기 위해 단위 판매량, 업계 전체 수요, 가능하다면 경쟁사들의 수요 비중을 알 수 있을까요?",
     "sentence": "To size the market properly, could I get the unit sales, the overall demand for the industry, and—if available—the competitors' share of that demand?",
-    "keyword_note": "시장을 산정하다 → size the market  |  단위 판매량 → unit sales  |  경쟁사 비중 → competitors' share"
+    "keyword_note": "시장을 산정하다 → size the market  |  단위 판매량 → unit sales  |  경쟁사 비중 → competitors' share",
+    "conv_prompt": "What data points would you need to estimate market size accurately?"
   },
   {
     "id": 179,
@@ -1429,7 +1607,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "시장 규모를 파악하기 위해 단위 판매 수치, 총 수요, 그리고 경쟁사 시장 점유율을 알 수 있을까요?",
     "sentence": "To figure out the market size, can I get the unit sales numbers, the total demand, and maybe the competitors' share?",
-    "keyword_note": "figure out → 파악하다"
+    "keyword_note": "figure out → 파악하다",
+    "conv_prompt": "What information would help you size this market properly?"
   },
   {
     "id": 180,
@@ -1437,7 +1616,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "예산과 시간에 따라 포커스 그룹 조사를 하거나, 시중에 나와 있는 상품에 대한 소비자 태도를 테스트할 수도 있습니다.",
     "sentence": "Depending on our budget and timeline, we could also run focus groups or test consumer attitudes toward existing products in the market.",
-    "keyword_note": "~에 따라 → depending on  |  포커스 그룹 조사 → run / conduct a focus group  |  소비자 태도 → consumer attitudes toward"
+    "keyword_note": "~에 따라 → depending on  |  포커스 그룹 조사 → run / conduct a focus group  |  소비자 태도 → consumer attitudes toward",
+    "conv_prompt": "If you had extra budget and time, how might you supplement the data you have?"
   },
   {
     "id": 181,
@@ -1445,7 +1625,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "예산과 시간이 허락한다면, 포커스 그룹을 진행하거나 이미 출시된 제품에 대한 소비자 반응을 간단히 테스트해볼 수 있습니다.",
     "sentence": "If budget and time allow, we could conduct focus groups or run simple tests to understand how consumers feel about the products already out there.",
-    "keyword_note": "if ~ allow → ~이 허락한다면"
+    "keyword_note": "if ~ allow → ~이 허락한다면",
+    "conv_prompt": "What additional research methods would you consider given more time and resources?"
   },
   {
     "id": 182,
@@ -1453,7 +1634,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "이 사안을 더 깊이 생각해보기 위해, 먼저 두 가지 점을 명확히 하고자 합니다. 첫째, 회사가 단일 제품에 충분한 투자와 생산 역량을 할당했나요? 둘째, 경쟁사 대비 특정 맛에서 상대적 우위를 가지고 있나요?",
     "sentence": "To think about this more deeply, I'd start by clarifying two points. First, has the company allocated sufficient investment and production capacity to any single product? Second, do we have a relative advantage in a particular flavor compared to competitors?",
-    "keyword_note": "명확히 하다 → clarify  |  할당하다 → allocate  |  상대적 우위 → relative advantage"
+    "keyword_note": "명확히 하다 → clarify  |  할당하다 → allocate  |  상대적 우위 → relative advantage",
+    "conv_prompt": "If you were advising on product investment, what two questions would you start with?"
   },
   {
     "id": 183,
@@ -1461,7 +1643,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "조금 더 깊이 파고들기 위해 두 가지 질문을 먼저 드리겠습니다. 하나, 단일 제품에 충분한 자원을 투입하고 있나요? 둘, 특정 맛에서 경쟁자를 명확히 앞서고 있나요?",
     "sentence": "To dig a bit deeper, I'd begin with two questions: are we investing enough in any single product, and do we have a flavor where we clearly outperform competitors?",
-    "keyword_note": "dig a bit deeper → 더 깊이 파고들다 (구어체)"
+    "keyword_note": "dig a bit deeper → 더 깊이 파고들다 (구어체)",
+    "conv_prompt": "What are the first two things you'd want to understand before making a product recommendation?"
   },
   {
     "id": 184,
@@ -1469,7 +1652,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "그들의 연구에 따르면, 제품 A와 제품 B 모두 고객에게 동일하게 어필하는 것으로 보입니다.",
     "sentence": "According to their research, both Product A and Product B seem to appeal to customers equally.",
-    "keyword_note": "~에 따르면 → according to / based on  |  A와 B 모두 → both A and B  |  동일하게 어필 → appeal to … equally"
+    "keyword_note": "~에 따르면 → according to / based on  |  A와 B 모두 → both A and B  |  동일하게 어필 → appeal to … equally",
+    "conv_prompt": "What did the consumer research reveal about product preferences?"
   },
   {
     "id": 185,
@@ -1477,7 +1661,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "그들의 연구에 따르면, 고객들은 제품 A와 제품 B를 거의 비슷하게 좋아하는 것으로 보입니다.",
     "sentence": "From their research, it looks like customers like Product A and Product B about the same.",
-    "keyword_note": "about the same → 거의 비슷하게"
+    "keyword_note": "about the same → 거의 비슷하게",
+    "conv_prompt": "How did customers respond to the two products in the research?"
   },
   {
     "id": 186,
@@ -1485,7 +1670,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "그들의 연구에 따르면, 제품 A와 제품 B는 고객 매력도에 있어 의미 있는 차이가 없는 것으로 보입니다.",
     "sentence": "The research suggests that there is no meaningful difference in customer appeal between Product A and Product B.",
-    "keyword_note": "suggest that → ~라는 것을 시사하다 (that절)  |  no meaningful difference → 의미 있는 차이가 없음"
+    "keyword_note": "suggest that → ~라는 것을 시사하다 (that절)  |  no meaningful difference → 의미 있는 차이가 없음",
+    "conv_prompt": "What was the key finding from the customer research comparing the two products?"
   },
   {
     "id": 187,
@@ -1493,7 +1679,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "정보를 종합해보면, 몇 가지 맛 옵션을 갖춘 제품을 출시하는 것이 가장 유리하며, 베리 바의 여러 변형 제품으로 더 폭넓은 고객층에 어필할 수 있을 것입니다.",
     "sentence": "Synthesizing the information we have, my takeaway is that launching a product with a few flavor options would be most advantageous. Offering multiple variants of the Berry Bar should allow us to appeal to a broader set of customers.",
-    "keyword_note": "정보를 종합하다 → synthesize the information  |  결론 → takeaway / conclusion  |  더 넓은 고객층 → a broader set of customers"
+    "keyword_note": "정보를 종합하다 → synthesize the information  |  결론 → takeaway / conclusion  |  더 넓은 고객층 → a broader set of customers",
+    "conv_prompt": "Based on everything you've reviewed, what's your overall recommendation?"
   },
   {
     "id": 188,
@@ -1501,7 +1688,8 @@
     "topic": "케이스 인터뷰 2: 비초콜릿 캔디 정보 파악",
     "korean": "모든 것을 종합해보면, 더 많은 고객에게 어필하기 위해 베리 바를 몇 가지  다른 맛으로 출시하는 것이 가장 좋아 보입니다.",
     "sentence": "Pulling everything together, it seems best to launch the Berry Bar with a few different flavors to appeal to more customers.",
-    "keyword_note": "pull everything together → 모든 것을 종합하다 (구어체)"
+    "keyword_note": "pull everything together → 모든 것을 종합하다 (구어체)",
+    "conv_prompt": "Pulling everything together, what's your take on the best path forward?"
   },
   {
     "id": 189,
@@ -1509,7 +1697,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "귀하의 고객사는 중간 규모 도시에서 20개의 레스토랑을 운영하며, 현재 점심과 저녁만 제공하고 있습니다. 이 고객사에게 어떤 조언을 하시겠습니까?",
     "sentence": "Your client operates 20 restaurants in a midsize city and currently serves only lunch and dinner. The company is considering expanding its offerings to include breakfast. What would you advise?",
-    "keyword_note": "레스토랑을 운영하다 → operate a restaurant  |  제공 범위를 확대하다 → expand its offerings"
+    "keyword_note": "레스토랑을 운영하다 → operate a restaurant  |  제공 범위를 확대하다 → expand its offerings",
+    "conv_prompt": "Your client runs a restaurant chain and is thinking about expanding into breakfast service. What's your initial take?"
   },
   {
     "id": 190,
@@ -1517,7 +1706,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "고객사는 중간 규모 도시에서 20개 레스토랑을 운영하며 점심과 저녁만 제공하고 있습니다. 아침을 추가하는 방안을 검토 중인데, 어떤 제안을 해주시겠나요?",
     "sentence": "Your client runs 20 restaurants that currently serve only lunch and dinner in a midsize city. They're thinking about adding breakfast—what would you suggest?",
-    "keyword_note": "restaurants that currently serve → 현재 ~만 제공하는 레스토랑 (관계대명사 that)  |  be thinking about → ~을 검토 중이다 (구어체)"
+    "keyword_note": "restaurants that currently serve → 현재 ~만 제공하는 레스토랑 (관계대명사 that)  |  be thinking about → ~을 검토 중이다 (구어체)",
+    "conv_prompt": "A restaurant client wants to add breakfast to their menu. Where would you start?"
   },
   {
     "id": 191,
@@ -1525,7 +1715,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "우리 고객사는 패스트푸드의 건강한 대안을 찾는 시간에 쫓기는 중산층 가정을 대상으로 합니다.",
     "sentence": "Our client targets time-starved, middle-income families seeking a healthy alternative to fast food.",
-    "keyword_note": "대상으로 하다 → target  |  시간에 쫓기는 → time-starved / time-constrained  |  대안을 찾는 → seeking an alternative to"
+    "keyword_note": "대상으로 하다 → target  |  시간에 쫓기는 → time-starved / time-constrained  |  대안을 찾는 → seeking an alternative to",
+    "conv_prompt": "Who exactly is your client trying to reach with their restaurant concept?"
   },
   {
     "id": 192,
@@ -1533,7 +1724,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "우리 고객사는 바쁘지만 패스트푸드보다 건강한 음식을 원하는 중산층 가정을 타깃으로 합니다.",
     "sentence": "Our client goes after busy, middle-income families who are looking for a healthier option than fast food.",
-    "keyword_note": "go after → ~을 타깃으로 하다 (구어체)"
+    "keyword_note": "go after → ~을 타깃으로 하다 (구어체)",
+    "conv_prompt": "Can you describe your client's target customer in a few words?"
   },
   {
     "id": 193,
@@ -1541,7 +1733,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "고객사의 타깃은 시간은 부족하지만 패스트푸드보다 건강한 음식을 원하는 중산층 가정입니다.",
     "sentence": "Our client's target market consists of time-constrained, middle-income households in search of healthier substitutes for fast food.",
-    "keyword_note": "target market consists of → 타깃 시장은 ~로 구성되다"
+    "keyword_note": "target market consists of → 타깃 시장은 ~로 구성되다",
+    "conv_prompt": "How would you define the customer segment your client is focused on?"
   },
   {
     "id": 194,
@@ -1549,7 +1742,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "레스토랑 아침 식사는 이러한 각 세그먼트마다 다른 가치를 가질 것이라고 생각합니다. 예를 들어, 시간에 쫓기는 가정의 경우에는 그다지 매력적이지 않을 가능성이 큽니다.",
     "sentence": "I would imagine that breakfast at a restaurant would have different value across these segments. For example, for time-starved families, it probably wouldn't be very attractive, since making something at home can often be faster than getting the kids in the car.",
-    "keyword_note": "~라고 생각하다 → I would imagine that  |  세그먼트마다 다른 → have different value across segments  | \n매력적이지 않다 → probably wouldn't be very attractive"
+    "keyword_note": "~라고 생각하다 → I would imagine that  |  세그먼트마다 다른 → have different value across segments  | \n매력적이지 않다 → probably wouldn't be very attractive",
+    "conv_prompt": "Would a restaurant breakfast actually appeal to the families in your client's target segment?"
   },
   {
     "id": 195,
@@ -1557,7 +1751,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "레스토랑 아침 식사는 모든 사람에게 똑같이 어필하지 않을 것입니다. 시간이 부족한 가정에게는 집에서 빠르게 준비하는 편이 더 나을 수 있습니다.",
     "sentence": "While a restaurant breakfast can appeal to some, it won't make much sense for families short on time, since making something at home is often quicker than going out.",
-    "keyword_note": "while → ~인 반면/~이지만 (대조 접속사)  |  short on time → 시간이 부족한"
+    "keyword_note": "while → ~인 반면/~이지만 (대조 접속사)  |  short on time → 시간이 부족한",
+    "conv_prompt": "Thinking about your target segment, how attractive do you think a restaurant breakfast would be?"
   },
   {
     "id": 196,
@@ -1565,7 +1760,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "채널에 대해 설명드리겠습니다. 우리의 고객 모델은 패스트푸드와 캐주얼 다이닝의 중간 지점에 위치해 있습니다.",
     "sentence": "Let me explain the channel. Our customer model sits in the middle, positioned between fast food and casual dining.",
-    "keyword_note": "중간 지점에 위치하다 → sit in the middle  |  A와 B 사이에 위치한 → positioned between A and B"
+    "keyword_note": "중간 지점에 위치하다 → sit in the middle  |  A와 B 사이에 위치한 → positioned between A and B",
+    "conv_prompt": "Where exactly does your client sit in the market?"
   },
   {
     "id": 197,
@@ -1573,7 +1769,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "저희 포지셔닝을 설명해 드리겠습니다. 패스트푸드와 캐주얼 다이닝의 중간에 자리하고 있습니다.",
     "sentence": "Let me explain where we fit. We're positioned in the middle—between fast food and casual dining.",
-    "keyword_note": "where we fit → 우리가 위치한 지점 (포지셔닝)"
+    "keyword_note": "where we fit → 우리가 위치한 지점 (포지셔닝)",
+    "conv_prompt": "How would you describe your client's positioning in the restaurant landscape?"
   },
   {
     "id": 198,
@@ -1581,7 +1778,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "이 채널에서 우리의 고객 모델은 패스트푸드와 캐주얼 레스토랑 사이에 위치합니다.",
     "sentence": "In this channel, our customer model falls between fast food and casual dining.",
-    "keyword_note": "fall between → ~사이에 위치하다"
+    "keyword_note": "fall between → ~사이에 위치하다",
+    "conv_prompt": "How would you characterize where your client sits competitively?"
   },
   {
     "id": 199,
@@ -1589,7 +1787,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "이는 고객사에게 좋은 징조는 아닙니다. 대부분의 학생들이 식단에 만족하고 있다면, 아침 식사를 위해 식당에 갈 가능성은 크지 않습니다.",
     "sentence": "This doesn't bode well for the client. If most students are pleased with their meal plan, they're not likely to go to a restaurant for breakfast.",
-    "keyword_note": "좋은 징조다 → bode well  |  만족하다 → be pleased with  |  가능성이 크지 않다 → not likely to"
+    "keyword_note": "좋은 징조다 → bode well  |  만족하다 → be pleased with  |  가능성이 크지 않다 → not likely to",
+    "conv_prompt": "What does the student data suggest for the client's breakfast expansion plan?"
   },
   {
     "id": 200,
@@ -1597,7 +1796,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "이것은 고객사에게 좋지 않은 신호입니다. 학생들이 식단에 만족한다면 아침 식사를 위해 외식할 가능성은 낮습니다.",
     "sentence": "This isn't great news for the client. If students are happy with their meal plans, they probably won't go out for breakfast.",
-    "keyword_note": "isn't great news for → ~에게 좋지 않은 소식이다 (구어체)"
+    "keyword_note": "isn't great news for → ~에게 좋지 않은 소식이다 (구어체)",
+    "conv_prompt": "Based on the student segment data, how would you assess the opportunity?"
   },
   {
     "id": 201,
@@ -1605,7 +1805,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "이는 고객사에게 부정적인 신호입니다. 식단에 만족하는 학생들은 아침 식사를 위해 레스토랑을 찾을 가능성이 낮습니다.",
     "sentence": "This is a negative indicator for the client. Satisfied meal-plan students are less likely to visit restaurants for breakfast.",
-    "keyword_note": "negative indicator → 부정적 신호"
+    "keyword_note": "negative indicator → 부정적 신호",
+    "conv_prompt": "What do the numbers on student meal plans tell us about this opportunity?"
   },
   {
     "id": 202,
@@ -1613,7 +1814,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "제공해주신 정보를 바탕으로, 가족 배달 서비스 또는 전문직이나 학생들을 위한 더 높은 품질의 메뉴를 제공할 수 없다면 고객사가 아침 식사를 제공하지 않는 것이 더 바람직하다고 결론내릴 수 있습니다.",
     "sentence": "Based on the information you've provided, I would conclude that it is better for our client not to offer breakfast unless it can either provide delivery to families or offer higher-quality options for business professionals or students seeking an alternative breakfast.",
-    "keyword_note": "제공 정보를 바탕으로 → based on the information provided  |  …나 …한 경우가 아니라면 → unless it can either … or …"
+    "keyword_note": "제공 정보를 바탕으로 → based on the information provided  |  …나 …한 경우가 아니라면 → unless it can either … or …",
+    "conv_prompt": "Given everything we've covered, what's your final recommendation for the client?"
   },
   {
     "id": 203,
@@ -1621,7 +1823,8 @@
     "topic": "케이스 인터뷰 3: 레스토랑 아침 서비스 추가",
     "korean": "파악된 정보를 기반으로, 가족 배달 서비스가 가능하거나 직장인·학생들을 위한 확실히 더 나은 대안을 제공할 수 없다면 아침 서비스를 건너뛸 것을 권장합니다.",
     "sentence": "Given what we know, I'd recommend skipping breakfast service unless the client can deliver to families or offer a clearly better alternative for businesspeople or students.",
-    "keyword_note": "unless → ~하지 않는 한"
+    "keyword_note": "unless → ~하지 않는 한",
+    "conv_prompt": "Based on the full picture, what would you advise your client to do?"
   },
   {
     "id": 204,
@@ -1629,7 +1832,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "이 케이스는 신약 화합물을 라이센싱할지, 자체 개발할지에 대한 트레이드오프를 평가하는 데 중점을 두며, 각 선택지의 비용과 전략적 이점을 비교하는 데 초점을 맞춥니다.",
     "sentence": "This case centers on evaluating the trade-offs between licensing a new drug compound and developing the drug in-house, with a focus on comparing the respective costs and strategic benefits of each option.",
-    "keyword_note": "중점을 두다 → center on  |  트레이드오프 → trade-offs  |  자체적으로 → in-house / internally"
+    "keyword_note": "중점을 두다 → center on  |  트레이드오프 → trade-offs  |  자체적으로 → in-house / internally",
+    "conv_prompt": "Can you describe what this case is fundamentally about?"
   },
   {
     "id": 205,
@@ -1637,7 +1841,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "이 케이스는 신약 화합물을 라이센싱할지 내부적으로 개발할지를 결정하는 것으로, 각 선택의 비용과 전략적 의미를 비교합니다.",
     "sentence": "What this case is about is deciding whether to license a new drug compound or build it internally, and what each option means for cost and strategy.",
-    "keyword_note": "what this case is about is → 이 케이스가 다루는 것은 …이다 (What절 강조구문)  |  build (something) internally → 내부적으로 개발하다"
+    "keyword_note": "what this case is about is → 이 케이스가 다루는 것은 …이다 (What절 강조구문)  |  build (something) internally → 내부적으로 개발하다",
+    "conv_prompt": "How would you frame the core decision in this case?"
   },
   {
     "id": 206,
@@ -1645,7 +1850,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "라이센싱은 즉각적인 현금흐름을 창출하고, 그와 함께 성과 달성에 따른 추가 수익도 기대할 수 있습니다. 반면, 자체 개발 후 출시하는 방안은 더 높은 초기 투자와 긴 시장 진입 시간이 요구되지만, 장기적으로는 더 큰 수익 비중을 확보할 수 있습니다.",
     "sentence": "Licensing the drug would generate an immediate revenue stream along with potential future milestone payments. In contrast, the build-and-launch option would require significantly higher upfront investment and a longer time to market. However, it offers the potential to capture a larger share of total revenues over the long term.",
-    "keyword_note": "창출하다 → generate  |  수익 흐름 → revenue stream  |  추가 수익 → milestone payments  |  초기 투자 → upfront investment"
+    "keyword_note": "창출하다 → generate  |  수익 흐름 → revenue stream  |  추가 수익 → milestone payments  |  초기 투자 → upfront investment",
+    "conv_prompt": "What are the main financial trade-offs between the two options?"
   },
   {
     "id": 207,
@@ -1653,7 +1859,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "라이센싱을 하면 더 빨리 현금이 들어오고 추가적인 수익도 기대할 수 있습니다. 반면 자체 개발은 초기 비용이 높고 시간이 더 걸리지만, 장기적으로는 수익이 더 큽니다.",
     "sentence": "Licensing gets you cash sooner, whereas going the in-house route means higher upfront costs and a longer wait—though with more upside in the long run.",
-    "keyword_note": "whereas → ~인 반면 (대조 접속사, while의 격식체)  |  get cash sooner → 더 빨리 현금을 확보하다 (구어체)"
+    "keyword_note": "whereas → ~인 반면 (대조 접속사, while의 격식체)  |  get cash sooner → 더 빨리 현금을 확보하다 (구어체)",
+    "conv_prompt": "Walk me through the financial differences between licensing and building in-house."
   },
   {
     "id": 208,
@@ -1661,7 +1868,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "우리가 검토해야 할 첫 번째 질문은 해당 약물이 글로벌 차원에서 상용화될 것인지, 그리고 특수한 공급망 인프라가 필요한지 여부입니다. 구체적으로는 콜드체인과 같은 온도 관리 물류가 필요한지 평가해야 합니다.",
     "sentence": "The first question we need to address is whether the drug will be commercialized globally and whether it requires any specialized supply-chain infrastructure. Specifically, we should assess whether temperature-controlled logistics, such as a cold chain, are necessary.",
-    "keyword_note": "검토해야 할 첫 번째 질문 → the first question we need to address  |  상용화하다 → commercialize  | \n온도 관리 물류 → temperature-controlled logistics"
+    "keyword_note": "검토해야 할 첫 번째 질문 → the first question we need to address  |  상용화하다 → commercialize  | \n온도 관리 물류 → temperature-controlled logistics",
+    "conv_prompt": "What are the key operational questions you'd want to address first?"
   },
   {
     "id": 209,
@@ -1669,7 +1877,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "먼저 파악해야 할 것은 해당 약물의 글로벌 출시 여부와 콜드체인과 같은 특수 공급망 설비가 필요한지 여부입니다.",
     "sentence": "What we first need to figure out is whether the drug will be rolled out globally and whether it needs any special supply-chain setup, like cold-chain logistics.",
-    "keyword_note": "what we first need to figure out is → 우리가 먼저 파악해야 할 것은 …이다 (What절 강조구문)  |  roll out globally → 전 세계에 출시하다"
+    "keyword_note": "what we first need to figure out is → 우리가 먼저 파악해야 할 것은 …이다 (What절 강조구문)  |  roll out globally → 전 세계에 출시하다",
+    "conv_prompt": "What would you want to clarify before making any recommendation on commercialization?"
   },
   {
     "id": 210,
@@ -1677,7 +1886,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "해당 제품이 콜드체인 물류를 필요로 한다는 점을 고려하면, 글로벌 유통에는 상당한 투자와 소요 기간이 수반될 것입니다. 또한 시장에 따라서는 현지 제조 역량 구축도 고려해야 할 수 있습니다.",
     "sentence": "Given that the product requires cold-chain logistics, global distribution would entail substantial investment and significant lead time to build the necessary infrastructure. In addition, depending on the market, we may need to consider establishing local manufacturing capabilities.",
-    "keyword_note": "~를 고려하면 → given that  |  수반하다 → entail / involve / require  |  상당한 → substantial / significant  |  소요 기간 → lead time"
+    "keyword_note": "~를 고려하면 → given that  |  수반하다 → entail / involve / require  |  상당한 → substantial / significant  |  소요 기간 → lead time",
+    "conv_prompt": "What are the main challenges of taking this product global?"
   },
   {
     "id": 211,
@@ -1685,7 +1895,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "이 제품에 콜드체인 물류가 필요하다는 점에서, 글로벌 유통에는 많은 자금과 시간이 소요될 것입니다. 일부 시장에서는 현지 생산도 필요할 수 있습니다.",
     "sentence": "Since this product needs cold-chain logistics, rolling it out globally would take a lot of money and time to set things up. In some markets, we might also need to produce it locally.",
-    "keyword_note": "set things up → 준비/구축하다 (구어체)"
+    "keyword_note": "set things up → 준비/구축하다 (구어체)",
+    "conv_prompt": "What would global distribution of this product actually involve?"
   },
   {
     "id": 212,
@@ -1693,7 +1904,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "또 하나의 핵심적인 고려사항은 해당 약물이 시장 실패의 상당한 위험을 지니고 있는지 여부입니다. 만약 그렇다면, 라이센싱을 통해 선지급금을 받는 방식이 더 매력적인 선택지가 될 가능성이 큽니다.",
     "sentence": "Another key consideration is whether the drug carries a significant risk of market failure. If so, an upfront payment through licensing would likely be a more attractive option.",
-    "keyword_note": "또 하나의 핵심 고려사항 → another key consideration  |  위험을 지니다 → carry a risk of  |  만약 그렇다면 → if so  |  선지급금 → upfront payment"
+    "keyword_note": "또 하나의 핵심 고려사항 → another key consideration  |  위험을 지니다 → carry a risk of  |  만약 그렇다면 → if so  |  선지급금 → upfront payment",
+    "conv_prompt": "What other risk factors should we be weighing here?"
   },
   {
     "id": 213,
@@ -1701,7 +1913,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "이 약물이 시장에서 어려움을 겪을 수 있는지도 고려해야 합니다. 그런 경우라면, 선지급금을 받는 라이센싱 방식이 더 나은 선택일 것입니다.",
     "sentence": "We also need to consider whether this drug might struggle in the market. If that's the case, an upfront licensing payment would likely be the better option.",
-    "keyword_note": "struggle in the market → 시장에서 어려움을 겪다"
+    "keyword_note": "struggle in the market → 시장에서 어려움을 겪다",
+    "conv_prompt": "What additional risk considerations are relevant to this decision?"
   },
   {
     "id": 214,
@@ -1709,7 +1922,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "또 다른 중요한 요소는 시장 실패의 위험입니다. 그런 경우라면, 선지급금을 통한 라이센싱이 더 바람직할 것입니다.",
     "sentence": "Another important factor is the risk of market failure. In that case, licensing with an upfront payment would likely be preferable.",
-    "keyword_note": "risk of market failure → 시장 실패의 위험"
+    "keyword_note": "risk of market failure → 시장 실패의 위험",
+    "conv_prompt": "What other key factor should we take into account?"
   },
   {
     "id": 215,
@@ -1717,7 +1931,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "제공된 정보를 바탕으로 볼 때, 이러한 위험과 비용을 완화할 수 있는 실질적인 메커니즘이 없는 한, 안정적이고 예측 가능한 수익을 확보하기 위한 라이센싱 전략이 더 매력적인 선택으로 보입니다.",
     "sentence": "Based on the information provided, international expansion of the developed drug would involve substantial risk and significant investment. Unless there are viable mechanisms to mitigate these risks and costs, pursuing a licensing strategy to secure stable and predictable returns appears to be the more attractive option.",
-    "keyword_note": "mitigate → (위험·비용을) 완화하다"
+    "keyword_note": "mitigate → (위험·비용을) 완화하다",
+    "conv_prompt": "Based on everything we've covered, what would you recommend?"
   },
   {
     "id": 216,
@@ -1725,7 +1940,8 @@
     "topic": "케이스 인터뷰 4: 신약 사업화 전략 선택",
     "korean": "파악된 정보를 기반으로, 높은 비용과 위험을 줄일 방법이 없다면 라이센싱이 더 안전한 선택지처럼 보입니다.",
     "sentence": "From the information we have, taking the drug global would come with high risk and heavy investment. Without clear ways to reduce the risks that come with going global, licensing looks like the safer option.",
-    "keyword_note": "risks that come with → ~에 따르는 위험 (관계대명사 that)  |  without clear ways to → ~할 명확한 방법 없이"
+    "keyword_note": "risks that come with → ~에 따르는 위험 (관계대명사 that)  |  without clear ways to → ~할 명확한 방법 없이",
+    "conv_prompt": "Given the full picture, where do you land on the licensing versus build decision?"
   },
   {
     "id": 217,
@@ -1733,7 +1949,8 @@
     "topic": "자기소개",
     "korean": "저는 킹 대학교에서 경영학을 전공했습니다. 전략 중심의 수업들이 분석적 사고력의 기반이 됐고, 데이터 기반 디지털 마케팅에 대한 관심으로 이어졌습니다.",
     "sentence": "I majored in Business Management at King University, where strategy-focused coursework built my analytical foundation and sparked my interest in data-driven digital marketing.",
-    "keyword_note": "major in → 전공하다  |  with a focus on → 세부 포커스 추가 시"
+    "keyword_note": "major in → 전공하다  |  with a focus on → 세부 포커스 추가 시",
+    "conv_prompt": "Tell me a bit about your educational background."
   },
   {
     "id": 218,
@@ -1741,7 +1958,8 @@
     "topic": "자기소개",
     "korean": "저는 킹 대학교에서 경영학을 공부했습니다.",
     "sentence": "I studied Business Management at King University.",
-    "keyword_note": "study → 전공하다 (major in의 더 단순한 대체 표현)"
+    "keyword_note": "study → 전공하다 (major in의 더 단순한 대체 표현)",
+    "conv_prompt": "Where did you study, and what was your major?"
   },
   {
     "id": 219,
@@ -1749,7 +1967,8 @@
     "topic": "자기소개",
     "korean": "저는 킹 대학교 경영학 학위를 보유하고 있습니다.",
     "sentence": "I have a degree in Business Management from King University.",
-    "keyword_note": "have a degree in → ~학위를 보유하다"
+    "keyword_note": "have a degree in → ~학위를 보유하다",
+    "conv_prompt": "What's your academic background?"
   },
   {
     "id": 220,
@@ -1757,7 +1976,8 @@
     "topic": "자기소개",
     "korean": "[전공과 지원분야가 다를 때] 제 학문적 배경은 경영학에 있습니다.",
     "sentence": "My academic background is in Business Management.  I come from a background in Business Management.",
-    "keyword_note": "My academic background is in → 전공과 지원분야 다를 때"
+    "keyword_note": "My academic background is in → 전공과 지원분야 다를 때",
+    "conv_prompt": "How would you describe your educational foundation?"
   },
   {
     "id": 221,
@@ -1765,7 +1985,8 @@
     "topic": "자기소개",
     "korean": "재학 중에, 저는 전략 중심의 수업들을 들었으며, 이는 분석적 사고력의 탄탄한 기초를 쌓는 데 도움이 됐고, 데이터 기반 디지털 마케팅에 대한 관심으로 이어졌습니다.",
     "sentence": "During my studies, I took strategy-focused courses, which helped me build a strong foundation in analytical thinking and led me to develop an interest in data-driven digital marketing.",
-    "keyword_note": "during my studies → 재학 중에  |  while I was in school → 대체표현"
+    "keyword_note": "during my studies → 재학 중에  |  while I was in school → 대체표현",
+    "conv_prompt": "How did your coursework shape your professional interests?"
   },
   {
     "id": 222,
@@ -1773,7 +1994,8 @@
     "topic": "자기소개",
     "korean": "재학 중에, 전략 중심 수업들이 분석적 사고 역량을 길러주었습니다.",
     "sentence": "While I was in school, strategy-focused courses built my capacity for analytical thinking.",
-    "keyword_note": "build capacity for → ~역량을 기르다"
+    "keyword_note": "build capacity for → ~역량을 기르다",
+    "conv_prompt": "Which courses had the biggest impact on how you think professionally?"
   },
   {
     "id": 223,
@@ -1781,7 +2003,8 @@
     "topic": "자기소개",
     "korean": "대학 생활 전반에 걸쳐, 저는 전략과 분석의 견고한 기초를 다졌습니다.",
     "sentence": "Throughout my academic experience, I built a strong foundation in strategy and analytics.",
-    "keyword_note": "build a strong foundation in → ~의 탄탄한 기초를 다지다"
+    "keyword_note": "build a strong foundation in → ~의 탄탄한 기초를 다지다",
+    "conv_prompt": "What did you take away from your time in school?"
   },
   {
     "id": 224,
@@ -1789,7 +2012,8 @@
     "topic": "자기소개",
     "korean": "전략 중심 수업들은 분석적 사고력의 탄탄한 기초를 쌓는 데 도움이 됐고, 이는 저를 데이터 기반 디지털 마케팅으로 이끌었습니다.",
     "sentence": "The courses which helped me build a strong foundation in analytical thinking also sparked my interest in data-driven digital marketing.",
-    "keyword_note": "helped me build a strong foundation → 탄탄한 기초를 쌓는 데 도움이 됐다  |  laid the groundwork for → 대체표현"
+    "keyword_note": "helped me build a strong foundation → 탄탄한 기초를 쌓는 데 도움이 됐다  |  laid the groundwork for → 대체표현",
+    "conv_prompt": "Were there specific courses that shaped the direction of your career?"
   },
   {
     "id": 225,
@@ -1797,7 +2021,8 @@
     "topic": "자기소개",
     "korean": "전략 중심 수업들은 분석적 역량의 기반을 마련해 주었고 데이터 기반 마케팅에도 관심을 갖게 했습니다.",
     "sentence": "The courses which laid the groundwork for my analytical skills also drew me to data-driven marketing.",
-    "keyword_note": "lay the groundwork for → ~의 기반을 마련하다"
+    "keyword_note": "lay the groundwork for → ~의 기반을 마련하다",
+    "conv_prompt": "What subjects ended up having the most influence on where you ended up?"
   },
   {
     "id": 226,
@@ -1805,7 +2030,8 @@
     "topic": "자기소개",
     "korean": "그 과정에서 데이터 기반 디지털 마케팅에 대한 큰 관심을 갖게 되었습니다.",
     "sentence": "I developed a strong interest in data-driven digital marketing through my coursework.",
-    "keyword_note": "developed a strong interest in → 큰 관심을 갖게 되었다  |  gravitated toward → 자연스럽게 끌리다"
+    "keyword_note": "developed a strong interest in → 큰 관심을 갖게 되었다  |  gravitated toward → 자연스럽게 끌리다",
+    "conv_prompt": "How did your interest in digital marketing develop?"
   },
   {
     "id": 227,
@@ -1813,7 +2039,8 @@
     "topic": "자기소개",
     "korean": "데이터가 마케팅 의사결정을 어떻게 이끌 수 있는지에 점점 더 관심이 생겼습니다.",
     "sentence": "I became increasingly interested in how data can drive marketing decisions.",
-    "keyword_note": "drive (a decision) → ~을 이끌다/좌우하다"
+    "keyword_note": "drive (a decision) → ~을 이끌다/좌우하다",
+    "conv_prompt": "When did you first become interested in using data for marketing?"
   },
   {
     "id": 228,
@@ -1821,7 +2048,8 @@
     "topic": "자기소개",
     "korean": "학업이 깊어지면서 관심이 데이터 기반 디지털 마케팅 쪽으로 기울었습니다.",
     "sentence": "My interest shifted toward data-driven digital marketing as I advanced in my studies.",
-    "keyword_note": "shift toward → ~쪽으로 기울다"
+    "keyword_note": "shift toward → ~쪽으로 기울다",
+    "conv_prompt": "How did your academic focus evolve over the course of your studies?"
   },
   {
     "id": 229,
@@ -1829,7 +2057,8 @@
     "topic": "자기소개",
     "korean": "저는 자연스럽게 전략과 디지털 마케팅의 교차점에 끌리게 되었습니다.",
     "sentence": "I found myself drawn to the intersection of strategy and digital marketing.",
-    "keyword_note": "be drawn to → ~에 자연스럽게 끌리다"
+    "keyword_note": "be drawn to → ~에 자연스럽게 끌리다",
+    "conv_prompt": "How did your interests shift as you went further into your studies?"
   },
   {
     "id": 230,
@@ -1837,7 +2066,8 @@
     "topic": "자기소개",
     "korean": "그 경험을 통해 직접, 업계의 성공은 R&D만으로 이루어지는 것이 아니라 전략, 운영, 시장 진입 실행이 똑같이 중요하다는 것을 깨달았습니다.",
     "sentence": "That experience showed me firsthand that success in the industry isn't driven  by R&D alone—strategy, operations, and go-to-market execution play an equally critical role.",
-    "keyword_note": "showed me firsthand → 직접 경험으로 깨달았다  |  made me realize → 대체표현"
+    "keyword_note": "showed me firsthand → 직접 경험으로 깨달았다  |  made me realize → 대체표현",
+    "conv_prompt": "What did your internship or work experience teach you about the industry?"
   },
   {
     "id": 231,
@@ -1845,7 +2075,8 @@
     "topic": "자기소개",
     "korean": "그 경험을 통해 R&D만으로 성공할 수 없다는 것을 깨달았습니다. 전략과 실행이 그만큼 중요합니다.",
     "sentence": "That experience made me realize that R&D alone doesn't drive success—strategy and execution are just as important.",
-    "keyword_note": "drive success → 성공을 이끌다"
+    "keyword_note": "drive success → 성공을 이끌다",
+    "conv_prompt": "What was the biggest lesson from your time working in the industry?"
   },
   {
     "id": 232,
@@ -1853,7 +2084,8 @@
     "topic": "자기소개",
     "korean": "저는 실제로, 업계의 성공이 R&D뿐만 아니라 전략, 운영, 실행에도 달려 있다는 것을 확인했습니다.",
     "sentence": "I saw in practice that industry success depends not only on R&D, but also on strategy, operations, and execution.",
-    "keyword_note": "see in practice that → 실제로 ~임을 확인하다"
+    "keyword_note": "see in practice that → 실제로 ~임을 확인하다",
+    "conv_prompt": "What did working in the industry show you that your coursework didn't?"
   },
   {
     "id": 233,
@@ -1861,7 +2093,8 @@
     "topic": "자기소개",
     "korean": "그 경험을 통해 직접, 운영과 전략이 기술 개발만큼이나 중요하다는 것을 확인했습니다.",
     "sentence": "Through that experience, I saw firsthand that operations and strategy are as critical as technical development.",
-    "keyword_note": "see firsthand that → 직접 경험으로 확인하다"
+    "keyword_note": "see firsthand that → 직접 경험으로 확인하다",
+    "conv_prompt": "What did your hands-on experience teach you that was hard to learn in a classroom?"
   },
   {
     "id": 234,
@@ -1869,7 +2102,8 @@
     "topic": "자기소개",
     "korean": "전략, 운영, 시장 진입 실행은 R&D와 똑같이 중요한 역할을 합니다.",
     "sentence": "Strategy, operations, and go-to-market execution play an equally critical role as R&D.",
-    "keyword_note": "play an equally critical role → 동등하게 중요한 역할을 하다  |  carry equal weight → 대체표현"
+    "keyword_note": "play an equally critical role → 동등하게 중요한 역할을 하다  |  carry equal weight → 대체표현",
+    "conv_prompt": "How important is R&D compared to other business functions in your experience?"
   },
   {
     "id": 235,
@@ -1877,7 +2111,8 @@
     "topic": "자기소개",
     "korean": "이러한 요소들은 비즈니스 성과를 결정하는 데 동등한 비중을 갖습니다.",
     "sentence": "These factors carry equal weight in determining business outcomes.",
-    "keyword_note": "carry equal weight → 동등한 비중을 갖다"
+    "keyword_note": "carry equal weight → 동등한 비중을 갖다",
+    "conv_prompt": "Would you say that technical expertise alone is enough to succeed in this industry?"
   },
   {
     "id": 236,
@@ -1885,7 +2120,8 @@
     "topic": "자기소개",
     "korean": "전략과 운영은 기술 역량 못지않게 중요합니다.",
     "sentence": "Strategy and operations are no less critical than technical capability.",
-    "keyword_note": "no less A than B → B 못지않게 A한"
+    "keyword_note": "no less A than B → B 못지않게 A한",
+    "conv_prompt": "How would you compare the importance of technical and strategic skills in consulting?"
   },
   {
     "id": 237,
@@ -1893,7 +2129,8 @@
     "topic": "자기소개",
     "korean": "그러한 관점이 전략적 선택이 실제 비즈니스 성과로 어떻게 이어지는지 더 깊이 이해하고자 하는 동기를 주었습니다.",
     "sentence": "That perspective motivated me to better understand how strategic choices translate into real business outcomes.",
-    "keyword_note": "motivated me to → 동기부여했다  |  led me to → 대체표현  |  drew me to consulting → 컨설팅으로 이끌었다"
+    "keyword_note": "motivated me to → 동기부여했다  |  led me to → 대체표현  |  drew me to consulting → 컨설팅으로 이끌었다",
+    "conv_prompt": "How did that experience change the way you think about business strategy?"
   },
   {
     "id": 238,
@@ -1901,7 +2138,8 @@
     "topic": "자기소개",
     "korean": "그 관점이 비즈니스 전략을 더 깊이 이해하려는 방향으로 저를 이끌었습니다.",
     "sentence": "That perspective led me to pursue a deeper understanding of business strategy.",
-    "keyword_note": "lead ~ to pursue → ~하도록 이끌다"
+    "keyword_note": "lead ~ to pursue → ~하도록 이끌다",
+    "conv_prompt": "How did that early experience shape your professional goals?"
   },
   {
     "id": 239,
@@ -1909,7 +2147,8 @@
     "topic": "자기소개",
     "korean": "이 깨달음이 컨설팅이 전략과 실행을 어떻게 연결하는지 탐구하도록 저를 이끌었습니다.",
     "sentence": "This realization prompted me to explore how consulting bridges strategy and execution.",
-    "keyword_note": "prompt ~ to → ~하도록 촉발하다/이끌다"
+    "keyword_note": "prompt ~ to → ~하도록 촉발하다/이끌다",
+    "conv_prompt": "What drew you to consulting as a career path?"
   },
   {
     "id": 240,
@@ -1917,7 +2156,8 @@
     "topic": "자기소개",
     "korean": "그 인사이트가 분석적 사고를 실질적인 비즈니스 임팩트와 연결하는 커리어를 향해 저를 이끌었습니다.",
     "sentence": "That insight pushed me toward a career where I could connect analytical thinking with real business impact.",
-    "keyword_note": "push ~ toward → ~을 향해 이끌다"
+    "keyword_note": "push ~ toward → ~을 향해 이끌다",
+    "conv_prompt": "How did that experience influence the direction of your career?"
   },
   {
     "id": 241,
@@ -1925,7 +2165,8 @@
     "topic": "자기소개",
     "korean": "졸업 후, 저는 A사에서 프로젝트 어시스턴트로, 이후 B사에서 마케팅 인턴으로 일했습니다.",
     "sentence": "After graduating, I worked as a project assistant at Company A and later as a marketing intern at Company B.",
-    "keyword_note": "after graduating, I worked as → 졸업 후 ~로 일했다  |  following graduation, I joined → 대체표현"
+    "keyword_note": "after graduating, I worked as → 졸업 후 ~로 일했다  |  following graduation, I joined → 대체표현",
+    "conv_prompt": "Could you walk me through your professional experience after graduation?"
   },
   {
     "id": 242,
@@ -1933,7 +2174,8 @@
     "topic": "자기소개",
     "korean": "졸업 후, 저는 [회사명]에 프로젝트 코디네이터로 합류했고, 이후 마케팅 직무로 이동했습니다.",
     "sentence": "Following graduation, I joined [company] as a project coordinator and later moved into a marketing role.",
-    "keyword_note": "move into (a role) → ~직무로 옮기다"
+    "keyword_note": "move into (a role) → ~직무로 옮기다",
+    "conv_prompt": "What roles did you take on after finishing your degree?"
   },
   {
     "id": 243,
@@ -1941,7 +2183,8 @@
     "topic": "자기소개",
     "korean": "학위를 마친 후, 저는 프로젝트 어시스턴트로 일을 시작했습니다.",
     "sentence": "After completing my degree, I began working as a project assistant.",
-    "keyword_note": "begin working as → ~로 일을 시작하다"
+    "keyword_note": "begin working as → ~로 일을 시작하다",
+    "conv_prompt": "What did you do right after completing your studies?"
   },
   {
     "id": 244,
@@ -1949,7 +2192,8 @@
     "topic": "자기소개",
     "korean": "커리어 초기에 저는 프로젝트 관리와 마케팅 분야에서 일했습니다.",
     "sentence": "Early in my career, I took on roles in project management and marketing.",
-    "keyword_note": "take on a role in → ~분야에서 역할을 맡다"
+    "keyword_note": "take on a role in → ~분야에서 역할을 맡다",
+    "conv_prompt": "How did you get your start in the working world?"
   },
   {
     "id": 245,
@@ -1957,7 +2201,8 @@
     "topic": "자기소개",
     "korean": "그 역할들에서 시장 조사와 데이터 분석을 직접 다루며 일했고, 이를 통해 체계적이고 가설 중심의 문제 해결 접근법을 개발했습니다.",
     "sentence": "In those roles, I worked hands-on with market research and data analysis, which helped me develop a structured, hypothesis-driven approach to problem-solving.",
-    "keyword_note": "worked hands-on with → 직접 다루며 일했다  |  was directly involved in → 대체표현"
+    "keyword_note": "worked hands-on with → 직접 다루며 일했다  |  was directly involved in → 대체표현",
+    "conv_prompt": "What skills did you build in your early career roles?"
   },
   {
     "id": 246,
@@ -1965,7 +2210,8 @@
     "topic": "자기소개",
     "korean": "저는 시장 조사 및 데이터 분석 프로젝트에 직접 참여했습니다.",
     "sentence": "I was directly involved in market research and data analytics projects.",
-    "keyword_note": "be directly involved in → ~에 직접 참여하다"
+    "keyword_note": "be directly involved in → ~에 직접 참여하다",
+    "conv_prompt": "What kind of work were you doing day-to-day in those positions?"
   },
   {
     "id": 247,
@@ -1973,7 +2219,8 @@
     "topic": "자기소개",
     "korean": "저는 데이터 수집 및 분석에 적극적인 역할을 했습니다.",
     "sentence": "I took an active role in collecting and analyzing market data.",
-    "keyword_note": "take an active role in → ~에 적극적인 역할을 하다"
+    "keyword_note": "take an active role in → ~에 적극적인 역할을 하다",
+    "conv_prompt": "What did your day-to-day responsibilities actually look like?"
   },
   {
     "id": 248,
@@ -1981,7 +2228,8 @@
     "topic": "자기소개",
     "korean": "저는 리서치와 데이터 기반 의사결정에 직접 기여함으로써 팀을 지원했습니다.",
     "sentence": "I supported the team by contributing directly to research and data-driven decision-making.",
-    "keyword_note": "contribute directly to → ~에 직접 기여하다"
+    "keyword_note": "contribute directly to → ~에 직접 기여하다",
+    "conv_prompt": "In what ways did you contribute to the teams you worked with?"
   },
   {
     "id": 249,
@@ -1989,7 +2237,8 @@
     "topic": "자기소개",
     "korean": "저는 또한 프로젝트 X의 관리에 참여했으며, 부서 간 팀들과 긴밀히 협력하여 일정을 조율하고 인사이트를 종합했습니다. 저희의 노력은 고객 만족도 30% 향상으로 이어졌습니다.",
     "sentence": "I was also involved in managing Project X, working closely with cross-functional teams to coordinate timelines and synthesize inputs. Our efforts led to a 30 percent improvement in customer satisfaction.",
-    "keyword_note": "led to an improvement in → ~의 개선으로 이어지다  |  cross-functional teams → 부서 간 팀들"
+    "keyword_note": "led to an improvement in → ~의 개선으로 이어지다  |  cross-functional teams → 부서 간 팀들",
+    "conv_prompt": "Can you tell me about a time you worked closely with cross-functional teams?"
   },
   {
     "id": 250,
@@ -1997,7 +2246,8 @@
     "topic": "자기소개",
     "korean": "우리의 협업은 고객 만족도 30% 향상이라는 측정 가능한 결과로 이어졌습니다.",
     "sentence": "Our work resulted in a measurable 30% improvement in customer satisfaction scores.",
-    "keyword_note": "result in → ~으로 이어지다"
+    "keyword_note": "result in → ~으로 이어지다",
+    "conv_prompt": "Did you see any measurable results from the projects you worked on?"
   },
   {
     "id": 251,
@@ -2005,7 +2255,8 @@
     "topic": "자기소개",
     "korean": "부서 간 협업을 통해 고객 만족도를 30% 향상시키는 성과를 거뒀습니다.",
     "sentence": "Through cross-functional coordination, we delivered a 30 percent improvement in customer satisfaction.",
-    "keyword_note": "deliver (an improvement) → 성과를 거두다/달성하다"
+    "keyword_note": "deliver (an improvement) → 성과를 거두다/달성하다",
+    "conv_prompt": "What outcomes can you point to from your experience working across teams?"
   },
   {
     "id": 252,
@@ -2013,7 +2264,8 @@
     "topic": "자기소개",
     "korean": "지금의 저는 디지털 마케팅을 데이터 중심의 인사이트를 통해 전략과 실행을 연결하는 실용적인 방법으로 보고 있습니다. 그것이 제가 이 직무에 지원한 이유이며, 분석 역량과 디지털 마케팅 경험으로 클라이언트 업무에 기여할 수 있기를 기대하고 있습니다.",
     "sentence": "Today, I see digital marketing as a practical way to connect strategy with execution through data-driven insights. That's why I applied for this position—I'm very much looking forward to contributing my analytical and digital marketing experience to client engagements.",
-    "keyword_note": "today, I see … as → 지금 나는 ~을 …로 본다  |  that's why I applied → 그래서 지원했다  |  looking forward to contributing → 기여를 기대한다"
+    "keyword_note": "today, I see … as → 지금 나는 ~을 …로 본다  |  that's why I applied → 그래서 지원했다  |  looking forward to contributing → 기여를 기대한다",
+    "conv_prompt": "Why are you interested in consulting, and how does this role fit your goals?"
   },
   {
     "id": 253,
@@ -2021,7 +2273,8 @@
     "topic": "자기소개",
     "korean": "현재 저는 컨설팅을 구조적 사고가 측정 가능한 성과로 이어지는 공간으로 이해하고 있습니다.",
     "sentence": "At this point, I understand consulting as a space where structured thinking translates into measurable outcomes.",
-    "keyword_note": "understand A as B → A를 B로 이해하다"
+    "keyword_note": "understand A as B → A를 B로 이해하다",
+    "conv_prompt": "How would you describe your understanding of what consulting actually involves?"
   },
   {
     "id": 254,
@@ -2029,7 +2282,8 @@
     "topic": "자기소개",
     "korean": "전반적으로, 저는 이 역할을 전략과 실행을 연결하는 기회로 보고 있습니다.",
     "sentence": "Overall, I view this role as an opportunity to bridge strategy and execution.",
-    "keyword_note": "view A as B → A를 B로 보다"
+    "keyword_note": "view A as B → A를 B로 보다",
+    "conv_prompt": "Why does this particular role appeal to you?"
   },
   {
     "id": 255,
@@ -2037,7 +2291,8 @@
     "topic": "자기소개",
     "korean": "그것이 이 포지션에 저를 이끈 것입니다. 저의 배경은 팀의 방향성과 잘 맞습니다.",
     "sentence": "That's what drew me to this position in the first place. My background aligns well with your team's focus.",
-    "keyword_note": "draw ~ to → ~을 이끌다(끌리게 하다)"
+    "keyword_note": "draw ~ to → ~을 이끌다(끌리게 하다)",
+    "conv_prompt": "Why did you decide to apply for this position?"
   },
   {
     "id": 256,
@@ -2045,7 +2300,8 @@
     "topic": "자기소개",
     "korean": "그것이 왜 이 역할이 저에게 자연스러운 다음 단계처럼 느껴졌는지를 설명합니다.",
     "sentence": "That's why this role felt like a natural next step for me.",
-    "keyword_note": "natural next step → 자연스러운 다음 단계"
+    "keyword_note": "natural next step → 자연스러운 다음 단계",
+    "conv_prompt": "Why does this position feel like the right next step for you?"
   },
   {
     "id": 257,
@@ -2053,6 +2309,7 @@
     "topic": "자기소개",
     "korean": "저는 이 역할에서 제 스킬을 적용할 수 있는 기회에 대해 매우 기대가 됩니다.",
     "sentence": "I'm excited about the opportunity to apply my skills in a client-facing role.",
-    "keyword_note": "be excited about the opportunity to → ~할 기회에 대해 기대되다"
+    "keyword_note": "be excited about the opportunity to → ~할 기회에 대해 기대되다",
+    "conv_prompt": "What excites you most about this opportunity?"
   }
 ]

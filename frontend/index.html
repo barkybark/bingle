@@ -471,13 +471,31 @@ function resetConvUI() {
 
 async function loadConvQ() {
   if (!S.card) { showChapter(); return; }
+
+  // conv_prompt가 JSON에 사전생성된 경우 API 호출 없이 즉시 사용
+  if (S.card.conv_prompt) {
+    S.currentQ = S.card.conv_prompt;
+    document.getElementById('conv-topic').textContent = S.card.topic || '';
+    document.getElementById('conv-q').textContent = S.card.conv_prompt;
+    const ttsResult = await speakAI(S.card.conv_prompt);
+    if (ttsResult !== 'ok') {
+      setStat('🔇 음성 출력에 실패했어요. 텍스트를 읽고 말해보세요.', '');
+      setTimeout(() => setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'), 2000);
+    } else {
+      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+    }
+    enableMic();
+    document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+    return;
+  }
+
+  // conv_prompt 없는 카드는 Claude API로 생성 (fallback)
   showOv('AI 질문 생성 중...');
   try {
     const r = await fetch(`${API_BASE}/api/conversation/prompt`, {
       method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({token:S.token, target_sentence:S.card.sentence, topic:S.card.topic})
     });
-    // Q1: 401/403이면 인증 오류 처리
     if (r.status === 401 || r.status === 403) { hideOv(); handleAuthError(); return; }
     if (!r.ok) throw new Error('prompt_fail');
     const d = await r.json();
@@ -485,10 +503,8 @@ async function loadConvQ() {
     hideOv();
     S.currentQ = d.prompt;
     document.getElementById('conv-q').textContent = d.prompt;
-    // Q2: TTS 결과 확인 — 실패해도 계속 진행
     const ttsResult = await speakAI(d.prompt);
     if (ttsResult !== 'ok') {
-      // TTS 실패 안내문 (작게, 2초 후 사라짐)
       setStat('🔇 음성 출력에 실패했어요. 텍스트를 읽고 말해보세요.', '');
       setTimeout(() => setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'), 2000);
     } else {
@@ -498,18 +514,12 @@ async function loadConvQ() {
     document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
   } catch {
     hideOv();
-    // Q1: 질문 생성 실패 → "다시 시도" 버튼 표시
     document.getElementById('conv-q').textContent = '질문 생성에 실패했습니다.';
     setStat('네트워크 오류가 발생했습니다.', '');
     document.getElementById('mic-hint').textContent = '아래 버튼을 눌러 다시 시도해주세요';
-    // btn-retry-flash를 재활용해서 "다시 시도" 버튼으로 임시 사용
     const retryBtn = document.getElementById('btn-retry-flash');
     retryBtn.textContent = '🔄 다시 시도';
-    retryBtn.onclick = () => {
-      retryBtn.style.display = 'none';
-      retryBtn.onclick = null;
-      loadConvQ();
-    };
+    retryBtn.onclick = () => { retryBtn.style.display = 'none'; retryBtn.onclick = null; loadConvQ(); };
     retryBtn.style.display = 'block';
   }
 }
