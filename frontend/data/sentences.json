@@ -229,7 +229,7 @@
     "unit": 1,
     "topic": "명사로 떨어트리고 수식하는 패턴 웜업",
     "korean": "그는 우리가 진지하게 고려해야 한다고 생각하는 제안을 했어요.",
-    "sentence": "He made a suggestion which I think we should consider seriously.",
+    "sentence": "He made a suggestion that we should consider seriously.",
     "keyword_note": "a suggestion which ~",
     "conv_prompt": "Did anyone bring up a different angle during the discussion?"
   },

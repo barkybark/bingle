@@ -230,12 +230,19 @@
 
     <!-- 마이크 + 버튼 -->
     <div class="mic-section">
+      <!-- 안내 멘트 -->
+      <div id="mic-guide" style="font-size:12px; color:rgba(255,255,255,.38); line-height:1.8; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.06); margin-bottom:12px;">
+        💬 질문이 나올 때까지 잠시 기다려주세요.<br>
+        🎤 마이크 버튼을 터치했다가 떼고, 말하세요.<br>
+        🔄 목소리를 반복해서 인식하지 못하면 아래 리프레시 버튼을 눌러주세요.
+      </div>
       <div class="mic-row">
         <button class="mic-btn off" id="mic-btn" onclick="toggleMic()">🎤</button>
         <div class="mic-hint" id="mic-hint">AI 질문을 먼저 들어보세요</div>
       </div>
       <div class="conv-actions">
         <button class="c-btn" id="btn-replay" onclick="replayQ()">🔊 다시 듣기</button>
+        <button class="c-btn" id="btn-refresh-mic" onclick="refreshMic()" style="background:rgba(255,255,255,.08); color:rgba(255,255,255,.55);">🔄 리프레시</button>
         <button class="c-btn primary" id="btn-next-flash" onclick="convDoneBackToFlash()" style="display:none">다음 암기카드 →</button>
         <button class="c-btn" id="btn-retry-flash" onclick="retryFlash()" style="display:none">🔄 암기카드로</button>
         <button class="c-btn primary" id="btn-next-conv" onclick="convNextCard()" style="display:none">다음 카드 →</button>
@@ -464,6 +471,9 @@ function resetConvUI() {
   document.getElementById('conv-trans').textContent = '';
   setStat('AI 질문을 듣고 있어요', '');
   document.getElementById('mic-hint').textContent = 'AI 질문을 먼저 들어보세요';
+  // 안내문 + 리프레시 버튼 표시
+  document.getElementById('mic-guide').style.display = 'block';
+  document.getElementById('btn-refresh-mic').style.display = 'inline-block';
   S.answerDone = false;
   disableMic();
   document.getElementById('conv-screen').scrollTop = 0;
@@ -712,6 +722,9 @@ async function evaluate(answer) {
     document.getElementById('result-box').className = 'result-box show';
     S.answerDone = true;
     document.getElementById('mic-hint').textContent = '평가 완료';
+    // 평가 완료 후 안내문 + 리프레시 버튼 숨기기
+    document.getElementById('mic-guide').style.display = 'none';
+    document.getElementById('btn-refresh-mic').style.display = 'none';
 
     const level = d.level || 2;
 
@@ -826,6 +839,21 @@ function showLimitScreen() {
   document.getElementById('count-badge').style.display = 'none';
   setActiveNav('conv');
   showScreen('limit-screen');
+}
+
+// 마이크 리프레시 — STT 완전 초기화
+function refreshMic() {
+  if (S.recognition) {
+    try { S.recognition.abort(); } catch {}
+    S.recognition = null;
+  }
+  S.isListening = false;
+  stopWave();
+  const btn = document.getElementById('mic-btn');
+  btn.className = 'mic-btn';
+  setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+  document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+  document.getElementById('conv-trans').textContent = '';
 }
 
 // 7순위: 토큰 만료/비활성화 처리 → 로그인 화면으로
