@@ -272,12 +272,12 @@ let S = {
 
 // ── 초기화 ──────────────────────────────────────────────────────────
 async function init() {
-  // 브라우저 호환성 체크 — Samsung Internet / Safari 차단
+  // 브라우저 호환성 체크 — Chrome 계열만 허용
   const ua = navigator.userAgent;
-  const isSamsungBrowser = /SamsungBrowser/i.test(ua);
-  const isSafari = /^((?!chrome|android).)*safari/i.test(ua) && !/CriOS/i.test(ua);
+  const isChrome = /Chrome\//.test(ua) && /Google Inc/.test(navigator.vendor);
+  const isChromeIOS = /CriOS\//.test(ua); // iPhone의 Chrome
 
-  if (isSamsungBrowser || isSafari) {
+  if (!isChrome && !isChromeIOS) {
     document.body.innerHTML = `
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
         height:100dvh;padding:40px 24px;background:#1A1A2E;font-family:sans-serif;text-align:center;">
@@ -285,7 +285,7 @@ async function init() {
         <div style="font-size:20px;font-weight:700;color:#F5A623;margin-bottom:12px;">Chrome 브라우저가 필요합니다</div>
         <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:32px;">
           Bingle 말하기 연습은 음성 인식 기능을 사용합니다.<br>
-          Samsung Internet과 Safari는 이 기능을 지원하지 않아요.<br><br>
+          현재 브라우저는 이 기능을 지원하지 않아요.<br><br>
           <strong style="color:#fff;">Chrome 앱을 설치하고 다시 접속해주세요.</strong>
         </div>
         <a href="https://www.google.com/chrome/" target="_blank"
