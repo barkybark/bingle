@@ -272,6 +272,31 @@ let S = {
 
 // ── 초기화 ──────────────────────────────────────────────────────────
 async function init() {
+  // 브라우저 호환성 체크 — Samsung Internet / Safari 차단
+  const ua = navigator.userAgent;
+  const isSamsungBrowser = /SamsungBrowser/i.test(ua);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua) && !/CriOS/i.test(ua);
+
+  if (isSamsungBrowser || isSafari) {
+    document.body.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+        height:100dvh;padding:40px 24px;background:#1A1A2E;font-family:sans-serif;text-align:center;">
+        <div style="font-size:48px;margin-bottom:20px;">⚠️</div>
+        <div style="font-size:20px;font-weight:700;color:#F5A623;margin-bottom:12px;">Chrome 브라우저가 필요합니다</div>
+        <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:32px;">
+          Bingle 말하기 연습은 음성 인식 기능을 사용합니다.<br>
+          Samsung Internet과 Safari는 이 기능을 지원하지 않아요.<br><br>
+          <strong style="color:#fff;">Chrome 앱을 설치하고 다시 접속해주세요.</strong>
+        </div>
+        <a href="https://www.google.com/chrome/" target="_blank"
+          style="background:#F5A623;color:#1A1A2E;padding:14px 32px;border-radius:10px;
+            font-weight:700;font-size:15px;text-decoration:none;">
+          Chrome 다운로드 →
+        </a>
+      </div>`;
+    return;
+  }
+
   const wc = document.getElementById('conv-wave');
   for (let i = 0; i < 16; i++) {
     const b = document.createElement('div');
@@ -646,19 +671,7 @@ function startListening() {
 
   const rec = new SR();
   rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true;
-  let finalText = '', sTimer = null, started = false;
-
-  // 발화 시작 감지 — 실제로 말소리가 들어오기 시작할 때
-  rec.onspeechstart = () => {
-    started = true;
-    if (sTimer) clearTimeout(sTimer);
-  };
-
-  // 발화가 끊겼을 때 — 브라우저가 음성 끊김을 감지한 순간부터 4초 카운트
-  rec.onspeechend = () => {
-    if (sTimer) clearTimeout(sTimer);
-    sTimer = setTimeout(() => { rec.stop(); }, 4000);
-  };
+  let finalText = '', sTimer = null;
 
   rec.onresult = (e) => {
     let interim = ''; finalText = '';
@@ -667,9 +680,8 @@ function startListening() {
       else interim = e.results[i][0].transcript;
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
-    // 텍스트가 들어올 때마다 타이머 리셋
     if (sTimer) clearTimeout(sTimer);
-    sTimer = setTimeout(() => { rec.stop(); }, 6000);
+    sTimer = setTimeout(() => { rec.stop(); }, 4000);
   };
   rec.onend = () => {
     S.isListening = false; stopWave();
@@ -679,8 +691,7 @@ function startListening() {
     const ans = finalText.trim();
     if (ans) evaluate(ans);
     else {
-      // 아무것도 못 잡았으면 마이크 다시 활성화 (평가로 넘어가지 않음)
-      setStat('🎤 다시 한번 말해보세요', 'listening');
+      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
       document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
       enableMic();
     }
