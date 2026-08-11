@@ -646,7 +646,19 @@ function startListening() {
 
   const rec = new SR();
   rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true;
-  let finalText = '', sTimer = null;
+  let finalText = '', sTimer = null, started = false;
+
+  // 발화 시작 감지 — 실제로 말소리가 들어오기 시작할 때
+  rec.onspeechstart = () => {
+    started = true;
+    if (sTimer) clearTimeout(sTimer);
+  };
+
+  // 발화가 끊겼을 때 — 브라우저가 음성 끊김을 감지한 순간부터 4초 카운트
+  rec.onspeechend = () => {
+    if (sTimer) clearTimeout(sTimer);
+    sTimer = setTimeout(() => { rec.stop(); }, 4000);
+  };
 
   rec.onresult = (e) => {
     let interim = ''; finalText = '';
@@ -655,8 +667,9 @@ function startListening() {
       else interim = e.results[i][0].transcript;
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
+    // 텍스트가 들어올 때마다 타이머 리셋
     if (sTimer) clearTimeout(sTimer);
-    sTimer = setTimeout(() => { rec.stop(); }, 4000);
+    sTimer = setTimeout(() => { rec.stop(); }, 6000);
   };
   rec.onend = () => {
     S.isListening = false; stopWave();
@@ -666,7 +679,8 @@ function startListening() {
     const ans = finalText.trim();
     if (ans) evaluate(ans);
     else {
-      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+      // 아무것도 못 잡았으면 마이크 다시 활성화 (평가로 넘어가지 않음)
+      setStat('🎤 다시 한번 말해보세요', 'listening');
       document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
       enableMic();
     }
