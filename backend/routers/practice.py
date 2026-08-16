@@ -181,12 +181,13 @@ Evaluate and respond with ONLY valid JSON in this exact format:
   "retry_flashcard": <true|false>
 }}
 
-Level guide (pick exactly one):
-- Level 4 (score 9-10): Student said it almost exactly as memorized. → coach_comment: 외운 대로 완벽하게 말했어요! 정말 잘했어요 🌟, retry_flashcard: false
-- Level 3 (score 7-8): Student didn't say it exactly, but creatively used the idea correctly. → coach_comment: 외운 표현을 응용해서 자연스럽게 말했어요! 훌륭해요 👍, retry_flashcard: false
-- Level 2 (score 5-6): Answer makes sense in context, but missed the target expression. → coach_comment: 의미는 통했어요! 조금만 더 연습하면 완벽해질 거예요 💪, retry_flashcard: false
-- Level 1 (score 1-4): Answer is off-topic, incomprehensible, or too incomplete. → coach_comment: 암기카드로 돌아가서 표현을 다시 익혀봐요! 할 수 있어요 🔄, retry_flashcard: true
+Scoring guide — focus on MEANING and GRAMMAR, not exact wording:
+- Level 4 (score 9-10): Grammatically correct and conveys the same meaning as the target. Minor word differences (e.g. "who" vs "that", synonym substitutions) are FINE and should score Level 4. → coach_comment: 문법도 맞고 의미도 완벽해요! 훌륭해요 🌟, retry_flashcard: false
+- Level 3 (score 7-8): Meaning is clear and grammar is mostly correct, even if phrasing differs from target. → coach_comment: 의미가 잘 전달됐어요! 자연스럽게 잘 말했어요 👍, retry_flashcard: false
+- Level 2 (score 5-6): Meaning is partially conveyed but has noticeable grammar errors or incomplete sentences. → coach_comment: 의미는 통했어요! 문법을 조금 더 다듬어봐요 💪, retry_flashcard: false
+- Level 1 (score 1-4): Off-topic, incomprehensible, or too short/incomplete to evaluate. → coach_comment: 암기카드로 돌아가서 표현을 다시 익혀봐요! 할 수 있어요 🔄, retry_flashcard: true
 
+IMPORTANT: "who" vs "that", "a" vs "the", word order variations, synonym use — these are ALL acceptable if grammatically valid. Judge meaning and grammar, never penalize for not using the exact target words.
 Be generous for Level 2 and 3 — reward communication even if imperfect."""
         }]
     )
