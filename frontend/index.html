@@ -685,57 +685,116 @@ function startListening() {
   else startListeningDesktop();
 }
 
-// 데스크탑/안드로이드: 재시작 루프 방식 (6초 침묵 후 종료)
+// 데스크탑/안드로이드: 재시작 루프 방식
+// - onspeechstart: 말 시작 감지
+// - onspeechend: 말 끝난 후 6초 침묵 타이머 시작
+// - onend: shouldStop 아니면 즉시 재시작 (브라우저 자동 종료 방어)
+// - finalText는 재시작 걸쳐서 누적 (초기화 안 함)
 function startListeningDesktop() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let finalText = '', silenceTimer = null, shouldStop = false;
+  let finalText = '';        // 전체 세션 누적 텍스트
+  let silenceTimer = null;
+  let shouldStop = false;
+  let speechDetected = false; // 한 번이라도 말소리 감지됐는지
 
-  function clearST() { if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null; } }
-  function resetST() {
+  function clearST() {
+    if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null; }
+  }
+
+  function startSilenceCountdown() {
+    // 말이 끊긴 후 6초 기다리다가 종료
     clearST();
     silenceTimer = setTimeout(() => {
       shouldStop = true;
       if (S.recognition) { try { S.recognition.stop(); } catch {} }
     }, 6000);
   }
+
   function finish() {
-    S.isListening = false; stopWave(); clearST();
+    S.isListening = false;
+    stopWave();
+    clearST();
     document.getElementById('mic-btn').className = 'mic-btn off';
     const ans = finalText.trim();
-    if (ans) { document.getElementById('mic-hint').textContent = '분석 중...'; evaluate(ans); }
-    else { setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'); document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요'; enableMic(); }
+    if (ans) {
+      document.getElementById('mic-hint').textContent = '분석 중...';
+      evaluate(ans);
+    } else {
+      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      enableMic();
+    }
   }
+
   function startRec() {
     if (shouldStop) { finish(); return; }
+
     const rec = new SR();
-    rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
+    rec.lang = 'en-US';
+    rec.continuous = false;
+    rec.interimResults = true;
     S.recognition = rec;
+
     rec.onresult = (e) => {
       let interim = '';
+      // finalText 누적 (초기화 금지 — 재시작 걸쳐 이어받아야 함)
       for (let i = e.resultIndex; i < e.results.length; i++) {
-        if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
-        else interim = e.results[i][0].transcript;
+        if (e.results[i].isFinal) {
+          finalText += e.results[i][0].transcript + ' ';
+        } else {
+          interim = e.results[i][0].transcript;
+        }
       }
       document.getElementById('conv-trans').textContent = (finalText + interim).trim();
-      resetST();
+      // 텍스트 들어올 때마다 침묵 타이머 리셋
+      clearST();
     };
-    rec.onspeechstart = () => { resetST(); };
-    rec.onend = () => { if (shouldStop) finish(); else setTimeout(() => startRec(), 80); };
-    rec.onerror = (e) => {
-      if (e.error === 'not-allowed') {
-        shouldStop = true; S.isListening = false; stopWave();
-        setStat('❌ 마이크 접근을 허용해주세요.', '');
-        document.getElementById('mic-btn').className = 'mic-btn off'; clearST();
+
+    rec.onspeechstart = () => {
+      // 말 시작 — 침묵 타이머 취소 (아직 말 중)
+      speechDetected = true;
+      clearST();
+    };
+
+    rec.onspeechend = () => {
+      // 말이 끊겼을 때 비로소 6초 카운트 시작
+      startSilenceCountdown();
+    };
+
+    rec.onend = () => {
+      if (shouldStop) {
+        finish();
+      } else {
+        // 브라우저가 자동으로 끊음 → 즉시 재시작
+        // 단 finalText가 이미 있고 침묵 타이머가 없으면 기다리는 중이므로 재시작
+        setTimeout(() => startRec(), 80);
       }
     };
+
+    rec.onerror = (e) => {
+      if (e.error === 'not-allowed') {
+        shouldStop = true;
+        S.isListening = false; stopWave();
+        setStat('❌ 마이크 접근을 허용해주세요.', '');
+        document.getElementById('mic-btn').className = 'mic-btn off';
+        clearST();
+      }
+      // 그 외(network, aborted 등)는 onend에서 재시작 처리됨
+    };
+
     try { rec.start(); } catch { shouldStop = true; finish(); }
   }
-  // 20초 최대 대기
-  silenceTimer = setTimeout(() => { shouldStop = true; if (S.recognition) { try { S.recognition.stop(); } catch {} } }, 20000);
+
+  // 최초 시작 — 아무 말도 없으면 30초 후 자동 종료
+  silenceTimer = setTimeout(() => {
+    shouldStop = true;
+    if (S.recognition) { try { S.recognition.stop(); } catch {} }
+  }, 30000);
+
   startRec();
 }
 
-// iOS: 재시작 루프 없이 1회 인식 — 실패 시 리프레시 버튼 강조
+// iOS: 재시작 루프 없이 1회 인식 — onspeechend 후 6초 대기
 function startListeningIOS() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   let finalText = '', sTimer = null;
@@ -763,22 +822,37 @@ function startListeningIOS() {
       else interim = e.results[i][0].transcript;
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
+    // 텍스트 들어오는 동안 타이머 취소
+    if (sTimer) { clearTimeout(sTimer); sTimer = null; }
+  };
+
+  rec.onspeechstart = () => {
+    // 말 시작 — 타이머 취소
+    if (sTimer) { clearTimeout(sTimer); sTimer = null; }
+  };
+
+  rec.onspeechend = () => {
+    // 말 끊긴 후 6초 대기
     if (sTimer) clearTimeout(sTimer);
     sTimer = setTimeout(() => { rec.stop(); }, 6000);
   };
+
   rec.onend = () => {
     S.isListening = false; stopWave();
     if (sTimer) clearTimeout(sTimer);
     document.getElementById('mic-btn').className = 'mic-btn off';
     const ans = finalText.trim();
-    if (ans) { document.getElementById('mic-hint').textContent = '분석 중...'; evaluate(ans); }
-    else {
+    if (ans) {
+      document.getElementById('mic-hint').textContent = '분석 중...';
+      evaluate(ans);
+    } else {
       setStat('🎤 인식이 안 됐어요. 🔄 리프레시 버튼을 눌러주세요.', 'listening');
       document.getElementById('mic-hint').textContent = '🔄 리프레시 버튼을 눌러주세요';
       enableMic();
       highlightRefresh();
     }
   };
+
   rec.onerror = (e) => {
     S.isListening = false; stopWave();
     if (sTimer) clearTimeout(sTimer);
@@ -792,6 +866,7 @@ function startListeningIOS() {
       highlightRefresh();
     }
   };
+
   try { rec.start(); } catch {
     S.isListening = false; enableMic();
     setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
