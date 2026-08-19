@@ -29,6 +29,8 @@
     .nav-btn { padding:6px 14px; border-radius:20px; border:1px solid rgba(255,255,255,.15); background:none; color:rgba(255,255,255,.5); font-size:13px; font-weight:600; cursor:pointer; font-family:var(--font); transition:all .2s; }
     .nav-btn.active { background:var(--orange); border-color:var(--orange); color:var(--navy); }
     .count-badge { font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; background:rgba(245,166,35,.12); border:1px solid rgba(245,166,35,.28); color:var(--orange); flex-shrink:0; white-space:nowrap; display:none; }
+    .logout-btn { padding:5px 12px; border-radius:20px; border:1px solid rgba(255,255,255,.15); background:none; color:rgba(255,255,255,.4); font-size:12px; cursor:pointer; font-family:var(--font); flex-shrink:0; transition:all .2s; }
+    .logout-btn:hover { border-color:rgba(255,255,255,.3); color:rgba(255,255,255,.7); }
 
     /* 화면 — overflow:hidden 제거, 스크롤 허용 */
     .screen { display:none; flex-direction:column; flex:1; overflow-y:auto; }
@@ -141,6 +143,7 @@
     <button class="nav-btn" id="nav-conv" onclick="switchMode('conv')">🎤 대화하기</button>
   </div>
   <div class="count-badge" id="count-badge">0/10</div>
+  <button class="logout-btn" onclick="doLogout()">로그아웃</button>
 </div>
 
 <!-- 로그인 -->
@@ -192,7 +195,7 @@
       <div style="font-size:52px; margin-bottom:16px;">🌟</div>
       <div style="font-size:22px; font-weight:700; margin-bottom:10px;">오늘 대화하기 완료!</div>
       <div style="color:rgba(255,255,255,.5); font-size:14px; line-height:1.7; margin-bottom:28px;">
-        하루 10회 대화하기를 모두 마쳤어요.<br>암기카드는 계속 이용 가능합니다!
+        하루 ${DAILY_LIMIT}회 대화하기를 모두 마쳤어요.<br>암기카드는 계속 이용 가능합니다!
       </div>
       <button onclick="switchMode('flash')" style="width:100%; background:var(--orange); border:none; border-radius:var(--radius-sm); color:var(--navy); font-size:15px; font-weight:700; padding:15px; cursor:pointer; font-family:var(--font); margin-bottom:10px;">📖 암기카드 계속하기</button>
       <div style="color:rgba(255,255,255,.3); font-size:12px; margin-top:8px;">내일 자정 이후 다시 이용 가능합니다</div>
@@ -1019,6 +1022,20 @@ function refreshMic() {
   }
 }
 
+// 로그아웃
+function doLogout() {
+  stopAll();
+  localStorage.removeItem('bingle_token');
+  S.token = null;
+  S.usedToday = 0;
+  S.deck = [];
+  S.card = null;
+  document.getElementById('header').style.display = 'none';
+  document.getElementById('token-input').value = '';
+  document.getElementById('login-error').style.display = 'none';
+  showScreen('login-screen');
+}
+
 // 7순위: 토큰 만료/비활성화 처리 → 로그인 화면으로
 function handleAuthError() {
   stopAll();
@@ -1035,8 +1052,13 @@ function handleAuthError() {
 function stopAll() {
   // 예약된 TTS 타이머 취소 (소리 겹침 방지)
   if (S.ttsTimer) { clearTimeout(S.ttsTimer); S.ttsTimer = null; }
+  // 진행 중인 오디오 즉시 중단
   stopAudio();
-  if (S.recognition) S.recognition.abort();
+  // STT 중단
+  if (S.recognition) {
+    try { S.recognition.abort(); } catch {}
+    S.recognition = null;
+  }
   S.isListening = false;
 }
 function setStat(txt, cls) {
