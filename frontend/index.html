@@ -654,6 +654,10 @@ async function replayQ() {
 }
 
 // ── STT ─────────────────────────────────────────────────────────────
+// iOS는 setTimeout 안 rec.start()가 사용자 제스처 없이 호출되어 마이크 권한이 막힘
+// 따라서 iOS는 재시작 루프 없이 단순 1회 인식 + 리프레시 버튼 유도 방식 사용
+const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
 function enableMic() {
   document.getElementById('mic-btn').className = 'mic-btn';
 }
@@ -671,59 +675,125 @@ function toggleMic() {
 function startListening() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) { setStat('⚠️ Chrome 브라우저를 사용해주세요.', ''); return; }
-  // Q5: 빠른 더블탭 방어 — rec.start() 전에 미리 true 설정
   if (S.isListening) return;
   S.isListening = true;
-
   document.getElementById('mic-btn').className = 'mic-btn listening';
   document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝나면 자동으로 멈춰요';
   setStat('듣는 중...', 'listening');
   startWave();
+  if (IS_IOS) startListeningIOS();
+  else startListeningDesktop();
+}
 
-  const rec = new SR();
-  rec.lang = 'en-US'; rec.continuous = true; rec.interimResults = true;
+// 데스크탑/안드로이드: 재시작 루프 방식 (6초 침묵 후 종료)
+function startListeningDesktop() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let finalText = '', silenceTimer = null, shouldStop = false;
+
+  function clearST() { if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null; } }
+  function resetST() {
+    clearST();
+    silenceTimer = setTimeout(() => {
+      shouldStop = true;
+      if (S.recognition) { try { S.recognition.stop(); } catch {} }
+    }, 6000);
+  }
+  function finish() {
+    S.isListening = false; stopWave(); clearST();
+    document.getElementById('mic-btn').className = 'mic-btn off';
+    const ans = finalText.trim();
+    if (ans) { document.getElementById('mic-hint').textContent = '분석 중...'; evaluate(ans); }
+    else { setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'); document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요'; enableMic(); }
+  }
+  function startRec() {
+    if (shouldStop) { finish(); return; }
+    const rec = new SR();
+    rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
+    S.recognition = rec;
+    rec.onresult = (e) => {
+      let interim = '';
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
+        else interim = e.results[i][0].transcript;
+      }
+      document.getElementById('conv-trans').textContent = (finalText + interim).trim();
+      resetST();
+    };
+    rec.onspeechstart = () => { resetST(); };
+    rec.onend = () => { if (shouldStop) finish(); else setTimeout(() => startRec(), 80); };
+    rec.onerror = (e) => {
+      if (e.error === 'not-allowed') {
+        shouldStop = true; S.isListening = false; stopWave();
+        setStat('❌ 마이크 접근을 허용해주세요.', '');
+        document.getElementById('mic-btn').className = 'mic-btn off'; clearST();
+      }
+    };
+    try { rec.start(); } catch { shouldStop = true; finish(); }
+  }
+  // 20초 최대 대기
+  silenceTimer = setTimeout(() => { shouldStop = true; if (S.recognition) { try { S.recognition.stop(); } catch {} } }, 20000);
+  startRec();
+}
+
+// iOS: 재시작 루프 없이 1회 인식 — 실패 시 리프레시 버튼 강조
+function startListeningIOS() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   let finalText = '', sTimer = null;
+  const rec = new SR();
+  rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
+  S.recognition = rec;
+
+  function highlightRefresh() {
+    const rb = document.getElementById('btn-refresh-mic');
+    if (!rb) return;
+    rb.style.background = 'rgba(245,166,35,.3)';
+    rb.style.borderColor = 'var(--orange)';
+    rb.style.color = 'var(--orange)';
+    rb.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      rb.style.background = ''; rb.style.borderColor = '';
+      rb.style.color = ''; rb.style.transform = '';
+    }, 3000);
+  }
 
   rec.onresult = (e) => {
-    let interim = ''; finalText = '';
+    let interim = '';
     for (let i = e.resultIndex; i < e.results.length; i++) {
       if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
       else interim = e.results[i][0].transcript;
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
     if (sTimer) clearTimeout(sTimer);
-    sTimer = setTimeout(() => { rec.stop(); }, 4000);
+    sTimer = setTimeout(() => { rec.stop(); }, 6000);
   };
   rec.onend = () => {
     S.isListening = false; stopWave();
-    document.getElementById('mic-btn').className = 'mic-btn off';
-    document.getElementById('mic-hint').textContent = '분석 중...';
     if (sTimer) clearTimeout(sTimer);
+    document.getElementById('mic-btn').className = 'mic-btn off';
     const ans = finalText.trim();
-    if (ans) evaluate(ans);
+    if (ans) { document.getElementById('mic-hint').textContent = '분석 중...'; evaluate(ans); }
     else {
-      setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
-      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      setStat('🎤 인식이 안 됐어요. 🔄 리프레시 버튼을 눌러주세요.', 'listening');
+      document.getElementById('mic-hint').textContent = '🔄 리프레시 버튼을 눌러주세요';
       enableMic();
+      highlightRefresh();
     }
   };
   rec.onerror = (e) => {
     S.isListening = false; stopWave();
+    if (sTimer) clearTimeout(sTimer);
     if (e.error === 'not-allowed') {
       setStat('❌ 마이크 접근을 허용해주세요.', '');
       document.getElementById('mic-btn').className = 'mic-btn off';
     } else {
+      setStat('🎤 인식 오류. 🔄 리프레시 버튼을 눌러주세요.', 'listening');
+      document.getElementById('mic-hint').textContent = '🔄 리프레시 버튼을 눌러주세요';
       enableMic();
-      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      highlightRefresh();
     }
   };
-  S.recognition = rec;
-  try {
-    rec.start();
-  } catch {
-    // rec.start() 자체가 실패한 경우 (이미 다른 rec이 실행 중 등) 상태 복원
-    S.isListening = false;
-    enableMic();
+  try { rec.start(); } catch {
+    S.isListening = false; enableMic();
     setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
   }
 }
@@ -877,19 +947,28 @@ function showLimitScreen() {
   showScreen('limit-screen');
 }
 
-// 마이크 리프레시 — STT 완전 초기화
+// 마이크 리프레시 — 완전 초기화 (iOS에서 특히 중요)
 function refreshMic() {
+  // 기존 인식 인스턴스 완전 제거
   if (S.recognition) {
     try { S.recognition.abort(); } catch {}
+    try { S.recognition.stop(); } catch {}
     S.recognition = null;
   }
   S.isListening = false;
   stopWave();
-  const btn = document.getElementById('mic-btn');
-  btn.className = 'mic-btn';
+  // 버튼/상태 초기화
+  document.getElementById('mic-btn').className = 'mic-btn';
   setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
   document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
   document.getElementById('conv-trans').textContent = '';
+  // iOS: 잠깐 딜레이 후 마이크 활성화 (시스템이 마이크 해제할 시간 확보)
+  if (IS_IOS) {
+    document.getElementById('mic-btn').className = 'mic-btn off';
+    setTimeout(() => {
+      document.getElementById('mic-btn').className = 'mic-btn';
+    }, 500);
+  }
 }
 
 // 7순위: 토큰 만료/비활성화 처리 → 로그인 화면으로
