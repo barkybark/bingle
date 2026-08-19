@@ -233,7 +233,7 @@
       <!-- 안내 멘트 -->
       <div id="mic-guide" style="font-size:12px; color:rgba(255,255,255,.38); line-height:1.8; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,.06); margin-bottom:12px;">
         💬 질문이 나올 때까지 잠시 기다려주세요.<br>
-        🎤 마이크 버튼을 터치했다가 떼고, 말하세요.<br>
+        🎤 마이크 버튼을 터치하고, 말하세요. 발화가 끝났다면 마이크를 눌러 주세요.<br>
         🔄 목소리를 반복해서 인식하지 못하면 아래 리프레시 버튼을 눌러주세요.
       </div>
       <div class="mic-row">
@@ -242,7 +242,8 @@
       </div>
       <div class="conv-actions">
         <button class="c-btn" id="btn-replay" onclick="replayQ()">🔊 다시 듣기</button>
-        <button class="c-btn" id="btn-refresh-mic" onclick="refreshMic()" style="background:rgba(255,255,255,.08); color:rgba(255,255,255,.55);">🔄 리프레시</button>
+        <button class="c-btn" id="btn-refresh-mic" onclick="refreshMic()">🔄 리프레시</button>
+        <button class="c-btn" id="btn-retry-speak" onclick="retrySpeak()" style="display:none">🎤 다시 말해보기</button>
         <button class="c-btn primary" id="btn-next-flash" onclick="convDoneBackToFlash()" style="display:none">다음 암기카드 →</button>
         <button class="c-btn" id="btn-retry-flash" onclick="retryFlash()" style="display:none">🔄 암기카드로</button>
         <button class="c-btn primary" id="btn-next-conv" onclick="convNextCard()" style="display:none">다음 카드 →</button>
@@ -504,6 +505,7 @@ function resetConvUI() {
   document.getElementById('btn-next-flash').style.display = 'none';
   document.getElementById('btn-retry-flash').style.display = 'none';
   document.getElementById('btn-next-conv').style.display = 'none';
+  document.getElementById('btn-retry-speak').style.display = 'none';
   document.getElementById('conv-trans').textContent = '';
   setStat('AI 질문을 듣고 있어요', '');
   document.getElementById('mic-hint').textContent = 'AI 질문을 먼저 들어보세요';
@@ -668,8 +670,15 @@ function disableMic() {
 
 function toggleMic() {
   if (document.getElementById('mic-btn').classList.contains('off')) return;
-  if (S.isListening) { if (S.recognition) S.recognition.stop(); }
-  else startListening();
+  if (S.isListening) {
+    // 듣는 중 재탭 → 발화 종료 신호
+    if (S.recognition) {
+      S.recognition._userStopped = true; // 사용자가 직접 종료했음을 표시
+      try { S.recognition.stop(); } catch {}
+    }
+  } else {
+    startListening();
+  }
 }
 
 function startListening() {
@@ -686,34 +695,15 @@ function startListening() {
 }
 
 // 데스크탑/안드로이드: 재시작 루프 방식
-// - onspeechstart: 말 시작 감지
-// - onspeechend: 말 끝난 후 6초 침묵 타이머 시작
-// - onend: shouldStop 아니면 즉시 재시작 (브라우저 자동 종료 방어)
-// - finalText는 재시작 걸쳐서 누적 (초기화 안 함)
+// 자동 침묵 감지 없음 — 마이크 버튼 재탭으로만 종료
 function startListeningDesktop() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let finalText = '';        // 전체 세션 누적 텍스트
-  let silenceTimer = null;
+  let finalText = '';
   let shouldStop = false;
-  let speechDetected = false; // 한 번이라도 말소리 감지됐는지
-
-  function clearST() {
-    if (silenceTimer) { clearTimeout(silenceTimer); silenceTimer = null; }
-  }
-
-  function startSilenceCountdown() {
-    // 말이 끊긴 후 6초 기다리다가 종료
-    clearST();
-    silenceTimer = setTimeout(() => {
-      shouldStop = true;
-      if (S.recognition) { try { S.recognition.stop(); } catch {} }
-    }, 6000);
-  }
 
   function finish() {
     S.isListening = false;
     stopWave();
-    clearST();
     document.getElementById('mic-btn').className = 'mic-btn off';
     const ans = finalText.trim();
     if (ans) {
@@ -721,7 +711,7 @@ function startListeningDesktop() {
       evaluate(ans);
     } else {
       setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
-      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      document.getElementById('mic-hint').textContent = '발화가 끝났다면 마이크를 눌러 주세요.';
       enableMic();
     }
   }
@@ -737,36 +727,20 @@ function startListeningDesktop() {
 
     rec.onresult = (e) => {
       let interim = '';
-      // finalText 누적 (초기화 금지 — 재시작 걸쳐 이어받아야 함)
+      // finalText 초기화 금지 — 재시작 걸쳐 누적
       for (let i = e.resultIndex; i < e.results.length; i++) {
-        if (e.results[i].isFinal) {
-          finalText += e.results[i][0].transcript + ' ';
-        } else {
-          interim = e.results[i][0].transcript;
-        }
+        if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
+        else interim = e.results[i][0].transcript;
       }
       document.getElementById('conv-trans').textContent = (finalText + interim).trim();
-      // 텍스트 들어올 때마다 침묵 타이머 리셋
-      clearST();
-    };
-
-    rec.onspeechstart = () => {
-      // 말 시작 — 침묵 타이머 취소 (아직 말 중)
-      speechDetected = true;
-      clearST();
-    };
-
-    rec.onspeechend = () => {
-      // 말이 끊겼을 때 비로소 6초 카운트 시작
-      startSilenceCountdown();
     };
 
     rec.onend = () => {
-      if (shouldStop) {
+      if (shouldStop || rec._userStopped) {
+        // 사용자가 버튼 탭으로 종료 or shouldStop
         finish();
       } else {
-        // 브라우저가 자동으로 끊음 → 즉시 재시작
-        // 단 finalText가 이미 있고 침묵 타이머가 없으면 기다리는 중이므로 재시작
+        // 브라우저 자동 종료 → 즉시 재시작
         setTimeout(() => startRec(), 80);
       }
     };
@@ -777,27 +751,20 @@ function startListeningDesktop() {
         S.isListening = false; stopWave();
         setStat('❌ 마이크 접근을 허용해주세요.', '');
         document.getElementById('mic-btn').className = 'mic-btn off';
-        clearST();
       }
-      // 그 외(network, aborted 등)는 onend에서 재시작 처리됨
+      // 그 외 오류는 onend에서 재시작
     };
 
     try { rec.start(); } catch { shouldStop = true; finish(); }
   }
 
-  // 최초 시작 — 아무 말도 없으면 30초 후 자동 종료
-  silenceTimer = setTimeout(() => {
-    shouldStop = true;
-    if (S.recognition) { try { S.recognition.stop(); } catch {} }
-  }, 30000);
-
   startRec();
 }
 
-// iOS: 재시작 루프 없이 1회 인식 — onspeechend 후 6초 대기
+// iOS: 1회 인식 방식 — 마이크 버튼 재탭으로 종료
 function startListeningIOS() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  let finalText = '', sTimer = null;
+  let finalText = '';
   const rec = new SR();
   rec.lang = 'en-US'; rec.continuous = false; rec.interimResults = true;
   S.recognition = rec;
@@ -822,24 +789,10 @@ function startListeningIOS() {
       else interim = e.results[i][0].transcript;
     }
     document.getElementById('conv-trans').textContent = (finalText + interim).trim();
-    // 텍스트 들어오는 동안 타이머 취소
-    if (sTimer) { clearTimeout(sTimer); sTimer = null; }
-  };
-
-  rec.onspeechstart = () => {
-    // 말 시작 — 타이머 취소
-    if (sTimer) { clearTimeout(sTimer); sTimer = null; }
-  };
-
-  rec.onspeechend = () => {
-    // 말 끊긴 후 6초 대기
-    if (sTimer) clearTimeout(sTimer);
-    sTimer = setTimeout(() => { rec.stop(); }, 6000);
   };
 
   rec.onend = () => {
     S.isListening = false; stopWave();
-    if (sTimer) clearTimeout(sTimer);
     document.getElementById('mic-btn').className = 'mic-btn off';
     const ans = finalText.trim();
     if (ans) {
@@ -855,7 +808,6 @@ function startListeningIOS() {
 
   rec.onerror = (e) => {
     S.isListening = false; stopWave();
-    if (sTimer) clearTimeout(sTimer);
     if (e.error === 'not-allowed') {
       setStat('❌ 마이크 접근을 허용해주세요.', '');
       document.getElementById('mic-btn').className = 'mic-btn off';
@@ -906,6 +858,8 @@ async function evaluate(answer) {
     // 평가 완료 후 안내문 + 리프레시 버튼 숨기기
     document.getElementById('mic-guide').style.display = 'none';
     document.getElementById('btn-refresh-mic').style.display = 'none';
+    // 다시 말해보기 버튼 항상 표시 (횟수 차감 없이 재도전)
+    document.getElementById('btn-retry-speak').style.display = 'block';
 
     const level = d.level || 2;
 
@@ -1014,6 +968,27 @@ function convSkip() {
   }
 }
 
+// 다시 말해보기 — 횟수 차감 없이 같은 카드로 재도전
+function retrySpeak() {
+  stopAll();
+  S.answerDone = false;
+  S.evaluatingCard = null;
+  // 결과 숨기기
+  document.getElementById('result-box').className = 'result-box';
+  document.getElementById('btn-retry-speak').style.display = 'none';
+  document.getElementById('btn-next-flash').style.display = 'none';
+  document.getElementById('btn-retry-flash').style.display = 'none';
+  document.getElementById('btn-next-conv').style.display = 'none';
+  document.getElementById('conv-trans').textContent = '';
+  // 안내문 + 리프레시 버튼 다시 표시
+  document.getElementById('mic-guide').style.display = 'block';
+  document.getElementById('btn-refresh-mic').style.display = 'inline-block';
+  // 마이크 다시 활성화
+  enableMic();
+  setStat('🎤 버튼을 눌러 다시 말해보세요', 'listening');
+  document.getElementById('mic-hint').textContent = '발화가 끝났다면 마이크를 눌러 주세요.';
+}
+
 // 6순위: 일일 한도 종료 화면
 function showLimitScreen() {
   stopAll();
@@ -1021,8 +996,6 @@ function showLimitScreen() {
   setActiveNav('conv');
   showScreen('limit-screen');
 }
-
-// 마이크 리프레시 — 완전 초기화 (iOS에서 특히 중요)
 function refreshMic() {
   // 기존 인식 인스턴스 완전 제거
   if (S.recognition) {
