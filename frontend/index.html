@@ -195,7 +195,7 @@
       <div style="font-size:52px; margin-bottom:16px;">🌟</div>
       <div style="font-size:22px; font-weight:700; margin-bottom:10px;">오늘 대화하기 완료!</div>
       <div style="color:rgba(255,255,255,.5); font-size:14px; line-height:1.7; margin-bottom:28px;">
-        하루 ${DAILY_LIMIT}회 대화하기를 모두 마쳤어요.<br>암기카드는 계속 이용 가능합니다!
+        하루 20회 대화하기를 모두 마쳤어요.<br>암기카드는 계속 이용 가능합니다!
       </div>
       <button onclick="switchMode('flash')" style="width:100%; background:var(--orange); border:none; border-radius:var(--radius-sm); color:var(--navy); font-size:15px; font-weight:700; padding:15px; cursor:pointer; font-family:var(--font); margin-bottom:10px;">📖 암기카드 계속하기</button>
       <div style="color:rgba(255,255,255,.3); font-size:12px; margin-top:8px;">내일 자정 이후 다시 이용 가능합니다</div>
@@ -258,7 +258,7 @@
 
 <script>
 const API_BASE = '';
-const DAILY_LIMIT = 10;
+const DAILY_LIMIT = 20;
 
 let S = {
   token: null, all: [], deck: [], idx: 0, card: null,
@@ -338,7 +338,7 @@ async function doLogin() {
     });
     const d = await r.json();
     if (!r.ok) {
-      document.getElementById('login-error').textContent = d.detail || (r.status === 429 ? `오늘 대화하기 횟수(${DAILY_LIMIT}회)를 모두 사용했습니다.` : '인증 실패');
+      document.getElementById('login-error').textContent = d.detail || (r.status === 429 ? `오늘 대화하기 (${DAILY_LIMIT}횟수회)를 모두 사용했습니다.` : '인증 실패');
       document.getElementById('login-error').style.display = 'block';
       hideOv(); return;
     }
