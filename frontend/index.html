@@ -195,7 +195,7 @@
       <div style="font-size:52px; margin-bottom:16px;">🌟</div>
       <div style="font-size:22px; font-weight:700; margin-bottom:10px;">오늘 대화하기 완료!</div>
       <div style="color:rgba(255,255,255,.5); font-size:14px; line-height:1.7; margin-bottom:28px;">
-        하루 20회 대화하기를 모두 마쳤어요.<br>암기카드는 계속 이용 가능합니다!
+        하루 ${DAILY_LIMIT}회 대화하기를 모두 마쳤어요.<br>암기카드는 계속 이용 가능합니다!
       </div>
       <button onclick="switchMode('flash')" style="width:100%; background:var(--orange); border:none; border-radius:var(--radius-sm); color:var(--navy); font-size:15px; font-weight:700; padding:15px; cursor:pointer; font-family:var(--font); margin-bottom:10px;">📖 암기카드 계속하기</button>
       <div style="color:rgba(255,255,255,.3); font-size:12px; margin-top:8px;">내일 자정 이후 다시 이용 가능합니다</div>
@@ -291,13 +291,14 @@ async function init() {
           padding:32px 28px;max-width:360px;width:100%;text-align:center;font-family:sans-serif;">
           <div style="font-size:36px;margin-bottom:14px;">💻</div>
           <div style="font-size:17px;font-weight:700;color:#F5A623;margin-bottom:12px;">
-            데스크탑 Chrome을 권장합니다
+            Chrome 사용을 권장합니다
           </div>
           <div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px;">
-           Chrome 사용을 권장합니다.<br><br>
+            Chrome 사용을 권장합니다.<br><br>
             암기카드에서 여러번 반복하여 말하고<br>
             AI와 실제 대화하여 익히세요.<br>
-            <span style="color:rgba(255,255,255,.5); font-size:12px;">(대화 창에서 마이크 인식이 안되면, 리프레시 버튼을 누르세요)</span><br><br>
+            <span style="color:rgba(255,255,255,.45);font-size:12px;">(대화 창에서 마이크 인식이 안되면, 리프레시 버튼을 누르세요)</span><br>
+            <span style="color:rgba(255,255,255,.45);font-size:12px;">⚠️ 마이크 사용 시 다른 탭은 닫아주세요</span><br><br>
             <strong style="color:#fff;">매일 최소 20개 문장을 말하세요 💪</strong>
           </div>
           <button id="modal-ok" style="width:100%;padding:13px;background:#F5A623;color:#1A1A2E;
@@ -339,7 +340,7 @@ async function doLogin() {
     });
     const d = await r.json();
     if (!r.ok) {
-      document.getElementById('login-error').textContent = d.detail || (r.status === 429 ? `오늘 대화하기 (${DAILY_LIMIT}횟수회)를 모두 사용했습니다.` : '인증 실패');
+      document.getElementById('login-error').textContent = d.detail || (r.status === 429 ? `오늘 대화하기 횟수(${DAILY_LIMIT}회)를 모두 사용했습니다.` : '인증 실패');
       document.getElementById('login-error').style.display = 'block';
       hideOv(); return;
     }
@@ -395,7 +396,7 @@ function showChapter() {
 // ── 덱 빌드 ─────────────────────────────────────────────────────────
 function buildDeck(unitNum) {
   let src = unitNum !== null ? S.all.filter(c=>c.unit===unitNum) : S.all;
-  S.deck = [...src].sort(() => Math.random() - 0.5);
+  S.deck = [...src]; // 셔플 없이 JSON 원래 순서 유지
   S.idx = 0;
 }
 
@@ -664,6 +665,22 @@ async function replayQ() {
 // 따라서 iOS는 재시작 루프 없이 단순 1회 인식 + 리프레시 버튼 유도 방식 사용
 const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
+// 딸깍 beep 소리
+function playBeep() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.frequency.value = 880;
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.15);
+  } catch {}
+}
+
 function enableMic() {
   document.getElementById('mic-btn').className = 'mic-btn';
 }
@@ -677,9 +694,10 @@ function toggleMic() {
   if (S.isListening) {
     // 듣는 중 재탭 → 발화 종료 신호
     if (S.recognition) {
-      S.recognition._userStopped = true; // 사용자가 직접 종료했음을 표시
+      S.recognition._userStopped = true;
       try { S.recognition.stop(); } catch {}
     }
+    playBeep(); // 발화 종료 딸깍 소리
   } else {
     startListening();
   }
@@ -700,10 +718,12 @@ function startListening() {
 
 // 데스크탑/안드로이드: 재시작 루프 방식
 // 자동 침묵 감지 없음 — 마이크 버튼 재탭으로만 종료
+// 300ms 대기로 마이크 리소스 충돌 방지
 function startListeningDesktop() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   let finalText = '';
   let shouldStop = false;
+  let currentRec = null;
 
   function finish() {
     S.isListening = false;
@@ -711,6 +731,7 @@ function startListeningDesktop() {
     document.getElementById('mic-btn').className = 'mic-btn off';
     const ans = finalText.trim();
     if (ans) {
+      playBeep(); // 딸깍 소리
       document.getElementById('mic-hint').textContent = '분석 중...';
       evaluate(ans);
     } else {
@@ -723,43 +744,59 @@ function startListeningDesktop() {
   function startRec() {
     if (shouldStop) { finish(); return; }
 
-    const rec = new SR();
-    rec.lang = 'en-US';
-    rec.continuous = false;
-    rec.interimResults = true;
-    S.recognition = rec;
+    // 이전 인스턴스 완전 해제
+    if (currentRec) {
+      try { currentRec.abort(); } catch {}
+      currentRec = null;
+    }
 
-    rec.onresult = (e) => {
-      let interim = '';
-      // finalText 초기화 금지 — 재시작 걸쳐 누적
-      for (let i = e.resultIndex; i < e.results.length; i++) {
-        if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
-        else interim = e.results[i][0].transcript;
+    // 마이크 리소스 해제 대기 후 새 인스턴스 시작
+    setTimeout(() => {
+      if (shouldStop) { finish(); return; }
+
+      const rec = new SR();
+      rec.lang = 'en-US';
+      rec.continuous = false;
+      rec.interimResults = true;
+      currentRec = rec;
+      S.recognition = rec;
+
+      rec.onresult = (e) => {
+        let interim = '';
+        // finalText 초기화 금지 — 재시작 걸쳐 누적
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+          if (e.results[i].isFinal) finalText += e.results[i][0].transcript + ' ';
+          else interim = e.results[i][0].transcript;
+        }
+        document.getElementById('conv-trans').textContent = (finalText + interim).trim();
+      };
+
+      rec.onend = () => {
+        currentRec = null;
+        if (shouldStop || rec._userStopped) {
+          finish();
+        } else {
+          // 브라우저 자동 종료 → 300ms 후 재시작 (마이크 리소스 해제 대기)
+          setTimeout(() => startRec(), 300);
+        }
+      };
+
+      rec.onerror = (e) => {
+        currentRec = null;
+        if (e.error === 'not-allowed') {
+          shouldStop = true;
+          S.isListening = false; stopWave();
+          setStat('❌ 마이크 접근을 허용해주세요.', '');
+          document.getElementById('mic-btn').className = 'mic-btn off';
+        }
+        // 그 외 오류는 onend에서 재시작
+      };
+
+      try { rec.start(); } catch {
+        currentRec = null;
+        shouldStop = true; finish();
       }
-      document.getElementById('conv-trans').textContent = (finalText + interim).trim();
-    };
-
-    rec.onend = () => {
-      if (shouldStop || rec._userStopped) {
-        // 사용자가 버튼 탭으로 종료 or shouldStop
-        finish();
-      } else {
-        // 브라우저 자동 종료 → 즉시 재시작
-        setTimeout(() => startRec(), 80);
-      }
-    };
-
-    rec.onerror = (e) => {
-      if (e.error === 'not-allowed') {
-        shouldStop = true;
-        S.isListening = false; stopWave();
-        setStat('❌ 마이크 접근을 허용해주세요.', '');
-        document.getElementById('mic-btn').className = 'mic-btn off';
-      }
-      // 그 외 오류는 onend에서 재시작
-    };
-
-    try { rec.start(); } catch { shouldStop = true; finish(); }
+    }, 300);
   }
 
   startRec();
@@ -835,10 +872,9 @@ async function evaluate(answer) {
   setStat('분석 중...', '');
   showOv('답변 분석 중...');
   S.evaluatingCard = S.card;
-  // 평가 대기 중 안내 음성
+  // 평가 대기 중 안내 음성 (await 없이 — API 호출과 동시 재생)
   speakAI('Analyzing your answer. Please wait a moment.');
 
-  
   try {
     const r = await fetch(`${API_BASE}/api/conversation/evaluate`, {
       method:'POST', headers:{'Content-Type':'application/json'},
