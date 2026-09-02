@@ -198,10 +198,12 @@ Be generous for Level 2 and 3 — reward communication even if imperfect."""
         result = json.loads(match.group() if match else raw)
     except Exception:
         result = {
+            "level": 2,
             "score": 5,
             "score_reason": "평가 중 오류가 발생했습니다.",
             "model_answer": body.target_sentence,
-            "coach_comment": "다시 한번 도전해보세요!"
+            "coach_comment": "다시 한번 도전해보세요!",
+            "retry_flashcard": False
         }
 
     return result

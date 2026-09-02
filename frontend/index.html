@@ -407,7 +407,7 @@ function startDeck(unitNum) {
 
 // ── 암기카드 ─────────────────────────────────────────────────────────
 function fcLoad() {
-  if (S.idx >= S.deck.length) { S.deck.sort(() => Math.random() - 0.5); S.idx = 0; }
+  if (S.idx >= S.deck.length) { S.idx = 0; } // 처음으로 돌아가기 (순서 유지)
   S.card = S.deck[S.idx];
   const c = S.card;
 
@@ -489,7 +489,7 @@ async function startConv() {
       showChapter();
       return;
     }
-    if (S.idx >= S.deck.length) { S.deck.sort(() => Math.random() - 0.5); S.idx = 0; }
+    if (S.idx >= S.deck.length) { S.idx = 0; } // 처음으로 돌아가기 (순서 유지)
     S.card = S.deck[S.idx];
   }
   // 3순위: card가 여전히 null이면 방어
@@ -532,12 +532,16 @@ async function loadConvQ() {
     const ttsResult = await speakAI(S.card.conv_prompt);
     if (ttsResult !== 'ok') {
       setStat('🔇 음성 출력에 실패했어요. 텍스트를 읽고 말해보세요.', '');
-      setTimeout(() => setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'), 2000);
+      setTimeout(() => {
+        setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+        document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+        enableMic();
+      }, 2000);
     } else {
       setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      enableMic();
     }
-    enableMic();
-    document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
     return;
   }
 
@@ -558,12 +562,16 @@ async function loadConvQ() {
     const ttsResult = await speakAI(d.prompt);
     if (ttsResult !== 'ok') {
       setStat('🔇 음성 출력에 실패했어요. 텍스트를 읽고 말해보세요.', '');
-      setTimeout(() => setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening'), 2000);
+      setTimeout(() => {
+        setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+        document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+        enableMic();
+      }, 2000);
     } else {
       setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
+      document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
+      enableMic();
     }
-    enableMic();
-    document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
   } catch {
     hideOv();
     document.getElementById('conv-q').textContent = '질문 생성에 실패했습니다.';
