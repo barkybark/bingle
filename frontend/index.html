@@ -597,6 +597,7 @@ async function speakAI(text) {
     });
     if (!r.ok) throw new Error('tts_api_fail');
     const blob = await r.blob();
+    stopAudio(); // fetch 응답 받은 시점에 다시 한번 중단 (레이스 컨디션 방지)
     const url = URL.createObjectURL(blob);
     return new Promise((resolve) => {
       const a = new Audio(url);
@@ -651,10 +652,16 @@ async function replayQ() {
   const btn = document.getElementById('btn-replay');
   btn.classList.add('loading');
   btn.textContent = '🔊 불러오는 중...';
-  // 5순위: TTS 재생 중 마이크 비활성화 (동시 작동 방지)
+  // TTS 타이머 + 오디오 완전 중단 (에코 방지)
+  if (S.ttsTimer) { clearTimeout(S.ttsTimer); S.ttsTimer = null; }
   if (S.isListening && S.recognition) S.recognition.abort();
   disableMic();
   stopAudio();
+  // fetch 응답 전에 또 다른 오디오가 시작되는 걸 막기 위해 짧게 대기
+  await new Promise(r => setTimeout(r, 150));
+  stopAudio(); // 대기 후 한 번 더 중단
+
+
   if (!S.answerDone) {
     setStat('🔊 다시 듣는 중...', '');
     await speakAI(S.currentQ);
