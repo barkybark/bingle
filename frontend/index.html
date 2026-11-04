@@ -56,6 +56,24 @@
     .chapter-card .c-name { font-size:15px; font-weight:600; color:var(--white); }
     .chapter-card .c-count { font-size:12px; color:rgba(255,255,255,.38); margin-top:3px; }
 
+    /* 문제 바로가기 */
+    .chapter-unit-wrap { margin-bottom:10px; }
+    .chapter-unit-header { display:flex; align-items:center; justify-content:space-between; background:var(--navy-mid); border:2px solid rgba(245,166,35,.28); border-radius:var(--radius-sm); padding:16px 18px; cursor:pointer; transition:border-color .2s, background .2s; user-select:none; }
+    .chapter-unit-header:hover { border-color:var(--orange); background:var(--navy-light); }
+    .chapter-unit-header .c-name { font-size:15px; font-weight:600; color:var(--white); }
+    .chapter-unit-header .c-count { font-size:12px; color:rgba(255,255,255,.38); margin-top:3px; }
+    .chapter-unit-header .c-left { flex:1; }
+    .chapter-jump-toggle { display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0; margin-left:10px; }
+    .c-jump-btn { font-size:11px; font-weight:600; color:var(--orange); background:rgba(245,166,35,.1); border:1px solid rgba(245,166,35,.28); border-radius:14px; padding:3px 10px; white-space:nowrap; }
+    .c-arrow { font-size:11px; color:rgba(255,255,255,.3); transition:transform .25s; }
+    .chapter-unit-wrap.open .c-arrow { transform:rotate(180deg); }
+    .chapter-jump-list { display:none; padding:6px 4px 4px; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.07); border-top:none; border-radius:0 0 var(--radius-sm) var(--radius-sm); }
+    .chapter-unit-wrap.open .chapter-jump-list { display:block; }
+    .jump-card { display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:8px; cursor:pointer; transition:background .15s; }
+    .jump-card:hover { background:rgba(245,166,35,.08); }
+    .jump-card-num { font-size:11px; font-weight:700; color:rgba(255,255,255,.25); flex-shrink:0; min-width:22px; }
+    .jump-card-txt { font-size:13px; color:rgba(255,255,255,.75); line-height:1.45; flex:1; }
+
     /* 암기카드 — 전체가 스크롤되는 하나의 컬럼 */
     #flashcard-screen { padding:20px; align-items:center; }
     .fc-inner { width:100%; max-width:480px; display:flex; flex-direction:column; gap:14px; padding-bottom:30px; }
@@ -378,18 +396,53 @@ function setActiveNav(mode) {
 // ── 챕터 선택 ───────────────────────────────────────────────────────
 function showChapter() {
   const units = {};
-  S.all.forEach(c => { if (!units[c.unit]) units[c.unit]={topic:c.topic,count:0}; units[c.unit].count++; });
+  S.all.forEach(c => { if (!units[c.unit]) units[c.unit]={topic:c.topic,cards:[]}; units[c.unit].cards.push(c); });
   const modeLabel = S.mode === 'flash' ? '📖 암기카드' : '🎤 대화하기';
   document.getElementById('chapter-title').textContent = `${modeLabel} — 챕터 선택`;
   let html = `<div class="chapter-card" onclick="startDeck(null)">
-    <div class="c-name">전체 (${S.all.length}개)</div><div class="c-count">모든 챕터 랜덤</div></div>`;
-  Object.keys(units).sort((a,b)=>a-b).forEach(u => {
-    html += `<div class="chapter-card" onclick="startDeck(${u})">
-      <div class="c-name">Unit ${u}: ${units[u].topic}</div>
-      <div class="c-count">${units[u].count}개</div></div>`;
+    <div class="c-name">전체 (${S.all.length}개)</div><div class="c-count">모든 챕터 순서대로</div></div>`;
+  Object.keys(units).sort((a,b)=>+a-+b).forEach(u => {
+    const info = units[u];
+    const cnt = info.cards.length;
+    // 문제 바로가기 카드 목록 HTML
+    let jumpItems = '';
+    info.cards.forEach((card, i) => {
+      jumpItems += `<div class="jump-card" onclick="jumpToCard(${u},${i});event.stopPropagation()">
+        <span class="jump-card-num">${i+1}</span>
+        <span class="jump-card-txt">${card.korean}</span>
+      </div>`;
+    });
+    html += `
+    <div class="chapter-unit-wrap" id="unit-wrap-${u}">
+      <div class="chapter-unit-header" onclick="startDeck(${u})">
+        <div class="c-left">
+          <div class="c-name">Unit ${u}: ${info.topic}</div>
+          <div class="c-count">${cnt}개</div>
+        </div>
+        <div class="chapter-jump-toggle" onclick="toggleJumpList(event,${u})">
+          <span class="c-jump-btn">문제 바로가기</span>
+          <span class="c-arrow">▼</span>
+        </div>
+      </div>
+      <div class="chapter-jump-list">${jumpItems}</div>
+    </div>`;
   });
   document.getElementById('chapter-list').innerHTML = html;
   showScreen('chapter-screen');
+}
+
+function toggleJumpList(e, unitNum) {
+  e.stopPropagation();
+  const wrap = document.getElementById('unit-wrap-' + unitNum);
+  if (wrap) wrap.classList.toggle('open');
+}
+
+// 문제 바로가기 — 특정 유닛의 특정 인덱스 카드로 바로 진입
+function jumpToCard(unitNum, cardIdx) {
+  buildDeck(unitNum);
+  S.idx = cardIdx;
+  if (S.mode === 'flash') { showScreen('flashcard-screen'); fcLoad(); }
+  else { S.fromFlash = false; startConv(); }
 }
 
 // ── 덱 빌드 ─────────────────────────────────────────────────────────
