@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 from difflib import SequenceMatcher
 
 import anthropic
+import httpx
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
@@ -207,3 +208,127 @@ Be generous for Level 2 and 3 — reward communication even if imperfect."""
         }
 
     return result
+
+
+# ── jEV 2단계 평가 ────────────────────────────────────────────────
+
+@router.post("/conversation/evaluate-quick")
+async def evaluate_quick(body: EvaluateRequest):
+    """jEV로 즉시 판단 — 문법/완성도/의미/자연스러움 항목별 반환 (0.3~0.5초 목표)"""
+    db = get_db()
+    _get_active_user(db, body.token)
+
+    payload = {
+        "model": "jev-latest",
+        "state": {
+            "target": body.target_sentence,
+            "spoken": body.user_answer,
+            "topic": body.topic
+        },
+        "questions": {
+            "level": {
+                "type": "choice",
+                "instructions": "How well did the student express the target sentence?",
+                "criteria": {
+                    "4": "Grammatically correct and conveys the same meaning as the target. Minor word-order or synonym differences are acceptable.",
+                    "3": "Meaning is clear and mostly correct, even if phrasing differs from the target.",
+                    "2": "Meaning is partially conveyed but has noticeable grammar errors or incomplete sentences.",
+                    "1": "Off-topic, incomprehensible, or too short to evaluate."
+                }
+            },
+            "grammar_ok": {
+                "type": "noul",
+                "instructions": "The spoken answer is grammatically correct English."
+            },
+            "length_ok": {
+                "type": "noul",
+                "instructions": "The spoken answer is a complete sentence, not too short or fragmented."
+            },
+            "meaning_match": {
+                "type": "noul",
+                "instructions": "The spoken answer conveys the same core meaning as the target expression."
+            },
+            "naturalness": {
+                "type": "score",
+                "instructions": "How natural does the spoken answer sound as a native English expression?",
+                "criteria": ["Unnatural/broken", "Somewhat natural", "Natural", "Very natural"]
+            }
+        }
+    }
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            r = await client.post(
+                "https://api.typesafe.ai/v1/systemone",
+                headers={
+                    "Authorization": f"Bearer {settings.typesafe_api_key}",
+                    "Content-Type": "application/json"
+                },
+                json=payload
+            )
+            r.raise_for_status()
+            ans = r.json()["answers"]
+    except Exception:
+        # jEV 실패 시 fallback — 유사도 기반 간이 판단
+        sim = _similarity(body.user_answer, body.target_sentence)
+        level = 4 if sim >= 0.85 else 3 if sim >= 0.65 else 2 if sim >= 0.4 else 1
+        return {
+            "level": level,
+            "score": {4: 9, 3: 7, 2: 5, 1: 2}[level],
+            "grammar_ok": sim >= 0.65,
+            "length_ok": len(body.user_answer.split()) >= 4,
+            "meaning_match": sim >= 0.65,
+            "naturalness": 2,
+            "model_answer": body.target_sentence,
+            "retry_flashcard": level == 1,
+            "fallback": True
+        }
+
+    level_str = ans["level"]["choice"]
+    try:
+        level = int(level_str)
+    except (ValueError, TypeError):
+        level = 2
+
+    level = max(1, min(4, level))
+    score_map = {4: 9, 3: 7, 2: 5, 1: 2}
+
+    return {
+        "level": level,
+        "score": score_map[level],
+        "grammar_ok":    ans["grammar_ok"]["noul"] > 0.6,
+        "length_ok":     ans["length_ok"]["noul"] > 0.6,
+        "meaning_match": ans["meaning_match"]["noul"] > 0.6,
+        "naturalness":   ans["naturalness"]["score"],
+        "model_answer":  body.target_sentence,
+        "retry_flashcard": level == 1
+    }
+
+
+@router.post("/conversation/evaluate-detail")
+async def evaluate_detail(body: EvaluateRequest):
+    """Claude로 한 줄 커스텀 코멘트 생성 — evaluate-quick 직후 백그라운드 호출용"""
+    db = get_db()
+    _get_active_user(db, body.token)
+
+    message = claude.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=180,
+        messages=[{
+            "role": "user",
+            "content": f"""You are a friendly English speaking coach for Korean learners.
+
+Target expression: "{body.target_sentence}"
+Topic: {body.topic}
+Student's spoken answer: "{body.user_answer}"
+
+Write ONE short, specific coaching comment in Korean (1–2 sentences).
+- Point out the most notable strength OR the single most important thing to fix.
+- Be encouraging and concrete — mention actual words or phrases from the student's answer if relevant.
+- Do NOT repeat the full target sentence. Do NOT use generic phrases like "잘했어요" alone.
+
+Reply with ONLY the comment text, no labels or quotes."""
+        }]
+    )
+
+    return {"coach_comment": message.content[0].text.strip()}

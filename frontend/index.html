@@ -115,6 +115,13 @@
     .conv-stat.listening { color:var(--orange); font-weight:600; }
     .transcript { font-size:13px; color:rgba(255,255,255,.32); font-style:italic; min-height:18px; }
 
+    /* 평가 뱃지 */
+    .result-badges { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 10px; }
+    .badge { font-size:12px; font-weight:600; padding:3px 10px; border-radius:20px; }
+    .badge.ok  { background:rgba(80,200,120,.15); color:#50c878; border:1px solid rgba(80,200,120,.3); }
+    .badge.ng  { background:rgba(255,80,80,.12);  color:#ff6060; border:1px solid rgba(255,80,80,.25); }
+    .result-coach.pending { color:rgba(255,255,255,.4); font-style:italic; }
+
     /* 결과 박스 */
     .result-box { padding:14px; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.16); border-radius:var(--radius-sm); display:none; }
     .result-box.show { display:block; }
@@ -245,6 +252,7 @@
         <div class="result-score" id="res-score">-</div>
         <div class="result-reason" id="res-reason"></div>
       </div>
+      <div class="result-badges" id="res-badges"></div>
       <div class="result-model" id="res-model"></div>
       <div class="result-coach" id="res-coach"></div>
     </div>
@@ -339,7 +347,7 @@ async function init() {
     b.style.setProperty('--h', (8 + Math.random() * 16) + 'px');
     wc.appendChild(b);
   }
-  try { const r = await fetch('/data/sentences.json'); S.all = await r.json(); } catch { S.all = []; }
+  try { const r = await fetch('/data/sentences.json'); S.all = await r.json(); } catch(_e) { S.all = []; }
   const tok = new URLSearchParams(window.location.search).get('token') || localStorage.getItem('bingle_token');
   if (tok) { document.getElementById('token-input').value = tok; await doLogin(); }
   else hideOv();
@@ -366,7 +374,7 @@ async function doLogin() {
     document.getElementById('header').style.display = 'flex';
     updateBadge(); hideOv();
     goHome();
-  } catch {
+  } catch(_e) {
     document.getElementById('login-error').textContent = '서버 연결 실패. 잠시 후 다시 시도해주세요.';
     document.getElementById('login-error').style.display = 'block';
     hideOv();
@@ -625,7 +633,7 @@ async function loadConvQ() {
       document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
       enableMic();
     }
-  } catch {
+  } catch(_e) {
     hideOv();
     document.getElementById('conv-q').textContent = '질문 생성에 실패했습니다.';
     setStat('네트워크 오류가 발생했습니다.', '');
@@ -665,7 +673,7 @@ async function speakAI(text) {
       a.onerror = () => { clearTimeout(t); URL.revokeObjectURL(url); S.audio = null; resolve('audio_error'); };
       a.play().catch(() => { clearTimeout(t); URL.revokeObjectURL(url); S.audio = null; resolve('play_blocked'); });
     });
-  } catch {
+  } catch(_e) {
     // Q2: 브라우저 TTS fallback — 역시 timeout 적용
     return new Promise((resolve) => {
       // 브라우저 TTS가 아예 없는 환경 방어
@@ -673,14 +681,14 @@ async function speakAI(text) {
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'en-US'; u.rate = 0.88;
       const t = setTimeout(() => {
-        try { S.synth.cancel(); } catch {}
+        try { S.synth.cancel(); } catch(_e) {}
         resolve('synth_timeout');
       }, TTS_TIMEOUT_MS);
       u.onend = () => { clearTimeout(t); resolve('ok'); };
       u.onerror = () => { clearTimeout(t); resolve('synth_error'); };
       try {
         S.synth.speak(u);
-      } catch {
+      } catch(_e) {
         clearTimeout(t);
         resolve('synth_fail');
       }
@@ -745,7 +753,7 @@ function playBeep() {
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
     osc.start(ctx.currentTime);
     osc.stop(ctx.currentTime + 0.15);
-  } catch {}
+  } catch(_e) {}
 }
 
 function enableMic() {
@@ -762,7 +770,7 @@ function toggleMic() {
     // 듣는 중 재탭 → 발화 종료 신호
     if (S.recognition) {
       S.recognition._userStopped = true;
-      try { S.recognition.stop(); } catch {}
+      try { S.recognition.stop(); } catch(_e) {}
     }
     playBeep(); // 발화 종료 딸깍 소리
   } else {
@@ -813,7 +821,7 @@ function startListeningDesktop() {
 
     // 이전 인스턴스 완전 해제
     if (currentRec) {
-      try { currentRec.abort(); } catch {}
+      try { currentRec.abort(); } catch(_e) {}
       currentRec = null;
     }
 
@@ -859,7 +867,7 @@ function startListeningDesktop() {
         // 그 외 오류는 onend에서 재시작
       };
 
-      try { rec.start(); } catch {
+      try { rec.start(); } catch(_e) {
         currentRec = null;
         shouldStop = true; finish();
       }
@@ -927,94 +935,122 @@ function startListeningIOS() {
     }
   };
 
-  try { rec.start(); } catch {
+  try { rec.start(); } catch(_e) {
     S.isListening = false; enableMic();
     setStat('🎤 버튼을 눌러 영어로 대답하세요', 'listening');
   }
 }
 
 // ── 평가 ─────────────────────────────────────────────────────────────
+function _badge(ok, label) {
+  return `<span class="badge ${ok ? 'ok' : 'ng'}">${ok ? '✅' : '❌'} ${label}</span>`;
+}
+
 async function evaluate(answer) {
   disableMic();
   setStat('분석 중...', '');
   showOv('답변 분석 중...');
   S.evaluatingCard = S.card;
-  // 평가 대기 중 안내 음성 (await 없이 — API 호출과 동시 재생)
   speakAI('Analyzing your answer. Please wait a moment.');
 
+  // ── 1단계: jEV 즉시 평가 ───────────────────────────────────────
+  let d;
   try {
-    const r = await fetch(`${API_BASE}/api/conversation/evaluate`, {
+    const r = await fetch(`${API_BASE}/api/conversation/evaluate-quick`, {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        token:S.token, target_sentence:S.evaluatingCard.sentence,
-        topic:S.evaluatingCard.topic, user_answer:answer
+      body: JSON.stringify({
+        token: S.token, target_sentence: S.evaluatingCard.sentence,
+        topic: S.evaluatingCard.topic, user_answer: answer
       })
     });
     if (r.status === 401 || r.status === 403) { handleAuthError(); return; }
-    if (!r.ok) throw new Error(`eval_fail_${r.status}`);
-
-    const d = await r.json();
-
-    // Q2: 화면 이탈 방어 — 응답 왔을 때 카드가 바뀌었으면 무시
-    if (!S.evaluatingCard || S.evaluatingCard.id !== (S.card && S.card.id)) return;
-
-    document.getElementById('res-score').textContent = d.score;
-    document.getElementById('res-reason').textContent = d.score_reason || '';
-    document.getElementById('res-model').textContent = '💡 ' + (d.model_answer || S.evaluatingCard.sentence);
-    document.getElementById('res-coach').textContent = d.coach_comment || '';
-    document.getElementById('result-box').className = 'result-box show';
-    S.answerDone = true;
-    document.getElementById('mic-hint').textContent = '평가 완료';
-    // 평가 완료 후 안내문 + 리프레시 버튼 숨기기
-    document.getElementById('mic-guide').style.display = 'none';
-    document.getElementById('btn-refresh-mic').style.display = 'none';
-    // 다시 말해보기 버튼 항상 표시 (횟수 차감 없이 재도전)
-    document.getElementById('btn-retry-speak').style.display = 'block';
-
-    const level = d.level || 2;
-
-    // Q4: markDone 429 시 즉시 중단 — showLimitScreen 후 이후 코드 실행 막기
-    const limitReached = await markDone(level >= 3);
-    if (limitReached) return;
-
-    if (level === 1) {
-      setStat('🔄 ' + (d.coach_comment || '다시 도전해보세요'), '');
-      if (S.fromFlash) {
-        document.getElementById('btn-retry-flash').style.display = 'block';
-      } else {
-        const btn = document.getElementById('btn-retry-flash');
-        btn.textContent = '🔄 다시 도전';
-        btn.onclick = () => { S.answerDone = false; resetConvUI(); loadConvQ(); };
-        btn.style.display = 'block';
-      }
-    } else {
-      setStat('✅ ' + (d.coach_comment || '잘했어요!'), 'listening');
-      if (S.fromFlash) {
-        document.getElementById('btn-next-flash').style.display = 'block';
-      } else {
-        document.getElementById('btn-next-conv').style.display = 'block';
-      }
-    }
-
-    setTimeout(() => {
-      document.getElementById('conv-screen').scrollTo({top:9999, behavior:'smooth'});
-    }, 200);
-
-    const snapCard = S.evaluatingCard;
-    S.ttsTimer = setTimeout(async () => {
-      S.ttsTimer = null;
-      await speakAI(`Here's the expression: "${d.model_answer || snapCard.sentence}". Now try it yourself!`);
-    }, 600);
-    S.evaluatingCard = null;
-
-  } catch {
-    setStat('평가 중 오류가 발생했습니다.', '');
-    enableMic();
-    document.getElementById('mic-hint').textContent = '버튼을 누르고 영어로 말하세요';
-  } finally {
-    // Q3: 어떤 경우에도 로딩 오버레이는 반드시 닫힘
-    hideOv();
+    if (!r.ok) throw new Error(`eval_quick_fail_${r.status}`);
+    d = await r.json();
+  } catch(e) {
+    // 네트워크 오류 시 기존 엔드포인트로 fallback
+    try {
+      const r2 = await fetch(`${API_BASE}/api/conversation/evaluate`, {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          token: S.token, target_sentence: S.evaluatingCard.sentence,
+          topic: S.evaluatingCard.topic, user_answer: answer
+        })
+      });
+      if (!r2.ok) throw new Error('fallback_fail');
+      d = await r2.json();
+      d.grammar_ok = d.score >= 7; d.length_ok = true; d.meaning_match = d.score >= 5;
+    } catch(_e) { setStat('⚠️ 평가 오류. 다시 시도해주세요.', ''); enableMic(); return; }
   }
+
+  // Q2: 화면 이탈 방어
+  if (!S.evaluatingCard || S.evaluatingCard.id !== (S.card && S.card.id)) return;
+
+  // 즉시 결과 표시
+  document.getElementById('res-score').textContent = d.score;
+  document.getElementById('res-reason').textContent = '';
+  document.getElementById('res-badges').innerHTML =
+    _badge(d.grammar_ok,    '문법') +
+    _badge(d.length_ok,     '완성도') +
+    _badge(d.meaning_match, '의미') +
+    _badge(d.naturalness >= 2, '자연스러움');
+  document.getElementById('res-model').textContent = '💡 ' + (d.model_answer || S.evaluatingCard.sentence);
+
+  const coachEl = document.getElementById('res-coach');
+  coachEl.textContent = '💬 상세 피드백 출력 중...';
+  coachEl.className = 'result-coach pending';
+
+  document.getElementById('result-box').className = 'result-box show';
+  S.answerDone = true;
+  document.getElementById('mic-hint').textContent = '평가 완료';
+  document.getElementById('mic-guide').style.display = 'none';
+  document.getElementById('btn-refresh-mic').style.display = 'none';
+  document.getElementById('btn-retry-speak').style.display = 'block';
+
+  const level = d.level || 2;
+  const limitReached = await markDone(level >= 3);
+  if (limitReached) return;
+
+  if (level === 1) {
+    setStat('🔄 다시 한번 도전해보세요', '');
+    if (S.fromFlash) {
+      document.getElementById('btn-retry-flash').style.display = 'block';
+    } else {
+      const btn = document.getElementById('btn-retry-flash');
+      btn.textContent = '🔄 다시 도전';
+      btn.onclick = () => { S.answerDone = false; resetConvUI(); loadConvQ(); };
+      btn.style.display = 'block';
+    }
+  } else {
+    setStat('✅ 잘했어요!', 'listening');
+    if (S.fromFlash) {
+      document.getElementById('btn-next-flash').style.display = 'block';
+    } else {
+      document.getElementById('btn-next-conv').style.display = 'block';
+    }
+  }
+
+  // ── 2단계: Claude 상세 피드백 (백그라운드) ─────────────────────
+  const evalCard = S.evaluatingCard;
+  fetch(`${API_BASE}/api/conversation/evaluate-detail`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      token: S.token, target_sentence: evalCard.sentence,
+      topic: evalCard.topic, user_answer: answer
+    })
+  }).then(r => r.ok ? r.json() : null).then(detail => {
+    if (!detail) return;
+    coachEl.textContent = detail.coach_comment || '';
+    coachEl.className = 'result-coach';
+  }).catch(() => {
+    coachEl.textContent = '';
+    coachEl.className = 'result-coach';
+  });
+
+  setTimeout(() => {
+    document.getElementById('conv-screen').scrollTo({top:9999, behavior:'smooth'});
+  }, 200);
+
+  hideOv();
 }
 
 // markDone: 한도 초과(429) 시 true 반환 → evaluate가 즉시 중단
@@ -1028,7 +1064,7 @@ async function markDone(passed) {
     if (r.status === 429) { showLimitScreen(); return true; }  // Q4: true 반환
     if (r.ok) { const d = await r.json(); S.usedToday = d.used_today; updateBadge(); }
     return false;
-  } catch {
+  } catch(_e) {
     return false; // 네트워크 실패 시엔 계속 진행 (카운트 누락은 감수)
   }
 }
@@ -1109,8 +1145,8 @@ function showLimitScreen() {
 function refreshMic() {
   // 기존 인식 인스턴스 완전 제거
   if (S.recognition) {
-    try { S.recognition.abort(); } catch {}
-    try { S.recognition.stop(); } catch {}
+    try { S.recognition.abort(); } catch(_e) {}
+    try { S.recognition.stop(); } catch(_e) {}
     S.recognition = null;
   }
   S.isListening = false;
@@ -1163,7 +1199,7 @@ function stopAll() {
   stopAudio();
   // STT 중단
   if (S.recognition) {
-    try { S.recognition.abort(); } catch {}
+    try { S.recognition.abort(); } catch(_e) {}
     S.recognition = null;
   }
   S.isListening = false;

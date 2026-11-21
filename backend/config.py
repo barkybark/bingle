@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     supabase_url: str
     supabase_service_role_key: str
 
+    # TypeSafe AI (jEV)
+    typesafe_api_key: str = ""
+
     # 학습 제한
     daily_limit: int = 10           # 하루 최대 시도 횟수
 
