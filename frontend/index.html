@@ -784,7 +784,7 @@ function startListening() {
   if (S.isListening) return;
   S.isListening = true;
   document.getElementById('mic-btn').className = 'mic-btn listening';
-  document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝나면 자동으로 멈춰요';
+  document.getElementById('mic-hint').textContent = '듣는 중... 말이 끝났다면 마이크 버튼을 눌러 주세요.';
   setStat('듣는 중...', 'listening');
   startWave();
   if (IS_IOS) startListeningIOS();
